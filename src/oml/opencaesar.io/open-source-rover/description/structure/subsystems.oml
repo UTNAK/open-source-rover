@@ -1,0 +1,13 @@
+description <http://opencaesar.io/open-source-rover/description/structure/subsystems#> as subsystems {
+	
+	uses <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure
+
+	instance OSR : structure:System [
+		^structure:hasSubsystem MechanicalSubsystem
+		^structure:hasSubsystem PowerSubsystem
+	]
+	
+	instance MechanicalSubsystem : ^structure:Subsystem
+	
+	instance PowerSubsystem : ^structure:Subsystem
+}

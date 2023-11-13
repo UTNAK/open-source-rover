@@ -1,0 +1,18 @@
+vocabulary <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure {
+	
+	extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
+	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
+
+	concept System < mission:Component
+
+	concept Subsystem < mission:Component
+	
+	relation hasSubsystem [
+		from System
+		to Subsystem
+	] < base:contains
+
+
+
+}
