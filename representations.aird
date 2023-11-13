@@ -57,6 +57,7 @@
     <semanticResources>build/oml/www.w3.org/2003/11/swrlb.oml</semanticResources>
     <semanticResources>build/oml/iso.org/iso-80000-3.2.oml</semanticResources>
     <semanticResources>build/oml/iso.org/iec-80000-6.45.oml</semanticResources>
+    <semanticResources>src/oml/opencaesar.io/open-source-rover/vocabulary/scenario.oml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_mnv18IJKEe6rm_F14QxMfw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Descriptions']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_C1znIoJLEe6rm_F14QxMfw" name="Subsystems" repPath="#_C1znIIJLEe6rm_F14QxMfw" changeId="1699897132302">
@@ -66,7 +67,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_mn0ucIJKEe6rm_F14QxMfw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pbdTsIJKEe6rm_F14QxMfw" name="Structure Vocabulary" repPath="#_pbcsoIJKEe6rm_F14QxMfw" changeId="1699897187080">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pbdTsIJKEe6rm_F14QxMfw" name="Structure Vocabulary" repPath="#_pbcsoIJKEe6rm_F14QxMfw" changeId="1699897864302">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']"/>
         <target xmi:type="oml:Vocabulary" href="src/oml/opencaesar.io/open-source-rover/vocabulary/structure.oml#/"/>
       </ownedRepresentationDescriptors>
@@ -939,7 +940,7 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_YkQ3wIJLEe6rm_F14QxMfw" fontName=".AppleSystemUIFont" fontHeight="12"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YkQ3wYJLEe6rm_F14QxMfw"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_YkQ3xoJLEe6rm_F14QxMfw" type="2003" element="_Yj98vYJLEe6rm_F14QxMfw">
+        <children xmi:type="notation:Node" xmi:id="_YkQ3xoJLEe6rm_F14QxMfw" visible="false" type="2003" element="_Yj98vYJLEe6rm_F14QxMfw">
           <children xmi:type="notation:Node" xmi:id="_YkQ3yYJLEe6rm_F14QxMfw" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_YkQ3yoJLEe6rm_F14QxMfw" type="7004">
             <styles xmi:type="notation:SortingStyle" xmi:id="_YkQ3y4JLEe6rm_F14QxMfw"/>
@@ -948,7 +949,7 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_YkQ3x4JLEe6rm_F14QxMfw" fontName=".AppleSystemUIFont" fontHeight="12"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YkQ3yIJLEe6rm_F14QxMfw"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_YkQ3zYJLEe6rm_F14QxMfw" type="2003" element="_Yj98wIJLEe6rm_F14QxMfw">
+        <children xmi:type="notation:Node" xmi:id="_YkQ3zYJLEe6rm_F14QxMfw" visible="false" type="2003" element="_Yj98wIJLEe6rm_F14QxMfw">
           <children xmi:type="notation:Node" xmi:id="_YkQ30IJLEe6rm_F14QxMfw" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_YkQ30YJLEe6rm_F14QxMfw" type="7004">
             <styles xmi:type="notation:SortingStyle" xmi:id="_YkQ30oJLEe6rm_F14QxMfw"/>
@@ -2179,17 +2180,19 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']/@defaultLayer/@containerMappings[name='RelationEntity']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_Yj98vYJLEe6rm_F14QxMfw">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_Yj98vYJLEe6rm_F14QxMfw" visible="false">
       <target xmi:type="oml:RelationEntity" href="build/oml/bipm.org/jcgm/vim4.1-systems-diagram.oml#//@ownedStatements.17"/>
       <semanticElements xmi:type="oml:RelationEntity" href="build/oml/bipm.org/jcgm/vim4.1-systems-diagram.oml#//@ownedStatements.17"/>
+      <graphicalFilters xmi:type="diagram:HideFilter" uid="_Lx67oIJNEe6rm_F14QxMfw"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Yj98voJLEe6rm_F14QxMfw" labelSize="12" iconPath="/io.opencaesar.rosetta.sirius.viewpoint/icons/r-icon.png" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" backgroundColor="255,245,181" foregroundColor="255,255,255">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']/@defaultLayer/@containerMappings[name='RelationEntity']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']/@defaultLayer/@containerMappings[name='RelationEntity']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_Yj98wIJLEe6rm_F14QxMfw">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_Yj98wIJLEe6rm_F14QxMfw" visible="false">
       <target xmi:type="oml:RelationEntity" href="build/oml/bipm.org/jcgm/vim4.1-systems-diagram.oml#//@ownedStatements.18"/>
       <semanticElements xmi:type="oml:RelationEntity" href="build/oml/bipm.org/jcgm/vim4.1-systems-diagram.oml#//@ownedStatements.18"/>
+      <graphicalFilters xmi:type="diagram:HideFilter" uid="_LKwN8IJNEe6rm_F14QxMfw"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Yj98wYJLEe6rm_F14QxMfw" labelSize="12" iconPath="/io.opencaesar.rosetta.sirius.viewpoint/icons/r-icon.png" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" backgroundColor="255,245,181" foregroundColor="255,255,255">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']/@defaultLayer/@containerMappings[name='RelationEntity']/@style"/>
       </ownedStyle>
