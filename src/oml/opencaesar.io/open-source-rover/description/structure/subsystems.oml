@@ -5,9 +5,22 @@ description <http://opencaesar.io/open-source-rover/description/structure/subsys
 	instance OSR : structure:System [
 		^structure:hasSubsystem MechanicalSubsystem
 		^structure:hasSubsystem PowerSubsystem
+		^structure:hasSubsystem MobilitySubsystem
+		^structure:hasSubsystem ControlSubsystem
+		^structure:hasSubsystem NavigationSubsystem
+		^structure:hasSubsystem CDHSubsystem		
 	]
 
 	instance MechanicalSubsystem : ^structure:Subsystem
 
 	instance PowerSubsystem : ^structure:Subsystem
+	
+	instance MobilitySubsystem : ^structure:Subsystem
+	
+	instance ControlSubsystem : ^structure:Subsystem
+	
+	instance NavigationSubsystem : ^structure:Subsystem
+
+	instance CDHSubsystem : ^structure:Subsystem
+	
 }

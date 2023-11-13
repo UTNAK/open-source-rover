@@ -1,0 +1,12 @@
+.DS_Store
+
+.gradle
+
+# Fuseki output directory
+.fuseki
+
+#build
+build
+
+# vscode
+.history
