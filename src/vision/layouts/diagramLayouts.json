@@ -1,0 +1,26 @@
+{
+  "decompositions": {
+    "name": "Decomposition",
+    "queries": {
+      "decompositions": "component.sparql",
+      "edge": "component.sparql"
+    },
+    "rowMapping": {
+      "id": "decompositions",
+      "name": "System",
+      "labelFormat": "{c2_localname}",
+      "colorKey": "c2_localname",
+      "edgeMatchKey": "c1_localname"
+    },
+    "edges": [
+      {
+        "id": "edge",
+        "name": "Edge",
+        "labelFormat": "{c2_localname}",
+        "colorKey": "c2_localname",
+        "sourceKey": "c1_localname",
+        "targetKey": "c2_localname"
+      }
+    ]
+  }
+}

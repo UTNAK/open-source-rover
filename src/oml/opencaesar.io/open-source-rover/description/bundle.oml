@@ -1,4 +1,5 @@
 description bundle <http://opencaesar.io/open-source-rover/description/bundle#> as ^bundle {
 	
 	uses <http://opencaesar.io/open-source-rover/vocabulary/bundle#>
+	includes <http://opencaesar.io/open-source-rover/description/structure/subsystems#>
 }

@@ -101,7 +101,7 @@ task owlReason(type:io.opencaesar.owl.reason.OwlReasonTask, group:"oml", depends
 task startFuseki(type: io.opencaesar.owl.fuseki.StartFusekiTask, group:"oml") {
     configurationPath = file('.fuseki.ttl')
     outputFolderPath = file('.fuseki')
-    //webUI = true
+    webUI = true
 }
 
 /*
@@ -116,7 +116,7 @@ task stopFuseki(type: io.opencaesar.owl.fuseki.StopFusekiTask, group:"oml") {
  * A task to load an OWL catalog to a Fuseki dataset endpoint
  * @seeAlso https://github.com/opencaesar/owl-tools/blob/master/owl-load/README.md
  */
-task owlLoad(type:io.opencaesar.owl.load.OwlLoadTask, group:"oml", dependsOn: owlReason) {
+task owlLoad(type:io.opencaesar.owl.load.OwlLoadTask, group:"vision", dependsOn: owlReason) {
     inputs.files(startFuseki.outputFolderPath) // rerun when fuseki restarts
     catalogPath = file('build/owl/catalog.xml')
     endpointURL = "http://localhost:3030/$dataset".toString()
@@ -132,10 +132,10 @@ task owlLoad(type:io.opencaesar.owl.load.OwlLoadTask, group:"oml", dependsOn: ow
  * A task to run a set of SPARQL queries on a Fuseki dataset endpoint
  * @seeAlso https://github.com/opencaesar/owl-tools/blob/master/owl-query/README.md
  */
-task owlQuery(type:io.opencaesar.owl.query.OwlQueryTask, group:"oml", dependsOn: owlLoad) {
+task owlQuery(type:io.opencaesar.owl.query.OwlQueryTask, group:"vision", dependsOn: owlLoad) {
     inputs.files(owlLoad.inputs.files) // rerun when the dataset changes
     endpointURL = "http://localhost:3030/$dataset".toString()
-    queryPath = file('src/sparql')
+    queryPath = file('src/vision/sparql')
     resultPath = file('build/results')
     format = 'json'
 }

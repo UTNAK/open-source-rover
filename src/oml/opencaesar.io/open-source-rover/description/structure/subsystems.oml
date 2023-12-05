@@ -8,7 +8,8 @@ description <http://opencaesar.io/open-source-rover/description/structure/subsys
 		^structure:hasSubsystem MobilitySubsystem
 		^structure:hasSubsystem ControlSubsystem
 		^structure:hasSubsystem NavigationSubsystem
-		^structure:hasSubsystem CDHSubsystem		
+		^structure:hasSubsystem CDHSubsystem
+				
 	]
 
 	instance MechanicalSubsystem : ^structure:Subsystem
@@ -21,6 +22,6 @@ description <http://opencaesar.io/open-source-rover/description/structure/subsys
 	
 	instance NavigationSubsystem : ^structure:Subsystem
 
-	instance CDHSubsystem : ^structure:Subsystem
+	instance CDHSubsystem : ^structure:Subsystem 
 	
 }

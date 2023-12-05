@@ -1,6 +1,10 @@
+.gitignore
 .DS_Store
 
-.gradle
+/.gradle/7.4.2/*
+
+
+.metadata
 
 # Fuseki output directory
 .fuseki

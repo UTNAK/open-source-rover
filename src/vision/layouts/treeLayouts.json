@@ -1,0 +1,23 @@
+{
+    "components": {
+      "name": "Components",
+      "diagrams": {
+        "all-rows": "components-diagram"
+      },
+      "queries": {
+        "components": "component.sparql"
+      },
+      "rowMapping": {
+        "id": "components",
+        "name": "System",
+        "labelFormat": "{c1_localname}",
+        "subRowMappings": [
+          {
+            "id": "components",
+            "name": "Subsystem",
+            "labelFormat": "{c2_localname}"
+          }
+        ]  
+      }
+    }
+}
