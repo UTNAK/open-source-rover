@@ -10,5 +10,23 @@
     "language": "sparql",
     "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?c1_localname ?c2_localname\nWHERE {\n\t?c1 a structure:System ;\n    OPTIONAL{\n        ?c1 structure:hasSubsystem ?c2\n    }\n\t# Extract the local name\n    BIND(STRAFTER(STR(?c1), \"#\") AS ?c1_localname) .\n    BIND(STRAFTER(STR(?c2), \"#\") AS ?c2_localname) .\n\n}\nORDER BY ?c1_localname ",
     "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?c1_localname ?c2_localname ?c2_id ?c2_cname\nWHERE {\n\t?c1 a structure:System ;\n    OPTIONAL{\n        ?c1 structure:hasSubsystem ?c2 .\n        OPTIONAL{\n            ?c2 base:hasIdentifier ?c2_id .\n            ?c2 base:hasCanonicalName ?c2_cname .\n        }\n    }\n\t# Extract the local name\n    BIND(STRAFTER(STR(?c1), \"#\") AS ?c1_localname) .\n    BIND(STRAFTER(STR(?c2), \"#\") AS ?c2_localname) .\n\n} \nORDER BY ?c1_localname ",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# Scenario Query",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX scenario:   <http://opencaesar.io/open-source-rover/vocabulary/scenario#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?scenario ?task ?f2_id ?f2_cname ?f3_id\nWHERE {\n\t?f1 a scenario:Scenario ;\n    OPTIONAL{\n        ?f1 scenario:hasTask ?f2 .\n        OPTIONAL{\n            ?f2 base:hasIdentifier ?f2_id .\n            ?f2 base:hasCanonicalName ?f2_cname .\n#\t\t\tOPTIONAL{\n#\t\t\t\t?f2_invoke base:hasIdentifier ?f2_invoke_id. \n#\t\t\t}        \n        }\n        OPTIONAL{\n            ?f2 mission:invokes ?f3 .\n            ?f3 base:hasIdentifier ?f3_id .\n        }\n    }\n\t# Extract the local name\n    BIND(STRAFTER(STR(?f1), \"#\") AS ?scenario) .\n    BIND(STRAFTER(STR(?f2), \"#\") AS ?task) .\n\tFILTER(REGEX(STR(?f1), \"http://opencaesar.io/open-source-rover/description/behavior/scenario_move#\")).\n} \nORDER BY ?f2_id ",
+    "metadata": {}
   }
 ]

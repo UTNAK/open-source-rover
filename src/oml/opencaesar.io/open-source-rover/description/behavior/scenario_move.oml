@@ -1,0 +1,48 @@
+description <http://opencaesar.io/open-source-rover/description/behavior/scenario_move#> as scenario_move {
+	uses <http://opencaesar.io/open-source-rover/vocabulary/scenario#> as scenario
+
+	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+
+	uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
+	instance scenario-move : scenario:Scenario [
+		base:hasIdentifier "SC.01"
+		^scenario:hasTask start-operation
+		^scenario:hasTask accelerate
+		^scenario:hasTask maintain-speed
+		^scenario:hasTask brake
+		^scenario:hasTask stop		
+	]
+	
+	instance start-operation : ^scenario:Task [
+		base:hasIdentifier "SC.01.01"
+		base:hasCanonicalName "Start Operation"
+		mission:invokes accelerate		
+	]
+	
+	instance accelerate : ^scenario:Task [
+		base:hasIdentifier "SC.01.02"
+		base:hasCanonicalName "Accelerate Rover"
+		mission:invokes maintain-speed						
+	]
+	
+	instance maintain-speed : ^scenario:Task [
+		base:hasIdentifier "SC.01.03"
+		base:hasCanonicalName "Maintain Speed"		
+		mission:invokes brake						
+	]
+	
+	instance brake : ^scenario:Task [
+		base:hasIdentifier "SC.01.04"
+		base:hasCanonicalName "Brake"
+		mission:invokes stop										
+	]
+	
+	instance stop : ^scenario:Task [
+		base:hasIdentifier "SC.01.05"
+		base:hasCanonicalName "Stop"		
+	]
+
+
+
+}

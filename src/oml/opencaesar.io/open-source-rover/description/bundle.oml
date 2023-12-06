@@ -2,4 +2,5 @@ description bundle <http://opencaesar.io/open-source-rover/description/bundle#> 
 	
 	uses <http://opencaesar.io/open-source-rover/vocabulary/bundle#>
 	includes <http://opencaesar.io/open-source-rover/description/structure/subsystems#>
+	includes <http://opencaesar.io/open-source-rover/description/behavior/scenario_move#>
 }

@@ -1,2 +1,16 @@
 vocabulary <http://opencaesar.io/open-source-rover/vocabulary/scenario#> as scenario {
+    extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
+	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
+
+	concept Scenario < mission:Function, base:IdentifiedElement
+	
+	concept Task < mission:Function, base:IdentifiedElement
+
+    concept StateVariables
+	
+	relation hasTask [
+		from Scenario
+		to Task
+	] < base:contains
 }

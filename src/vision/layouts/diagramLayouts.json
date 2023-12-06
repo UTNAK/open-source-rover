@@ -22,5 +22,29 @@
         "targetKey": "c2_localname"
       }
     ]
+  },
+  "movingscenario": {
+    "name": "Scenario",
+    "queries": {
+      "movingscenario": "scenario_move.sparql",
+      "edge": "scenario_move.sparql"
+    },
+    "rowMapping": {
+      "id": "movingscenario",
+      "name": "Task",
+      "labelFormat": "{f2_cname}",
+      "colorKey": "f2_id",
+      "edgeMatchKey": "f2_id"
+    },
+    "edges": [
+      {
+        "id": "edge",
+        "name": "Edge",
+        "labelFormat": "invokes",
+        "colorKey": "f2_id",
+        "sourceKey": "f2_id",
+        "targetKey": "f3_id"
+      }
+    ]
   }
 }

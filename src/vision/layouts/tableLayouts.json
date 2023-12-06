@@ -18,23 +18,25 @@
       "labelFormat": "compooonent"
     }
   },
-  "connections": {
-    "name": "Connections",
+  "component-table-id": {
+    "name": "Compoenents",
     "diagrams": {
-      "all-rows": "connections-diagram"
+      "all-rows": "component"
     },
     "columnNames": {
-      "c1_name": "Connection 1 Name",
-      "c2_name": "Connection 2 Name"
+      "c1_localname": "Col1: System",
+      "c2_localname": "Col2: Subsystem",
+      "c2_id": "Col3: Subsystem Id",
+      "c2_cname": "Col4: Subsystem Canonical Name"
     },
     "queries": {
-      "c1_name": "connections.sparql",
-      "c2_name": "connections.sparql"
+      "c1_localname": "component_with_id.sparql",
+      "c2_localname": "component_with_id.sparql"
     },
     "rowMapping": {
-      "id": "c1_name",
-      "name": "Connections",
-      "labelFormat": "Connection"
+      "id": "c1_localname",
+      "name": "Compoenents",
+      "labelFormat": "compoonent"
     }
   }
 }

@@ -21,6 +21,17 @@
           "title": "Component Table",
           "treeIcon": "graph-scatter",
           "path": "component-table"
+        },
+        {
+          "title": "Component Table with ID",
+          "treeIcon": "window",
+          "path": "component-table-id"
+        },      
+        { 
+          "title": "Behavior",
+          "treeIcon": "graph-scatter",
+          "path": "movingscenario",
+          "isDiagram": true
         }
       ]
     }

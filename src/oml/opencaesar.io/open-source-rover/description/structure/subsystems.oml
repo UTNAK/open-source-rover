@@ -2,7 +2,10 @@ description <http://opencaesar.io/open-source-rover/description/structure/subsys
 
 	uses <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure
 
+	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+
 	instance OSR : structure:System [
+		base:hasIdentifier "C.01"
 		^structure:hasSubsystem MechanicalSubsystem
 		^structure:hasSubsystem PowerSubsystem
 		^structure:hasSubsystem MobilitySubsystem
@@ -12,16 +15,34 @@ description <http://opencaesar.io/open-source-rover/description/structure/subsys
 				
 	]
 
-	instance MechanicalSubsystem : ^structure:Subsystem
+	instance MechanicalSubsystem : ^structure:Subsystem [
+		base:hasIdentifier "C.01.01"
+		base:hasCanonicalName "Mechanical Subsystem"
+	]
 
-	instance PowerSubsystem : ^structure:Subsystem
+	instance PowerSubsystem : ^structure:Subsystem [
+		base:hasIdentifier "C.01.02"
+		base:hasCanonicalName "Power Subsystem"
+	]
 	
-	instance MobilitySubsystem : ^structure:Subsystem
+	instance MobilitySubsystem : ^structure:Subsystem [
+		base:hasIdentifier "C.01.03"
+		base:hasCanonicalName "Mobility Subsystem"
+	]
 	
-	instance ControlSubsystem : ^structure:Subsystem
+	instance ControlSubsystem : ^structure:Subsystem [
+		base:hasIdentifier "C.01.04"
+		base:hasCanonicalName "Control Subsystem"
+	]
 	
-	instance NavigationSubsystem : ^structure:Subsystem
+	instance NavigationSubsystem : ^structure:Subsystem [
+		base:hasIdentifier "C.01.05"
+		base:hasCanonicalName "Navigation Subsystem"
+	]
 
-	instance CDHSubsystem : ^structure:Subsystem 
+	instance CDHSubsystem : ^structure:Subsystem  [
+		base:hasIdentifier "C.01.06"
+		base:hasCanonicalName "CDH Subsystem"
+	]
 	
 }
