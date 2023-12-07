@@ -1,0 +1,53 @@
+project:
+  type: book
+
+book:
+  title: "Vocabulary Prototyping for Timeline Analysis"
+  author: "Yuta Nakajima"
+  date: today
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+  navbar: 
+    background: dark
+    right:
+      - text: "Home"
+        file: index.qmd
+      - text: "github"
+        href: https://github.com/UTNAK/open-source-rover
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://github.com/UTNAK/open-source-rover/quarto/
+          - text: Report an Issue
+            url:  https://github.com/UTNAK/open-source-rover/issues/new
+  
+  sidebar:
+    background: dark
+    logo: cover.png
+    style: docked
+    collapse-level: 4
+  search: 
+    location: sidebar
+
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+     - cosmo
+     - style.scss
+    toc: true
+    toc-location: right
+    number-sections: true
+    number-depth: 3
+    
+  pdf:
+    documentclass: scrreprt
+
+
+

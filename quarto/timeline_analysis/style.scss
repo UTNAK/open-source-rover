@@ -1,0 +1,63 @@
+/*-- scss:defaults --*/
+
+// nav bar text color
+//$navbar-fg: #C1AB05;
+
+.sidebar-title {
+  color: #C1AB05;
+}
+//.chapter-number {
+//  color: #fff;
+//}
+
+div.sidebar-item-container .chapter-number {
+  color: #C1AB05;
+}
+
+div.sidebar-item-container .active {
+  font-weight: bold;
+}
+
+//.sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active{
+//  font-weight: bold;
+//}
+
+//<div class="quarto-title">
+//<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">ミッション要求書</span></h1>
+//</div>
+
+//<li class="sidebar-item">
+//  <div class="sidebar-item-container"> 
+//  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+// <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+//  </div>
+//</li>
+
+// Body
+
+
+
+//$body-bg:       #061A2B !default;
+//$dark:          #242A3C !default;
+$dark:         #242A3C !default;
+
+//$primary:       #00bfc4 !default;
+
+//$popover-bg:          #474F62 !default;
+//$code-block-bg:             #474F62 !default;
+
+
+//p{text-indent:1em;}
+
+.line-table {
+  border-collapse:  collapse;
+  border:  solid  1px  #CCCCCC;
+}
+.line-table  th  {
+  border:  solid  1px  #CCCCCC;
+  background-color:  #CCCCCC;
+}
+.line-table  td  {
+  border:  solid  1px  #CCCCCC;
+  padding:  8px  10px;
+}
