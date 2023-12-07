@@ -3,14 +3,49 @@ vocabulary <http://opencaesar.io/open-source-rover/vocabulary/scenario#> as scen
 
 	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
 
-	concept Scenario < mission:Function, base:IdentifiedElement
-	
-	concept Task < mission:Function, base:IdentifiedElement
+	extends <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis
 
-    concept StateVariables
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+
+	scalar property hasPlannedStartTime [
+		domain Task
+		range xsd:double
+	]
+
+
+	concept Scenario < mission:Function, base:IdentifiedElement [
+        restricts all hasTask to Task
+    ]
 	
-	relation hasTask [
+	concept Task < mission:Function, base:IdentifiedElement [
+		restricts all mission:invokes to Task
+		restricts all manipulates to StateVariables
+	]
+
+    concept StateVariables [
+//		restricts all characterizesState to mission:Component
+	]
+
+
+	
+	relation entity CharacterizesState [
+		from StateVariables
+		to mission:Component
+		forward characterizesState
+	] < analysis:Characterizes
+
+
+	relation entity HasTask [
 		from Scenario
 		to Task
-	] < base:contains
+		forward hasTask
+	] < base:Contains
+
+	
+	relation manipulates [
+		from Task
+		to StateVariables
+	]
+	
 }

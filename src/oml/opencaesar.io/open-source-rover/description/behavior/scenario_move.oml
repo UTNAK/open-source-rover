@@ -17,7 +17,8 @@ description <http://opencaesar.io/open-source-rover/description/behavior/scenari
 	instance start-operation : ^scenario:Task [
 		base:hasIdentifier "SC.01.01"
 		base:hasCanonicalName "Start Operation"
-		mission:invokes accelerate		
+		mission:invokes accelerate
+		scenario:hasPlannedStartTime "0"	
 	]
 	
 	instance accelerate : ^scenario:Task [

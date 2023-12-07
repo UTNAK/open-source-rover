@@ -18,6 +18,12 @@
           "isTree": true
         },
         {
+          "title": "Components Tree",
+          "treeIcon": "graph-scatter",
+          "path": "components-tree",
+          "isTree": true
+        },
+        {
           "title": "Component Table",
           "treeIcon": "graph-scatter",
           "path": "component-table"

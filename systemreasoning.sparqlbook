@@ -8,7 +8,7 @@
   {
     "kind": 2,
     "language": "sparql",
-    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?c1_localname ?c2_localname\nWHERE {\n\t?c1 a structure:System ;\n    OPTIONAL{\n        ?c1 structure:hasSubsystem ?c2\n    }\n\t# Extract the local name\n    BIND(STRAFTER(STR(?c1), \"#\") AS ?c1_localname) .\n    BIND(STRAFTER(STR(?c2), \"#\") AS ?c2_localname) .\n\n}\nORDER BY ?c1_localname ",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?c1_localname ?c2_localname\nWHERE {\n\t?c1 a mission:Component ;\n    OPTIONAL{\n        ?c1 base:isContainedIn ?c2 .\n    }\n\t# Extract the local name\n    BIND(STRAFTER(STR(?c1), \"#\") AS ?c1_localname) .\n    BIND(STRAFTER(STR(?c2), \"#\") AS ?c2_localname) .\n\n}\nORDER BY ?c1_localname ",
     "metadata": {}
   },
   {

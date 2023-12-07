@@ -5,9 +5,9 @@ PREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT DISTINCT ?c1_localname ?c2_localname
 WHERE {
-	?c1 a structure:System ;
+	?c1 a mission:Component ;
     OPTIONAL{
-        ?c1 structure:hasSubsystem ?c2
+        ?c1 base:isContainedIn ?c2;
     }
 	# Extract the local name
     BIND(STRAFTER(STR(?c1), "#") AS ?c1_localname) .

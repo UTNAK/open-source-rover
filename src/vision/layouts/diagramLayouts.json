@@ -8,15 +8,15 @@
     "rowMapping": {
       "id": "decompositions",
       "name": "System",
-      "labelFormat": "{c2_localname}",
-      "colorKey": "c2_localname",
+      "labelFormat": "{c1_localname}",
+      "colorKey": "c1_localname",
       "edgeMatchKey": "c1_localname"
     },
     "edges": [
       {
         "id": "edge",
         "name": "Edge",
-        "labelFormat": "{c2_localname}",
+        "labelFormat": "hasSubsystem",
         "colorKey": "c2_localname",
         "sourceKey": "c1_localname",
         "targetKey": "c2_localname"
@@ -32,7 +32,7 @@
     "rowMapping": {
       "id": "movingscenario",
       "name": "Task",
-      "labelFormat": "{f2_cname}",
+      "labelFormat": "{f2_id} \n {f2_cname}",
       "colorKey": "f2_id",
       "edgeMatchKey": "f2_id"
     },

@@ -10,10 +10,31 @@
       "rowMapping": {
         "id": "components",
         "name": "System",
-        "labelFormat": "{c1_localname}",
+        "labelFormat": "{c2_localname}",
         "subRowMappings": [
           {
             "id": "components",
+            "name": "Subsystem",
+            "labelFormat": "{c1_localname}"
+          }
+        ]  
+      }
+    },
+    "components-tree": {
+      "name": "Components Tree",
+      "diagrams": {
+        "all-rows": "components-tree"
+      },
+      "queries": {
+        "components-tree": "component_with_id.sparql"
+      },
+      "rowMapping": {
+        "id": "components-tree",
+        "name": "System",
+        "labelFormat": "{c1_localname}",
+        "subRowMappings": [
+          {
+            "id": "components-tree",
             "name": "Subsystem",
             "labelFormat": "{c2_localname}"
           }
