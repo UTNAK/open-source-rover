@@ -10,7 +10,8 @@ vocabulary <http://opencaesar.io/open-source-rover/vocabulary/scenario#> as scen
 
 	scalar property hasPlannedStartTime [
 		domain Task
-		range xsd:double
+//		range xsd:double
+		range xsd:string
 	]
 
 
@@ -23,16 +24,17 @@ vocabulary <http://opencaesar.io/open-source-rover/vocabulary/scenario#> as scen
 		restricts all manipulates to StateVariables
 	]
 
-    concept StateVariables [
-//		restricts all characterizesState to mission:Component
+    concept StateVariables
+
+	scalar property hasStateValue [
+		domain StateVariables
+		range xsd:string
 	]
-
-
 	
-	relation entity CharacterizesState [
+	relation entity CharacterizesStateOf [
 		from StateVariables
 		to mission:Component
-		forward characterizesState
+		forward characterizesStateOf
 	] < analysis:Characterizes
 
 
@@ -43,9 +45,15 @@ vocabulary <http://opencaesar.io/open-source-rover/vocabulary/scenario#> as scen
 	] < base:Contains
 
 	
-	relation manipulates [
+	relation entity Manipulates [
 		from Task
 		to StateVariables
+		forward manipulates
+	]
+	
+	scalar property setStateValue [
+		domain Manipulates
+		range xsd:string
 	]
 	
 }

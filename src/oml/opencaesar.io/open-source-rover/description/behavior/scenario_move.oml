@@ -18,30 +18,62 @@ description <http://opencaesar.io/open-source-rover/description/behavior/scenari
 		base:hasIdentifier "SC.01.01"
 		base:hasCanonicalName "Start Operation"
 		mission:invokes accelerate
-		scenario:hasPlannedStartTime "0"	
+		scenario:hasPlannedStartTime "0"
 	]
 	
 	instance accelerate : ^scenario:Task [
 		base:hasIdentifier "SC.01.02"
 		base:hasCanonicalName "Accelerate Rover"
 		mission:invokes maintain-speed						
+		scenario:hasPlannedStartTime "2"	
 	]
 	
 	instance maintain-speed : ^scenario:Task [
 		base:hasIdentifier "SC.01.03"
 		base:hasCanonicalName "Maintain Speed"		
 		mission:invokes brake						
-	]
+		scenario:hasPlannedStartTime "4"	
+]
 	
 	instance brake : ^scenario:Task [
 		base:hasIdentifier "SC.01.04"
 		base:hasCanonicalName "Brake"
-		mission:invokes stop										
+		mission:invokes stop
+		scenario:hasPlannedStartTime "8"												
 	]
 	
 	instance stop : ^scenario:Task [
 		base:hasIdentifier "SC.01.05"
-		base:hasCanonicalName "Stop"		
+		base:hasCanonicalName "Stop Operation"
+		scenario:hasPlannedStartTime "10"												
+	]
+
+	instance roverVelocity : scenario:StateVariables
+	
+	relation instance m1 : scenario:Manipulates [
+		from start-operation
+		to roverVelocity
+		scenario:setStateValue "0"
+	]
+	relation instance m2 : scenario:Manipulates [
+		from accelerate
+		to roverVelocity
+		scenario:setStateValue "1"
+	]
+	relation instance m3 : scenario:Manipulates [
+		from maintain-speed
+		to roverVelocity
+		scenario:setStateValue "1"
+	]
+	relation instance m4 : scenario:Manipulates [
+		from brake
+		to roverVelocity
+		scenario:setStateValue "1"
+	]
+	relation instance m5 : scenario:Manipulates [
+		from stop
+		to roverVelocity
+		scenario:setStateValue "0"
 	]
 
 
