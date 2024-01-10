@@ -11,7 +11,7 @@
     "href": "intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\nlibrary(jsonlite)\nlibrary(tidyverse)\nlibrary(DT)\n\nrepo &lt;- \"/Users/mlab/Workspaces/github/open-source-rover/build/results/\"\nfile &lt;- \"query_scenario_move_v2.json\"\nfilepath &lt;- paste0(repo,file)\njsondata &lt;- fromJSON(filepath)\n\ncolnum &lt;- ncol(jsondata$results$bindings)\ndf &lt;- data.frame(matrix(rep(NA, colnum), nrow=1))[numeric(0), ]\ncolnames(df) &lt;- c(names(jsondata$results$bindings))\n\nfor (i in 1:nrow(jsondata$results$bindings)) {\n  for (j in 1:colnum) {\n    df[i,j] &lt;- jsondata$results$bindings[i,j]$value\n  }\n}\n\n# df &lt;- df %&gt;%\n#   add_column(value = c(0,1,1,1,0))\n\n# df$t &lt;- as.numeric(df$t)\ndf$t &lt;- as.numeric(df$time)\ndf$value &lt;- as.numeric(df$value)\n\n\n1.0.1 calcurate duration and endtime\n\n# t_end[task_i] = t_start[task_i+1]\n\n# 下記はあるタスクが複数のSVを操作する場合はエラーになってしまう。\n# df$t2 &lt;- c(df$t[-1],df$t[nrow(df)]+2)\n\ndf_task &lt;- df %&gt;% \n  distinct(task, .keep_all = TRUE) %&gt;%\n  select(f2_id, f2_cname, task, t, f3_id)\n\ndf_task$t2 &lt;- c(df_task$t[-1],df_task$t[nrow(df_task)]+2)\n\ndf$t2 &lt;- df_task$t2[match(df$f2_id,df_task$f2_id)]\n\n\nypos &lt;- max(df$value) + 1\ndy &lt;- 0.2\n  \ndf2 &lt;- data.frame(\n   sv = df$statevariable,\n   activity = paste0(df$f2_id,\":\",df$f2_cname),\n   start_time=as.numeric(df$t),\n   end_time=as.numeric(df$t2),\n   state_value=as.numeric(df$value)\n)\n\ndf2 %&gt;% \n    ggplot(aes(start_time, state_value)) + \n    geom_point(aes(color = sv)) +\n    geom_line(aes(color = sv)) +\n    ggchicklet:::geom_rrect(\n      aes(\n        xmin = start_time,\n        ymin = ypos,\n        xmax = end_time,\n        ymax = ypos+dy,\n        fill = activity,\n      ),\n      r = unit(0.5, 'npc'),\n      alpha = 0.5\n    )+\n   scale_x_continuous(\n    breaks = seq(0, 10, 2),\n    position = 'bottom'\n    )\n\n\n\np&lt;-df2 %&gt;% \n    ggplot(aes(start_time, state_value)) + \n    geom_point(aes(color = sv)) +\n    geom_line(aes(color = sv)) +\n    geom_rect(\n      aes(\n        xmin = start_time,\n        ymin = ypos,\n        xmax = end_time,\n        ymax = ypos+dy,\n        fill = activity\n      ),\n      alpha = 0.5\n    ) + \n    scale_x_continuous(\n      breaks = seq(0, 10, 2),\n      position = 'bottom'\n      )\n\n\nlibrary(plotly)\nggplotly(p)\n\n\n\n\n\n\n\n1.0.2 Gantt Chartを使った場合\n\nlibrary(ganttrify)\n\n\ndf_project &lt;- data.frame(\n   wp = \"scenario\",\n   activity = paste0(df_task$f2_id,\":\",df_task$f2_cname),\n   start_date=as.numeric(df_task$t),\n   end_date=as.numeric(df_task$t2)\n)\n\ncolnum &lt;- length(unique(df$wp))\ncolpal &lt;- MetBrewer::met.brewer(name=\"VanGogh1\", n=colnum)\ncolour_palette &lt;- colpal\n\n  \ng &lt;- ganttrify::ganttrify(\n    project = df_project,\n    # spots = ganttrify::test_spots_date_month,\n    colour_palette = colpal,\n    exact_date = FALSE,\n    month_number_label = TRUE,\n    month_date_label = FALSE,\n    x_axis_position = \"bottom\",\n    # project_start_date = startday,\n#    font_family = font,\n    size_wp = 6,\n    hide_wp = TRUE,\n#    by_date = TRUE,\n#    mark_quarters = TRUE,\n#    mark_years = TRUE,\n#    month_breaks = 1,\n    line_end = \"round\",\n    axis_text_align = \"left\")\n\nplot(g)\n\n\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
   },
   {
     "objectID": "summary.html",
@@ -26,5 +26,19 @@
     "title": "References",
     "section": "",
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "intro.html#generate-timeline-file-for-modelica",
+    "href": "intro.html#generate-timeline-file-for-modelica",
+    "title": "1  Introduction",
+    "section": "1.1 Generate Timeline file for modelica",
+    "text": "1.1 Generate Timeline file for modelica\n\ndf_timeline &lt;- df %&gt;% \n  filter(statevariable == \"roverVelocity\") %&gt;%\n  select(time, statevariable, value)\n  \noutputfile &lt;- \"~/Workspaces/openmodelica-docker-start/om-develop/timeline.txt\"\n\ntxt &lt;- \"#1\\n\"\ntxt &lt;- paste0(txt, \"double Tab1(\",nrow(df_timeline),\",2)\\n\")\nfor( i in 1:nrow(df_timeline)){\n  txt &lt;- paste0(txt, df_timeline$time[i],\" \",df_timeline$value[i],\"\\n\")\n}\ncat(file = outputfile, txt)"
+  },
+  {
+    "objectID": "intro.html#execute-modelica",
+    "href": "intro.html#execute-modelica",
+    "title": "1  Introduction",
+    "section": "1.2 Execute Modelica",
+    "text": "1.2 Execute Modelica\n\n## need some code \n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
   }
 ]

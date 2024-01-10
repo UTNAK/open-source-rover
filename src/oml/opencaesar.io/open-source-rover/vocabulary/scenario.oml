@@ -1,5 +1,6 @@
 vocabulary <http://opencaesar.io/open-source-rover/vocabulary/scenario#> as scenario {
-    extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
+	extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
 
 	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
 
@@ -7,36 +8,49 @@ vocabulary <http://opencaesar.io/open-source-rover/vocabulary/scenario#> as scen
 
 	extends <http://www.w3.org/2001/XMLSchema#> as xsd
 
-
 	scalar property hasPlannedStartTime [
 		domain Task
 //		range xsd:double
 		range xsd:string
 	]
 
-
 	concept Scenario < mission:Function, base:IdentifiedElement [
-        restricts all hasTask to Task
-    ]
-	
+		restricts all hasTask to Task
+		restricts all scenarioElaborates to Goal
+	]
+
 	concept Task < mission:Function, base:IdentifiedElement [
 		restricts all mission:invokes to Task
 		restricts all manipulates to StateVariables
 	]
 
-    concept StateVariables
+	concept Goal < mission:Objective [
+		restricts all goalConstrains to StateVariables
+	]
+
+	concept StateVariables
 
 	scalar property hasStateValue [
 		domain StateVariables
 		range xsd:string
 	]
-	
+
 	relation entity CharacterizesStateOf [
 		from StateVariables
 		to mission:Component
 		forward characterizesStateOf
 	] < analysis:Characterizes
 
+	relation entity Manipulates [
+		from Task
+		to StateVariables
+		forward manipulates
+	]
+
+	scalar property setStateValue [
+		domain Manipulates
+		range xsd:string
+	]
 
 	relation entity HasTask [
 		from Scenario
@@ -44,16 +58,15 @@ vocabulary <http://opencaesar.io/open-source-rover/vocabulary/scenario#> as scen
 		forward hasTask
 	] < base:Contains
 
-	
-	relation entity Manipulates [
-		from Task
+	relation entity ScenarioElaborates [
+		from Scenario
+		to Goal
+		forward scenarioElaborates
+	]
+
+	relation entity GoalConstrains [
+		from Goal
 		to StateVariables
-		forward manipulates
-	]
-	
-	scalar property setStateValue [
-		domain Manipulates
-		range xsd:string
-	]
-	
+		forward goalConstrains
+	]// < analysis:Constrains
 }

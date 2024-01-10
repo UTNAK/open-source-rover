@@ -1,81 +1,104 @@
 description <http://opencaesar.io/open-source-rover/description/behavior/scenario_move#> as scenario_move {
+
 	uses <http://opencaesar.io/open-source-rover/vocabulary/scenario#> as scenario
 
 	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
 
 	uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
 
+	instance goal-move : scenario:Goal [
+		base:hasIdentifier "G.01"
+		base:hasCanonicalName "Move rover to rock"
+		scenario:goalConstrains roverTargetPosition
+	]
+
 	instance scenario-move : scenario:Scenario [
 		base:hasIdentifier "SC.01"
+		scenario:scenarioElaborates goal-move
 		^scenario:hasTask start-operation
 		^scenario:hasTask accelerate
 		^scenario:hasTask maintain-speed
 		^scenario:hasTask brake
-		^scenario:hasTask stop		
+		^scenario:hasTask stop
 	]
-	
+
 	instance start-operation : ^scenario:Task [
 		base:hasIdentifier "SC.01.01"
 		base:hasCanonicalName "Start Operation"
 		mission:invokes accelerate
 		scenario:hasPlannedStartTime "0"
 	]
-	
+
 	instance accelerate : ^scenario:Task [
 		base:hasIdentifier "SC.01.02"
 		base:hasCanonicalName "Accelerate Rover"
-		mission:invokes maintain-speed						
-		scenario:hasPlannedStartTime "2"	
+		mission:invokes maintain-speed
+		scenario:hasPlannedStartTime "2"
 	]
-	
+
 	instance maintain-speed : ^scenario:Task [
 		base:hasIdentifier "SC.01.03"
-		base:hasCanonicalName "Maintain Speed"		
-		mission:invokes brake						
-		scenario:hasPlannedStartTime "4"	
-]
-	
+		base:hasCanonicalName "Maintain Speed"
+		mission:invokes brake
+		scenario:hasPlannedStartTime "4"
+	]
+
 	instance brake : ^scenario:Task [
 		base:hasIdentifier "SC.01.04"
 		base:hasCanonicalName "Brake"
 		mission:invokes stop
-		scenario:hasPlannedStartTime "8"												
+		scenario:hasPlannedStartTime "8"
 	]
-	
+
 	instance stop : ^scenario:Task [
 		base:hasIdentifier "SC.01.05"
 		base:hasCanonicalName "Stop Operation"
-		scenario:hasPlannedStartTime "10"												
+		scenario:hasPlannedStartTime "10"
 	]
 
 	instance roverVelocity : scenario:StateVariables
-	
-	relation instance m1 : scenario:Manipulates [
+
+	instance roverTargetPosition : scenario:StateVariables
+
+	relation instance m1.1 : scenario:Manipulates [
 		from start-operation
 		to roverVelocity
 		scenario:setStateValue "0"
 	]
+
+	relation instance m1.2 : scenario:Manipulates [
+		from start-operation
+		to roverTargetPosition
+		scenario:setStateValue "8"
+	]
+
 	relation instance m2 : scenario:Manipulates [
 		from accelerate
 		to roverVelocity
 		scenario:setStateValue "1"
 	]
+
 	relation instance m3 : scenario:Manipulates [
 		from maintain-speed
 		to roverVelocity
 		scenario:setStateValue "1"
 	]
+
 	relation instance m4 : scenario:Manipulates [
 		from brake
 		to roverVelocity
 		scenario:setStateValue "1"
 	]
-	relation instance m5 : scenario:Manipulates [
+
+	relation instance m5.1 : scenario:Manipulates [
 		from stop
 		to roverVelocity
 		scenario:setStateValue "0"
 	]
 
-
-
+	relation instance m5.2 : scenario:Manipulates [
+		from stop
+		to roverTargetPosition
+		scenario:setStateValue "8"
+	]
 }

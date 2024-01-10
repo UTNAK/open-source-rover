@@ -32,7 +32,61 @@
   {
     "kind": 2,
     "language": "sparql",
-    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX scenario:   <http://opencaesar.io/open-source-rover/vocabulary/scenario#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?scenario ?t ?task ?f2_id ?f2_cname ?statevariable ?value ?f3_id \nWHERE {\n\t?f1 a scenario:Scenario ;\n    OPTIONAL{\n        ?f1 scenario:hasTask ?f2 .\n        OPTIONAL{\n            ?f2 base:hasIdentifier ?f2_id .\n            ?f2 base:hasCanonicalName ?f2_cname .\n            ?f2 scenario:hasPlannedStartTime ?t .\n#\t\t\tOPTIONAL{\n#\t\t\t\t?f2_invoke base:hasIdentifier ?f2_invoke_id. \n#\t\t\t}        \n        }\n        OPTIONAL{\n            ?f2 mission:invokes ?f3 .\n            ?f3 base:hasIdentifier ?f3_id .\n        }\n        OPTIONAL{\n            ?f2 scenario:manipulates ?sv .\n            OPTIONAL{\n                ?f2 scenario:setStateValue ?value\n            }\n        }\n    }\n\t# Extract the local name\n    BIND(STRAFTER(STR(?f1), \"#\") AS ?scenario) .\n    BIND(STRAFTER(STR(?f2), \"#\") AS ?task) .\n    BIND(STRAFTER(STR(?sv), \"#\") AS ?statevariable) .\n\tFILTER(REGEX(STR(?f1), \"http://opencaesar.io/open-source-rover/description/behavior/scenario_move#\")).\n} \nORDER BY ?f2_id ",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX scenario:   <http://opencaesar.io/open-source-rover/vocabulary/scenario#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oml:           <http://opencaesar.io/oml#>\n\n\n\nSELECT DISTINCT ?scenario ?t ?task ?f2_id ?f2_cname ?statevariable ?value ?f3_id \nWHERE {\n\t?f1 a scenario:Scenario ;\n    OPTIONAL{\n        ?f1 scenario:hasTask ?f2 .\n        OPTIONAL{\n            ?f2 base:hasIdentifier ?f2_id .\n            ?f2 base:hasCanonicalName ?f2_cname .\n            ?f2 scenario:hasPlannedStartTime ?t .\n        }\n        OPTIONAL{\n            ?f2 mission:invokes ?f3 .\n            ?f3 base:hasIdentifier ?f3_id .\n        }\n        OPTIONAL{\n            ?f2 scenario:manipulates ?sv .\n            OPTIONAL{\n                ?m oml:hasSource ?f2 .\n                ?m scenario:setStateValue ?value .\n            }\n        }\n    }\n\t# Extract the local name\n    BIND(STRAFTER(STR(?f1), \"#\") AS ?scenario) .\n    BIND(STRAFTER(STR(?f2), \"#\") AS ?task) .\n    BIND(STRAFTER(STR(?sv), \"#\") AS ?statevariable) .\n\tFILTER(REGEX(STR(?f1), \"http://opencaesar.io/open-source-rover/description/behavior/scenario_move#\")).\n} \nORDER BY ?f2_id ",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# Start query from relation instance",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX scenario:   <http://opencaesar.io/open-source-rover/vocabulary/scenario#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oml:           <http://opencaesar.io/oml#>\n\nSELECT DISTINCT ?manipulate ?task ?time ?statevariable ?value\nWHERE {\n\t?m a scenario:Manipulates;\n\t\toml:hasSource ?t ;\n\t\toml:hasTarget ?s ;\n\t\tscenario:setStateValue ?value ;\n\t\tOPTIONAL{\n\t\t\t?t scenario:hasPlannedStartTime ?time .\n\t\t}\n\n\t# Extract the local name\n    BIND(STRAFTER(STR(?m), \"#\") AS ?manipulate) .\n    BIND(STRAFTER(STR(?t), \"#\") AS ?task) .\n    BIND(STRAFTER(STR(?s), \"#\") AS ?statevariable) .\n} \nORDER BY ?m",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# Start Query from Task",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX scenario:   <http://opencaesar.io/open-source-rover/vocabulary/scenario#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oml:           <http://opencaesar.io/oml#>\n\nSELECT DISTINCT ?task ?id ?time ?statevariable ?manipulate ?value \nWHERE {\n\t?t a scenario:Task ;\n\t\tbase:hasIdentifier ?id ;\n\t\tscenario:hasPlannedStartTime ?time ;\n\t\tscenario:manipulates ?s .\n\n        OPTIONAL{\n                ?m oml:hasSource ?t .\n                ?m scenario:setStateValue ?value .\n        }\n \t# Extract the local name\n    BIND(STRAFTER(STR(?m), \"#\") AS ?manipulate) .\n    BIND(STRAFTER(STR(?t), \"#\") AS ?task) .\n    BIND(STRAFTER(STR(?s), \"#\") AS ?statevariable) .\n} \nORDER BY ?id ",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "上のコードの場合、ダブってしまう。あるタスクが、2つのSVを操作する場合に、クエリー結果がダブってしまう。",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "下記はテスト用。だがうまくいかなかった",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX scenario:   <http://opencaesar.io/open-source-rover/vocabulary/scenario#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oml:           <http://opencaesar.io/oml#>\n\nSELECT DISTINCT ?task ?id ?time ?statevariable ?manipulate ?value \nWHERE {\n\t?t scenario:manipulates ?s .\n    OPTIONAL{\n        ?t base:hasIdentifier ?id .\n        ?t scenario:hasPlannedStartTime ?time .\n    }\n    \n  #  ?m oml:hasSource ?t .\n\n    OPTIONAL{\n  #      ?m oml:hasSource ?t .\n    }\n       \n\n#        OPTIONAL{\n#                ?m oml:hasSource ?t .\n#                ?m scenario:setStateValue ?value .\n#        }\n \t# Extract the local name\n    BIND(STRAFTER(STR(?m), \"#\") AS ?manipulate) .\n    BIND(STRAFTER(STR(?t), \"#\") AS ?task) .\n    BIND(STRAFTER(STR(?s), \"#\") AS ?statevariable) .\n} \nORDER BY ?id ",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# for R timeline visualization",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX scenario:   <http://opencaesar.io/open-source-rover/vocabulary/scenario#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oml:           <http://opencaesar.io/oml#>\n\nSELECT DISTINCT ?manipulate ?f2_id ?f2_cname ?task ?time ?statevariable ?value ?f3_id\nWHERE {\n\t?m a scenario:Manipulates;\n\t\toml:hasSource ?t ;\n\t\toml:hasTarget ?s ;\n\t\tscenario:setStateValue ?value ;\n\t\tOPTIONAL{\n\t\t\t?t scenario:hasPlannedStartTime ?time .\n\t\t\t?t base:hasIdentifier ?f2_id .\n\t\t\t?t base:hasCanonicalName ?f2_cname .\n\t        OPTIONAL{\n            ?t mission:invokes ?f3 .\n            ?f3 base:hasIdentifier ?f3_id .\n        }\n\t\t\n\t\t}\n\n\t# Extract the local name\n    BIND(STRAFTER(STR(?m), \"#\") AS ?manipulate) .\n    BIND(STRAFTER(STR(?t), \"#\") AS ?task) .\n    BIND(STRAFTER(STR(?s), \"#\") AS ?statevariable) .\n} \nORDER BY ?m",
     "metadata": {}
   }
 ]

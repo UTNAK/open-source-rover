@@ -1,6 +1,10 @@
 project:
   type: book
 
+execute: 
+  warning: false
+
+
 book:
   title: "Vocabulary Prototyping for Timeline Analysis"
   author: "Yuta Nakajima"

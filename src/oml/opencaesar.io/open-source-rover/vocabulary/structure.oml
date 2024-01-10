@@ -4,6 +4,8 @@ vocabulary <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^st
 
 	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
 
+	extends <http://opencaesar.io/open-source-rover/vocabulary/scenario#> as scenario
+
 	concept System < mission:Component
 
 	concept Subsystem < mission:Component

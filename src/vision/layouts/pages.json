@@ -1,7 +1,7 @@
 [
     { "title": "Home", "path": "/", "treeIcon": "home" },
     {
-      "title": "Kepler16b",
+      "title": "OSR",
       "treeIcon": "server",
       "iconUrl": "https://nasa-jpl.github.io/stellar/icons/satellite.svg",
       "children": [
@@ -38,6 +38,11 @@
           "treeIcon": "graph-scatter",
           "path": "movingscenario",
           "isDiagram": true
+        },
+        {
+          "title": "Timeline Table",
+          "treeIcon": "graph-line",
+          "path": "timeline"        
         }
       ]
     }
