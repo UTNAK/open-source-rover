@@ -42,7 +42,7 @@ book:
       - icon: github
         menu:
           - text: Book Source Code
-            url:  https://github.com/UTNAK/open-source-rover/quarto_docs
+            url:  https://github.com/UTNAK/open-source-rover/tree/main/quarto_docs
           - text: Book Report an Issue
             url:  https://github.com/UTNAK/open-source-rover/issues/new
   
