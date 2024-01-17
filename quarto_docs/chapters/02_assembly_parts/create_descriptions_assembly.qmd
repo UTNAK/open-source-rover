@@ -1,0 +1,457 @@
+# Create Assembly Description
+
+```{r}
+source("../../osr_common.R")
+```
+
+
+## Initialize OML File
+```{r}
+outputdir <- paste0(omlrepo,"src/oml/opencaesar.io/open-source-rover/description/assembly/")
+
+outputfile <- paste0(outputdir, "assembly.oml")
+init_oml_file <- 
+"description <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly {\n}\n"
+cat(file=outputfile, init_oml_file)
+
+
+outputfile <- paste0(outputdir, "parts.oml")
+init_oml_file <- 
+"description <http://opencaesar.io/open-source-rover/description/assembly/parts#> as parts {\n}\n"
+cat(file=outputfile, init_oml_file)
+```
+
+
+
+## Modeling Mechanical Assembly
+
+"Assembly" descriptions are created from [parts_list](https://github.com/nasa-jpl/open-source-rover/blob/master/parts_list/parts_list.csv)
+
+
+### Import from [github](https://github.com/nasa-jpl/open-source-rover/blob/master/parts_list/parts_list.csv)
+
+```{r}
+url <- "https://raw.githubusercontent.com/nasa-jpl/open-source-rover/master/parts_list/parts_list.csv"
+df_csv <- read.csv(url)
+```
+
+### Tidy Data
+```{r}
+colnames(df_csv) <- c("assembly","short name","part number","long name","link","cost","number req in assy","assembly multiplier")
+```
+
+
+### Explore Data
+
+#### Parts
+
+In parts list, we can observe duplicated parts as follows.
+
+```{r}
+df_csv %>% 
+  group_by(`part number`) %>%
+  filter(n()>1) %>%
+  arrange(`part number`)
+```
+
+The part numbers are the same, but the part names and properties are slightly different.
+
+
+#### Assembly
+
+```{r}
+unique(df_csv$assembly)
+```
+
+Data is grouped by "assembly". 
+
+- [drive wheel](https://github.com/nasa-jpl/open-source-rover/tree/master/mechanical/wheel_assembly)
+- [corner](https://github.com/nasa-jpl/open-source-rover/tree/master/mechanical/wheel_assembly#four-corner-assemblies)
+- [rocker bogie](https://github.com/nasa-jpl/open-source-rover/tree/master/mechanical/rocker_bogie)
+- [body](https://github.com/nasa-jpl/open-source-rover/tree/master/mechanical/body)
+- [general](https://github.com/nasa-jpl/open-source-rover/tree/master/mechanical/body)
+
+
+This means `An "Assembly" has "Part"s`.    
+
+So we will add `structure:Part` and `structure:Assembly` as a specialization of mission:Component to our [oml model](https://github.com/UTNAK/open-source-rover/blob/main/src/oml/opencaesar.io/open-source-rover/vocabulary/structure.oml).
+
+a `structure:Subsystem` has a `structure:Assembly`.   
+a `structure:Assembly` has a `structure:Part`.    
+
+
+The updated model is shown below.   
+  
+
+```{bash}
+#| eval: false
+vocabulary <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure {
+
+	extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
+	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
+
+	concept System < mission:Component
+
+	concept Subsystem < mission:Component
+
+	relation hasSubsystem [
+		from System
+		to Subsystem
+	] < base:contains
+
+	concept Assembly < mission:Component
+	
+	relation hasAssembly [
+		from Subsystem
+		to Assembly
+	] < base:contains
+
+	concept Part < mission:Component
+	
+	relation hasPart [
+		from Assembly
+		to Part
+	] < base:contains
+
+
+}
+```
+
+
+Once we add new vocabulary, let's check the consistency of our model using `owlReason`.
+
+```{r}
+library(omlhashiR)
+# oml_repository <- "../open-source-rover/"
+oml_repository <- omlrepo
+omlhashiR::oml_refresh()
+omlhashiR::oml_stop_Daemon(oml_repository)
+omlhashiR::oml_build(oml_repository)
+omlhashiR::oml_owlLoad(oml_repository)
+```
+
+
+
+
+
+
+### Modeling assembly data 
+
+  
+The descriptions of assemblies between [parts_list](https://github.com/nasa-jpl/open-source-rover/blob/master/parts_list/parts_list.csv) and [CAD model](https://cad.onshape.com/documents/e4f00b1a3d2edb1a84bbba1c/w/8ab8f394324bcc586236ef5d/e/9191e5ad2a70f387b419bc55) are different. 
+
+
+```{r, cadmodel, echo=FALSE, fig.cap='OSR CAD Model', out.width='100%'}
+knitr::include_graphics('../../img/cadmodel.png', dpi = NA)
+```
+
+
+We chose assembly definitions from the [CAD model](https://cad.onshape.com/documents/e4f00b1a3d2edb1a84bbba1c/w/8ab8f394324bcc586236ef5d/e/9191e5ad2a70f387b419bc55).
+
+Below assembly data is a description for `structure:Assembly`in OML model.
+
+
+```{r}
+df_instance_assembly <- data.frame(
+  name = c("Body Assembly", 
+           "Drive Wheel Assembly-1",
+           "Drive Wheel Assembly-2",
+           "Corner Wheel Assembly-1",
+           "Corner Wheel Assembly-2",
+           "Corner Wheel Assembly-3",
+           "Corner Wheel Assembly-4",
+           "Rocker Bogie Suspension Assembly-1",
+           "Rocker Bogie Suspension Assembly-2",
+           "Mechanical Harness"),
+  instancename = c("body-assembly",
+                   "drive-wheel-assembly-1",
+                   "drive-wheel-assembly-2",
+                   "corner-wheel-assembly-1",
+                   "corner-wheel-assembly-2",
+                   "corner-wheel-assembly-3",
+                   "corner-wheel-assembly-4",
+                   "rocker-bogie-suspension-assembly-1",
+                   "rocker-bogie-suspension-assembly-2",
+                   "mechanical-harness"
+                  )
+) %>% 
+  mutate(type = "assembly") %>%
+  mutate(hasDescription = "")
+```
+
+
+### Add relationship to subsystem
+
+We define the relationship between assemblies and subsystems as follows.
+
+```{r}
+df_instance_assembly <- df_instance_assembly %>%
+  mutate(ownedSubsystem =c("subsystems:MechanicalSubsystem",
+                           "subsystems:MobilitySubsystem",
+                           "subsystems:MobilitySubsystem",
+                           "subsystems:MobilitySubsystem",
+                           "subsystems:MobilitySubsystem",
+                           "subsystems:MobilitySubsystem",
+                           "subsystems:MobilitySubsystem",
+                           "subsystems:MechanicalSubsystem",
+                           "subsystems:MechanicalSubsystem",
+                           "subsystems:MechanicalSubsystem"
+                           )
+         )
+```
+
+
+
+
+
+### Add descriptions to assembly
+
+#### [Rocker-Bogie Suspension](https://github.com/nasa-jpl/open-source-rover/tree/master/mechanical/rocker_bogie)
+```{r}
+
+text <- "The Rocker-Bogie is the suspension system that enables the rover to climb aggressive obstacles. The design allows all 6 wheels to be in contact with the ground as much as possible, increasing traction. The suspension system on a typical consumer vehicle can traverse obstacles about half the height of one wheel; the Rocker-Bogie suspension system can traverse obstacles over 2 times the height of the wheel."
+
+df_instance_assembly$hasDescription[df_instance_assembly$name=="Rocker Bogie Suspension Assembly-1"] <- text
+df_instance_assembly$hasDescription[df_instance_assembly$name=="Rocker Bogie Suspension Assembly-2"] <- text
+```
+
+
+
+### Function to generate instance descriptions.
+
+```{r}
+generateAssemblyDescriptions <- function(df){
+  
+  df_in <- df
+  
+  text <- paste0("// Assembly Instances\n")
+  text_instance <- ""
+
+  for (i in 1:nrow(df_in)){
+    id <- paste0("A", ".", formatC(i, width = 2, flag="0"))
+    type <- "structure:Assembly"
+    text_instance <- paste0(text_instance,
+                   "	instance ", df_in$instancename[i], " : ", type, " [","\n",
+                   "		base:hasIdentifier \"", id,"\"\n",
+                   "		base:hasCanonicalName \"",df_in$name[i],"\"\n",
+                   "		base:hasShortName \"",df_in$name[i],"\"\n",
+                   "		base:hasDescription \"",df_in$hasDescription[i],"\"\n",
+                   "	]\n"
+                   )
+  }
+
+  text <- paste0(text, text_instance)
+  return(text)
+}
+
+```
+
+
+### Function to generate reference instance descriptions.
+
+This function generates ref instance following below pattern.
+
+```
+	ref instance subsystems:MechanicalSubsystem [
+		^structure:hasAssembly body-assembly
+	]
+```
+
+```{r}
+
+generateSubsystemRefDescriptions <- function(df){
+
+  # df <- df_instance_assembly # for debug
+  
+  subsystem <- as.list(unique(df$ownedSubsystem))
+  
+  text <- paste0("//ref to Subsystem","\n")
+  text_ref <- ""
+  
+  for(j in 1:length(subsystem)){
+    ref_instance <- subsystem[j]
+    df_instance <- df %>%
+      filter(df$ownedSubsystem == ref_instance)
+    
+    text_ref <- paste0(text_ref,
+                   "	ref instance ", ref_instance, " [","\n"
+                   )
+    
+    for (i in 1:nrow(df_instance)){
+      text_ref <- paste0(text_ref,
+                     "		^structure:hasAssembly ", df_instance$instancename[i],"\n"
+                     )
+    }
+    text_ref <- paste0(text_ref,
+                       "	]\n\n"
+                       )
+    
+  }
+  
+  text <- paste0(text, text_ref)
+  
+  return(text)
+}	
+```
+
+
+
+### Output OML FILE
+```{r}
+# outputdir <- "~/Workspaces/gitlab/OSR_local/open-source-rover/src/oml/opencaesar.io/open-source-rover/description/assembly/"
+#outputdir <-"./open-source-rover/src/oml/opencaesar.io/open-source-rover/description/assembly/"
+# outputdir <-"./"
+outputfile <- paste0(outputdir, "assembly.oml")
+```
+
+
+assemly.omlのフレーム作成
+```{r}
+omldescriptions <-
+"description <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly {
+	
+	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+	uses <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure
+
+  extends <http://opencaesar.io/open-source-rover/description/structure/subsystems#> as subsystems
+  
+"
+```
+
+
+
+
+### Assembly Instances : OK
+
+```{r}
+instance <- generateAssemblyDescriptions(df_instance_assembly)
+
+# cat(instance)
+omldescriptions <- paste0(omldescriptions, instance,"\n")
+
+```
+
+# relation to Subsystem
+
+```{r}
+ref_instance <- generateSubsystemRefDescriptions(df_instance_assembly)
+
+cat(ref_instance)
+omldescriptions <- paste0(omldescriptions, ref_instance,"\n")
+
+```
+
+## Generate OML File
+```{r}
+omldescriptions <- paste0(omldescriptions,"\n}\n")
+cat(file=outputfile, omldescriptions)
+```
+
+
+## Validate Model
+
+Before we check the model, add below codes to the description bundle.
+```{bash}
+#| eval: false
+
+	includes <http://opencaesar.io/open-source-rover/description/assembly/assembly#>
+```
+
+
+```{r}
+omlhashiR::oml_build(oml_repository)
+omlhashiR::oml_owlLoad(oml_repository)
+```
+
+## Query
+```{r}
+library(tansakusuR)
+endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
+```
+### Extract mission:Component Hierarchy
+
+```{r}
+query_string <-'
+PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
+PREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>
+PREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>
+PREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?c1_localname ?c1_name ?c1_type ?c2_localname ?c2_name
+WHERE {
+	?c1 a mission:Component ;
+	  base:hasCanonicalName ?c1_name .
+    OPTIONAL{
+        ?c1 base:isContainedIn ?c2 .
+        OPTIONAL{
+            ?c2 base:hasCanonicalName ?c2_name .
+        }
+    }
+	# Extract the local name
+    BIND(STRAFTER(STR(?c1), "#") AS ?c1_localname) .
+    BIND(STRAFTER(STR(?c2), "#") AS ?c2_localname) .
+
+	OPTIONAL {
+		?c1 a structure:System ;
+			BIND("structure:System"  AS ?c1_type) .
+	}    
+	OPTIONAL {
+		?c1 a structure:Subsystem ;
+			BIND("structure:Subsystem"  AS ?c1_type) .
+	} 
+	OPTIONAL {
+		?c1 a structure:Assembly ;
+			BIND("structure:Assembly"  AS ?c1_type) .
+	} 
+}
+ORDER BY ?c1_localname 
+'
+df_query <- tansakusuR::send_query(endpoint_url,query_string)
+datatable(df_query, options = list(pageLength = -1))
+```
+
+
+```{r}
+df_query <- df_query %>%
+  filter(df_query$c1_type != "structure:Part") %>%
+  arrange(desc(c2_name))
+
+
+plotCollapsibleTreeFromDataframe(df_query, palette="BluYl", parent="c2_name", child="c1_name",type="c1_type")
+
+```
+
+
+### Some visualization experiments
+
+#### networkD3::simpleNetwork
+```{r}
+df2<- df_query %>% 
+  mutate(owner=c2_name) %>%
+  mutate(name=c1_name) %>%
+  select("owner","name") %>%
+  arrange(desc(owner)) %>%  
+  slice(-n())
+
+
+library(networkD3)
+
+networkD3::simpleNetwork(df2)
+```
+
+#### networkD3::diagonalNetwor
+```{r}
+library(data.tree)
+nd3 <- ToListExplicit(FromDataFrameNetwork(df2), unname = T)
+
+networkD3::diagonalNetwork(List = nd3, fontSize = 10, opacity = 0.9)
+```
+
+#### networkD3::radialNetwork
+```{r}
+networkD3::radialNetwork(nd3, nodeColour="seagreen")
+```
+
+
+

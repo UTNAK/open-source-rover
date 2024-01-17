@@ -1,0 +1,476 @@
+# Create Parts Description
+
+```{r}
+source("../../osr_common.R")
+```
+
+
+## Initialize OML File
+```{r}
+outputdir <- paste0(omlrepo,"src/oml/opencaesar.io/open-source-rover/description/assembly/")
+
+outputfile <- paste0(outputdir, "parts.oml")
+init_oml_file <- 
+"description <http://opencaesar.io/open-source-rover/description/assembly/parts#> as parts {\n}\n"
+cat(file=outputfile, init_oml_file)
+```
+
+
+## Modeling Mechanical Parts
+
+
+### Import from [github](https://github.com/nasa-jpl/open-source-rover/blob/master/parts_list/parts_list.csv)
+
+```{r}
+url <- "https://raw.githubusercontent.com/nasa-jpl/open-source-rover/master/parts_list/parts_list.csv"
+df_csv <- read.csv(url)
+```
+
+### Tidy Data
+```{r}
+colnames(df_csv) <- c("assembly","short name","part number","long name","link","cost","number req in assy","assembly multiplier")
+```
+
+
+### These are parts list but its more about a shopping cart list.
+
+The list contains "cost", "number req in assy", "assembly multiplier".
+
+"number req in assy" and "assembly" information are used to create descriptions of parts.
+
+```{r}
+df_parts_list <- df_csv
+
+# このリストがCSVオリジナル。
+# ここからパーツモデルに変換する場合には、アセンブリ必要数分だけインスタンスを用意する。
+# ではダッシュボードとインスタンスの関係性は？
+# インスタンスの情報にコストを埋め込む？インスタンス数とパーツリストの必要数は必ずしも一致しない
+# これの扱いを考える必要がある。いずれにせよインスタンスはアセンブリで必要とする数だけ必要。
+# アセンブリのインスタンス数✖️"number req in assy"がパーツの総数となる。
+
+```
+
+```{r}
+df_instance_assembly <- data.frame(
+  name = c("Body Assembly", 
+           "Drive Wheel Assembly-1",
+           "Drive Wheel Assembly-2",
+           "Corner Wheel Assembly-1",
+           "Corner Wheel Assembly-2",
+           "Corner Wheel Assembly-3",
+           "Corner Wheel Assembly-4",
+           "Rocker Bogie Suspension Assembly-1",
+           "Rocker Bogie Suspension Assembly-2",
+           "Mechanical Harness"),
+  instancename = c("body-assembly",
+                   "drive-wheel-assembly-1",
+                   "drive-wheel-assembly-2",
+                   "corner-wheel-assembly-1",
+                   "corner-wheel-assembly-2",
+                   "corner-wheel-assembly-3",
+                   "corner-wheel-assembly-4",
+                   "rocker-bogie-suspension-assembly-1",
+                   "rocker-bogie-suspension-assembly-2",
+                   "mechanical-harness"
+                  )
+) %>% 
+  mutate(type = "assembly") %>%
+  mutate(hasDescription = "")
+```
+
+
+
+### Function to generate structure:Part descriptions
+
+```{r}
+generatePartDescriptions <- function(df, header, instancenameindex, index){
+  
+  df_in <- df
+  
+  text <- paste0("// ", header, "\n")
+  text_instance <- ""
+  text_ref <- paste0("\n", "// ref ", header, "\n")
+  id_count <- 1
+  type <- "structure:Part"
+  
+  ref_instance <- paste0("assembly:",df_in$hasAssembly[1])
+
+  text_ref <- paste0(text_ref,
+                 "	ref instance ", ref_instance, " [","\n"
+                 )
+  
+  for (i in 1:nrow(df_in)){
+    for (j in 1:df_in$num[i]) {
+      id <- paste0(index, ".", formatC(id_count, width = 3, flag="0"))
+      id_count <- id_count + 1
+      instancekey <- paste0(df_in$instancename[i], instancenameindex, "-", j)
+      text_instance <- paste0(text_instance,
+                     "	instance ", instancekey, " : ", type, " [","\n",
+                     "		base:hasIdentifier \"", id,"\"\n",
+                     "		base:hasCanonicalName \"",df_in$name[i],"-",j,"\"\n",
+                     "		base:hasShortName \"",df_in$name[i],"-",j,"\"\n",
+                     "		structure:hasPartsNumber \"",df_in$partsnumber[i],"\"\n",
+                     "	]\n"
+                     )
+      text_ref <- paste0(text_ref,
+               "		^structure:hasPart ", instancekey,"\n"
+               )
+    }
+  }
+
+  text_ref <- paste0(text_ref,
+                     "	]\n\n"
+                     )
+
+  text <- paste0(text, text_instance, text_ref)
+    
+  return(text)
+}
+
+```
+
+
+	ref instance assembly:body-assembly [
+		^structure:hasPart 2-hole-flat-beam-2
+	]
+
+
+### Output OML FILE
+```{r}
+#outputdir <- "~/Workspaces/gitlab/OSR_local/open-source-rover/src/oml/opencaesar.io/open-source-rover/description/assembly/"
+#outputdir <-"./open-source-rover/src/oml/opencaesar.io/open-source-rover/description/assembly/"
+# outputdir <-"./"
+outputfile <- paste0(outputdir, "parts.oml")
+```
+
+
+
+## Generate framework of parts.oml
+
+```{r}
+omldescriptions <-
+"description <http://opencaesar.io/open-source-rover/description/assembly/parts#> as parts {
+
+  uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+  uses <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure
+  extends <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly
+
+"
+```
+
+
+## For Body
+```{r}
+key <- 1
+targetassembly <- df_instance_assembly$instancename[key]
+df <- df_parts_list %>% 
+  filter(assembly=="body") %>%
+  mutate(name = `short name`) %>%
+  mutate(hasAssembly = df_instance_assembly$instancename[1]) %>%
+  mutate(num = as.integer(`number req in assy`)) %>%
+  mutate(partsnumber = `part number`) %>%
+  select(name,hasAssembly,num,partsnumber) %>%
+  mutate(instancename = c(
+    "120mm-open-gorail",
+    "2hole-uchannel",
+    "32mm-bearing",
+    "32mm-6mm-spacer-2-pack",
+    "29-hole-beam",
+    "41-hole-beam",
+    "12-hole-beam",
+    "41-hole-ubeam",
+    "7-hole-flat-beam-2pack",
+    "dual-block-mount",
+    "90deg-threaded-gusset-4pack",
+    "50mm-threaded-rod",
+    "ball-linkage-2pack",
+    "idler-bearing-hub",
+    "plastic-hinges",
+    "8mm-standoffs",
+    "22mm-standoffs",
+    "plastic-spacer",
+    "3-5-grid-plate",
+    "2-hole-flat-beam")
+  )
+```
+
+
+```{r}
+header <- c("Part - Body")
+part_instance <- generatePartDescriptions(df, header, instancenameindex="", index="P0")
+omldescriptions <- paste0(omldescriptions, part_instance,"\n")
+```
+
+
+## For drive-wheel-assembly-1
+```{r}
+key <- 2
+targetassembly <- df_instance_assembly$instancename[key]
+df <- df_parts_list %>% 
+  filter(assembly=="drive wheel") %>%
+  mutate(name = `short name`) %>%
+  mutate(hasAssembly = df_instance_assembly$instancename[key]) %>%
+  mutate(num = as.integer(`number req in assy`)) %>%
+  mutate(partsnumber = `part number`) %>%
+  select(name,hasAssembly,num,partsnumber) %>%
+  mutate(instancename = c(
+    "wheel",
+    "clamping-mount",
+    "motor",
+    "rex-bore-hub",
+    "2-hole-u-channel")
+  )
+header <- c("Part - drive-wheel-assembly-1")
+part_instance <- generatePartDescriptions(df, header, instancenameindex="-1", index="P1")
+omldescriptions <- paste0(omldescriptions, part_instance,"\n")
+```
+
+## For drive-wheel-assembly-2
+```{r}
+key <- 3
+targetassembly <- df_instance_assembly$instancename[key]
+df <- df_parts_list %>% 
+  filter(assembly=="drive wheel") %>%
+  mutate(name = `short name`) %>%
+  mutate(hasAssembly = df_instance_assembly$instancename[key]) %>%
+  mutate(num = as.integer(`number req in assy`)) %>%
+  mutate(partsnumber = `part number`) %>%
+  select(name,hasAssembly,num,partsnumber) %>%
+  mutate(instancename = c(
+    "wheel",
+    "clamping-mount",
+    "motor",
+    "rex-bore-hub",
+    "2-hole-u-channel")
+  )
+header <- c("Part - drive-wheel-assembly-2")
+part_instance <- generatePartDescriptions(df, header, instancenameindex="-2", index="P2")
+omldescriptions <- paste0(omldescriptions, part_instance,"\n")
+```
+
+## For corner-wheel-assembly-1/2/3/4
+```{r}
+key <- 4
+for(i in 1:4){
+  targetassembly <- df_instance_assembly$instancename[key]
+  df <- df_parts_list %>% 
+    filter(assembly %in% c("drive wheel", "corner")) %>%
+    mutate(name = `short name`) %>%
+    mutate(hasAssembly = df_instance_assembly$instancename[key]) %>%
+    mutate(num = as.integer(`number req in assy`)) %>%
+    mutate(partsnumber = `part number`) %>%
+    select(name,hasAssembly,num,partsnumber) %>%
+    mutate(instancename = c(
+      "wheel",
+      "clamping-mount",
+      "motor",
+      "rex-bore-hub",
+      "2-hole-u-channel",
+      "144mm-gorail",
+      "4-hole-u-channel")
+    )
+  header <- c(paste0("Part - ", targetassembly))
+  part_instance <- generatePartDescriptions(df, header, instancenameindex=paste0("-", 2+i), index=paste0("P",2+i))
+  omldescriptions <- paste0(omldescriptions, part_instance,"\n")
+  key <- key + 1
+}
+```
+
+## For rocker-bogie-suspension-assembly-1/2
+```{r}
+key <- 8
+for(i in 1:2){
+  targetassembly <- df_instance_assembly$instancename[key]
+  df <- df_parts_list %>% 
+    filter(assembly=="rocker bogie") %>%
+    mutate(name = `short name`) %>%
+    mutate(hasAssembly = df_instance_assembly$instancename[key]) %>%
+    mutate(num = as.integer(`number req in assy`)) %>%
+    mutate(partsnumber = `part number`) %>%
+    select(name,hasAssembly,num,partsnumber) %>%
+    mutate(instancename = c(
+      "1-hole-uchannel",
+      "servoblock",
+      "servo",
+      "8mm-sonic-hub",
+      "flanged-bearing-2pack",
+      "joint-pattern-spacer",
+      "joint-8mm-shaft",
+      "joint-3hole-flat-beam-2pack",
+      "joint-pattern-mount",
+      "steel-flat-bracket",
+      "3-5-grid-plate",
+      "angle-bracket",
+      "96mm-open-gorail",
+      "288mm-open-goRail",
+      "45deg-bracket",
+      "90deg-steel-bracket-2pack",
+      "control-arm",
+      "8mm-id-spacer-6mm-length",
+      "8mm-id-spacer-4mm-length")
+    )
+  
+  # if number of req is 0.5, we create one part instance.
+  df <- df %>%
+    mutate_at(vars(num), ~ ifelse(. == 0, 1, .))
+
+  
+  header <- c(paste0("Part - ", targetassembly))
+  part_instance <- generatePartDescriptions(df, header, instancenameindex=paste0("-", 7+i), index=paste0("P",7+i))
+  omldescriptions <- paste0(omldescriptions, part_instance,"\n")
+  key <- key + 1
+}
+```
+
+
+## For mechanical-harness
+```{r}
+instancenametext <- c(
+"hurricane-nuts",
+"wire-grommets",
+"M4-washers",
+"M4-uts",
+"M4-locknuts",
+"M4-6-button-screws",
+"M4-10-button-screws",
+"M4-16-button-screws",
+"M4-8-socket-screws",
+"M4-10-socket-screws",
+"M4-12-socket-screws",
+"M4-16-socket-screws",
+"M4-20-socket-screws"
+)
+
+  key <- 10
+  targetassembly <- df_instance_assembly$instancename[key]
+  df <- df_parts_list %>% 
+    filter(assembly=="general") %>%
+    mutate(name = `short name`) %>%
+    mutate(hasAssembly = df_instance_assembly$instancename[key]) %>%
+    mutate(num = as.integer(`number req in assy`)) %>%
+    mutate(partsnumber = `part number`) %>%
+    select(name,hasAssembly,num,partsnumber) %>%
+    mutate(instancename = instancenametext)
+  header <- c(paste0("Part - ", targetassembly))
+  part_instance <- generatePartDescriptions(df, header, instancenameindex=paste0("-", 10), index=paste0("P",10))
+  omldescriptions <- paste0(omldescriptions, part_instance,"\n")
+
+
+```
+
+
+
+## Generate OML File
+```{r}
+omldescriptions <- paste0(omldescriptions,"\n}\n")
+cat(file=outputfile, omldescriptions)
+```
+
+
+## Validate Model
+
+Before we check the model, add below codes to the description bundle.
+```{bash}
+#| eval: false
+
+	includes <http://opencaesar.io/open-source-rover/description/assembly/parts#>
+```
+
+
+```{r}
+oml_repository <- omlrepo
+omlhashiR::oml_refresh()
+omlhashiR::oml_stop_Daemon(oml_repository)
+
+omlhashiR::oml_build(oml_repository)
+omlhashiR::oml_owlLoad(oml_repository)
+```
+
+
+## Query
+
+```{r}
+library(tansakusuR)
+endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
+```
+
+```{r}
+query_string <-'
+PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
+PREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>
+PREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>
+PREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?c1_localname ?c1_name ?c1_type ?c2_localname ?c2_name
+WHERE {
+	?c1 a mission:Component ;
+	  base:hasCanonicalName ?c1_name .
+    OPTIONAL{
+        ?c1 base:isContainedIn ?c2 .
+        OPTIONAL{
+            ?c2 base:hasCanonicalName ?c2_name .
+        }
+    }
+	# Extract the local name
+    BIND(STRAFTER(STR(?c1), "#") AS ?c1_localname) .
+    BIND(STRAFTER(STR(?c2), "#") AS ?c2_localname) .
+
+	OPTIONAL {
+		?c1 a structure:System ;
+			BIND("structure:System"  AS ?c1_type) .
+	}    
+	OPTIONAL {
+		?c1 a structure:Subsystem ;
+			BIND("structure:Subsystem"  AS ?c1_type) .
+	} 
+	OPTIONAL {
+		?c1 a structure:Assembly ;
+			BIND("structure:Assembly"  AS ?c1_type) .
+	} 
+	OPTIONAL {
+		?c1 a structure:Part ;
+			BIND("structure:Part"  AS ?c1_type) .
+	} 
+}
+ORDER BY ?c1_localname 
+'
+df_query <- tansakusuR::send_query(endpoint_url,query_string)
+datatable(df_query, options = list(pageLength = 20))
+```
+
+
+```{r}
+df2 <- df_query %>%
+  arrange(desc(c2_name))
+
+
+plotCollapsibleTreeFromDataframe(df2, palette="BluYl", parent="c2_name", child="c1_name",type="c1_type")
+
+```
+
+
+```{r}
+df2<- df_query %>% 
+  mutate(owner=c2_name) %>%
+  mutate(name=c1_name) %>%
+  select("owner","name") %>%
+  arrange(desc(owner)) %>%  
+  slice(-n())
+
+
+
+library(networkD3)
+
+networkD3::simpleNetwork(df2)
+
+library(data.tree)
+nd3 <- ToListExplicit(FromDataFrameNetwork(df2), unname = T)
+
+networkD3::diagonalNetwork(List = nd3, fontSize = 10, opacity = 0.9)
+networkD3::radialNetwork(nd3, nodeColour="seagreen")
+
+```
+
+
+
+

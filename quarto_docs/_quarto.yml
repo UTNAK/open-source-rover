@@ -1,0 +1,75 @@
+project:
+  type: book
+  output-dir: public_book
+
+execute: 
+  warning: false
+
+
+book:
+  title: "OSR System Modeling Platform by OML"
+  author: "Yuta Nakajima"
+  date: today
+  chapters:
+    - index.qmd
+    - part: "Base Model"
+      chapters: 
+        - chapters/01_basemodel/components.qmd
+        - chapters/01_basemodel/requirements.qmd
+        - chapters/01_basemodel/functions.qmd
+    - part: "Assembly and Parts"
+      chapters:
+        - chapters/02_assembly_parts/assemblyandparts.qmd
+        - chapters/02_assembly_parts/create_descriptions_assembly.qmd
+        - chapters/02_assembly_parts/create_descriptions_parts.qmd
+    - part: "Timeline Analysis"
+      chapters: 
+        - chapters/03_timeline_analysis/usecase_timeline.qmd
+    - part: "Analysis Tools"
+      chapters: 
+        - sparqlwithr.qmd
+    - references.qmd
+
+  navbar: 
+    background: dark
+    right:
+      - text: "Home"
+        file: index.qmd
+      - text: "oml model"
+        href: https://github.com/UTNAK/open-source-rover/
+      - text: "github(autonomica)"
+        href: https://github.com/autonomica/open-source-rover
+      - icon: github
+        menu:
+          - text: Book Source Code
+            url:  https://github.com/UTNAK/open-source-rover/quarto_docs
+          - text: Book Report an Issue
+            url:  https://github.com/UTNAK/open-source-rover/issues/new
+  
+  sidebar:
+    background: dark
+    logo: cover.png
+    style: docked
+    collapse-level: 4
+  search: 
+    location: sidebar
+
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+     - cosmo
+     - style.scss
+    toc: true
+    toc-location: right
+    number-sections: true
+    number-depth: 3
+    code-block-bg: true
+    
+  pdf:
+    documentclass: scrreprt
+
+
+

@@ -1,0 +1,27 @@
+# Preface {.unnumbered}
+
+This is a repository for the OSR modeling project.    
+
+## Project Summary
+
+Our goal is to develop a rigorous methodology and tool set for behavior modeling using the Ontological Modeling Language (OML).
+A particular domain we focus on is that of requirements, architecting, and validation.
+We use [the JPL Open Source Rover(OSR)](https://github.com/nasa-jpl/open-source-rover/) as a test-bed for prototyping OML vocabularies.
+The methodology adopts the [OpenCAESAR](https://www.opencaesar.io/) and [IMCE vocabularies](https://github.com/opencaesar/imce-vocabularies) from JPL.
+
+
+## OSR: Open Source Rover
+
+[The JPL Open Source Rover: OSR](https://github.com/nasa-jpl/open-source-rover/) is an open source, build it yourself, scaled down version of the 6 wheel rover design that JPL uses to explore the surface of Mars. The Open Source Rover is designed entirely out of consumer off the shelf (COTS) parts. This project is intended to be a teaching and learning experience for those who want to get involved in mechanical engineering, software, electronics, robotics but is also an excellent research platform for rugged terrain. No prior skills or knowledge is required.
+
+
+
+## OML Model for OSR
+
+A parent repository of OSR OML Model is on [github](https://github.com/autonomica/open-source-rover).
+
+
+
+## Behavior Modeling
+
+The methodology adopts the [State Analysis methodology](https://mds.jpl.nasa.gov/public/sa/) and [IMCE vocabularies](https://github.com/opencaesar/imce-vocabularies) from JPL.

@@ -6,6 +6,7 @@ description <http://opencaesar.io/open-source-rover/description/structure/subsys
 
 	instance OSR : structure:System [
 		base:hasIdentifier "C.01"
+		base:hasCanonicalName "Rover System"
 		^structure:hasSubsystem MechanicalSubsystem
 		^structure:hasSubsystem PowerSubsystem
 		^structure:hasSubsystem MobilitySubsystem

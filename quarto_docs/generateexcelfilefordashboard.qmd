@@ -1,0 +1,189 @@
+# Generate Excel Data file for a dashboard
+
+
+```{r}
+source("./osr_common.R")
+```
+
+### Using a package [omlhashiR](https://github.com/UTNAK/omlhashiR) 
+
+```{r}
+library(omlhashiR)
+
+oml_repository <- "../"
+omlhashiR::oml_build(oml_repository)
+omlhashiR::oml_owlLoad(oml_repository)
+```
+
+## Send SPARQL query from R
+
+### Using package "tansakusuR"
+
+```{r}
+# For the first time 
+library(devtools)
+install_github("UTNAK/tansakusuR")
+
+library(tansakusuR)
+```
+
+
+### Set endpoint_url
+
+```{r}
+endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
+```
+
+### Set SPARQL Query
+
+```{r}
+query_string <-'
+PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
+PREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>
+PREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>
+PREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?c1_localname ?c1_id ?c1_name ?c1_type ?c1_partsnumber ?c2_localname ?c2_id ?c2_name
+WHERE {
+	?c1 a mission:Component ;
+		base:hasIdentifier ?c1_id ;
+		base:hasCanonicalName ?c1_name ;
+
+    OPTIONAL{
+        ?c1 base:isContainedIn ?c2 ;
+        OPTIONAL{
+            ?c2 base:hasIdentifier ?c2_id ;
+                base:hasCanonicalName ?c2_name .
+        }
+    }
+	# Extract the local name
+    BIND(STRAFTER(STR(?c1), "#") AS ?c1_localname) .
+    BIND(STRAFTER(STR(?c2), "#") AS ?c2_localname) .
+
+	OPTIONAL {
+		?c1 a structure:System ;
+			BIND("System"  AS ?c1_type) .
+	}
+	OPTIONAL {
+		?c1 a structure:Subsystem ;
+			BIND("Subsystem"  AS ?c1_type) .
+	}
+	OPTIONAL {
+		?c1 a structure:Assembly ;
+			BIND("Assembly"  AS ?c1_type) .
+	}
+	OPTIONAL {
+		?c1 a structure:Part ;
+			BIND("Part"  AS ?c1_type) .
+	}
+	OPTIONAL {
+	  ?c1 structure:hasPartsNumber ?c1_partsnumber .
+	}
+
+}
+ORDER BY ?c1_id
+'
+```
+
+
+### Send Query and show results
+
+```{r}
+data_frame <- send_query(endpoint_url,query_string)
+
+library(DT)
+datatable(data_frame)
+```
+## Tidy data
+```{r}
+
+df <- data.frame(
+  id = data_frame$c1_id,
+  name = data_frame$c1_name,
+  type = data_frame$c1_type,
+  owner = data_frame$c2_name,
+  partsnumber = data_frame$c1_partsnumber
+)
+```
+
+
+### Import from [github](https://github.com/nasa-jpl/open-source-rover/blob/master/parts_list/parts_list.csv)
+
+```{r}
+url <- "https://raw.githubusercontent.com/nasa-jpl/open-source-rover/master/parts_list/parts_list.csv"
+df_csv <- read.csv(url)
+```
+
+
+
+### Tidy Data
+```{r}
+colnames(df_csv) <- c("assembly","short name","partsnumber","long name","link","cost","number req in assy","assembly multiplier")
+
+
+unique(df_csv$assembly)
+c("drive wheel","corner","rocker bogie","body","general")
+unique(df$owner)
+
+
+```
+In parts list, we can observe duplicated parts as follows.
+
+```{r}
+df_csv_dupicated <- df_csv %>% 
+  group_by(`partsnumber`) %>%
+  filter(n()>1) %>%
+  arrange(`partsnumber`) %>%
+  mutate(totalreqs = `number req in assy` * `assembly multiplier`) %>%
+  select("assembly","short name","partsnumber","long name","link","cost","totalreqs")
+```
+
+### これは重複なし
+```{r}
+df_partslist <- df_csv %>%
+  group_by(`partsnumber`) %>%
+  filter(n()<=1) %>%
+  mutate(totalreqs = `number req in assy` * `assembly multiplier`) %>%
+  select("assembly","short name","partsnumber","long name","link","cost","totalreqs")
+```
+
+この重複なしデータと、重複ありデータを統合する。
+
+```{r}
+df_csv_dupicated <- df_csv_dupicated %>% 
+  bind_rows(slice(df_csv_dupicated, 1)) %>%
+  bind_rows(slice(df_csv_dupicated, 3)) 
+
+df_csv_dupicated$assembly[5] <- paste(df_csv_dupicated$assembly[1],df_csv_dupicated$assembly[2],sep = ",")
+df_csv_dupicated$totalreqs[5] <- df_csv_dupicated$totalreqs[1] + df_csv_dupicated$totalreqs[2]
+
+df_csv_dupicated$assembly[6] <- paste(df_csv_dupicated$assembly[3],df_csv_dupicated$assembly[4],sep = ",")
+df_csv_dupicated$totalreqs[6] <- df_csv_dupicated$totalreqs[5] + df_csv_dupicated$totalreqs[6]
+
+df_partslist <- df_partslist %>%
+  bind_rows(df_csv_dupicated[5:6,])
+
+```
+
+```{r}
+#result_df <- merge(df, df_csv, by = "partsnumber")
+
+result_df <- df %>%
+  left_join(df_partslist, by = "partsnumber") 
+
+colnames(result_df) <- c("id","name","type","owner","partsnumber","assembly","shortname","longname","link","cost","totalreqs")
+
+```
+
+
+```{r}
+library(openxlsx)
+excel_file <- "output_file.xlsx"
+
+# Export the data.frame to Excel
+write.xlsx(result_df, excel_file, rowNames = FALSE)
+
+```
+
+
+

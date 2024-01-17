@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>OSR System Modeling Platform by OML - 5&nbsp; Create Assembly Description</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/02_assembly_parts/create_descriptions_parts.html" rel="next">
+<link href="../../chapters/02_assembly_parts/assemblyandparts.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<script src="../../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="../../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="../../site_libs/datatables-binding-0.27/datatables.js"></script>
+<script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="../../site_libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="../../site_libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="../../site_libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="../../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="../../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<script src="../../site_libs/d3-4.10.2/d3.min.js"></script>
+<link href="../../site_libs/collapsibleTree-0.1.6/collapsibleTree.css" rel="stylesheet">
+<script src="../../site_libs/collapsibleTree-binding-0.1.7/collapsibleTree.js"></script>
+<script src="../../site_libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
+<script src="../../site_libs/diagonalNetwork-binding-0.4/diagonalNetwork.js"></script>
+<script src="../../site_libs/radialNetwork-binding-0.4/radialNetwork.js"></script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">OSR System Modeling Platform by OML</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/UTNAK/open-source-rover/" rel="" target="">
+ <span class="menu-text">oml model</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/autonomica/open-source-rover" rel="" target="">
+ <span class="menu-text">github(autonomica)</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-github" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+      <i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-bi-github">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/UTNAK/open-source-rover/quarto_docs" rel="" target="">
+ <span class="dropdown-text">Book Source Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/UTNAK/open-source-rover/issues/new" rel="" target="">
+ <span class="dropdown-text">Book Report an Issue</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/02_assembly_parts/assemblyandparts.html">Assembly and Parts</a></li><li class="breadcrumb-item"><a href="../../chapters/02_assembly_parts/create_descriptions_assembly.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Create Assembly Description</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Base Model</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/01_basemodel/components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">OSR mission:Component</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/01_basemodel/requirements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">OSR mission:Requirement</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/01_basemodel/functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">OSR mission:Function</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Assembly and Parts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_assembly_parts/assemblyandparts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">OSR structure:Assembly and structure:Part</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_assembly_parts/create_descriptions_assembly.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Create Assembly Description</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/02_assembly_parts/create_descriptions_parts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Create Parts Description</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Timeline Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/03_timeline_analysis/usecase_timeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Analysis Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../sparqlwithr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#initialize-oml-file" id="toc-initialize-oml-file" class="nav-link active" data-scroll-target="#initialize-oml-file"><span class="header-section-number">5.1</span> Initialize OML File</a></li>
+  <li><a href="#modeling-mechanical-assembly" id="toc-modeling-mechanical-assembly" class="nav-link" data-scroll-target="#modeling-mechanical-assembly"><span class="header-section-number">5.2</span> Modeling Mechanical Assembly</a>
+  <ul class="collapse">
+  <li><a href="#import-from-github" id="toc-import-from-github" class="nav-link" data-scroll-target="#import-from-github"><span class="header-section-number">5.2.1</span> Import from github</a></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="header-section-number">5.2.2</span> Tidy Data</a></li>
+  <li><a href="#explore-data" id="toc-explore-data" class="nav-link" data-scroll-target="#explore-data"><span class="header-section-number">5.2.3</span> Explore Data</a></li>
+  <li><a href="#modeling-assembly-data" id="toc-modeling-assembly-data" class="nav-link" data-scroll-target="#modeling-assembly-data"><span class="header-section-number">5.2.4</span> Modeling assembly data</a></li>
+  <li><a href="#add-relationship-to-subsystem" id="toc-add-relationship-to-subsystem" class="nav-link" data-scroll-target="#add-relationship-to-subsystem"><span class="header-section-number">5.2.5</span> Add relationship to subsystem</a></li>
+  <li><a href="#add-descriptions-to-assembly" id="toc-add-descriptions-to-assembly" class="nav-link" data-scroll-target="#add-descriptions-to-assembly"><span class="header-section-number">5.2.6</span> Add descriptions to assembly</a></li>
+  <li><a href="#function-to-generate-instance-descriptions." id="toc-function-to-generate-instance-descriptions." class="nav-link" data-scroll-target="#function-to-generate-instance-descriptions."><span class="header-section-number">5.2.7</span> Function to generate instance descriptions.</a></li>
+  <li><a href="#function-to-generate-reference-instance-descriptions." id="toc-function-to-generate-reference-instance-descriptions." class="nav-link" data-scroll-target="#function-to-generate-reference-instance-descriptions."><span class="header-section-number">5.2.8</span> Function to generate reference instance descriptions.</a></li>
+  <li><a href="#output-oml-file" id="toc-output-oml-file" class="nav-link" data-scroll-target="#output-oml-file"><span class="header-section-number">5.2.9</span> Output OML FILE</a></li>
+  <li><a href="#assembly-instances-ok" id="toc-assembly-instances-ok" class="nav-link" data-scroll-target="#assembly-instances-ok"><span class="header-section-number">5.2.10</span> Assembly Instances : OK</a></li>
+  </ul></li>
+  <li><a href="#relation-to-subsystem" id="toc-relation-to-subsystem" class="nav-link" data-scroll-target="#relation-to-subsystem"><span class="header-section-number">6</span> relation to Subsystem</a>
+  <ul class="collapse">
+  <li><a href="#generate-oml-file" id="toc-generate-oml-file" class="nav-link" data-scroll-target="#generate-oml-file"><span class="header-section-number">6.1</span> Generate OML File</a></li>
+  <li><a href="#validate-model" id="toc-validate-model" class="nav-link" data-scroll-target="#validate-model"><span class="header-section-number">6.2</span> Validate Model</a></li>
+  <li><a href="#query" id="toc-query" class="nav-link" data-scroll-target="#query"><span class="header-section-number">6.3</span> Query</a>
+  <ul class="collapse">
+  <li><a href="#extract-missioncomponent-hierarchy" id="toc-extract-missioncomponent-hierarchy" class="nav-link" data-scroll-target="#extract-missioncomponent-hierarchy"><span class="header-section-number">6.3.1</span> Extract mission:Component Hierarchy</a></li>
+  <li><a href="#some-visualization-experiments" id="toc-some-visualization-experiments" class="nav-link" data-scroll-target="#some-visualization-experiments"><span class="header-section-number">6.3.2</span> Some visualization experiments</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Create Assembly Description</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"../../osr_common.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="initialize-oml-file" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="initialize-oml-file"><span class="header-section-number">5.1</span> Initialize OML File</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>outputdir <span class="ot">&lt;-</span> <span class="fu">paste0</span>(omlrepo,<span class="st">"src/oml/opencaesar.io/open-source-rover/description/assembly/"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>outputfile <span class="ot">&lt;-</span> <span class="fu">paste0</span>(outputdir, <span class="st">"assembly.oml"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>init_oml_file <span class="ot">&lt;-</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">"description &lt;http://opencaesar.io/open-source-rover/description/assembly/assembly#&gt; as assembly {</span><span class="sc">\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="at">file=</span>outputfile, init_oml_file)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>outputfile <span class="ot">&lt;-</span> <span class="fu">paste0</span>(outputdir, <span class="st">"parts.oml"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>init_oml_file <span class="ot">&lt;-</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">"description &lt;http://opencaesar.io/open-source-rover/description/assembly/parts#&gt; as parts {</span><span class="sc">\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="at">file=</span>outputfile, init_oml_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="modeling-mechanical-assembly" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="modeling-mechanical-assembly"><span class="header-section-number">5.2</span> Modeling Mechanical Assembly</h2>
+<p>“Assembly” descriptions are created from <a href="https://github.com/nasa-jpl/open-source-rover/blob/master/parts_list/parts_list.csv">parts_list</a></p>
+<section id="import-from-github" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="import-from-github"><span class="header-section-number">5.2.1</span> Import from <a href="https://github.com/nasa-jpl/open-source-rover/blob/master/parts_list/parts_list.csv">github</a></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/nasa-jpl/open-source-rover/master/parts_list/parts_list.csv"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_csv <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tidy-data" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="tidy-data"><span class="header-section-number">5.2.2</span> Tidy Data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_csv) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"assembly"</span>,<span class="st">"short name"</span>,<span class="st">"part number"</span>,<span class="st">"long name"</span>,<span class="st">"link"</span>,<span class="st">"cost"</span>,<span class="st">"number req in assy"</span>,<span class="st">"assembly multiplier"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="explore-data" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="explore-data"><span class="header-section-number">5.2.3</span> Explore Data</h3>
+<section id="parts" class="level4">
+<h4 class="anchored" data-anchor-id="parts">Parts</h4>
+<p>In parts list, we can observe duplicated parts as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_csv <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">part number</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>()<span class="sc">&gt;</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="st">`</span><span class="at">part number</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 8
+# Groups:   part number [2]
+  assembly     `short name`     `part number`  `long name`           link  cost 
+  &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;                 &lt;chr&gt; &lt;chr&gt;
+1 rocker bogie 3x5 grid plate   1116-0024-0040 1116 Series Grid Pla… http… $1.29
+2 body         3x5 grid plate   1116-0024-0040 1116 Series Grid Pla… http… $1.29
+3 drive wheel  2 Hole U channel 1120-0002-0072 1120 Series U-Channe… http… $4.99
+4 body         2 Hole U channel 1120-0002-0072 1120 Series U-Channe… http… $4.99
+# ℹ 2 more variables: `number req in assy` &lt;dbl&gt;, `assembly multiplier` &lt;int&gt;</code></pre>
+</div>
+</div>
+<p>The part numbers are the same, but the part names and properties are slightly different.</p>
+</section>
+<section id="assembly" class="level4">
+<h4 class="anchored" data-anchor-id="assembly">Assembly</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df_csv<span class="sc">$</span>assembly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "drive wheel"  "corner"       "rocker bogie" "body"         "general"     </code></pre>
+</div>
+</div>
+<p>Data is grouped by “assembly”.</p>
+<ul>
+<li><a href="https://github.com/nasa-jpl/open-source-rover/tree/master/mechanical/wheel_assembly">drive wheel</a></li>
+<li><a href="https://github.com/nasa-jpl/open-source-rover/tree/master/mechanical/wheel_assembly#four-corner-assemblies">corner</a></li>
+<li><a href="https://github.com/nasa-jpl/open-source-rover/tree/master/mechanical/rocker_bogie">rocker bogie</a></li>
+<li><a href="https://github.com/nasa-jpl/open-source-rover/tree/master/mechanical/body">body</a></li>
+<li><a href="https://github.com/nasa-jpl/open-source-rover/tree/master/mechanical/body">general</a></li>
+</ul>
+<p>This means <code>An "Assembly" has "Part"s</code>.</p>
+<p>So we will add <code>structure:Part</code> and <code>structure:Assembly</code> as a specialization of mission:Component to our <a href="https://github.com/UTNAK/open-source-rover/blob/main/src/oml/opencaesar.io/open-source-rover/vocabulary/structure.oml">oml model</a>.</p>
+<p>a <code>structure:Subsystem</code> has a <code>structure:Assembly</code>.<br>
+a <code>structure:Assembly</code> has a <code>structure:Part</code>.</p>
+<p>The updated model is shown below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vocabulary</span> <span class="op">&lt;</span>http://opencaesar.io/open-source-rover/vocabulary/structure#<span class="op">&gt;</span> as ^structure {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">extends</span> <span class="op">&lt;</span>http://imce.jpl.nasa.gov/foundation/mission#<span class="op">&gt;</span> as mission</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">extends</span> <span class="op">&lt;</span>http://imce.jpl.nasa.gov/foundation/base#<span class="op">&gt;</span> as base</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">concept</span> System <span class="op">&lt;</span> mission:Component</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">concept</span> Subsystem <span class="op">&lt;</span> mission:Component</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">relation</span> hasSubsystem [</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="ex">from</span> System</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="ex">to</span> Subsystem</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">]</span> <span class="op">&lt;</span> base:contains</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">concept</span> Assembly <span class="op">&lt;</span> mission:Component</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="ex">relation</span> hasAssembly [</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        <span class="ex">from</span> Subsystem</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="ex">to</span> Assembly</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="ex">]</span> <span class="op">&lt;</span> base:contains</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="ex">concept</span> Part <span class="op">&lt;</span> mission:Component</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="ex">relation</span> hasPart [</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        <span class="ex">from</span> Assembly</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        <span class="ex">to</span> Part</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">]</span> <span class="op">&lt;</span> base:contains</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once we add new vocabulary, let’s check the consistency of our model using <code>owlReason</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(omlhashiR)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># oml_repository &lt;- "../open-source-rover/"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>oml_repository <span class="ot">&lt;-</span> omlrepo</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_refresh</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "kill success for pid=83357"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_stop_Daemon</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "No Gradle daemons are running."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_build</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Starting a Gradle Daemon (subsequent builds will be faster)"
+ [2] "&gt; Task :omlZip"                                             
+ [3] "&gt; Task :assemble"                                           
+ [4] "&gt; Task :downloadDependencies UP-TO-DATE"                    
+ [5] "&gt; Task :omlToOwl"                                           
+ [6] "&gt; Task :owlReason"                                          
+ [7] "&gt; Task :check"                                              
+ [8] "&gt; Task :build"                                              
+ [9] ""                                                           
+[10] "BUILD SUCCESSFUL in 7s"                                     
+[11] "4 actionable tasks: 3 executed, 1 up-to-date"               </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "&gt; Task :downloadDependencies UP-TO-DATE"                                                      
+ [2] "&gt; Task :omlToOwl UP-TO-DATE"                                                                  
+ [3] "&gt; Task :owlReason UP-TO-DATE"                                                                 
+ [4] ""                                                                                             
+ [5] "&gt; Task :startFuseki"                                                                          
+ [6] "Fuseki server has now successfully started with pid=70966, listening on http://localhost:3030"
+ [7] ""                                                                                             
+ [8] "&gt; Task :owlLoad"                                                                              
+ [9] ""                                                                                             
+[10] "BUILD SUCCESSFUL in 5s"                                                                       
+[11] "5 actionable tasks: 2 executed, 3 up-to-date"                                                 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="modeling-assembly-data" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="modeling-assembly-data"><span class="header-section-number">5.2.4</span> Modeling assembly data</h3>
+<p>The descriptions of assemblies between <a href="https://github.com/nasa-jpl/open-source-rover/blob/master/parts_list/parts_list.csv">parts_list</a> and <a href="https://cad.onshape.com/documents/e4f00b1a3d2edb1a84bbba1c/w/8ab8f394324bcc586236ef5d/e/9191e5ad2a70f387b419bc55">CAD model</a> are different.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../img/cadmodel.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">OSR CAD Model</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We chose assembly definitions from the <a href="https://cad.onshape.com/documents/e4f00b1a3d2edb1a84bbba1c/w/8ab8f394324bcc586236ef5d/e/9191e5ad2a70f387b419bc55">CAD model</a>.</p>
+<p>Below assembly data is a description for <code>structure:Assembly</code>in OML model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_instance_assembly <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Body Assembly"</span>, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Drive Wheel Assembly-1"</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Drive Wheel Assembly-2"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Corner Wheel Assembly-1"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Corner Wheel Assembly-2"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Corner Wheel Assembly-3"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Corner Wheel Assembly-4"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Rocker Bogie Suspension Assembly-1"</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Rocker Bogie Suspension Assembly-2"</span>,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Mechanical Harness"</span>),</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">instancename =</span> <span class="fu">c</span>(<span class="st">"body-assembly"</span>,</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"drive-wheel-assembly-1"</span>,</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"drive-wheel-assembly-2"</span>,</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"corner-wheel-assembly-1"</span>,</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"corner-wheel-assembly-2"</span>,</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"corner-wheel-assembly-3"</span>,</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"corner-wheel-assembly-4"</span>,</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"rocker-bogie-suspension-assembly-1"</span>,</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"rocker-bogie-suspension-assembly-2"</span>,</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"mechanical-harness"</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>                  )</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">"assembly"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hasDescription =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="add-relationship-to-subsystem" class="level3" data-number="5.2.5">
+<h3 data-number="5.2.5" class="anchored" data-anchor-id="add-relationship-to-subsystem"><span class="header-section-number">5.2.5</span> Add relationship to subsystem</h3>
+<p>We define the relationship between assemblies and subsystems as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_instance_assembly <span class="ot">&lt;-</span> df_instance_assembly <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ownedSubsystem =</span><span class="fu">c</span>(<span class="st">"subsystems:MechanicalSubsystem"</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"subsystems:MobilitySubsystem"</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"subsystems:MobilitySubsystem"</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"subsystems:MobilitySubsystem"</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"subsystems:MobilitySubsystem"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"subsystems:MobilitySubsystem"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"subsystems:MobilitySubsystem"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"subsystems:MechanicalSubsystem"</span>,</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"subsystems:MechanicalSubsystem"</span>,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"subsystems:MechanicalSubsystem"</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>                           )</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>         )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="add-descriptions-to-assembly" class="level3" data-number="5.2.6">
+<h3 data-number="5.2.6" class="anchored" data-anchor-id="add-descriptions-to-assembly"><span class="header-section-number">5.2.6</span> Add descriptions to assembly</h3>
+<section id="rocker-bogie-suspension" class="level4">
+<h4 class="anchored" data-anchor-id="rocker-bogie-suspension"><a href="https://github.com/nasa-jpl/open-source-rover/tree/master/mechanical/rocker_bogie">Rocker-Bogie Suspension</a></h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>text <span class="ot">&lt;-</span> <span class="st">"The Rocker-Bogie is the suspension system that enables the rover to climb aggressive obstacles. The design allows all 6 wheels to be in contact with the ground as much as possible, increasing traction. The suspension system on a typical consumer vehicle can traverse obstacles about half the height of one wheel; the Rocker-Bogie suspension system can traverse obstacles over 2 times the height of the wheel."</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df_instance_assembly<span class="sc">$</span>hasDescription[df_instance_assembly<span class="sc">$</span>name<span class="sc">==</span><span class="st">"Rocker Bogie Suspension Assembly-1"</span>] <span class="ot">&lt;-</span> text</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>df_instance_assembly<span class="sc">$</span>hasDescription[df_instance_assembly<span class="sc">$</span>name<span class="sc">==</span><span class="st">"Rocker Bogie Suspension Assembly-2"</span>] <span class="ot">&lt;-</span> text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="function-to-generate-instance-descriptions." class="level3" data-number="5.2.7">
+<h3 data-number="5.2.7" class="anchored" data-anchor-id="function-to-generate-instance-descriptions."><span class="header-section-number">5.2.7</span> Function to generate instance descriptions.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>generateAssemblyDescriptions <span class="ot">&lt;-</span> <span class="cf">function</span>(df){</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  df_in <span class="ot">&lt;-</span> df</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  text <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"// Assembly Instances</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  text_instance <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_in)){</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    id <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"A"</span>, <span class="st">"."</span>, <span class="fu">formatC</span>(i, <span class="at">width =</span> <span class="dv">2</span>, <span class="at">flag=</span><span class="st">"0"</span>))</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    type <span class="ot">&lt;-</span> <span class="st">"structure:Assembly"</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    text_instance <span class="ot">&lt;-</span> <span class="fu">paste0</span>(text_instance,</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"    instance "</span>, df_in<span class="sc">$</span>instancename[i], <span class="st">" : "</span>, type, <span class="st">" ["</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"        base:hasIdentifier </span><span class="sc">\"</span><span class="st">"</span>, id,<span class="st">"</span><span class="sc">\"\n</span><span class="st">"</span>,</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"        base:hasCanonicalName </span><span class="sc">\"</span><span class="st">"</span>,df_in<span class="sc">$</span>name[i],<span class="st">"</span><span class="sc">\"\n</span><span class="st">"</span>,</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"        base:hasShortName </span><span class="sc">\"</span><span class="st">"</span>,df_in<span class="sc">$</span>name[i],<span class="st">"</span><span class="sc">\"\n</span><span class="st">"</span>,</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"        base:hasDescription </span><span class="sc">\"</span><span class="st">"</span>,df_in<span class="sc">$</span>hasDescription[i],<span class="st">"</span><span class="sc">\"\n</span><span class="st">"</span>,</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"    ]</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>                   )</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  text <span class="ot">&lt;-</span> <span class="fu">paste0</span>(text, text_instance)</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(text)</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="function-to-generate-reference-instance-descriptions." class="level3" data-number="5.2.8">
+<h3 data-number="5.2.8" class="anchored" data-anchor-id="function-to-generate-reference-instance-descriptions."><span class="header-section-number">5.2.8</span> Function to generate reference instance descriptions.</h3>
+<p>This function generates ref instance following below pattern.</p>
+<pre><code>    ref instance subsystems:MechanicalSubsystem [
+        ^structure:hasAssembly body-assembly
+    ]</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>generateSubsystemRefDescriptions <span class="ot">&lt;-</span> <span class="cf">function</span>(df){</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># df &lt;- df_instance_assembly # for debug</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  subsystem <span class="ot">&lt;-</span> <span class="fu">as.list</span>(<span class="fu">unique</span>(df<span class="sc">$</span>ownedSubsystem))</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  text <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"//ref to Subsystem"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  text_ref <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(subsystem)){</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    ref_instance <span class="ot">&lt;-</span> subsystem[j]</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    df_instance <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(df<span class="sc">$</span>ownedSubsystem <span class="sc">==</span> ref_instance)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    text_ref <span class="ot">&lt;-</span> <span class="fu">paste0</span>(text_ref,</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"    ref instance "</span>, ref_instance, <span class="st">" ["</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>                   )</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_instance)){</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>      text_ref <span class="ot">&lt;-</span> <span class="fu">paste0</span>(text_ref,</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"      ^structure:hasAssembly "</span>, df_instance<span class="sc">$</span>instancename[i],<span class="st">"</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>                     )</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    text_ref <span class="ot">&lt;-</span> <span class="fu">paste0</span>(text_ref,</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"    ]</span><span class="sc">\n\n</span><span class="st">"</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>                       )</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>  text <span class="ot">&lt;-</span> <span class="fu">paste0</span>(text, text_ref)</span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(text)</span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>}   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="output-oml-file" class="level3" data-number="5.2.9">
+<h3 data-number="5.2.9" class="anchored" data-anchor-id="output-oml-file"><span class="header-section-number">5.2.9</span> Output OML FILE</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># outputdir &lt;- "~/Workspaces/gitlab/OSR_local/open-source-rover/src/oml/opencaesar.io/open-source-rover/description/assembly/"</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#outputdir &lt;-"./open-source-rover/src/oml/opencaesar.io/open-source-rover/description/assembly/"</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outputdir &lt;-"./"</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>outputfile <span class="ot">&lt;-</span> <span class="fu">paste0</span>(outputdir, <span class="st">"assembly.oml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>assemly.omlのフレーム作成</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>omldescriptions <span class="ot">&lt;-</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="st">"description &lt;http://opencaesar.io/open-source-rover/description/assembly/assembly#&gt; as assembly {</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="st">    </span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="st">    uses &lt;http://imce.jpl.nasa.gov/foundation/base#&gt; as base</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="st">    uses &lt;http://opencaesar.io/open-source-rover/vocabulary/structure#&gt; as ^structure</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="st">  extends &lt;http://opencaesar.io/open-source-rover/description/structure/subsystems#&gt; as subsystems</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="assembly-instances-ok" class="level3" data-number="5.2.10">
+<h3 data-number="5.2.10" class="anchored" data-anchor-id="assembly-instances-ok"><span class="header-section-number">5.2.10</span> Assembly Instances : OK</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>instance <span class="ot">&lt;-</span> <span class="fu">generateAssemblyDescriptions</span>(df_instance_assembly)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># cat(instance)</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>omldescriptions <span class="ot">&lt;-</span> <span class="fu">paste0</span>(omldescriptions, instance,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="relation-to-subsystem" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> relation to Subsystem</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>ref_instance <span class="ot">&lt;-</span> <span class="fu">generateSubsystemRefDescriptions</span>(df_instance_assembly)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(ref_instance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>//ref to Subsystem
+    ref instance subsystems:MechanicalSubsystem [
+        ^structure:hasAssembly body-assembly
+        ^structure:hasAssembly rocker-bogie-suspension-assembly-1
+        ^structure:hasAssembly rocker-bogie-suspension-assembly-2
+        ^structure:hasAssembly mechanical-harness
+    ]
+
+    ref instance subsystems:MobilitySubsystem [
+        ^structure:hasAssembly drive-wheel-assembly-1
+        ^structure:hasAssembly drive-wheel-assembly-2
+        ^structure:hasAssembly corner-wheel-assembly-1
+        ^structure:hasAssembly corner-wheel-assembly-2
+        ^structure:hasAssembly corner-wheel-assembly-3
+        ^structure:hasAssembly corner-wheel-assembly-4
+    ]</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>omldescriptions <span class="ot">&lt;-</span> <span class="fu">paste0</span>(omldescriptions, ref_instance,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="generate-oml-file" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="generate-oml-file"><span class="header-section-number">6.1</span> Generate OML File</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>omldescriptions <span class="ot">&lt;-</span> <span class="fu">paste0</span>(omldescriptions,<span class="st">"</span><span class="sc">\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="at">file=</span>outputfile, omldescriptions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="validate-model" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="validate-model"><span class="header-section-number">6.2</span> Validate Model</h2>
+<p>Before we check the model, add below codes to the description bundle.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">includes</span> <span class="op">&lt;</span>http://opencaesar.io/open-source-rover/description/assembly/assembly#<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_build</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "&gt; Task :omlZip"                              
+ [2] "&gt; Task :assemble"                            
+ [3] "&gt; Task :downloadDependencies UP-TO-DATE"     
+ [4] "&gt; Task :omlToOwl"                            
+ [5] "&gt; Task :owlReason"                           
+ [6] "&gt; Task :check"                               
+ [7] "&gt; Task :build"                               
+ [8] ""                                            
+ [9] "BUILD SUCCESSFUL in 1s"                      
+[10] "4 actionable tasks: 3 executed, 1 up-to-date"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "&gt; Task :downloadDependencies UP-TO-DATE"     
+[2] "&gt; Task :omlToOwl UP-TO-DATE"                 
+[3] "&gt; Task :owlReason UP-TO-DATE"                
+[4] "&gt; Task :startFuseki UP-TO-DATE"              
+[5] "&gt; Task :owlLoad"                             
+[6] ""                                            
+[7] "BUILD SUCCESSFUL in 1s"                      
+[8] "5 actionable tasks: 1 executed, 4 up-to-date"</code></pre>
+</div>
+</div>
+</section>
+<section id="query" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="query"><span class="header-section-number">6.3</span> Query</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tansakusuR)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>endpoint_url <span class="ot">&lt;-</span> <span class="st">"http://localhost:3030/open-source-rover/sparql"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="extract-missioncomponent-hierarchy" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="extract-missioncomponent-hierarchy"><span class="header-section-number">6.3.1</span> Extract mission:Component Hierarchy</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>query_string <span class="ot">&lt;-</span><span class="st">'</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX base:        &lt;http://imce.jpl.nasa.gov/foundation/base#&gt;</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX mission:     &lt;http://imce.jpl.nasa.gov/foundation/mission#&gt;</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX structure:   &lt;http://opencaesar.io/open-source-rover/vocabulary/structure#&gt;</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX rdfs:        &lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT DISTINCT ?c1_localname ?c1_name ?c1_type ?c2_localname ?c2_name</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE {</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="st">    ?c1 a mission:Component ;</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="st">      base:hasCanonicalName ?c1_name .</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL{</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 base:isContainedIn ?c2 .</span></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="st">        OPTIONAL{</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="st">            ?c2 base:hasCanonicalName ?c2_name .</span></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="st">        }</span></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a><span class="st">    # Extract the local name</span></span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="st">    BIND(STRAFTER(STR(?c1), "#") AS ?c1_localname) .</span></span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a><span class="st">    BIND(STRAFTER(STR(?c2), "#") AS ?c2_localname) .</span></span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:System ;</span></span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:System"  AS ?c1_type) .</span></span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a><span class="st">    }    </span></span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:Subsystem ;</span></span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:Subsystem"  AS ?c1_type) .</span></span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a><span class="st">    } </span></span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
+<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:Assembly ;</span></span>
+<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:Assembly"  AS ?c1_type) .</span></span>
+<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a><span class="st">    } </span></span>
+<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY ?c1_localname </span></span>
+<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb37-36"><a href="#cb37-36" aria-hidden="true" tabindex="-1"></a>df_query <span class="ot">&lt;-</span> tansakusuR<span class="sc">::</span><span class="fu">send_query</span>(endpoint_url,query_string)</span>
+<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df_query, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1cb8c50f3ae550076641" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1cb8c50f3ae550076641">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"],["CDHSubsystem","ControlSubsystem","MechanicalSubsystem","MobilitySubsystem","NavigationSubsystem","OSR","PowerSubsystem","body-assembly","corner-wheel-assembly-1","corner-wheel-assembly-2","corner-wheel-assembly-3","corner-wheel-assembly-4","drive-wheel-assembly-1","drive-wheel-assembly-2","mechanical-harness","rocker-bogie-suspension-assembly-1","rocker-bogie-suspension-assembly-2"],["CDH Subsystem","Control Subsystem","Mechanical Subsystem","Mobility Subsystem","Navigation Subsystem","Rover System","Power Subsystem","Body Assembly","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Mechanical Harness","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2"],["structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:System","structure:Subsystem","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly"],["OSR","OSR","OSR","OSR","OSR",null,"OSR","MechanicalSubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem"],["Rover System","Rover System","Rover System","Rover System","Rover System",null,"Rover System","Mechanical Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df_query <span class="ot">&lt;-</span> df_query <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(df_query<span class="sc">$</span>c1_type <span class="sc">!=</span> <span class="st">"structure:Part"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(c2_name))</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCollapsibleTreeFromDataframe</span>(df_query, <span class="at">palette=</span><span class="st">"BluYl"</span>, <span class="at">parent=</span><span class="st">"c2_name"</span>, <span class="at">child=</span><span class="st">"c1_name"</span>,<span class="at">type=</span><span class="st">"c1_type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="collapsibleTree html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1ebff26bf5d4dc412bba" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-1ebff26bf5d4dc412bba">{"x":{"data":{"name":"Rover System","fill":"#F9FFAF","WeightOfNode":14,"children":[{"name":"CDH Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Control Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Mechanical Subsystem","fill":"#2E4F79","WeightOfNode":4,"children":[{"name":"Body Assembly","fill":"#46B09B","WeightOfNode":1},{"name":"Mechanical Harness","fill":"#46B09B","WeightOfNode":1},{"name":"Rocker Bogie Suspension Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Rocker Bogie Suspension Assembly-2","fill":"#46B09B","WeightOfNode":1}]},{"name":"Mobility Subsystem","fill":"#2E4F79","WeightOfNode":6,"children":[{"name":"Corner Wheel Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-2","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-3","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-4","fill":"#46B09B","WeightOfNode":1},{"name":"Drive Wheel Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Drive Wheel Assembly-2","fill":"#46B09B","WeightOfNode":1}]},{"name":"Navigation Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Power Subsystem","fill":"#2E4F79","WeightOfNode":1}]},"options":{"hierarchy":[1,2,3],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":10,"tooltip":true,"collapsed":false,"zoomable":true,"margin":{"top":20,"bottom":20,"left":85,"right":195}}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="some-visualization-experiments" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="some-visualization-experiments"><span class="header-section-number">6.3.2</span> Some visualization experiments</h3>
+<section id="networkd3simplenetwork" class="level4">
+<h4 class="anchored" data-anchor-id="networkd3simplenetwork">networkD3::simpleNetwork</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df2<span class="ot">&lt;-</span> df_query <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">owner=</span>c2_name) <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name=</span>c1_name) <span class="sc">%&gt;%</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">"owner"</span>,<span class="st">"name"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(owner)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="fu">n</span>())</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(networkD3)</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>networkD3<span class="sc">::</span><span class="fu">simpleNetwork</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="forceNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-47129d5e1c6e41b34d14" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-47129d5e1c6e41b34d14">{"x":{"links":{"source":[16,16,16,16,16,16,11,11,11,11,11,11,10,10,10,10],"target":[1,2,10,11,12,13,3,4,5,6,7,8,0,9,14,15],"value":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["Body Assembly","CDH Subsystem","Control Subsystem","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Mechanical Harness","Mechanical Subsystem","Mobility Subsystem","Navigation Subsystem","Power Subsystem","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2","Rover System"],"group":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"nodesize":[8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#3182bd'])","fontSize":7,"fontFamily":"serif","clickTextSize":17.5,"linkDistance":50,"linkWidth":"'1.5px'.toString()","charge":-30,"opacity":0.6,"zoom":false,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="networkd3diagonalnetwor" class="level4">
+<h4 class="anchored" data-anchor-id="networkd3diagonalnetwor">networkD3::diagonalNetwor</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.tree)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>nd3 <span class="ot">&lt;-</span> <span class="fu">ToListExplicit</span>(<span class="fu">FromDataFrameNetwork</span>(df2), <span class="at">unname =</span> T)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>networkD3<span class="sc">::</span><span class="fu">diagonalNetwork</span>(<span class="at">List =</span> nd3, <span class="at">fontSize =</span> <span class="dv">10</span>, <span class="at">opacity =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="diagonalNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-409f082b4ec5612c0ecd" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-409f082b4ec5612c0ecd">{"x":{"root":{"name":"Rover System","children":[{"name":"CDH Subsystem"},{"name":"Control Subsystem"},{"name":"Mechanical Subsystem","children":[{"name":"Body Assembly"},{"name":"Mechanical Harness"},{"name":"Rocker Bogie Suspension Assembly-1"},{"name":"Rocker Bogie Suspension Assembly-2"}]},{"name":"Mobility Subsystem","children":[{"name":"Corner Wheel Assembly-1"},{"name":"Corner Wheel Assembly-2"},{"name":"Corner Wheel Assembly-3"},{"name":"Corner Wheel Assembly-4"},{"name":"Drive Wheel Assembly-1"},{"name":"Drive Wheel Assembly-2"}]},{"name":"Navigation Subsystem"},{"name":"Power Subsystem"}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"#fff","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="networkd3radialnetwork" class="level4">
+<h4 class="anchored" data-anchor-id="networkd3radialnetwork">networkD3::radialNetwork</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>networkD3<span class="sc">::</span><span class="fu">radialNetwork</span>(nd3, <span class="at">nodeColour=</span><span class="st">"seagreen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="radialNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e843fe047d977538537d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-e843fe047d977538537d">{"x":{"root":{"name":"Rover System","children":[{"name":"CDH Subsystem"},{"name":"Control Subsystem"},{"name":"Mechanical Subsystem","children":[{"name":"Body Assembly"},{"name":"Mechanical Harness"},{"name":"Rocker Bogie Suspension Assembly-1"},{"name":"Rocker Bogie Suspension Assembly-2"}]},{"name":"Mobility Subsystem","children":[{"name":"Corner Wheel Assembly-1"},{"name":"Corner Wheel Assembly-2"},{"name":"Corner Wheel Assembly-3"},{"name":"Corner Wheel Assembly-4"},{"name":"Drive Wheel Assembly-1"},{"name":"Drive Wheel Assembly-2"}]},{"name":"Navigation Subsystem"},{"name":"Power Subsystem"}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"seagreen","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/02_assembly_parts/assemblyandparts.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">OSR structure:Assembly and structure:Part</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/02_assembly_parts/create_descriptions_parts.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Create Parts Description</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

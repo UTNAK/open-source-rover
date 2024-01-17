@@ -1,0 +1,25 @@
+# OSR structure:Assembly and structure:Part
+
+<TBD>
+
+## Summary
+
+This is a demonstration of vocabulary concept for the component dashboard.
+
+- [Dashboard Prototype](https://utnak.gitlab.io/osr-dashboard)
+
+
+## Methodology
+
+![Methodology](../../img/dashboard.png)
+
+## Business Questions
+
+## Vocabulary
+
+## Descriptions
+
+## Analysis
+
+## Visualize
+

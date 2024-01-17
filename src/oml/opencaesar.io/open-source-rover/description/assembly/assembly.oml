@@ -1,0 +1,89 @@
+description <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly {
+	
+	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+	uses <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure
+
+  extends <http://opencaesar.io/open-source-rover/description/structure/subsystems#> as subsystems
+  
+// Assembly Instances
+	instance body-assembly : structure:Assembly [
+		base:hasIdentifier "A.01"
+		base:hasCanonicalName "Body Assembly"
+		base:hasShortName "Body Assembly"
+		base:hasDescription ""
+	]
+	instance drive-wheel-assembly-1 : structure:Assembly [
+		base:hasIdentifier "A.02"
+		base:hasCanonicalName "Drive Wheel Assembly-1"
+		base:hasShortName "Drive Wheel Assembly-1"
+		base:hasDescription ""
+	]
+	instance drive-wheel-assembly-2 : structure:Assembly [
+		base:hasIdentifier "A.03"
+		base:hasCanonicalName "Drive Wheel Assembly-2"
+		base:hasShortName "Drive Wheel Assembly-2"
+		base:hasDescription ""
+	]
+	instance corner-wheel-assembly-1 : structure:Assembly [
+		base:hasIdentifier "A.04"
+		base:hasCanonicalName "Corner Wheel Assembly-1"
+		base:hasShortName "Corner Wheel Assembly-1"
+		base:hasDescription ""
+	]
+	instance corner-wheel-assembly-2 : structure:Assembly [
+		base:hasIdentifier "A.05"
+		base:hasCanonicalName "Corner Wheel Assembly-2"
+		base:hasShortName "Corner Wheel Assembly-2"
+		base:hasDescription ""
+	]
+	instance corner-wheel-assembly-3 : structure:Assembly [
+		base:hasIdentifier "A.06"
+		base:hasCanonicalName "Corner Wheel Assembly-3"
+		base:hasShortName "Corner Wheel Assembly-3"
+		base:hasDescription ""
+	]
+	instance corner-wheel-assembly-4 : structure:Assembly [
+		base:hasIdentifier "A.07"
+		base:hasCanonicalName "Corner Wheel Assembly-4"
+		base:hasShortName "Corner Wheel Assembly-4"
+		base:hasDescription ""
+	]
+	instance rocker-bogie-suspension-assembly-1 : structure:Assembly [
+		base:hasIdentifier "A.08"
+		base:hasCanonicalName "Rocker Bogie Suspension Assembly-1"
+		base:hasShortName "Rocker Bogie Suspension Assembly-1"
+		base:hasDescription "The Rocker-Bogie is the suspension system that enables the rover to climb aggressive obstacles. The design allows all 6 wheels to be in contact with the ground as much as possible, increasing traction. The suspension system on a typical consumer vehicle can traverse obstacles about half the height of one wheel; the Rocker-Bogie suspension system can traverse obstacles over 2 times the height of the wheel."
+	]
+	instance rocker-bogie-suspension-assembly-2 : structure:Assembly [
+		base:hasIdentifier "A.09"
+		base:hasCanonicalName "Rocker Bogie Suspension Assembly-2"
+		base:hasShortName "Rocker Bogie Suspension Assembly-2"
+		base:hasDescription "The Rocker-Bogie is the suspension system that enables the rover to climb aggressive obstacles. The design allows all 6 wheels to be in contact with the ground as much as possible, increasing traction. The suspension system on a typical consumer vehicle can traverse obstacles about half the height of one wheel; the Rocker-Bogie suspension system can traverse obstacles over 2 times the height of the wheel."
+	]
+	instance mechanical-harness : structure:Assembly [
+		base:hasIdentifier "A.10"
+		base:hasCanonicalName "Mechanical Harness"
+		base:hasShortName "Mechanical Harness"
+		base:hasDescription ""
+	]
+
+//ref to Subsystem
+	ref instance subsystems:MechanicalSubsystem [
+		^structure:hasAssembly body-assembly
+		^structure:hasAssembly rocker-bogie-suspension-assembly-1
+		^structure:hasAssembly rocker-bogie-suspension-assembly-2
+		^structure:hasAssembly mechanical-harness
+	]
+
+	ref instance subsystems:MobilitySubsystem [
+		^structure:hasAssembly drive-wheel-assembly-1
+		^structure:hasAssembly drive-wheel-assembly-2
+		^structure:hasAssembly corner-wheel-assembly-1
+		^structure:hasAssembly corner-wheel-assembly-2
+		^structure:hasAssembly corner-wheel-assembly-3
+		^structure:hasAssembly corner-wheel-assembly-4
+	]
+
+
+
+}

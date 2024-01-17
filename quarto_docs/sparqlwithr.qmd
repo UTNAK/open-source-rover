@@ -1,0 +1,161 @@
+# OML + Gradle + SPARQL + R
+
+This page introduces one way to seamlessly connect [openCAESAR](https://www.opencaesar.io/) processes using the [R](https://www.r-project.org/about.html).
+
+
+[OML projects](https://www.opencaesar.io/oml-tutorials/#getting-ready) created by [openCAESAR](https://www.opencaesar.io/) are [Gradle projects](https://docs.gradle.org/current/userguide/gradle_basics.html) that have OML analysis tools configured as Gradle tasks in a build.gradle script. A user can invoke Gradle tasks from a console/terminal session using the Gradle Wrapper Command-Line Interface (e.g., ./gradlew owlLoad). The supported OML editors such as [OML Rosetta](https://github.com/opencaesar/oml-rosetta) and [OML Luxor](https://github.com/opencaesar/oml-luxor) allow invoking those Gradle tasks using a UI.
+
+In the MBSE practice using openCAESAR, the vocabularies are described to answer analysis questions. Typically, the process is iterative. Build OML vocabularies and descriptions, write queries in the SPARQL language for analysis, and modify the model based on the query results in an exploratory manner.
+
+We introduce two packages to improve the reproducibility of the exploratory modeling process with documentation tools such as [R Markdown](https://rmarkdown.rstudio.com/) and [Quarto](https://quarto.org/).
+
+
+- [omlhashiR](https://github.com/UTNAK/omlhashiR) 
+  - We use a package [omlhashiR](https://github.com/UTNAK/omlhashiR) as a wrapper to run Gradle tasks of OML projects from R.
+
+- [tansakusuR](https://github.com/UTNAK/tansakusuR)
+  - We use a package [tansakusuR](https://github.com/UTNAK/tansakusuR) as a wrapper to send SPARQL codes to the endpoint of [OSR Model](https://github.com/UTNAK/open-source-rover) from R.
+
+
+By using the "omlhashiR" and "tansakusuR" packages, workflows can be seamlessly connected.
+
+
+![process](https://github.com/UTNAK/omlhashiR/blob/main/man/figures/README-/process.png?raw=true){#fig-process}
+
+
+```{r}
+source("./osr_common.R")
+```
+
+## Run Gradle Task from R
+
+We have three options to run gradle tasks.
+
+1. Run task from your terminal.
+2. Run task using a `system()` function with R
+3. Run Task using a package [omlhashiR](https://github.com/UTNAK/omlhashiR)
+
+### Run task from your terminal
+
+![Run from terminal](img/rungtask.png){width=400 fig-align="left" #fig-rungtask}
+
+```{bash}
+cd ../
+./gradlew owlLoad
+```
+
+### Using system command from R
+
+```{r}
+oml_repo <- "../"
+sprintf("cd %s\n ./gradlew owlLoad", oml_repo) |>
+  system(intern=TRUE)
+```
+
+
+### Using a package [omlhashiR](https://github.com/UTNAK/omlhashiR) 
+
+```{r}
+library(omlhashiR)
+
+oml_repository <- "../"
+omlhashiR::oml_build(oml_repository)
+omlhashiR::oml_owlLoad(oml_repository)
+```
+
+
+
+
+## Send SPARQL query from R
+
+### Using package "tansakusuR"
+
+```{r}
+# For the first time 
+library(devtools)
+install_github("UTNAK/tansakusuR")
+
+library(tansakusuR)
+```
+
+
+### Set endpoint_url
+
+```{r}
+endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
+```
+
+### Set SPARQL Query
+
+```{r}
+query_string <-'
+PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
+PREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>
+PREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>
+PREFIX scenario:   <http://opencaesar.io/open-source-rover/vocabulary/scenario#>
+PREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX oml:           <http://opencaesar.io/oml#>
+
+SELECT DISTINCT ?manipulate ?f2_id ?f2_cname ?task ?time ?statevariable ?value ?f3_id
+WHERE {
+	?m a scenario:Manipulates;
+		oml:hasSource ?t ;
+		oml:hasTarget ?s ;
+		scenario:setStateValue ?value ;
+		OPTIONAL{
+			?t scenario:hasPlannedStartTime ?time .
+			?t base:hasIdentifier ?f2_id .
+			?t base:hasCanonicalName ?f2_cname .
+	        OPTIONAL{
+            ?t mission:invokes ?f3 .
+            ?f3 base:hasIdentifier ?f3_id .
+        }
+		
+		}
+
+	# Extract the local name
+    BIND(STRAFTER(STR(?m), "#") AS ?manipulate) .
+    BIND(STRAFTER(STR(?t), "#") AS ?task) .
+    BIND(STRAFTER(STR(?s), "#") AS ?statevariable) .
+} 
+ORDER BY ?m
+'
+```
+
+
+### Send Query and show results
+
+```{r}
+data_frame <- send_query(endpoint_url,query_string)
+
+library(DT)
+datatable(data_frame)
+```
+
+### Send Query with a `.sparql` file.
+
+```{r}
+library(tansakusuR)
+repo <- "../src/vision/sparql/"
+file <- "component_with_id.sparql"
+filepath <- paste0(repo,file)
+
+show_query(filepath)
+df <- send_query_from_file(endpoint_url, filepath)
+datatable(df)
+```
+
+Here is another example.
+
+```{r}
+library(tansakusuR)
+repo <- "../src/vision/sparql/"
+file <- "query_scenario_move_v2.sparql"
+filepath <- paste0(repo,file)
+
+show_query(filepath)
+df <- send_query_from_file(endpoint_url, filepath)
+datatable(df)
+```
+
+
