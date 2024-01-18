@@ -5,7 +5,7 @@
         "all-rows": "components-diagram"
       },
       "queries": {
-        "components": "component.sparql"
+        "components": "component_with_id.sparql"
       },
       "rowMapping": {
         "id": "components",

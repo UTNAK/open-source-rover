@@ -9,8 +9,8 @@
       "c2_localname": "Col2: Subsystem"
     },
     "queries": {
-      "c1_localname": "component.sparql",
-      "c2_localname": "component.sparql"
+      "c1_localname": "component_with_id.sparql",
+      "c2_localname": "component_with_id.sparql"
     },
     "rowMapping": {
       "id": "c1_localname",
