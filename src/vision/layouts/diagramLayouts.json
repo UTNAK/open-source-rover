@@ -17,7 +17,7 @@
         "id": "edge",
         "name": "Edge",
         "labelFormat": "hasSubsystem",
-        "colorKey": "c1_type",
+        "colorKey": "c2_localname",
         "sourceKey": "c1_localname",
         "targetKey": "c2_localname"
       }
