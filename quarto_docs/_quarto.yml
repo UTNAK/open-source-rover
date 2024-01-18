@@ -35,15 +35,15 @@ book:
     right:
       - text: "Home"
         file: index.qmd
-      - text: "oml model"
+      - text: "Oml Model"
         href: https://github.com/UTNAK/open-source-rover/
       - text: "github(autonomica)"
         href: https://github.com/autonomica/open-source-rover
       - icon: github
         menu:
-          - text: Book Source Code
+          - text: Source Code
             url:  https://github.com/UTNAK/open-source-rover/tree/main/quarto_docs
-          - text: Book Report an Issue
+          - text: Report an Issue
             url:  https://github.com/UTNAK/open-source-rover/issues/new
   
   sidebar:

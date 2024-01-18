@@ -137,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/UTNAK/open-source-rover/" rel="" target="">
- <span class="menu-text">oml model</span></a>
+ <span class="menu-text">Oml Model</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/autonomica/open-source-rover" rel="" target="">
@@ -152,11 +152,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-bi-github">    
         <li>
     <a class="dropdown-item" href="https://github.com/UTNAK/open-source-rover/tree/main/quarto_docs" rel="" target="">
- <span class="dropdown-text">Book Source Code</span></a>
+ <span class="dropdown-text">Source Code</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://github.com/UTNAK/open-source-rover/issues/new" rel="" target="">
- <span class="dropdown-text">Book Report an Issue</span></a>
+ <span class="dropdown-text">Report an Issue</span></a>
   </li>  
     </ul>
   </li>
@@ -478,39 +478,39 @@ a <code>structure:Assembly</code> has a <code>structure:Part</code>.</p>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>oml_repository <span class="ot">&lt;-</span> omlrepo</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_refresh</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "kill success for pid=70966"</code></pre>
+<pre><code>[1] "kill success for pid=75866"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_stop_Daemon</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Stopping Daemon(s)" "1 Daemon stopped"  </code></pre>
+<pre><code>[1] "No Gradle daemons are running."</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_build</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Starting a Gradle Daemon, 2 stopped Daemons could not be reused, use --status for details"
- [2] "&gt; Task :omlZip"                                                                           
- [3] "&gt; Task :assemble"                                                                         
- [4] "&gt; Task :downloadDependencies UP-TO-DATE"                                                  
- [5] "&gt; Task :omlToOwl"                                                                         
- [6] "&gt; Task :owlReason"                                                                        
- [7] "&gt; Task :check"                                                                            
- [8] "&gt; Task :build"                                                                            
- [9] ""                                                                                         
-[10] "BUILD SUCCESSFUL in 6s"                                                                   
-[11] "4 actionable tasks: 3 executed, 1 up-to-date"                                             </code></pre>
+<pre><code> [1] "Starting a Gradle Daemon (subsequent builds will be faster)"
+ [2] "&gt; Task :omlZip"                                             
+ [3] "&gt; Task :assemble"                                           
+ [4] "&gt; Task :downloadDependencies UP-TO-DATE"                    
+ [5] "&gt; Task :omlToOwl"                                           
+ [6] "&gt; Task :owlReason"                                          
+ [7] "&gt; Task :check"                                              
+ [8] "&gt; Task :build"                                              
+ [9] ""                                                           
+[10] "BUILD SUCCESSFUL in 6s"                                     
+[11] "4 actionable tasks: 3 executed, 1 up-to-date"               </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "&gt; Task :downloadDependencies UP-TO-DATE"                                                      
- [2] "&gt; Task :omlToOwl UP-TO-DATE"                                                                  
- [3] "&gt; Task :owlReason UP-TO-DATE"                                                                 
- [4] ""                                                                                             
- [5] "&gt; Task :startFuseki"                                                                          
- [6] "Fuseki server has now successfully started with pid=75866, listening on http://localhost:3030"
- [7] ""                                                                                             
- [8] "&gt; Task :owlLoad"                                                                              
- [9] ""                                                                                             
-[10] "BUILD SUCCESSFUL in 5s"                                                                       
-[11] "5 actionable tasks: 2 executed, 3 up-to-date"                                                 </code></pre>
+<pre><code> [1] "&gt; Task :downloadDependencies UP-TO-DATE"                                                     
+ [2] "&gt; Task :omlToOwl UP-TO-DATE"                                                                 
+ [3] "&gt; Task :owlReason UP-TO-DATE"                                                                
+ [4] ""                                                                                            
+ [5] "&gt; Task :startFuseki"                                                                         
+ [6] "Fuseki server has now successfully started with pid=8478, listening on http://localhost:3030"
+ [7] ""                                                                                            
+ [8] "&gt; Task :owlLoad"                                                                             
+ [9] ""                                                                                            
+[10] "BUILD SUCCESSFUL in 5s"                                                                      
+[11] "5 actionable tasks: 2 executed, 3 up-to-date"                                                </code></pre>
 </div>
 </div>
 </section>
@@ -740,7 +740,7 @@ a <code>structure:Assembly</code> has a <code>structure:Part</code>.</p>
  [6] "&gt; Task :check"                               
  [7] "&gt; Task :build"                               
  [8] ""                                            
- [9] "BUILD SUCCESSFUL in 1s"                      
+ [9] "BUILD SUCCESSFUL in 2s"                      
 [10] "4 actionable tasks: 3 executed, 1 up-to-date"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -804,8 +804,8 @@ a <code>structure:Assembly</code> has a <code>structure:Part</code>.</p>
 <span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df_query, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b9a90eac74c175bd4c90" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-b9a90eac74c175bd4c90">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"],["CDHSubsystem","ControlSubsystem","MechanicalSubsystem","MobilitySubsystem","NavigationSubsystem","OSR","PowerSubsystem","body-assembly","corner-wheel-assembly-1","corner-wheel-assembly-2","corner-wheel-assembly-3","corner-wheel-assembly-4","drive-wheel-assembly-1","drive-wheel-assembly-2","mechanical-harness","rocker-bogie-suspension-assembly-1","rocker-bogie-suspension-assembly-2"],["CDH Subsystem","Control Subsystem","Mechanical Subsystem","Mobility Subsystem","Navigation Subsystem","Rover System","Power Subsystem","Body Assembly","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Mechanical Harness","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2"],["structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:System","structure:Subsystem","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly"],["OSR","OSR","OSR","OSR","OSR",null,"OSR","MechanicalSubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem"],["Rover System","Rover System","Rover System","Rover System","Rover System",null,"Rover System","Mechanical Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-78c0280557acacd5d51a" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-78c0280557acacd5d51a">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"],["CDHSubsystem","ControlSubsystem","MechanicalSubsystem","MobilitySubsystem","NavigationSubsystem","OSR","PowerSubsystem","body-assembly","corner-wheel-assembly-1","corner-wheel-assembly-2","corner-wheel-assembly-3","corner-wheel-assembly-4","drive-wheel-assembly-1","drive-wheel-assembly-2","mechanical-harness","rocker-bogie-suspension-assembly-1","rocker-bogie-suspension-assembly-2"],["CDH Subsystem","Control Subsystem","Mechanical Subsystem","Mobility Subsystem","Navigation Subsystem","Rover System","Power Subsystem","Body Assembly","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Mechanical Harness","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2"],["structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:System","structure:Subsystem","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly"],["OSR","OSR","OSR","OSR","OSR",null,"OSR","MechanicalSubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem"],["Rover System","Rover System","Rover System","Rover System","Rover System",null,"Rover System","Mechanical Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
@@ -816,8 +816,8 @@ a <code>structure:Assembly</code> has a <code>structure:Part</code>.</p>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCollapsibleTreeFromDataframe</span>(df_query, <span class="at">palette=</span><span class="st">"BluYl"</span>, <span class="at">parent=</span><span class="st">"c2_name"</span>, <span class="at">child=</span><span class="st">"c1_name"</span>,<span class="at">type=</span><span class="st">"c1_type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="collapsibleTree html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-04a46408b27baa5772a6" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-04a46408b27baa5772a6">{"x":{"data":{"name":"Rover System","fill":"#F9FFAF","WeightOfNode":14,"children":[{"name":"CDH Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Control Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Mechanical Subsystem","fill":"#2E4F79","WeightOfNode":4,"children":[{"name":"Body Assembly","fill":"#46B09B","WeightOfNode":1},{"name":"Mechanical Harness","fill":"#46B09B","WeightOfNode":1},{"name":"Rocker Bogie Suspension Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Rocker Bogie Suspension Assembly-2","fill":"#46B09B","WeightOfNode":1}]},{"name":"Mobility Subsystem","fill":"#2E4F79","WeightOfNode":6,"children":[{"name":"Corner Wheel Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-2","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-3","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-4","fill":"#46B09B","WeightOfNode":1},{"name":"Drive Wheel Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Drive Wheel Assembly-2","fill":"#46B09B","WeightOfNode":1}]},{"name":"Navigation Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Power Subsystem","fill":"#2E4F79","WeightOfNode":1}]},"options":{"hierarchy":[1,2,3],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":10,"tooltip":true,"collapsed":false,"zoomable":true,"margin":{"top":20,"bottom":20,"left":85,"right":195}}},"evals":[],"jsHooks":[]}</script>
+<div class="collapsibleTree html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-5a3a452b91978242a659" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-5a3a452b91978242a659">{"x":{"data":{"name":"Rover System","fill":"#F9FFAF","WeightOfNode":14,"children":[{"name":"CDH Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Control Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Mechanical Subsystem","fill":"#2E4F79","WeightOfNode":4,"children":[{"name":"Body Assembly","fill":"#46B09B","WeightOfNode":1},{"name":"Mechanical Harness","fill":"#46B09B","WeightOfNode":1},{"name":"Rocker Bogie Suspension Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Rocker Bogie Suspension Assembly-2","fill":"#46B09B","WeightOfNode":1}]},{"name":"Mobility Subsystem","fill":"#2E4F79","WeightOfNode":6,"children":[{"name":"Corner Wheel Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-2","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-3","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-4","fill":"#46B09B","WeightOfNode":1},{"name":"Drive Wheel Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Drive Wheel Assembly-2","fill":"#46B09B","WeightOfNode":1}]},{"name":"Navigation Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Power Subsystem","fill":"#2E4F79","WeightOfNode":1}]},"options":{"hierarchy":[1,2,3],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":10,"tooltip":true,"collapsed":false,"zoomable":true,"margin":{"top":20,"bottom":20,"left":85,"right":195}}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -838,8 +838,8 @@ a <code>structure:Assembly</code> has a <code>structure:Part</code>.</p>
 <span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>networkD3<span class="sc">::</span><span class="fu">simpleNetwork</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="forceNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-a455def5b847efb18901" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-a455def5b847efb18901">{"x":{"links":{"source":[16,16,16,16,16,16,11,11,11,11,11,11,10,10,10,10],"target":[1,2,10,11,12,13,3,4,5,6,7,8,0,9,14,15],"value":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["Body Assembly","CDH Subsystem","Control Subsystem","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Mechanical Harness","Mechanical Subsystem","Mobility Subsystem","Navigation Subsystem","Power Subsystem","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2","Rover System"],"group":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"nodesize":[8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#3182bd'])","fontSize":7,"fontFamily":"serif","clickTextSize":17.5,"linkDistance":50,"linkWidth":"'1.5px'.toString()","charge":-30,"opacity":0.6,"zoom":false,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+<div class="forceNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6d2e5131dc034aa240ce" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-6d2e5131dc034aa240ce">{"x":{"links":{"source":[16,16,16,16,16,16,11,11,11,11,11,11,10,10,10,10],"target":[1,2,10,11,12,13,3,4,5,6,7,8,0,9,14,15],"value":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["Body Assembly","CDH Subsystem","Control Subsystem","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Mechanical Harness","Mechanical Subsystem","Mobility Subsystem","Navigation Subsystem","Power Subsystem","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2","Rover System"],"group":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"nodesize":[8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#3182bd'])","fontSize":7,"fontFamily":"serif","clickTextSize":17.5,"linkDistance":50,"linkWidth":"'1.5px'.toString()","charge":-30,"opacity":0.6,"zoom":false,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -851,8 +851,8 @@ a <code>structure:Assembly</code> has a <code>structure:Part</code>.</p>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>networkD3<span class="sc">::</span><span class="fu">diagonalNetwork</span>(<span class="at">List =</span> nd3, <span class="at">fontSize =</span> <span class="dv">10</span>, <span class="at">opacity =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="diagonalNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f3763a5c36fc74b1f23b" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-f3763a5c36fc74b1f23b">{"x":{"root":{"name":"Rover System","children":[{"name":"CDH Subsystem"},{"name":"Control Subsystem"},{"name":"Mechanical Subsystem","children":[{"name":"Body Assembly"},{"name":"Mechanical Harness"},{"name":"Rocker Bogie Suspension Assembly-1"},{"name":"Rocker Bogie Suspension Assembly-2"}]},{"name":"Mobility Subsystem","children":[{"name":"Corner Wheel Assembly-1"},{"name":"Corner Wheel Assembly-2"},{"name":"Corner Wheel Assembly-3"},{"name":"Corner Wheel Assembly-4"},{"name":"Drive Wheel Assembly-1"},{"name":"Drive Wheel Assembly-2"}]},{"name":"Navigation Subsystem"},{"name":"Power Subsystem"}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"#fff","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
+<div class="diagonalNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-23dcd5b5af98197e00e8" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-23dcd5b5af98197e00e8">{"x":{"root":{"name":"Rover System","children":[{"name":"CDH Subsystem"},{"name":"Control Subsystem"},{"name":"Mechanical Subsystem","children":[{"name":"Body Assembly"},{"name":"Mechanical Harness"},{"name":"Rocker Bogie Suspension Assembly-1"},{"name":"Rocker Bogie Suspension Assembly-2"}]},{"name":"Mobility Subsystem","children":[{"name":"Corner Wheel Assembly-1"},{"name":"Corner Wheel Assembly-2"},{"name":"Corner Wheel Assembly-3"},{"name":"Corner Wheel Assembly-4"},{"name":"Drive Wheel Assembly-1"},{"name":"Drive Wheel Assembly-2"}]},{"name":"Navigation Subsystem"},{"name":"Power Subsystem"}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"#fff","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -861,8 +861,8 @@ a <code>structure:Assembly</code> has a <code>structure:Part</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>networkD3<span class="sc">::</span><span class="fu">radialNetwork</span>(nd3, <span class="at">nodeColour=</span><span class="st">"seagreen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="radialNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2f902c2b7088aafb2ea0" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-2f902c2b7088aafb2ea0">{"x":{"root":{"name":"Rover System","children":[{"name":"CDH Subsystem"},{"name":"Control Subsystem"},{"name":"Mechanical Subsystem","children":[{"name":"Body Assembly"},{"name":"Mechanical Harness"},{"name":"Rocker Bogie Suspension Assembly-1"},{"name":"Rocker Bogie Suspension Assembly-2"}]},{"name":"Mobility Subsystem","children":[{"name":"Corner Wheel Assembly-1"},{"name":"Corner Wheel Assembly-2"},{"name":"Corner Wheel Assembly-3"},{"name":"Corner Wheel Assembly-4"},{"name":"Drive Wheel Assembly-1"},{"name":"Drive Wheel Assembly-2"}]},{"name":"Navigation Subsystem"},{"name":"Power Subsystem"}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"seagreen","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
+<div class="radialNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-409acf57be4675b8d09f" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-409acf57be4675b8d09f">{"x":{"root":{"name":"Rover System","children":[{"name":"CDH Subsystem"},{"name":"Control Subsystem"},{"name":"Mechanical Subsystem","children":[{"name":"Body Assembly"},{"name":"Mechanical Harness"},{"name":"Rocker Bogie Suspension Assembly-1"},{"name":"Rocker Bogie Suspension Assembly-2"}]},{"name":"Mobility Subsystem","children":[{"name":"Corner Wheel Assembly-1"},{"name":"Corner Wheel Assembly-2"},{"name":"Corner Wheel Assembly-3"},{"name":"Corner Wheel Assembly-4"},{"name":"Drive Wheel Assembly-1"},{"name":"Drive Wheel Assembly-2"}]},{"name":"Navigation Subsystem"},{"name":"Power Subsystem"}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"seagreen","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
