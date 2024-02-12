@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>OSR System Modeling Platform by OML - 8&nbsp; OML + Gradle + SPARQL + R</title>
+<title>OSR System Modeling Platform by OML - 9&nbsp; OML + Gradle + SPARQL + R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./references.html" rel="next">
-<link href="./chapters/03_timeline_analysis/usecase_timeline.html" rel="prev">
+<link href="./chapters/04_massrollup/massrollup.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -165,7 +165,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sparqlwithr.html">Analysis Tools</a></li><li class="breadcrumb-item"><a href="./sparqlwithr.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sparqlwithr.html">Analysis Tools</a></li><li class="breadcrumb-item"><a href="./sparqlwithr.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -274,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Analysis Tools</span></a>
+ <span class="menu-text">Mass Roll Up Analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -282,8 +282,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chapters/04_massrollup/massrollup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Mass Roll Up Analysis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Analysis Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./sparqlwithr.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></span></a>
   </div>
 </li>
       </ul>
@@ -304,19 +321,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#run-gradle-task-from-r" id="toc-run-gradle-task-from-r" class="nav-link active" data-scroll-target="#run-gradle-task-from-r"><span class="header-section-number">8.1</span> Run Gradle Task from R</a>
+  <li><a href="#run-gradle-task-from-r" id="toc-run-gradle-task-from-r" class="nav-link active" data-scroll-target="#run-gradle-task-from-r"><span class="header-section-number">9.1</span> Run Gradle Task from R</a>
   <ul class="collapse">
-  <li><a href="#run-task-from-your-terminal" id="toc-run-task-from-your-terminal" class="nav-link" data-scroll-target="#run-task-from-your-terminal"><span class="header-section-number">8.1.1</span> Run task from your terminal</a></li>
-  <li><a href="#using-system-command-from-r" id="toc-using-system-command-from-r" class="nav-link" data-scroll-target="#using-system-command-from-r"><span class="header-section-number">8.1.2</span> Using system command from R</a></li>
-  <li><a href="#using-a-package-omlhashir" id="toc-using-a-package-omlhashir" class="nav-link" data-scroll-target="#using-a-package-omlhashir"><span class="header-section-number">8.1.3</span> Using a package omlhashiR</a></li>
+  <li><a href="#run-task-from-your-terminal" id="toc-run-task-from-your-terminal" class="nav-link" data-scroll-target="#run-task-from-your-terminal"><span class="header-section-number">9.1.1</span> Run task from your terminal</a></li>
+  <li><a href="#using-system-command-from-r" id="toc-using-system-command-from-r" class="nav-link" data-scroll-target="#using-system-command-from-r"><span class="header-section-number">9.1.2</span> Using system command from R</a></li>
+  <li><a href="#using-a-package-omlhashir" id="toc-using-a-package-omlhashir" class="nav-link" data-scroll-target="#using-a-package-omlhashir"><span class="header-section-number">9.1.3</span> Using a package omlhashiR</a></li>
   </ul></li>
-  <li><a href="#send-sparql-query-from-r" id="toc-send-sparql-query-from-r" class="nav-link" data-scroll-target="#send-sparql-query-from-r"><span class="header-section-number">8.2</span> Send SPARQL query from R</a>
+  <li><a href="#send-sparql-query-from-r" id="toc-send-sparql-query-from-r" class="nav-link" data-scroll-target="#send-sparql-query-from-r"><span class="header-section-number">9.2</span> Send SPARQL query from R</a>
   <ul class="collapse">
-  <li><a href="#using-package-tansakusur" id="toc-using-package-tansakusur" class="nav-link" data-scroll-target="#using-package-tansakusur"><span class="header-section-number">8.2.1</span> Using package “tansakusuR”</a></li>
-  <li><a href="#set-endpoint_url" id="toc-set-endpoint_url" class="nav-link" data-scroll-target="#set-endpoint_url"><span class="header-section-number">8.2.2</span> Set endpoint_url</a></li>
-  <li><a href="#set-sparql-query" id="toc-set-sparql-query" class="nav-link" data-scroll-target="#set-sparql-query"><span class="header-section-number">8.2.3</span> Set SPARQL Query</a></li>
-  <li><a href="#send-query-and-show-results" id="toc-send-query-and-show-results" class="nav-link" data-scroll-target="#send-query-and-show-results"><span class="header-section-number">8.2.4</span> Send Query and show results</a></li>
-  <li><a href="#send-query-with-a-.sparql-file." id="toc-send-query-with-a-.sparql-file." class="nav-link" data-scroll-target="#send-query-with-a-.sparql-file."><span class="header-section-number">8.2.5</span> Send Query with a <code>.sparql</code> file.</a></li>
+  <li><a href="#using-package-tansakusur" id="toc-using-package-tansakusur" class="nav-link" data-scroll-target="#using-package-tansakusur"><span class="header-section-number">9.2.1</span> Using package “tansakusuR”</a></li>
+  <li><a href="#set-endpoint_url" id="toc-set-endpoint_url" class="nav-link" data-scroll-target="#set-endpoint_url"><span class="header-section-number">9.2.2</span> Set endpoint_url</a></li>
+  <li><a href="#set-sparql-query" id="toc-set-sparql-query" class="nav-link" data-scroll-target="#set-sparql-query"><span class="header-section-number">9.2.3</span> Set SPARQL Query</a></li>
+  <li><a href="#send-query-and-show-results" id="toc-send-query-and-show-results" class="nav-link" data-scroll-target="#send-query-and-show-results"><span class="header-section-number">9.2.4</span> Send Query and show results</a></li>
+  <li><a href="#send-query-with-a-.sparql-file." id="toc-send-query-with-a-.sparql-file." class="nav-link" data-scroll-target="#send-query-with-a-.sparql-file."><span class="header-section-number">9.2.5</span> Send Query with a <code>.sparql</code> file.</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -326,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></h1>
 </div>
 
 
@@ -359,26 +376,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-process" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://github.com/UTNAK/omlhashiR/blob/main/man/figures/README-/process.png?raw=true" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.1: process</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.1: process</figcaption>
 </figure>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"./osr_common.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="run-gradle-task-from-r" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="run-gradle-task-from-r"><span class="header-section-number">8.1</span> Run Gradle Task from R</h2>
+<section id="run-gradle-task-from-r" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="run-gradle-task-from-r"><span class="header-section-number">9.1</span> Run Gradle Task from R</h2>
 <p>We have three options to run gradle tasks.</p>
 <ol type="1">
 <li>Run task from your terminal.</li>
 <li>Run task using a <code>system()</code> function with R</li>
 <li>Run Task using a package <a href="https://github.com/UTNAK/omlhashiR">omlhashiR</a></li>
 </ol>
-<section id="run-task-from-your-terminal" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="run-task-from-your-terminal"><span class="header-section-number">8.1.1</span> Run task from your terminal</h3>
+<section id="run-task-from-your-terminal" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="run-task-from-your-terminal"><span class="header-section-number">9.1.1</span> Run task from your terminal</h3>
 <div id="fig-rungtask" class="quarto-figure quarto-figure-left anchored">
 <figure class="figure">
 <p><img src="img/rungtask.png" class="img-fluid figure-img" width="400"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.2: Run from terminal</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;9.2: Run from terminal</figcaption>
 </figure>
 </div>
 <div class="cell">
@@ -391,13 +408,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 &gt; Task :startFuseki UP-TO-DATE
 &gt; Task :owlLoad UP-TO-DATE
 
-BUILD SUCCESSFUL in 831ms
+BUILD SUCCESSFUL in 1s
 5 actionable tasks: 5 up-to-date</code></pre>
 </div>
 </div>
 </section>
-<section id="using-system-command-from-r" class="level3" data-number="8.1.2">
-<h3 data-number="8.1.2" class="anchored" data-anchor-id="using-system-command-from-r"><span class="header-section-number">8.1.2</span> Using system command from R</h3>
+<section id="using-system-command-from-r" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="using-system-command-from-r"><span class="header-section-number">9.1.2</span> Using system command from R</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>oml_repo <span class="ot">&lt;-</span> <span class="st">"../"</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"cd %s</span><span class="sc">\n</span><span class="st"> ./gradlew owlLoad"</span>, oml_repo) <span class="sc">|&gt;</span></span>
@@ -409,13 +426,13 @@ BUILD SUCCESSFUL in 831ms
 [4] "&gt; Task :startFuseki UP-TO-DATE"         
 [5] "&gt; Task :owlLoad UP-TO-DATE"             
 [6] ""                                       
-[7] "BUILD SUCCESSFUL in 646ms"              
+[7] "BUILD SUCCESSFUL in 1s"                 
 [8] "5 actionable tasks: 5 up-to-date"       </code></pre>
 </div>
 </div>
 </section>
-<section id="using-a-package-omlhashir" class="level3" data-number="8.1.3">
-<h3 data-number="8.1.3" class="anchored" data-anchor-id="using-a-package-omlhashir"><span class="header-section-number">8.1.3</span> Using a package <a href="https://github.com/UTNAK/omlhashiR">omlhashiR</a></h3>
+<section id="using-a-package-omlhashir" class="level3" data-number="9.1.3">
+<h3 data-number="9.1.3" class="anchored" data-anchor-id="using-a-package-omlhashir"><span class="header-section-number">9.1.3</span> Using a package <a href="https://github.com/UTNAK/omlhashiR">omlhashiR</a></h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(omlhashiR)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -430,7 +447,7 @@ BUILD SUCCESSFUL in 831ms
  [6] "&gt; Task :check UP-TO-DATE"               
  [7] "&gt; Task :build UP-TO-DATE"               
  [8] ""                                       
- [9] "BUILD SUCCESSFUL in 609ms"              
+ [9] "BUILD SUCCESSFUL in 962ms"              
 [10] "4 actionable tasks: 4 up-to-date"       </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -441,16 +458,16 @@ BUILD SUCCESSFUL in 831ms
 [4] "&gt; Task :startFuseki UP-TO-DATE"         
 [5] "&gt; Task :owlLoad UP-TO-DATE"             
 [6] ""                                       
-[7] "BUILD SUCCESSFUL in 607ms"              
+[7] "BUILD SUCCESSFUL in 1s"                 
 [8] "5 actionable tasks: 5 up-to-date"       </code></pre>
 </div>
 </div>
 </section>
 </section>
-<section id="send-sparql-query-from-r" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="send-sparql-query-from-r"><span class="header-section-number">8.2</span> Send SPARQL query from R</h2>
-<section id="using-package-tansakusur" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="using-package-tansakusur"><span class="header-section-number">8.2.1</span> Using package “tansakusuR”</h3>
+<section id="send-sparql-query-from-r" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="send-sparql-query-from-r"><span class="header-section-number">9.2</span> Send SPARQL query from R</h2>
+<section id="using-package-tansakusur" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="using-package-tansakusur"><span class="header-section-number">9.2.1</span> Using package “tansakusuR”</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For the first time </span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
@@ -459,14 +476,14 @@ BUILD SUCCESSFUL in 831ms
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tansakusuR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="set-endpoint_url" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="set-endpoint_url"><span class="header-section-number">8.2.2</span> Set endpoint_url</h3>
+<section id="set-endpoint_url" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="set-endpoint_url"><span class="header-section-number">9.2.2</span> Set endpoint_url</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>endpoint_url <span class="ot">&lt;-</span> <span class="st">"http://localhost:3030/open-source-rover/sparql"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="set-sparql-query" class="level3" data-number="8.2.3">
-<h3 data-number="8.2.3" class="anchored" data-anchor-id="set-sparql-query"><span class="header-section-number">8.2.3</span> Set SPARQL Query</h3>
+<section id="set-sparql-query" class="level3" data-number="9.2.3">
+<h3 data-number="9.2.3" class="anchored" data-anchor-id="set-sparql-query"><span class="header-section-number">9.2.3</span> Set SPARQL Query</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>query_string <span class="ot">&lt;-</span><span class="st">'</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX base:        &lt;http://imce.jpl.nasa.gov/foundation/base#&gt;</span></span>
@@ -502,8 +519,8 @@ BUILD SUCCESSFUL in 831ms
 <span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="send-query-and-show-results" class="level3" data-number="8.2.4">
-<h3 data-number="8.2.4" class="anchored" data-anchor-id="send-query-and-show-results"><span class="header-section-number">8.2.4</span> Send Query and show results</h3>
+<section id="send-query-and-show-results" class="level3" data-number="9.2.4">
+<h3 data-number="9.2.4" class="anchored" data-anchor-id="send-query-and-show-results"><span class="header-section-number">9.2.4</span> Send Query and show results</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data_frame <span class="ot">&lt;-</span> <span class="fu">send_query</span>(endpoint_url,query_string)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -511,13 +528,13 @@ BUILD SUCCESSFUL in 831ms
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-339e5985444b319cc9bf" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-339e5985444b319cc9bf">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["m1.1","m1.2","m2","m3","m4","m5.1","m5.2"],["SC.01.01","SC.01.01","SC.01.02","SC.01.03","SC.01.04","SC.01.05","SC.01.05"],["Start Operation","Start Operation","Accelerate Rover","Maintain Speed","Brake","Stop Operation","Stop Operation"],["start-operation","start-operation","accelerate","maintain-speed","brake","stop","stop"],["0","0","2","4","8","10","10"],["roverVelocity","roverTargetPosition","roverVelocity","roverVelocity","roverVelocity","roverVelocity","roverTargetPosition"],["0","8","1","1","1","0","8"],["SC.01.02","SC.01.02","SC.01.03","SC.01.04","SC.01.05",null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>manipulate<\/th>\n      <th>f2_id<\/th>\n      <th>f2_cname<\/th>\n      <th>task<\/th>\n      <th>time<\/th>\n      <th>statevariable<\/th>\n      <th>value<\/th>\n      <th>f3_id<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-773aefa42608be25906b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-773aefa42608be25906b">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["m1.1","m1.2","m2","m3","m4","m5.1","m5.2"],["SC.01.01","SC.01.01","SC.01.02","SC.01.03","SC.01.04","SC.01.05","SC.01.05"],["Start Operation","Start Operation","Accelerate Rover","Maintain Speed","Brake","Stop Operation","Stop Operation"],["start-operation","start-operation","accelerate","maintain-speed","brake","stop","stop"],["0","0","2","4","8","10","10"],["roverVelocity","roverTargetPosition","roverVelocity","roverVelocity","roverVelocity","roverVelocity","roverTargetPosition"],["0","8","1","1","1","0","8"],["SC.01.02","SC.01.02","SC.01.03","SC.01.04","SC.01.05",null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>manipulate<\/th>\n      <th>f2_id<\/th>\n      <th>f2_cname<\/th>\n      <th>task<\/th>\n      <th>time<\/th>\n      <th>statevariable<\/th>\n      <th>value<\/th>\n      <th>f3_id<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-<section id="send-query-with-a-.sparql-file." class="level3" data-number="8.2.5">
-<h3 data-number="8.2.5" class="anchored" data-anchor-id="send-query-with-a-.sparql-file."><span class="header-section-number">8.2.5</span> Send Query with a <code>.sparql</code> file.</h3>
+<section id="send-query-with-a-.sparql-file." class="level3" data-number="9.2.5">
+<h3 data-number="9.2.5" class="anchored" data-anchor-id="send-query-with-a-.sparql-file."><span class="header-section-number">9.2.5</span> Send Query with a <code>.sparql</code> file.</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tansakusuR)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>repo <span class="ot">&lt;-</span> <span class="st">"../src/vision/sparql/"</span></span>
@@ -552,8 +569,8 @@ ORDER BY ?c1_localname </code></pre>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e0c935c72feb57b2f5a9" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-e0c935c72feb57b2f5a9">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6"],["OSR","OSR","OSR","OSR","OSR","OSR"],["CDHSubsystem","ControlSubsystem","MechanicalSubsystem","MobilitySubsystem","NavigationSubsystem","PowerSubsystem"],["C.01.06","C.01.04","C.01.01","C.01.03","C.01.05","C.01.02"],["CDH Subsystem","Control Subsystem","Mechanical Subsystem","Mobility Subsystem","Navigation Subsystem","Power Subsystem"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_id<\/th>\n      <th>c2_cname<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f1a8e0a5f618d5037533" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f1a8e0a5f618d5037533">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6"],["OSR","OSR","OSR","OSR","OSR","OSR"],["CDHSubsystem","ControlSubsystem","MechanicalSubsystem","MobilitySubsystem","NavigationSubsystem","PowerSubsystem"],["C.01.06","C.01.04","C.01.01","C.01.03","C.01.05","C.01.02"],["CDH Subsystem","Control Subsystem","Mechanical Subsystem","Mobility Subsystem","Navigation Subsystem","Power Subsystem"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_id<\/th>\n      <th>c2_cname<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Here is another example.</p>
@@ -600,8 +617,8 @@ ORDER BY ?m</code></pre>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-869d8211d712b632940d" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-869d8211d712b632940d">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["m1.1","m1.2","m2","m3","m4","m5.1","m5.2"],["SC.01.01","SC.01.01","SC.01.02","SC.01.03","SC.01.04","SC.01.05","SC.01.05"],["Start Operation","Start Operation","Accelerate Rover","Maintain Speed","Brake","Stop Operation","Stop Operation"],["start-operation","start-operation","accelerate","maintain-speed","brake","stop","stop"],["0","0","2","4","8","10","10"],["roverVelocity","roverTargetPosition","roverVelocity","roverVelocity","roverVelocity","roverVelocity","roverTargetPosition"],["0","8","1","1","1","0","8"],["SC.01.02","SC.01.02","SC.01.03","SC.01.04","SC.01.05",null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>manipulate<\/th>\n      <th>f2_id<\/th>\n      <th>f2_cname<\/th>\n      <th>task<\/th>\n      <th>time<\/th>\n      <th>statevariable<\/th>\n      <th>value<\/th>\n      <th>f3_id<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6d62dfa930dc8015b756" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-6d62dfa930dc8015b756">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["m1.1","m1.2","m2","m3","m4","m5.1","m5.2"],["SC.01.01","SC.01.01","SC.01.02","SC.01.03","SC.01.04","SC.01.05","SC.01.05"],["Start Operation","Start Operation","Accelerate Rover","Maintain Speed","Brake","Stop Operation","Stop Operation"],["start-operation","start-operation","accelerate","maintain-speed","brake","stop","stop"],["0","0","2","4","8","10","10"],["roverVelocity","roverTargetPosition","roverVelocity","roverVelocity","roverVelocity","roverVelocity","roverTargetPosition"],["0","8","1","1","1","0","8"],["SC.01.02","SC.01.02","SC.01.03","SC.01.04","SC.01.05",null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>manipulate<\/th>\n      <th>f2_id<\/th>\n      <th>f2_cname<\/th>\n      <th>task<\/th>\n      <th>time<\/th>\n      <th>statevariable<\/th>\n      <th>value<\/th>\n      <th>f3_id<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
@@ -845,8 +862,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapters/03_timeline_analysis/usecase_timeline.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Timeline Analysis</span></span>
+      <a href="./chapters/04_massrollup/massrollup.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Mass Roll Up Analysis</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

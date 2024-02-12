@@ -9,15 +9,18 @@
       "id": "decompositions",
       "name": "System",
       "labelFormat": "{c1_localname}",
-      "colorKey": "c1_type",
+      "nodeColor": "green",
+      "nodeTextColor": "black",
+      "nodeType": "{c1_type}",
       "edgeMatchKey": "c1_localname"
     },
     "edges": [
       {
         "id": "edge",
         "name": "Edge",
+        "animated": true,
         "labelFormat": "hasSubsystem",
-        "colorKey": "c2_localname",
+        "legendItems": "{c2_localname}",
         "sourceKey": "c1_localname",
         "targetKey": "c2_localname"
       }
@@ -33,15 +36,18 @@
       "id": "movingscenario",
       "name": "Task",
       "labelFormat": "{f2_id} \n {f2_cname}",
-      "colorKey": "f2_id",
+      "nodeColor": "Aquamarine",
+      "nodeTextColor": "black",
+      "nodeType": "{f2_cname}",
       "edgeMatchKey": "f2_id"
     },
     "edges": [
       {
+        "animated": true,
         "id": "edge",
         "name": "Edge",
         "labelFormat": "invokes",
-        "colorKey": "f2_id",
+        "legendItems": "f2_id",
         "sourceKey": "f2_id",
         "targetKey": "f3_id"
       }

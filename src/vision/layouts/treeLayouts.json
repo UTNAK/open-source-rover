@@ -21,12 +21,12 @@
       }
     },
     "components-tree": {
-      "name": "Components Tree",
+      "name": "Components Mass Tree",
       "diagrams": {
-        "all-rows": "components-tree"
+        "all-rows": "decompositions"
       },
       "queries": {
-        "components-tree": "component_with_id.sparql"
+        "components-tree": "component_filtered_withmass.sparql"
       },
       "rowMapping": {
         "id": "components-tree",
@@ -36,7 +36,7 @@
           {
             "id": "components-tree",
             "name": "Subsystem",
-            "labelFormat": "{c2_localname}"
+            "labelFormat": "{c1_localname}"
           }
         ]  
       }

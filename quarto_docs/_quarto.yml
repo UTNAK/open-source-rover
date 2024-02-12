@@ -25,6 +25,9 @@ book:
     - part: "Timeline Analysis"
       chapters: 
         - chapters/03_timeline_analysis/usecase_timeline.qmd
+    - part: "Mass Roll Up Analysis"
+      chapters: 
+        - chapters/04_massrollup/massrollup.qmd
     - part: "Analysis Tools"
       chapters: 
         - sparqlwithr.qmd

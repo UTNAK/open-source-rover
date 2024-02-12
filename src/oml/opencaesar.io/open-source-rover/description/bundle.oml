@@ -5,4 +5,6 @@ description bundle <http://opencaesar.io/open-source-rover/description/bundle#> 
 	includes <http://opencaesar.io/open-source-rover/description/assembly/assembly#>
 	includes <http://opencaesar.io/open-source-rover/description/assembly/parts#>
 	includes <http://opencaesar.io/open-source-rover/description/behavior/scenario_move#>
+	includes <http://opencaesar.io/open-source-rover/description/mass/masses#>
+	
 }
