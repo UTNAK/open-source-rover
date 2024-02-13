@@ -11,6 +11,12 @@
           "path": "decompositions",
           "isDiagram": true
         },
+        { 
+          "title": "IBD",
+          "treeIcon": "window",
+          "path": "ibd",
+          "isDiagram": true
+        },
        {
           "title": "Components",
           "treeIcon": "list-tree",

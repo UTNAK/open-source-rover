@@ -1,4 +1,4 @@
-description <http://opencaesar.io/open-source-rover/description/structure/subsystems#> as subsystems {
+description <http://opencaesar.io/open-source-rover/description/structure/test_ibd#> as test_ibd {
 
 	uses <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure
 
@@ -6,47 +6,6 @@ description <http://opencaesar.io/open-source-rover/description/structure/subsys
 
 	uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
 
-
-	instance OSR : structure:System [
-		base:hasIdentifier "C.01"
-		base:hasCanonicalName "Rover System"
-		^structure:hasSubsystem MechanicalSubsystem
-		^structure:hasSubsystem PowerSubsystem
-		^structure:hasSubsystem MobilitySubsystem
-		^structure:hasSubsystem ControlSubsystem
-		^structure:hasSubsystem NavigationSubsystem
-		^structure:hasSubsystem CDHSubsystem
-	]
-
-	instance MechanicalSubsystem : ^structure:Subsystem [
-		base:hasIdentifier "C.01.01"
-		base:hasCanonicalName "Mechanical Subsystem"
-	]
-
-	instance PowerSubsystem : ^structure:Subsystem [
-		base:hasIdentifier "C.01.02"
-		base:hasCanonicalName "Power Subsystem"
-	]
-
-	instance MobilitySubsystem : ^structure:Subsystem [
-		base:hasIdentifier "C.01.03"
-		base:hasCanonicalName "Mobility Subsystem"
-	]
-
-	instance ControlSubsystem : ^structure:Subsystem [
-		base:hasIdentifier "C.01.04"
-		base:hasCanonicalName "Control Subsystem"
-	]
-
-	instance NavigationSubsystem : ^structure:Subsystem [
-		base:hasIdentifier "C.01.05"
-		base:hasCanonicalName "Navigation Subsystem"
-	]
-
-	instance CDHSubsystem : ^structure:Subsystem [
-		base:hasIdentifier "C.01.06"
-		base:hasCanonicalName "CDH Subsystem"
-	]
 
 	instance SubA : ^structure:Subsystem [
 		base:hasIdentifier "TEST.01"
@@ -84,6 +43,14 @@ description <http://opencaesar.io/open-source-rover/description/structure/subsys
 		base:hasIdentifier "IF.A.01.02"
 		base:hasCanonicalName "A1 IF02"
 	]
+	instance AssyA2.if01 : mission:Interface[
+		base:hasIdentifier "IF.A.02.01"
+		base:hasCanonicalName "A2 IF01"
+	]    
+	instance AssyB1.if01 : mission:Interface[
+		base:hasIdentifier "IF.B.01.01"
+		base:hasCanonicalName "B1 IF01"
+	]  
 	relation instance AssyA1.presents.if01 : mission:Presents[
 		from  AssyA1
 		to AssyA1.if01
@@ -92,6 +59,17 @@ description <http://opencaesar.io/open-source-rover/description/structure/subsys
 		from  AssyA1
 		to AssyA1.if02
 	]
-
+	relation instance AssyA2.presents.if01 : mission:Presents[
+		from  AssyA2
+		to AssyA2.if01
+	]    
+	relation instance AssyB1.presents.if01 : mission:Presents[
+		from  AssyB1
+		to AssyB1.if01
+	]
+    instance J1 : mission:Junction[
+        mission:joins1 AssyA1.if01
+        mission:joins2 AssyA2.if01
+    ]
 
 }

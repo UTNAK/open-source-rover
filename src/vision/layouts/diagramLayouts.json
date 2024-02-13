@@ -26,6 +26,44 @@
       }
     ]
   },
+  "ibd": {
+    "name": "IBD",
+    "queries": {
+      "subsystem": "subsystem.sparql",
+      "assembly": "assembly.sparql",
+      "edge": "component_filtered_ibd.sparql"
+    },
+    "rowMapping": {
+      "id": "subsystem",
+      "name": "Subsystem",
+      "labelFormat": "{c1_localname}",
+      "nodeColor": "green",
+      "nodeTextColor": "black",
+      "nodeType": "{c1_type}",
+      "subRowMappings": [
+        {
+          "id": "assembly",
+          "name": "Assembly",
+          "labelFormat": "{c2_localname}",
+          "nodeColor": "black",
+          "nodeTextColor": "white",
+          "nodeType": "{c2_localname}",
+          "edgeMatchKey": "c2_localname"
+        }
+      ]
+    },
+    "edges": [
+      {
+        "id": "edge",
+        "name": "Edge",
+        "animated": true,
+        "labelFormat": "hasSubsystem",
+        "legendItems": "{c2_localname}",
+        "sourceKey": "c1_localname",
+        "targetKey": "c2_localname"
+      }
+    ]
+  },  
   "movingscenario": {
     "name": "Scenario",
     "queries": {
