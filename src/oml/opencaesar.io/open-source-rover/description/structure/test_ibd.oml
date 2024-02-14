@@ -47,10 +47,19 @@ description <http://opencaesar.io/open-source-rover/description/structure/test_i
 		base:hasIdentifier "IF.A.02.01"
 		base:hasCanonicalName "A2 IF01"
 	]    
+	instance AssyA2.if02 : mission:Interface[
+		base:hasIdentifier "IF.A.02.02"
+		base:hasCanonicalName "A2 IF02"
+	]    
 	instance AssyB1.if01 : mission:Interface[
 		base:hasIdentifier "IF.B.01.01"
 		base:hasCanonicalName "B1 IF01"
 	]  
+	instance AssyB2.if01 : mission:Interface[
+		base:hasIdentifier "IF.B.02.01"
+		base:hasCanonicalName "B2 IF01"
+	]  
+
 	relation instance AssyA1.presents.if01 : mission:Presents[
 		from  AssyA1
 		to AssyA1.if01
@@ -63,13 +72,28 @@ description <http://opencaesar.io/open-source-rover/description/structure/test_i
 		from  AssyA2
 		to AssyA2.if01
 	]    
+	relation instance AssyA2.presents.if02 : mission:Presents[
+		from  AssyA2
+		to AssyA2.if02
+	]  
 	relation instance AssyB1.presents.if01 : mission:Presents[
 		from  AssyB1
 		to AssyB1.if01
 	]
+ 	relation instance AssyB2.presents.if01 : mission:Presents[
+		from  AssyB2
+		to AssyB2.if01
+	]   
     instance J1 : mission:Junction[
         mission:joins1 AssyA1.if01
         mission:joins2 AssyA2.if01
     ]
-
+    instance J2 : mission:Junction[
+        mission:joins1 AssyA1.if02
+        mission:joins2 AssyB1.if01
+    ]
+    instance J3 : mission:Junction[
+        mission:joins1 AssyA2.if02
+        mission:joins2 AssyB2.if01
+    ]    
 }

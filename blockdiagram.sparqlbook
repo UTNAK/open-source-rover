@@ -22,7 +22,7 @@
   {
     "kind": 2,
     "language": "sparql",
-    "value": "# from file src/vision/sparql/component_filtered.sparql\nPREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?c1_localname ?c1_id ?c1_name ?from ?to ?c2_id ?c2_name\nWHERE {\n\n\t?c1 a mission:Interface ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n        mission:isPresentedBy ?c2 .\n    OPTIONAL{\n            ?c2 base:hasIdentifier ?c2_id ;\n                base:hasCanonicalName ?c2_name .        \n    }\n\n}\nORDER BY ?c1_id",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?j1_localname ?from ?to\nWHERE {\n\n\t?j1 a mission:Junction ;\n      mission:joins1 ?if1 ;\n      mission:joins2 ?if2 .\n      OPTIONAL{\n        ?if1 mission:isPresentedBy ?c1.\n      }\n      OPTIONAL{\n        ?if2 mission:isPresentedBy ?c2.\n      }\n\n  BIND(STRAFTER(STR(?j1), \"#\") AS ?j1_localname) .\n  BIND(STRAFTER(STR(?c1), \"#\") AS ?from) .\n  BIND(STRAFTER(STR(?c2), \"#\") AS ?to) .\n\n}\nORDER BY ?j1",
     "metadata": {}
   },
   {
@@ -58,7 +58,7 @@
   {
     "kind": 2,
     "language": "sparql",
-    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?c1_localname ?c2_localname\nWHERE {\n\n\n\t?c1 structure:hasAssembly ?c2 ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n    BIND(STRAFTER(STR(?c1), \"#\") AS ?c1_localname) .\n    BIND(STRAFTER(STR(?c2), \"#\") AS ?c2_localname) .\n\n}\nORDER BY ?c1_id",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT  ?subsystem ?assembly\nWHERE {\n\n\n\t?c1 structure:hasAssembly ?c2 ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n    BIND(STRAFTER(STR(?c1), \"#\") AS ?subsystem) .\n    BIND(STRAFTER(STR(?c2), \"#\") AS ?assembly) .\n\n}\nORDER BY ?c1_id",
     "metadata": {}
   }
 ]

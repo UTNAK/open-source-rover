@@ -3,16 +3,16 @@ PREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>
 PREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>
 PREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?c1_localname ?c2_localname
+SELECT DISTINCT ?subsystem ?assembly
 WHERE {
 
 
-	?subsystem structure:hasAssembly ?assembly ;
+	?c1 structure:hasAssembly ?c2 ;
 		base:hasIdentifier ?c1_id ;
 		base:hasCanonicalName ?c1_name ;
 
-    BIND(STRAFTER(STR(?subsystem), "#") AS ?c1_localname) .
-    BIND(STRAFTER(STR(?assembly), "#") AS ?c2_localname) .
+    BIND(STRAFTER(STR(?c1), "#") AS ?subsystem) .
+    BIND(STRAFTER(STR(?c2), "#") AS ?assembly) .
 
 }
 ORDER BY ?c1_id
