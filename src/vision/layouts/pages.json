@@ -17,6 +17,12 @@
           "path": "ibd",
           "isDiagram": true
         },
+        { 
+          "title": "IBD with System",
+          "treeIcon": "circuit-board",
+          "path": "ibd-system",
+          "isDiagram": true
+        },
        {
           "title": "Components Tree",
           "treeIcon": "list-tree",
@@ -26,7 +32,7 @@
         {
           "title": "Components Mass Tree",
           "treeIcon": "graph-scatter",
-          "path": "components-mass-tree",
+          "path": "components-tree",
           "isTree": true
         },
         {

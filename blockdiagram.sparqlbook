@@ -106,5 +106,29 @@
     "metadata": {
       "file": "src/vision/sparql/component_with_id.sparql"
     }
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?iri ?subsystem ?c1_id ?c1_name ?c1_type ?parentIri\nWHERE {\n\n    VALUES ?componentType { structure:Subsystem }\n\n\t?iri a ?componentType ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\t\tbase:isContainedIn ?parentIri .\n\n\tOPTIONAL {\n\t\t?iri a structure:System ;\n\t\t\tBIND(\"System\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?iri a structure:Subsystem ;\n\t\t\tBIND(\"Subsystem\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?iri a structure:Assembly ;\n\t\t\tBIND(\"Assembly\"  AS ?c1_type) .\n\t}\n    BIND(STRAFTER(STR(?iri), \"#\") AS ?subsystem) .\n\n}\nORDER BY ?c1_id",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?iri ?subsystem ?c1_id ?c1_name ?c1_type ?parentIri\nWHERE {\n\n    VALUES ?componentType { structure:Subsystem }\n\n\t?iri a ?componentType ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\t\tbase:isContainedIn ?parentIri .\n\n\tOPTIONAL {\n\t\t?iri a structure:System ;\n\t\t\tBIND(\"System\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?iri a structure:Subsystem ;\n\t\t\tBIND(\"Subsystem\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?iri a structure:Assembly ;\n\t\t\tBIND(\"Assembly\"  AS ?c1_type) .\n\t}\n    BIND(STRAFTER(STR(?iri), \"#\") AS ?subsystem) .\n\n}\nORDER BY ?c1_id",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?iri ?subsystem ?c1_id ?c1_name ?c1_type ?system ?parentIri\nWHERE {\n\n\t?parentIri structure:hasSubsystem ?iri ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n\n\tOPTIONAL {\n\t\t?iri a structure:System ;\n\t\t\tBIND(\"System\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?iri a structure:Subsystem ;\n\t\t\tBIND(\"Subsystem\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?iri a structure:Assembly ;\n\t\t\tBIND(\"Assembly\"  AS ?c1_type) .\n\t}\n    BIND(STRAFTER(STR(?iri), \"#\") AS ?subsystem) .\n    BIND(STRAFTER(STR(?parentIri), \"#\") AS ?system) .\n\n\n}\nORDER BY ?c1_id",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?iri ?system ?c1_id ?c1_name ?c1_type\nWHERE {\n\n    VALUES ?componentType { structure:System }\n\n\t?iri a ?componentType ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n\tOPTIONAL {\n\t\t?iri a structure:System ;\n\t\t\tBIND(\"System\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?iri a structure:Subsystem ;\n\t\t\tBIND(\"Subsystem\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?iri a structure:Assembly ;\n\t\t\tBIND(\"Assembly\"  AS ?c1_type) .\n\t}\n    BIND(STRAFTER(STR(?iri), \"#\") AS ?system) .\n\n}\nORDER BY ?c1_id",
+    "metadata": {}
   }
 ]

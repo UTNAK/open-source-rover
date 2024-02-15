@@ -1,0 +1,26 @@
+[
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# from file src/vision/sparql/system.sparql\nPREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?systemIri ?system ?c1_id ?c1_name ?c1_type\nWHERE {\n\n    VALUES ?componentType { structure:System }\n\n\t?systemIri a ?componentType ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n\tOPTIONAL {\n\t\t?systemIri a structure:System ;\n\t\t\tBIND(\"System\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?systemIri a structure:Subsystem ;\n\t\t\tBIND(\"Subsystem\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?systemIri a structure:Assembly ;\n\t\t\tBIND(\"Assembly\"  AS ?c1_type) .\n\t}\n    BIND(STRAFTER(STR(?systemIri), \"#\") AS ?system) .\n\n}\nORDER BY ?c1_id",
+    "metadata": {
+      "file": "src/vision/sparql/system.sparql"
+    }
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# from file src/vision/sparql/subsystem_with_parent.sparql\nPREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?subsystemIri ?subsystem ?c1_id ?c1_name ?c1_type ?system ?systemIri\nWHERE {\n\n\t?systemIri structure:hasSubsystem ?subsystemIri ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n\n\tOPTIONAL {\n\t\t?subsystemIri a structure:System ;\n\t\t\tBIND(\"System\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?subsystemIri a structure:Subsystem ;\n\t\t\tBIND(\"Subsystem\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?subsystemIri a structure:Assembly ;\n\t\t\tBIND(\"Assembly\"  AS ?c1_type) .\n\t}\n    BIND(STRAFTER(STR(?subsystemIri), \"#\") AS ?subsystem) .\n    BIND(STRAFTER(STR(?systemIri), \"#\") AS ?system) .\n\n\n}\nORDER BY ?c1_id",
+    "metadata": {
+      "file": "src/vision/sparql/subsystem_with_parent.sparql"
+    }
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# from file src/vision/sparql/assembly.sparql\nPREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?assemblyIri ?assembly ?subsystem ?subsystemIri\nWHERE {\n\n\n\t?subsystemIri structure:hasAssembly ?assemblyIri ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n    BIND(STRAFTER(STR(?subsystemIri), \"#\") AS ?subsystem) .\n    BIND(STRAFTER(STR(?assemblyIri), \"#\") AS ?assembly) .\n\n}\nORDER BY ?c1_id",
+    "metadata": {
+      "file": "src/vision/sparql/assembly.sparql"
+    }
+  }
+]
