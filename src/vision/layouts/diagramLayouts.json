@@ -2,8 +2,8 @@
   "decompositions": {
     "name": "Decomposition",
     "queries": {
-      "decompositions": "component_filtered.sparql",
-      "edge": "component_filtered.sparql"
+      "decompositions": "component.sparql",
+      "edge": "component.sparql"
     },
     "rowMapping": {
       "id": "decompositions",

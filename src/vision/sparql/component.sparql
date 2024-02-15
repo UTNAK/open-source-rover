@@ -28,6 +28,10 @@ WHERE {
 		?c1 a structure:Subsystem ;
 			BIND("Subsystem"  AS ?c1_type) .
 	}
+	OPTIONAL {
+		?c1 a structure:Assembly ;
+			BIND("Assembly"  AS ?c1_type) .
+	}
 
 }
 ORDER BY ?c1_id

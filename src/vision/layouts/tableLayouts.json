@@ -5,17 +5,17 @@
       "all-rows": "component"
     },
     "columnNames": {
-      "c1_localname": "Col1: System",
-      "c2_localname": "Col2: Subsystem"
+      "c1_localname": "Component",
+      "c2_localname": "IsContainedIn"
     },
     "queries": {
-      "c1_localname": "component_with_id.sparql",
-      "c2_localname": "component_with_id.sparql"
+      "c1_localname": "component.sparql",
+      "c2_localname": "component.sparql"
     },
     "rowMapping": {
       "id": "c1_localname",
       "name": "Compoenents",
-      "labelFormat": "compooonent"
+      "labelFormat": "component"
     }
   },
   "component-table-id": {
@@ -24,14 +24,14 @@
       "all-rows": "component"
     },
     "columnNames": {
-      "c1_localname": "Col1: System",
+      "c1_localname": "Col1: Assembly",
       "c2_localname": "Col2: Subsystem",
       "c2_id": "Col3: Subsystem Id",
       "c2_cname": "Col4: Subsystem Canonical Name"
     },
     "queries": {
-      "c1_localname": "component_with_id.sparql",
-      "c2_localname": "component_with_id.sparql"
+      "c1_localname": "component_filtered_ibd.sparql",
+      "c2_localname": "component_filtered_ibd.sparql"
     },
     "rowMapping": {
       "id": "c1_localname",

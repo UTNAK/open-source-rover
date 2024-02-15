@@ -1,35 +1,36 @@
 {
-    "components": {
-      "name": "Components",
+    "components-tree": {
+      "name": "Components Tree",
       "diagrams": {
         "all-rows": "components-diagram"
       },
       "queries": {
-        "components": "component_with_id.sparql"
+        "subsystem": "subsystem.sparql",
+        "assembly": "assembly.sparql"
       },
       "rowMapping": {
-        "id": "components",
+        "id": "subsystem",
         "name": "System",
-        "labelFormat": "{c2_localname}",
+        "labelFormat": "{subsystem}",
         "subRowMappings": [
           {
-            "id": "components",
-            "name": "Subsystem",
-            "labelFormat": "{c1_localname}"
+            "id": "assembly",
+            "name": "Assembly",
+            "labelFormat": "{assembly}"
           }
         ]  
       }
     },
-    "components-tree": {
+    "components-mass-tree": {
       "name": "Components Mass Tree",
       "diagrams": {
         "all-rows": "decompositions"
       },
       "queries": {
-        "components-tree": "component_filtered_withmass.sparql"
+        "components-with-mass": "component_filtered_withmass.sparql"
       },
       "rowMapping": {
-        "id": "components-tree",
+        "id": "components-with-mass",
         "name": "System",
         "labelFormat": "{c1_localname}",
         "subRowMappings": [

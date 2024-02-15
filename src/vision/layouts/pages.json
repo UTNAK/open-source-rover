@@ -7,26 +7,26 @@
       "children": [
         { 
           "title": "Decomposition",
-          "treeIcon": "window",
+          "treeIcon": "outline-view-icon",
           "path": "decompositions",
           "isDiagram": true
         },
         { 
           "title": "IBD",
-          "treeIcon": "window",
+          "treeIcon": "circuit-board",
           "path": "ibd",
           "isDiagram": true
         },
        {
-          "title": "Components",
+          "title": "Components Tree",
           "treeIcon": "list-tree",
-          "path": "components",
+          "path": "components-tree",
           "isTree": true
         },
         {
           "title": "Components Mass Tree",
           "treeIcon": "graph-scatter",
-          "path": "components-tree",
+          "path": "components-mass-tree",
           "isTree": true
         },
         {
