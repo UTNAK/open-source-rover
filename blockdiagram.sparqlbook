@@ -76,7 +76,19 @@
   {
     "kind": 1,
     "language": "markdown",
-    "value": "# iri 方式の Assembly",
+    "value": "# iri 方式の Subsystem",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?iri ?subsystem ?c1_id ?c1_name ?c1_type\nWHERE {\n\n    VALUES ?componentType { structure:Subsystem }\n\n\t?iri a ?componentType ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n\tOPTIONAL {\n\t\t?iri a structure:System ;\n\t\t\tBIND(\"System\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?iri a structure:Subsystem ;\n\t\t\tBIND(\"Subsystem\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?iri a structure:Assembly ;\n\t\t\tBIND(\"Assembly\"  AS ?c1_type) .\n\t}\n    BIND(STRAFTER(STR(?iri), \"#\") AS ?subsystem) .\n\n}\nORDER BY ?c1_id",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?iri ?assembly ?subsystem ?subsystemIri\nWHERE {\n\n\n\t?subsystemIri structure:hasAssembly ?iri ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n    BIND(STRAFTER(STR(?subsystemIri), \"#\") AS ?subsystem) .\n    BIND(STRAFTER(STR(?iri), \"#\") AS ?assembly) .\n\n}\nORDER BY ?c1_id",
     "metadata": {}
   }
 ]
