@@ -34,7 +34,7 @@
   {
     "kind": 2,
     "language": "sparql",
-    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?c1_localname ?c1_id ?c1_name ?c1_type\nWHERE {\n\n    VALUES ?componentType { structure:Subsystem }\n\n\t?c1 a ?componentType ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n\tOPTIONAL {\n\t\t?c1 a structure:System ;\n\t\t\tBIND(\"System\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?c1 a structure:Subsystem ;\n\t\t\tBIND(\"Subsystem\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?c1 a structure:Assembly ;\n\t\t\tBIND(\"Assembly\"  AS ?c1_type) .\n\t}\n    BIND(STRAFTER(STR(?c1), \"#\") AS ?c1_localname) .\n\n}\nORDER BY ?c1_id",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?subsystem ?c1_id ?c1_name ?c1_type\nWHERE {\n\n    VALUES ?componentType { structure:Subsystem }\n\n\t?c1 a ?componentType ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n\tOPTIONAL {\n\t\t?c1 a structure:System ;\n\t\t\tBIND(\"System\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?c1 a structure:Subsystem ;\n\t\t\tBIND(\"Subsystem\"  AS ?c1_type) .\n\t}\n\tOPTIONAL {\n\t\t?c1 a structure:Assembly ;\n\t\t\tBIND(\"Assembly\"  AS ?c1_type) .\n\t}\n    BIND(STRAFTER(STR(?c1), \"#\") AS ?subsystem) .\n\n}\nORDER BY ?c1_id",
     "metadata": {}
   },
   {
@@ -70,7 +70,13 @@
   {
     "kind": 2,
     "language": "sparql",
-    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT  ?subsystem ?assembly\nWHERE {\n\n\n\t?c1 structure:hasAssembly ?c2 ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n    BIND(STRAFTER(STR(?c1), \"#\") AS ?subsystem) .\n    BIND(STRAFTER(STR(?c2), \"#\") AS ?assembly) .\n\n}\nGROUP BY ?subsystem ?assembly\nORDER BY ?c1_id",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT   ?subsystem ?assembly\nWHERE {\n\n\n\t?c1 structure:hasAssembly ?c2 ;\n\t\tbase:hasIdentifier ?c1_id ;\n\t\tbase:hasCanonicalName ?c1_name ;\n\n    BIND(STRAFTER(STR(?c1), \"#\") AS ?subsystem) .\n    BIND(STRAFTER(STR(?c2), \"#\") AS ?assembly) .\n\n}\nGROUP BY ?subsystem ?assembly\nORDER BY ?c1_id",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# iri 方式の Assembly",
     "metadata": {}
   }
 ]

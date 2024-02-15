@@ -63,6 +63,10 @@
     <semanticResources>src/oml/opencaesar.io/open-source-rover/description/assembly/assembly.oml</semanticResources>
     <semanticResources>src/oml/opencaesar.io/open-source-rover/vocabulary/mass.oml</semanticResources>
     <semanticResources>src/oml/opencaesar.io/open-source-rover/description/mass/masses.oml</semanticResources>
+    <semanticResources>.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi</semanticResources>
+    <semanticResources>platform:/plugin/org.eclipse.pde.spy.preferences/fragment.e4xmi</semanticResources>
+    <semanticResources>.metadata/.plugins/org.eclipse.oomph.setup/workspace.setup</semanticResources>
+    <semanticResources>src/oml/opencaesar.io/open-source-rover/description/structure/test_ibd.oml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_mnv18IJKEe6rm_F14QxMfw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Descriptions']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_C1znIoJLEe6rm_F14QxMfw" name="Subsystems" repPath="#_C1znIIJLEe6rm_F14QxMfw" changeId="1702377970523">

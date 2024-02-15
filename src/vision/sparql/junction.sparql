@@ -1,4 +1,3 @@
-# from file src/vision/sparql/component_filtered.sparql
 PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
 PREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>
 PREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>
