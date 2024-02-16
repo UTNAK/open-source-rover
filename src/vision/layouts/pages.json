@@ -17,6 +17,12 @@
           "path": "ibd",
           "isDiagram": true
         },
+        { 
+          "title": "IBD with Sys",
+          "treeIcon": "circuit-board",
+          "path": "ibd-sys",
+          "isDiagram": true
+        },
        {
           "title": "Components Tree",
           "treeIcon": "list-tree",

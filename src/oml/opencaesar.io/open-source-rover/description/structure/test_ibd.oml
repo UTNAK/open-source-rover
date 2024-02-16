@@ -6,7 +6,13 @@ description <http://opencaesar.io/open-source-rover/description/structure/test_i
 
 	uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
 
-
+	instance Sys : ^structure:System [
+		base:hasIdentifier "TEST.00"
+		base:hasCanonicalName "System"
+		^structure:hasSubsystem SubA
+		^structure:hasSubsystem SubB
+	]
+	
 	instance SubA : ^structure:Subsystem [
 		base:hasIdentifier "TEST.01"
 		base:hasCanonicalName "A Subsystem"
