@@ -67,9 +67,9 @@
   "ibd-system": {
     "name": "IBD with System",
     "queries": {
-      "parents" : "system.sparql",
+      "parents" : "system_layered.sparql",
       "child": "subsystem_with_parent.sparql",
-      "grandchild": "assembly.sparql",
+      "grandchild": "assembly_layered.sparql",
       "edge": "junction.sparql"
     },
     "rowMapping": {
@@ -83,7 +83,7 @@
         {
           "id": "child",
           "name": "Subsystem",
-          "labelFormat": "{subsystem}",
+          "labelFormat": "{name}",
           "nodeColor": "Navy",
           "nodeTextColor": "white",
           "nodeType": "Subsystem",
@@ -91,7 +91,7 @@
             {
               "id": "grandchild",
               "name": "Assembly",
-              "labelFormat": "{subsystem} {assembly}",
+              "labelFormat": "{subsystem} {name}",
               "nodeColor": "lightblue",
               "nodeTextColor": "blue",
               "nodeType": "na",

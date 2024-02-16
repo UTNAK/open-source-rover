@@ -3,7 +3,7 @@ PREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>
 PREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>
 PREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?subsystemIri ?subsystem ?c1_id ?c1_name ?c1_type ?system ?systemIri
+SELECT DISTINCT ?subsystemIri ?system ?c1_id ?c1_name ?c1_type ?name ?systemIri
 WHERE {
 
 	?systemIri structure:hasSubsystem ?subsystemIri ;
@@ -23,7 +23,7 @@ WHERE {
 		?subsystemIri a structure:Assembly ;
 			BIND("Assembly"  AS ?c1_type) .
 	}
-    BIND(STRAFTER(STR(?subsystemIri), "#") AS ?subsystem) .
+    BIND(STRAFTER(STR(?subsystemIri), "#") AS ?name) .
     BIND(STRAFTER(STR(?systemIri), "#") AS ?system) .
 
 
