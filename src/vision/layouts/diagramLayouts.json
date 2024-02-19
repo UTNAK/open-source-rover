@@ -74,7 +74,7 @@
     },
     "rowMapping": {
       "id": "system",
-      "name": "Subsystem",
+      "name": "System",
       "labelFormat": "{system}",
       "nodeColor": "Aqua",
       "nodeTextColor": "black",
