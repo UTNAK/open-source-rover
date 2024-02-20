@@ -1,2 +1,1254 @@
 description <http://opencaesar.io/open-source-rover/description/assembly/parts#> as parts {
+
+  uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+  uses <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure
+  extends <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly
+
+// Part - Body
+	instance 120mm-open-gorail-1 : structure:Part [
+		base:hasIdentifier "P0.001"
+		base:hasCanonicalName "120mm open goRail-1"
+		base:hasShortName "120mm open goRail-1"
+		structure:hasPartsNumber "1118-0024-0120"
+	]
+	instance 120mm-open-gorail-2 : structure:Part [
+		base:hasIdentifier "P0.002"
+		base:hasCanonicalName "120mm open goRail-2"
+		base:hasShortName "120mm open goRail-2"
+		structure:hasPartsNumber "1118-0024-0120"
+	]
+	instance 2hole-uchannel-1 : structure:Part [
+		base:hasIdentifier "P0.003"
+		base:hasCanonicalName "2 Hole U channel-1"
+		base:hasShortName "2 Hole U channel-1"
+		structure:hasPartsNumber "1120-0002-0072"
+	]
+	instance 2hole-uchannel-2 : structure:Part [
+		base:hasIdentifier "P0.004"
+		base:hasCanonicalName "2 Hole U channel-2"
+		base:hasShortName "2 Hole U channel-2"
+		structure:hasPartsNumber "1120-0002-0072"
+	]
+	instance 32mm-bearing-1 : structure:Part [
+		base:hasIdentifier "P0.005"
+		base:hasCanonicalName "32mm bearing-1"
+		base:hasShortName "32mm bearing-1"
+		structure:hasPartsNumber "1604-0043-0032"
+	]
+	instance 32mm-bearing-2 : structure:Part [
+		base:hasIdentifier "P0.006"
+		base:hasCanonicalName "32mm bearing-2"
+		base:hasShortName "32mm bearing-2"
+		structure:hasPartsNumber "1604-0043-0032"
+	]
+	instance 32mm-bearing-3 : structure:Part [
+		base:hasIdentifier "P0.007"
+		base:hasCanonicalName "32mm bearing-3"
+		base:hasShortName "32mm bearing-3"
+		structure:hasPartsNumber "1604-0043-0032"
+	]
+	instance 32mm-bearing-4 : structure:Part [
+		base:hasIdentifier "P0.008"
+		base:hasCanonicalName "32mm bearing-4"
+		base:hasShortName "32mm bearing-4"
+		structure:hasPartsNumber "1604-0043-0032"
+	]
+	instance 32mm-6mm-spacer-2-pack-1 : structure:Part [
+		base:hasIdentifier "P0.009"
+		base:hasCanonicalName "32mm 6mm spacer 2 pack-1"
+		base:hasShortName "32mm 6mm spacer 2 pack-1"
+		structure:hasPartsNumber "1506-0032-0006"
+	]
+	instance 32mm-6mm-spacer-2-pack-2 : structure:Part [
+		base:hasIdentifier "P0.010"
+		base:hasCanonicalName "32mm 6mm spacer 2 pack-2"
+		base:hasShortName "32mm 6mm spacer 2 pack-2"
+		structure:hasPartsNumber "1506-0032-0006"
+	]
+	instance 32mm-6mm-spacer-2-pack-3 : structure:Part [
+		base:hasIdentifier "P0.011"
+		base:hasCanonicalName "32mm 6mm spacer 2 pack-3"
+		base:hasShortName "32mm 6mm spacer 2 pack-3"
+		structure:hasPartsNumber "1506-0032-0006"
+	]
+	instance 29-hole-beam-1 : structure:Part [
+		base:hasIdentifier "P0.012"
+		base:hasCanonicalName "29 hole beam-1"
+		base:hasShortName "29 hole beam-1"
+		structure:hasPartsNumber "1106-0029-0232"
+	]
+	instance 29-hole-beam-2 : structure:Part [
+		base:hasIdentifier "P0.013"
+		base:hasCanonicalName "29 hole beam-2"
+		base:hasShortName "29 hole beam-2"
+		structure:hasPartsNumber "1106-0029-0232"
+	]
+	instance 29-hole-beam-3 : structure:Part [
+		base:hasIdentifier "P0.014"
+		base:hasCanonicalName "29 hole beam-3"
+		base:hasShortName "29 hole beam-3"
+		structure:hasPartsNumber "1106-0029-0232"
+	]
+	instance 29-hole-beam-4 : structure:Part [
+		base:hasIdentifier "P0.015"
+		base:hasCanonicalName "29 hole beam-4"
+		base:hasShortName "29 hole beam-4"
+		structure:hasPartsNumber "1106-0029-0232"
+	]
+	instance 29-hole-beam-5 : structure:Part [
+		base:hasIdentifier "P0.016"
+		base:hasCanonicalName "29 hole beam-5"
+		base:hasShortName "29 hole beam-5"
+		structure:hasPartsNumber "1106-0029-0232"
+	]
+	instance 41-hole-beam-1 : structure:Part [
+		base:hasIdentifier "P0.017"
+		base:hasCanonicalName "41 hole beam-1"
+		base:hasShortName "41 hole beam-1"
+		structure:hasPartsNumber "1106-0041-0328"
+	]
+	instance 41-hole-beam-2 : structure:Part [
+		base:hasIdentifier "P0.018"
+		base:hasCanonicalName "41 hole beam-2"
+		base:hasShortName "41 hole beam-2"
+		structure:hasPartsNumber "1106-0041-0328"
+	]
+	instance 41-hole-beam-3 : structure:Part [
+		base:hasIdentifier "P0.019"
+		base:hasCanonicalName "41 hole beam-3"
+		base:hasShortName "41 hole beam-3"
+		structure:hasPartsNumber "1106-0041-0328"
+	]
+	instance 41-hole-beam-4 : structure:Part [
+		base:hasIdentifier "P0.020"
+		base:hasCanonicalName "41 hole beam-4"
+		base:hasShortName "41 hole beam-4"
+		structure:hasPartsNumber "1106-0041-0328"
+	]
+	instance 12-hole-beam-1 : structure:Part [
+		base:hasIdentifier "P0.021"
+		base:hasCanonicalName "12 hole beam-1"
+		base:hasShortName "12 hole beam-1"
+		structure:hasPartsNumber "1106-0012-0096"
+	]
+	instance 12-hole-beam-2 : structure:Part [
+		base:hasIdentifier "P0.022"
+		base:hasCanonicalName "12 hole beam-2"
+		base:hasShortName "12 hole beam-2"
+		structure:hasPartsNumber "1106-0012-0096"
+	]
+	instance 12-hole-beam-3 : structure:Part [
+		base:hasIdentifier "P0.023"
+		base:hasCanonicalName "12 hole beam-3"
+		base:hasShortName "12 hole beam-3"
+		structure:hasPartsNumber "1106-0012-0096"
+	]
+	instance 12-hole-beam-4 : structure:Part [
+		base:hasIdentifier "P0.024"
+		base:hasCanonicalName "12 hole beam-4"
+		base:hasShortName "12 hole beam-4"
+		structure:hasPartsNumber "1106-0012-0096"
+	]
+	instance 12-hole-beam-5 : structure:Part [
+		base:hasIdentifier "P0.025"
+		base:hasCanonicalName "12 hole beam-5"
+		base:hasShortName "12 hole beam-5"
+		structure:hasPartsNumber "1106-0012-0096"
+	]
+	instance 12-hole-beam-6 : structure:Part [
+		base:hasIdentifier "P0.026"
+		base:hasCanonicalName "12 hole beam-6"
+		base:hasShortName "12 hole beam-6"
+		structure:hasPartsNumber "1106-0012-0096"
+	]
+	instance 12-hole-beam-7 : structure:Part [
+		base:hasIdentifier "P0.027"
+		base:hasCanonicalName "12 hole beam-7"
+		base:hasShortName "12 hole beam-7"
+		structure:hasPartsNumber "1106-0012-0096"
+	]
+	instance 12-hole-beam-8 : structure:Part [
+		base:hasIdentifier "P0.028"
+		base:hasCanonicalName "12 hole beam-8"
+		base:hasShortName "12 hole beam-8"
+		structure:hasPartsNumber "1106-0012-0096"
+	]
+	instance 41-hole-ubeam-1 : structure:Part [
+		base:hasIdentifier "P0.029"
+		base:hasCanonicalName "41 hole u-beam beam-1"
+		base:hasShortName "41 hole u-beam beam-1"
+		structure:hasPartsNumber "1101-0041-0328"
+	]
+	instance 7-hole-flat-beam-2pack-1 : structure:Part [
+		base:hasIdentifier "P0.030"
+		base:hasCanonicalName "7 hole flat beam 2pack-1"
+		base:hasShortName "7 hole flat beam 2pack-1"
+		structure:hasPartsNumber "1102-0007-0056"
+	]
+	instance 7-hole-flat-beam-2pack-2 : structure:Part [
+		base:hasIdentifier "P0.031"
+		base:hasCanonicalName "7 hole flat beam 2pack-2"
+		base:hasShortName "7 hole flat beam 2pack-2"
+		structure:hasPartsNumber "1102-0007-0056"
+	]
+	instance dual-block-mount-1 : structure:Part [
+		base:hasIdentifier "P0.032"
+		base:hasCanonicalName "dual block mount-1"
+		base:hasShortName "dual block mount-1"
+		structure:hasPartsNumber "1205-0001-0004"
+	]
+	instance dual-block-mount-2 : structure:Part [
+		base:hasIdentifier "P0.033"
+		base:hasCanonicalName "dual block mount-2"
+		base:hasShortName "dual block mount-2"
+		structure:hasPartsNumber "1205-0001-0004"
+	]
+	instance 90deg-threaded-gusset-4pack-1 : structure:Part [
+		base:hasIdentifier "P0.034"
+		base:hasCanonicalName "90deg threaded gusset 4pack-1"
+		base:hasShortName "90deg threaded gusset 4pack-1"
+		structure:hasPartsNumber "1203-0001-0001"
+	]
+	instance 50mm-threaded-rod-1 : structure:Part [
+		base:hasIdentifier "P0.035"
+		base:hasCanonicalName "50mm threaded rod-1"
+		base:hasShortName "50mm threaded rod-1"
+		structure:hasPartsNumber "2808-0004-0050"
+	]
+	instance ball-linkage-2pack-1 : structure:Part [
+		base:hasIdentifier "P0.036"
+		base:hasCanonicalName "ball linkage 2pack-1"
+		base:hasShortName "ball linkage 2pack-1"
+		structure:hasPartsNumber "2913-0004-0241"
+	]
+	instance ball-linkage-2pack-2 : structure:Part [
+		base:hasIdentifier "P0.037"
+		base:hasCanonicalName "ball linkage 2pack-2"
+		base:hasShortName "ball linkage 2pack-2"
+		structure:hasPartsNumber "2913-0004-0241"
+	]
+	instance idler-bearing-hub-1 : structure:Part [
+		base:hasIdentifier "P0.038"
+		base:hasCanonicalName "Idler Bearing Hub-1"
+		base:hasShortName "Idler Bearing Hub-1"
+		structure:hasPartsNumber "1608-0001-0001"
+	]
+	instance plastic-hinges-1 : structure:Part [
+		base:hasIdentifier "P0.039"
+		base:hasCanonicalName "plastic hinges-1"
+		base:hasShortName "plastic hinges-1"
+		structure:hasPartsNumber "2902-0003-0001"
+	]
+	instance plastic-hinges-2 : structure:Part [
+		base:hasIdentifier "P0.040"
+		base:hasCanonicalName "plastic hinges-2"
+		base:hasShortName "plastic hinges-2"
+		structure:hasPartsNumber "2902-0003-0001"
+	]
+	instance 8mm-standoffs-1 : structure:Part [
+		base:hasIdentifier "P0.041"
+		base:hasCanonicalName "8mm standoffs-1"
+		base:hasShortName "8mm standoffs-1"
+		structure:hasPartsNumber "1501-0006-0080"
+	]
+	instance 8mm-standoffs-2 : structure:Part [
+		base:hasIdentifier "P0.042"
+		base:hasCanonicalName "8mm standoffs-2"
+		base:hasShortName "8mm standoffs-2"
+		structure:hasPartsNumber "1501-0006-0080"
+	]
+	instance 22mm-standoffs-1 : structure:Part [
+		base:hasIdentifier "P0.043"
+		base:hasCanonicalName "22mm standoffs-1"
+		base:hasShortName "22mm standoffs-1"
+		structure:hasPartsNumber "1501-0006-0220"
+	]
+	instance 22mm-standoffs-2 : structure:Part [
+		base:hasIdentifier "P0.044"
+		base:hasCanonicalName "22mm standoffs-2"
+		base:hasShortName "22mm standoffs-2"
+		structure:hasPartsNumber "1501-0006-0220"
+	]
+	instance plastic-spacer-1 : structure:Part [
+		base:hasIdentifier "P0.045"
+		base:hasCanonicalName "plastic spacer-1"
+		base:hasShortName "plastic spacer-1"
+		structure:hasPartsNumber "1500-0010-0006"
+	]
+	instance 3-5-grid-plate-1 : structure:Part [
+		base:hasIdentifier "P0.046"
+		base:hasCanonicalName "3x5 grid plate-1"
+		base:hasShortName "3x5 grid plate-1"
+		structure:hasPartsNumber "1116-0024-0040"
+	]
+	instance 3-5-grid-plate-2 : structure:Part [
+		base:hasIdentifier "P0.047"
+		base:hasCanonicalName "3x5 grid plate-2"
+		base:hasShortName "3x5 grid plate-2"
+		structure:hasPartsNumber "1116-0024-0040"
+	]
+	instance 3-5-grid-plate-3 : structure:Part [
+		base:hasIdentifier "P0.048"
+		base:hasCanonicalName "3x5 grid plate-3"
+		base:hasShortName "3x5 grid plate-3"
+		structure:hasPartsNumber "1116-0024-0040"
+	]
+	instance 3-5-grid-plate-4 : structure:Part [
+		base:hasIdentifier "P0.049"
+		base:hasCanonicalName "3x5 grid plate-4"
+		base:hasShortName "3x5 grid plate-4"
+		structure:hasPartsNumber "1116-0024-0040"
+	]
+	instance 2-hole-flat-beam-1 : structure:Part [
+		base:hasIdentifier "P0.050"
+		base:hasCanonicalName "2 hole flat beam-1"
+		base:hasShortName "2 hole flat beam-1"
+		structure:hasPartsNumber "1102-0002-0016"
+	]
+	instance 2-hole-flat-beam-2 : structure:Part [
+		base:hasIdentifier "P0.051"
+		base:hasCanonicalName "2 hole flat beam-2"
+		base:hasShortName "2 hole flat beam-2"
+		structure:hasPartsNumber "1102-0002-0016"
+	]
+
+// ref Part - Body
+	ref instance assembly:body-assembly [
+		^structure:hasPart 120mm-open-gorail-1
+		^structure:hasPart 120mm-open-gorail-2
+		^structure:hasPart 2hole-uchannel-1
+		^structure:hasPart 2hole-uchannel-2
+		^structure:hasPart 32mm-bearing-1
+		^structure:hasPart 32mm-bearing-2
+		^structure:hasPart 32mm-bearing-3
+		^structure:hasPart 32mm-bearing-4
+		^structure:hasPart 32mm-6mm-spacer-2-pack-1
+		^structure:hasPart 32mm-6mm-spacer-2-pack-2
+		^structure:hasPart 32mm-6mm-spacer-2-pack-3
+		^structure:hasPart 29-hole-beam-1
+		^structure:hasPart 29-hole-beam-2
+		^structure:hasPart 29-hole-beam-3
+		^structure:hasPart 29-hole-beam-4
+		^structure:hasPart 29-hole-beam-5
+		^structure:hasPart 41-hole-beam-1
+		^structure:hasPart 41-hole-beam-2
+		^structure:hasPart 41-hole-beam-3
+		^structure:hasPart 41-hole-beam-4
+		^structure:hasPart 12-hole-beam-1
+		^structure:hasPart 12-hole-beam-2
+		^structure:hasPart 12-hole-beam-3
+		^structure:hasPart 12-hole-beam-4
+		^structure:hasPart 12-hole-beam-5
+		^structure:hasPart 12-hole-beam-6
+		^structure:hasPart 12-hole-beam-7
+		^structure:hasPart 12-hole-beam-8
+		^structure:hasPart 41-hole-ubeam-1
+		^structure:hasPart 7-hole-flat-beam-2pack-1
+		^structure:hasPart 7-hole-flat-beam-2pack-2
+		^structure:hasPart dual-block-mount-1
+		^structure:hasPart dual-block-mount-2
+		^structure:hasPart 90deg-threaded-gusset-4pack-1
+		^structure:hasPart 50mm-threaded-rod-1
+		^structure:hasPart ball-linkage-2pack-1
+		^structure:hasPart ball-linkage-2pack-2
+		^structure:hasPart idler-bearing-hub-1
+		^structure:hasPart plastic-hinges-1
+		^structure:hasPart plastic-hinges-2
+		^structure:hasPart 8mm-standoffs-1
+		^structure:hasPart 8mm-standoffs-2
+		^structure:hasPart 22mm-standoffs-1
+		^structure:hasPart 22mm-standoffs-2
+		^structure:hasPart plastic-spacer-1
+		^structure:hasPart 3-5-grid-plate-1
+		^structure:hasPart 3-5-grid-plate-2
+		^structure:hasPart 3-5-grid-plate-3
+		^structure:hasPart 3-5-grid-plate-4
+		^structure:hasPart 2-hole-flat-beam-1
+		^structure:hasPart 2-hole-flat-beam-2
+	]
+
+
+// Part - drive-wheel-assembly-1
+	instance wheel-1-1 : structure:Part [
+		base:hasIdentifier "P1.001"
+		base:hasCanonicalName "wheel-1"
+		base:hasShortName "wheel-1"
+		structure:hasPartsNumber "5374X"
+	]
+	instance clamping-mount-1-1 : structure:Part [
+		base:hasIdentifier "P1.002"
+		base:hasCanonicalName "clamping mount-1"
+		base:hasShortName "clamping mount-1"
+		structure:hasPartsNumber "1401-0043-0036"
+	]
+	instance motor-1-1 : structure:Part [
+		base:hasIdentifier "P1.003"
+		base:hasCanonicalName "motor-1"
+		base:hasShortName "motor-1"
+		structure:hasPartsNumber "5203-2402-0027"
+	]
+	instance rex-bore-hub-1-1 : structure:Part [
+		base:hasIdentifier "P1.004"
+		base:hasCanonicalName "REX bore hub-1"
+		base:hasShortName "REX bore hub-1"
+		structure:hasPartsNumber "1310-0016-4008"
+	]
+	instance 2-hole-u-channel-1-1 : structure:Part [
+		base:hasIdentifier "P1.005"
+		base:hasCanonicalName "2 Hole U channel-1"
+		base:hasShortName "2 Hole U channel-1"
+		structure:hasPartsNumber "1120-0002-0072"
+	]
+
+// ref Part - drive-wheel-assembly-1
+	ref instance assembly:drive-wheel-assembly-1 [
+		^structure:hasPart wheel-1-1
+		^structure:hasPart clamping-mount-1-1
+		^structure:hasPart motor-1-1
+		^structure:hasPart rex-bore-hub-1-1
+		^structure:hasPart 2-hole-u-channel-1-1
+	]
+
+
+// Part - drive-wheel-assembly-2
+	instance wheel-2-1 : structure:Part [
+		base:hasIdentifier "P2.001"
+		base:hasCanonicalName "wheel-1"
+		base:hasShortName "wheel-1"
+		structure:hasPartsNumber "5374X"
+	]
+	instance clamping-mount-2-1 : structure:Part [
+		base:hasIdentifier "P2.002"
+		base:hasCanonicalName "clamping mount-1"
+		base:hasShortName "clamping mount-1"
+		structure:hasPartsNumber "1401-0043-0036"
+	]
+	instance motor-2-1 : structure:Part [
+		base:hasIdentifier "P2.003"
+		base:hasCanonicalName "motor-1"
+		base:hasShortName "motor-1"
+		structure:hasPartsNumber "5203-2402-0027"
+	]
+	instance rex-bore-hub-2-1 : structure:Part [
+		base:hasIdentifier "P2.004"
+		base:hasCanonicalName "REX bore hub-1"
+		base:hasShortName "REX bore hub-1"
+		structure:hasPartsNumber "1310-0016-4008"
+	]
+	instance 2-hole-u-channel-2-1 : structure:Part [
+		base:hasIdentifier "P2.005"
+		base:hasCanonicalName "2 Hole U channel-1"
+		base:hasShortName "2 Hole U channel-1"
+		structure:hasPartsNumber "1120-0002-0072"
+	]
+
+// ref Part - drive-wheel-assembly-2
+	ref instance assembly:drive-wheel-assembly-2 [
+		^structure:hasPart wheel-2-1
+		^structure:hasPart clamping-mount-2-1
+		^structure:hasPart motor-2-1
+		^structure:hasPart rex-bore-hub-2-1
+		^structure:hasPart 2-hole-u-channel-2-1
+	]
+
+
+// Part - corner-wheel-assembly-1
+	instance wheel-3-1 : structure:Part [
+		base:hasIdentifier "P3.001"
+		base:hasCanonicalName "wheel-1"
+		base:hasShortName "wheel-1"
+		structure:hasPartsNumber "5374X"
+	]
+	instance clamping-mount-3-1 : structure:Part [
+		base:hasIdentifier "P3.002"
+		base:hasCanonicalName "clamping mount-1"
+		base:hasShortName "clamping mount-1"
+		structure:hasPartsNumber "1401-0043-0036"
+	]
+	instance motor-3-1 : structure:Part [
+		base:hasIdentifier "P3.003"
+		base:hasCanonicalName "motor-1"
+		base:hasShortName "motor-1"
+		structure:hasPartsNumber "5203-2402-0027"
+	]
+	instance rex-bore-hub-3-1 : structure:Part [
+		base:hasIdentifier "P3.004"
+		base:hasCanonicalName "REX bore hub-1"
+		base:hasShortName "REX bore hub-1"
+		structure:hasPartsNumber "1310-0016-4008"
+	]
+	instance 2-hole-u-channel-3-1 : structure:Part [
+		base:hasIdentifier "P3.005"
+		base:hasCanonicalName "2 Hole U channel-1"
+		base:hasShortName "2 Hole U channel-1"
+		structure:hasPartsNumber "1120-0002-0072"
+	]
+	instance 144mm-gorail-3-1 : structure:Part [
+		base:hasIdentifier "P3.006"
+		base:hasCanonicalName "144mm goRail-1"
+		base:hasShortName "144mm goRail-1"
+		structure:hasPartsNumber "1109-0024-0144"
+	]
+	instance 4-hole-u-channel-3-1 : structure:Part [
+		base:hasIdentifier "P3.007"
+		base:hasCanonicalName "4 Hole U channel-1"
+		base:hasShortName "4 Hole U channel-1"
+		structure:hasPartsNumber "1121-0004-0120"
+	]
+
+// ref Part - corner-wheel-assembly-1
+	ref instance assembly:corner-wheel-assembly-1 [
+		^structure:hasPart wheel-3-1
+		^structure:hasPart clamping-mount-3-1
+		^structure:hasPart motor-3-1
+		^structure:hasPart rex-bore-hub-3-1
+		^structure:hasPart 2-hole-u-channel-3-1
+		^structure:hasPart 144mm-gorail-3-1
+		^structure:hasPart 4-hole-u-channel-3-1
+	]
+
+
+// Part - corner-wheel-assembly-2
+	instance wheel-4-1 : structure:Part [
+		base:hasIdentifier "P4.001"
+		base:hasCanonicalName "wheel-1"
+		base:hasShortName "wheel-1"
+		structure:hasPartsNumber "5374X"
+	]
+	instance clamping-mount-4-1 : structure:Part [
+		base:hasIdentifier "P4.002"
+		base:hasCanonicalName "clamping mount-1"
+		base:hasShortName "clamping mount-1"
+		structure:hasPartsNumber "1401-0043-0036"
+	]
+	instance motor-4-1 : structure:Part [
+		base:hasIdentifier "P4.003"
+		base:hasCanonicalName "motor-1"
+		base:hasShortName "motor-1"
+		structure:hasPartsNumber "5203-2402-0027"
+	]
+	instance rex-bore-hub-4-1 : structure:Part [
+		base:hasIdentifier "P4.004"
+		base:hasCanonicalName "REX bore hub-1"
+		base:hasShortName "REX bore hub-1"
+		structure:hasPartsNumber "1310-0016-4008"
+	]
+	instance 2-hole-u-channel-4-1 : structure:Part [
+		base:hasIdentifier "P4.005"
+		base:hasCanonicalName "2 Hole U channel-1"
+		base:hasShortName "2 Hole U channel-1"
+		structure:hasPartsNumber "1120-0002-0072"
+	]
+	instance 144mm-gorail-4-1 : structure:Part [
+		base:hasIdentifier "P4.006"
+		base:hasCanonicalName "144mm goRail-1"
+		base:hasShortName "144mm goRail-1"
+		structure:hasPartsNumber "1109-0024-0144"
+	]
+	instance 4-hole-u-channel-4-1 : structure:Part [
+		base:hasIdentifier "P4.007"
+		base:hasCanonicalName "4 Hole U channel-1"
+		base:hasShortName "4 Hole U channel-1"
+		structure:hasPartsNumber "1121-0004-0120"
+	]
+
+// ref Part - corner-wheel-assembly-2
+	ref instance assembly:corner-wheel-assembly-2 [
+		^structure:hasPart wheel-4-1
+		^structure:hasPart clamping-mount-4-1
+		^structure:hasPart motor-4-1
+		^structure:hasPart rex-bore-hub-4-1
+		^structure:hasPart 2-hole-u-channel-4-1
+		^structure:hasPart 144mm-gorail-4-1
+		^structure:hasPart 4-hole-u-channel-4-1
+	]
+
+
+// Part - corner-wheel-assembly-3
+	instance wheel-5-1 : structure:Part [
+		base:hasIdentifier "P5.001"
+		base:hasCanonicalName "wheel-1"
+		base:hasShortName "wheel-1"
+		structure:hasPartsNumber "5374X"
+	]
+	instance clamping-mount-5-1 : structure:Part [
+		base:hasIdentifier "P5.002"
+		base:hasCanonicalName "clamping mount-1"
+		base:hasShortName "clamping mount-1"
+		structure:hasPartsNumber "1401-0043-0036"
+	]
+	instance motor-5-1 : structure:Part [
+		base:hasIdentifier "P5.003"
+		base:hasCanonicalName "motor-1"
+		base:hasShortName "motor-1"
+		structure:hasPartsNumber "5203-2402-0027"
+	]
+	instance rex-bore-hub-5-1 : structure:Part [
+		base:hasIdentifier "P5.004"
+		base:hasCanonicalName "REX bore hub-1"
+		base:hasShortName "REX bore hub-1"
+		structure:hasPartsNumber "1310-0016-4008"
+	]
+	instance 2-hole-u-channel-5-1 : structure:Part [
+		base:hasIdentifier "P5.005"
+		base:hasCanonicalName "2 Hole U channel-1"
+		base:hasShortName "2 Hole U channel-1"
+		structure:hasPartsNumber "1120-0002-0072"
+	]
+	instance 144mm-gorail-5-1 : structure:Part [
+		base:hasIdentifier "P5.006"
+		base:hasCanonicalName "144mm goRail-1"
+		base:hasShortName "144mm goRail-1"
+		structure:hasPartsNumber "1109-0024-0144"
+	]
+	instance 4-hole-u-channel-5-1 : structure:Part [
+		base:hasIdentifier "P5.007"
+		base:hasCanonicalName "4 Hole U channel-1"
+		base:hasShortName "4 Hole U channel-1"
+		structure:hasPartsNumber "1121-0004-0120"
+	]
+
+// ref Part - corner-wheel-assembly-3
+	ref instance assembly:corner-wheel-assembly-3 [
+		^structure:hasPart wheel-5-1
+		^structure:hasPart clamping-mount-5-1
+		^structure:hasPart motor-5-1
+		^structure:hasPart rex-bore-hub-5-1
+		^structure:hasPart 2-hole-u-channel-5-1
+		^structure:hasPart 144mm-gorail-5-1
+		^structure:hasPart 4-hole-u-channel-5-1
+	]
+
+
+// Part - corner-wheel-assembly-4
+	instance wheel-6-1 : structure:Part [
+		base:hasIdentifier "P6.001"
+		base:hasCanonicalName "wheel-1"
+		base:hasShortName "wheel-1"
+		structure:hasPartsNumber "5374X"
+	]
+	instance clamping-mount-6-1 : structure:Part [
+		base:hasIdentifier "P6.002"
+		base:hasCanonicalName "clamping mount-1"
+		base:hasShortName "clamping mount-1"
+		structure:hasPartsNumber "1401-0043-0036"
+	]
+	instance motor-6-1 : structure:Part [
+		base:hasIdentifier "P6.003"
+		base:hasCanonicalName "motor-1"
+		base:hasShortName "motor-1"
+		structure:hasPartsNumber "5203-2402-0027"
+	]
+	instance rex-bore-hub-6-1 : structure:Part [
+		base:hasIdentifier "P6.004"
+		base:hasCanonicalName "REX bore hub-1"
+		base:hasShortName "REX bore hub-1"
+		structure:hasPartsNumber "1310-0016-4008"
+	]
+	instance 2-hole-u-channel-6-1 : structure:Part [
+		base:hasIdentifier "P6.005"
+		base:hasCanonicalName "2 Hole U channel-1"
+		base:hasShortName "2 Hole U channel-1"
+		structure:hasPartsNumber "1120-0002-0072"
+	]
+	instance 144mm-gorail-6-1 : structure:Part [
+		base:hasIdentifier "P6.006"
+		base:hasCanonicalName "144mm goRail-1"
+		base:hasShortName "144mm goRail-1"
+		structure:hasPartsNumber "1109-0024-0144"
+	]
+	instance 4-hole-u-channel-6-1 : structure:Part [
+		base:hasIdentifier "P6.007"
+		base:hasCanonicalName "4 Hole U channel-1"
+		base:hasShortName "4 Hole U channel-1"
+		structure:hasPartsNumber "1121-0004-0120"
+	]
+
+// ref Part - corner-wheel-assembly-4
+	ref instance assembly:corner-wheel-assembly-4 [
+		^structure:hasPart wheel-6-1
+		^structure:hasPart clamping-mount-6-1
+		^structure:hasPart motor-6-1
+		^structure:hasPart rex-bore-hub-6-1
+		^structure:hasPart 2-hole-u-channel-6-1
+		^structure:hasPart 144mm-gorail-6-1
+		^structure:hasPart 4-hole-u-channel-6-1
+	]
+
+
+// Part - rocker-bogie-suspension-assembly-1
+	instance 1-hole-uchannel-8-1 : structure:Part [
+		base:hasIdentifier "P8.001"
+		base:hasCanonicalName "1hole uchannel-1"
+		base:hasShortName "1hole uchannel-1"
+		structure:hasPartsNumber "1120-0001-0048"
+	]
+	instance servoblock-8-1 : structure:Part [
+		base:hasIdentifier "P8.002"
+		base:hasCanonicalName "servoblock-1"
+		base:hasShortName "servoblock-1"
+		structure:hasPartsNumber "3202-0001-2501"
+	]
+	instance servoblock-8-2 : structure:Part [
+		base:hasIdentifier "P8.003"
+		base:hasCanonicalName "servoblock-2"
+		base:hasShortName "servoblock-2"
+		structure:hasPartsNumber "3202-0001-2501"
+	]
+	instance servo-8-1 : structure:Part [
+		base:hasIdentifier "P8.004"
+		base:hasCanonicalName "servo-1"
+		base:hasShortName "servo-1"
+		structure:hasPartsNumber "2000-0025-0002"
+	]
+	instance servo-8-2 : structure:Part [
+		base:hasIdentifier "P8.005"
+		base:hasCanonicalName "servo-2"
+		base:hasShortName "servo-2"
+		structure:hasPartsNumber "2000-0025-0002"
+	]
+	instance 8mm-sonic-hub-8-1 : structure:Part [
+		base:hasIdentifier "P8.006"
+		base:hasCanonicalName "8mm Sonic Hub-1"
+		base:hasShortName "8mm Sonic Hub-1"
+		structure:hasPartsNumber "1309-0016-0008"
+	]
+	instance flanged-bearing-2pack-8-1 : structure:Part [
+		base:hasIdentifier "P8.007"
+		base:hasCanonicalName "flanged bearing 2pack-1"
+		base:hasShortName "flanged bearing 2pack-1"
+		structure:hasPartsNumber "1611-0514-0008"
+	]
+	instance joint-pattern-spacer-8-1 : structure:Part [
+		base:hasIdentifier "P8.008"
+		base:hasCanonicalName "joint pattern spacer-1"
+		base:hasShortName "joint pattern spacer-1"
+		structure:hasPartsNumber "1504-0032-0020"
+	]
+	instance joint-pattern-spacer-8-2 : structure:Part [
+		base:hasIdentifier "P8.009"
+		base:hasCanonicalName "joint pattern spacer-2"
+		base:hasShortName "joint pattern spacer-2"
+		structure:hasPartsNumber "1504-0032-0020"
+	]
+	instance joint-8mm-shaft-8-1 : structure:Part [
+		base:hasIdentifier "P8.010"
+		base:hasCanonicalName "joint 8mm shaft-1"
+		base:hasShortName "joint 8mm shaft-1"
+		structure:hasPartsNumber "2100-0008-0050"
+	]
+	instance joint-3hole-flat-beam-2pack-8-1 : structure:Part [
+		base:hasIdentifier "P8.011"
+		base:hasCanonicalName "joint 3hole flat beam 2pack-1"
+		base:hasShortName "joint 3hole flat beam 2pack-1"
+		structure:hasPartsNumber "1102-0003-0024"
+	]
+	instance joint-3hole-flat-beam-2pack-8-2 : structure:Part [
+		base:hasIdentifier "P8.012"
+		base:hasCanonicalName "joint 3hole flat beam 2pack-2"
+		base:hasShortName "joint 3hole flat beam 2pack-2"
+		structure:hasPartsNumber "1102-0003-0024"
+	]
+	instance joint-pattern-mount-8-1 : structure:Part [
+		base:hasIdentifier "P8.013"
+		base:hasCanonicalName "joint pattern mount-1"
+		base:hasShortName "joint pattern mount-1"
+		structure:hasPartsNumber "1221-0032-0002"
+	]
+	instance joint-pattern-mount-8-2 : structure:Part [
+		base:hasIdentifier "P8.014"
+		base:hasCanonicalName "joint pattern mount-2"
+		base:hasShortName "joint pattern mount-2"
+		structure:hasPartsNumber "1221-0032-0002"
+	]
+	instance steel-flat-bracket-8-1 : structure:Part [
+		base:hasIdentifier "P8.015"
+		base:hasCanonicalName "steel flat bracket-1"
+		base:hasShortName "steel flat bracket-1"
+		structure:hasPartsNumber "1126-0001-0001"
+	]
+	instance 3-5-grid-plate-8-1 : structure:Part [
+		base:hasIdentifier "P8.016"
+		base:hasCanonicalName "3x5 grid plate-1"
+		base:hasShortName "3x5 grid plate-1"
+		structure:hasPartsNumber "1116-0024-0040"
+	]
+	instance 3-5-grid-plate-8-2 : structure:Part [
+		base:hasIdentifier "P8.017"
+		base:hasCanonicalName "3x5 grid plate-2"
+		base:hasShortName "3x5 grid plate-2"
+		structure:hasPartsNumber "1116-0024-0040"
+	]
+	instance angle-bracket-8-1 : structure:Part [
+		base:hasIdentifier "P8.018"
+		base:hasCanonicalName "angle bracket-1"
+		base:hasShortName "angle bracket-1"
+		structure:hasPartsNumber "1111-0003-0001"
+	]
+	instance 96mm-open-gorail-8-1 : structure:Part [
+		base:hasIdentifier "P8.019"
+		base:hasCanonicalName "96mm open goRail-1"
+		base:hasShortName "96mm open goRail-1"
+		structure:hasPartsNumber "1118-0024-0096"
+	]
+	instance 96mm-open-gorail-8-2 : structure:Part [
+		base:hasIdentifier "P8.020"
+		base:hasCanonicalName "96mm open goRail-2"
+		base:hasShortName "96mm open goRail-2"
+		structure:hasPartsNumber "1118-0024-0096"
+	]
+	instance 96mm-open-gorail-8-3 : structure:Part [
+		base:hasIdentifier "P8.021"
+		base:hasCanonicalName "96mm open goRail-3"
+		base:hasShortName "96mm open goRail-3"
+		structure:hasPartsNumber "1118-0024-0096"
+	]
+	instance 288mm-open-goRail-8-1 : structure:Part [
+		base:hasIdentifier "P8.022"
+		base:hasCanonicalName "288mm open goRail-1"
+		base:hasShortName "288mm open goRail-1"
+		structure:hasPartsNumber "1118-0024-0288"
+	]
+	instance 45deg-bracket-8-1 : structure:Part [
+		base:hasIdentifier "P8.023"
+		base:hasCanonicalName "45deg bracket-1"
+		base:hasShortName "45deg bracket-1"
+		structure:hasPartsNumber "1111-0001-0001"
+	]
+	instance 45deg-bracket-8-2 : structure:Part [
+		base:hasIdentifier "P8.024"
+		base:hasCanonicalName "45deg bracket-2"
+		base:hasShortName "45deg bracket-2"
+		structure:hasPartsNumber "1111-0001-0001"
+	]
+	instance 90deg-steel-bracket-2pack-8-1 : structure:Part [
+		base:hasIdentifier "P8.025"
+		base:hasCanonicalName "90deg steel bracket 2pack-1"
+		base:hasShortName "90deg steel bracket 2pack-1"
+		structure:hasPartsNumber "1137-0001-0001"
+	]
+	instance control-arm-8-1 : structure:Part [
+		base:hasIdentifier "P8.026"
+		base:hasCanonicalName "control arm-1"
+		base:hasShortName "control arm-1"
+		structure:hasPartsNumber "1916-0014-0072"
+	]
+	instance control-arm-8-2 : structure:Part [
+		base:hasIdentifier "P8.027"
+		base:hasCanonicalName "control arm-2"
+		base:hasShortName "control arm-2"
+		structure:hasPartsNumber "1916-0014-0072"
+	]
+	instance 8mm-id-spacer-6mm-length-8-1 : structure:Part [
+		base:hasIdentifier "P8.028"
+		base:hasCanonicalName "8mm ID Spacer (10mm OD, 6mm Length)-1"
+		base:hasShortName "8mm ID Spacer (10mm OD, 6mm Length)-1"
+		structure:hasPartsNumber "1514-0010-0060"
+	]
+	instance 8mm-id-spacer-4mm-length-8-1 : structure:Part [
+		base:hasIdentifier "P8.029"
+		base:hasCanonicalName "8mm ID Spacer (10mm OD, 4mm Length)-1"
+		base:hasShortName "8mm ID Spacer (10mm OD, 4mm Length)-1"
+		structure:hasPartsNumber "1522-0010-0040"
+	]
+
+// ref Part - rocker-bogie-suspension-assembly-1
+	ref instance assembly:rocker-bogie-suspension-assembly-1 [
+		^structure:hasPart 1-hole-uchannel-8-1
+		^structure:hasPart servoblock-8-1
+		^structure:hasPart servoblock-8-2
+		^structure:hasPart servo-8-1
+		^structure:hasPart servo-8-2
+		^structure:hasPart 8mm-sonic-hub-8-1
+		^structure:hasPart flanged-bearing-2pack-8-1
+		^structure:hasPart joint-pattern-spacer-8-1
+		^structure:hasPart joint-pattern-spacer-8-2
+		^structure:hasPart joint-8mm-shaft-8-1
+		^structure:hasPart joint-3hole-flat-beam-2pack-8-1
+		^structure:hasPart joint-3hole-flat-beam-2pack-8-2
+		^structure:hasPart joint-pattern-mount-8-1
+		^structure:hasPart joint-pattern-mount-8-2
+		^structure:hasPart steel-flat-bracket-8-1
+		^structure:hasPart 3-5-grid-plate-8-1
+		^structure:hasPart 3-5-grid-plate-8-2
+		^structure:hasPart angle-bracket-8-1
+		^structure:hasPart 96mm-open-gorail-8-1
+		^structure:hasPart 96mm-open-gorail-8-2
+		^structure:hasPart 96mm-open-gorail-8-3
+		^structure:hasPart 288mm-open-goRail-8-1
+		^structure:hasPart 45deg-bracket-8-1
+		^structure:hasPart 45deg-bracket-8-2
+		^structure:hasPart 90deg-steel-bracket-2pack-8-1
+		^structure:hasPart control-arm-8-1
+		^structure:hasPart control-arm-8-2
+		^structure:hasPart 8mm-id-spacer-6mm-length-8-1
+		^structure:hasPart 8mm-id-spacer-4mm-length-8-1
+	]
+
+
+// Part - rocker-bogie-suspension-assembly-2
+	instance 1-hole-uchannel-9-1 : structure:Part [
+		base:hasIdentifier "P9.001"
+		base:hasCanonicalName "1hole uchannel-1"
+		base:hasShortName "1hole uchannel-1"
+		structure:hasPartsNumber "1120-0001-0048"
+	]
+	instance servoblock-9-1 : structure:Part [
+		base:hasIdentifier "P9.002"
+		base:hasCanonicalName "servoblock-1"
+		base:hasShortName "servoblock-1"
+		structure:hasPartsNumber "3202-0001-2501"
+	]
+	instance servoblock-9-2 : structure:Part [
+		base:hasIdentifier "P9.003"
+		base:hasCanonicalName "servoblock-2"
+		base:hasShortName "servoblock-2"
+		structure:hasPartsNumber "3202-0001-2501"
+	]
+	instance servo-9-1 : structure:Part [
+		base:hasIdentifier "P9.004"
+		base:hasCanonicalName "servo-1"
+		base:hasShortName "servo-1"
+		structure:hasPartsNumber "2000-0025-0002"
+	]
+	instance servo-9-2 : structure:Part [
+		base:hasIdentifier "P9.005"
+		base:hasCanonicalName "servo-2"
+		base:hasShortName "servo-2"
+		structure:hasPartsNumber "2000-0025-0002"
+	]
+	instance 8mm-sonic-hub-9-1 : structure:Part [
+		base:hasIdentifier "P9.006"
+		base:hasCanonicalName "8mm Sonic Hub-1"
+		base:hasShortName "8mm Sonic Hub-1"
+		structure:hasPartsNumber "1309-0016-0008"
+	]
+	instance flanged-bearing-2pack-9-1 : structure:Part [
+		base:hasIdentifier "P9.007"
+		base:hasCanonicalName "flanged bearing 2pack-1"
+		base:hasShortName "flanged bearing 2pack-1"
+		structure:hasPartsNumber "1611-0514-0008"
+	]
+	instance joint-pattern-spacer-9-1 : structure:Part [
+		base:hasIdentifier "P9.008"
+		base:hasCanonicalName "joint pattern spacer-1"
+		base:hasShortName "joint pattern spacer-1"
+		structure:hasPartsNumber "1504-0032-0020"
+	]
+	instance joint-pattern-spacer-9-2 : structure:Part [
+		base:hasIdentifier "P9.009"
+		base:hasCanonicalName "joint pattern spacer-2"
+		base:hasShortName "joint pattern spacer-2"
+		structure:hasPartsNumber "1504-0032-0020"
+	]
+	instance joint-8mm-shaft-9-1 : structure:Part [
+		base:hasIdentifier "P9.010"
+		base:hasCanonicalName "joint 8mm shaft-1"
+		base:hasShortName "joint 8mm shaft-1"
+		structure:hasPartsNumber "2100-0008-0050"
+	]
+	instance joint-3hole-flat-beam-2pack-9-1 : structure:Part [
+		base:hasIdentifier "P9.011"
+		base:hasCanonicalName "joint 3hole flat beam 2pack-1"
+		base:hasShortName "joint 3hole flat beam 2pack-1"
+		structure:hasPartsNumber "1102-0003-0024"
+	]
+	instance joint-3hole-flat-beam-2pack-9-2 : structure:Part [
+		base:hasIdentifier "P9.012"
+		base:hasCanonicalName "joint 3hole flat beam 2pack-2"
+		base:hasShortName "joint 3hole flat beam 2pack-2"
+		structure:hasPartsNumber "1102-0003-0024"
+	]
+	instance joint-pattern-mount-9-1 : structure:Part [
+		base:hasIdentifier "P9.013"
+		base:hasCanonicalName "joint pattern mount-1"
+		base:hasShortName "joint pattern mount-1"
+		structure:hasPartsNumber "1221-0032-0002"
+	]
+	instance joint-pattern-mount-9-2 : structure:Part [
+		base:hasIdentifier "P9.014"
+		base:hasCanonicalName "joint pattern mount-2"
+		base:hasShortName "joint pattern mount-2"
+		structure:hasPartsNumber "1221-0032-0002"
+	]
+	instance steel-flat-bracket-9-1 : structure:Part [
+		base:hasIdentifier "P9.015"
+		base:hasCanonicalName "steel flat bracket-1"
+		base:hasShortName "steel flat bracket-1"
+		structure:hasPartsNumber "1126-0001-0001"
+	]
+	instance 3-5-grid-plate-9-1 : structure:Part [
+		base:hasIdentifier "P9.016"
+		base:hasCanonicalName "3x5 grid plate-1"
+		base:hasShortName "3x5 grid plate-1"
+		structure:hasPartsNumber "1116-0024-0040"
+	]
+	instance 3-5-grid-plate-9-2 : structure:Part [
+		base:hasIdentifier "P9.017"
+		base:hasCanonicalName "3x5 grid plate-2"
+		base:hasShortName "3x5 grid plate-2"
+		structure:hasPartsNumber "1116-0024-0040"
+	]
+	instance angle-bracket-9-1 : structure:Part [
+		base:hasIdentifier "P9.018"
+		base:hasCanonicalName "angle bracket-1"
+		base:hasShortName "angle bracket-1"
+		structure:hasPartsNumber "1111-0003-0001"
+	]
+	instance 96mm-open-gorail-9-1 : structure:Part [
+		base:hasIdentifier "P9.019"
+		base:hasCanonicalName "96mm open goRail-1"
+		base:hasShortName "96mm open goRail-1"
+		structure:hasPartsNumber "1118-0024-0096"
+	]
+	instance 96mm-open-gorail-9-2 : structure:Part [
+		base:hasIdentifier "P9.020"
+		base:hasCanonicalName "96mm open goRail-2"
+		base:hasShortName "96mm open goRail-2"
+		structure:hasPartsNumber "1118-0024-0096"
+	]
+	instance 96mm-open-gorail-9-3 : structure:Part [
+		base:hasIdentifier "P9.021"
+		base:hasCanonicalName "96mm open goRail-3"
+		base:hasShortName "96mm open goRail-3"
+		structure:hasPartsNumber "1118-0024-0096"
+	]
+	instance 288mm-open-goRail-9-1 : structure:Part [
+		base:hasIdentifier "P9.022"
+		base:hasCanonicalName "288mm open goRail-1"
+		base:hasShortName "288mm open goRail-1"
+		structure:hasPartsNumber "1118-0024-0288"
+	]
+	instance 45deg-bracket-9-1 : structure:Part [
+		base:hasIdentifier "P9.023"
+		base:hasCanonicalName "45deg bracket-1"
+		base:hasShortName "45deg bracket-1"
+		structure:hasPartsNumber "1111-0001-0001"
+	]
+	instance 45deg-bracket-9-2 : structure:Part [
+		base:hasIdentifier "P9.024"
+		base:hasCanonicalName "45deg bracket-2"
+		base:hasShortName "45deg bracket-2"
+		structure:hasPartsNumber "1111-0001-0001"
+	]
+	instance 90deg-steel-bracket-2pack-9-1 : structure:Part [
+		base:hasIdentifier "P9.025"
+		base:hasCanonicalName "90deg steel bracket 2pack-1"
+		base:hasShortName "90deg steel bracket 2pack-1"
+		structure:hasPartsNumber "1137-0001-0001"
+	]
+	instance control-arm-9-1 : structure:Part [
+		base:hasIdentifier "P9.026"
+		base:hasCanonicalName "control arm-1"
+		base:hasShortName "control arm-1"
+		structure:hasPartsNumber "1916-0014-0072"
+	]
+	instance control-arm-9-2 : structure:Part [
+		base:hasIdentifier "P9.027"
+		base:hasCanonicalName "control arm-2"
+		base:hasShortName "control arm-2"
+		structure:hasPartsNumber "1916-0014-0072"
+	]
+	instance 8mm-id-spacer-6mm-length-9-1 : structure:Part [
+		base:hasIdentifier "P9.028"
+		base:hasCanonicalName "8mm ID Spacer (10mm OD, 6mm Length)-1"
+		base:hasShortName "8mm ID Spacer (10mm OD, 6mm Length)-1"
+		structure:hasPartsNumber "1514-0010-0060"
+	]
+	instance 8mm-id-spacer-4mm-length-9-1 : structure:Part [
+		base:hasIdentifier "P9.029"
+		base:hasCanonicalName "8mm ID Spacer (10mm OD, 4mm Length)-1"
+		base:hasShortName "8mm ID Spacer (10mm OD, 4mm Length)-1"
+		structure:hasPartsNumber "1522-0010-0040"
+	]
+
+// ref Part - rocker-bogie-suspension-assembly-2
+	ref instance assembly:rocker-bogie-suspension-assembly-2 [
+		^structure:hasPart 1-hole-uchannel-9-1
+		^structure:hasPart servoblock-9-1
+		^structure:hasPart servoblock-9-2
+		^structure:hasPart servo-9-1
+		^structure:hasPart servo-9-2
+		^structure:hasPart 8mm-sonic-hub-9-1
+		^structure:hasPart flanged-bearing-2pack-9-1
+		^structure:hasPart joint-pattern-spacer-9-1
+		^structure:hasPart joint-pattern-spacer-9-2
+		^structure:hasPart joint-8mm-shaft-9-1
+		^structure:hasPart joint-3hole-flat-beam-2pack-9-1
+		^structure:hasPart joint-3hole-flat-beam-2pack-9-2
+		^structure:hasPart joint-pattern-mount-9-1
+		^structure:hasPart joint-pattern-mount-9-2
+		^structure:hasPart steel-flat-bracket-9-1
+		^structure:hasPart 3-5-grid-plate-9-1
+		^structure:hasPart 3-5-grid-plate-9-2
+		^structure:hasPart angle-bracket-9-1
+		^structure:hasPart 96mm-open-gorail-9-1
+		^structure:hasPart 96mm-open-gorail-9-2
+		^structure:hasPart 96mm-open-gorail-9-3
+		^structure:hasPart 288mm-open-goRail-9-1
+		^structure:hasPart 45deg-bracket-9-1
+		^structure:hasPart 45deg-bracket-9-2
+		^structure:hasPart 90deg-steel-bracket-2pack-9-1
+		^structure:hasPart control-arm-9-1
+		^structure:hasPart control-arm-9-2
+		^structure:hasPart 8mm-id-spacer-6mm-length-9-1
+		^structure:hasPart 8mm-id-spacer-4mm-length-9-1
+	]
+
+
+// Part - mechanical-harness
+	instance hurricane-nuts-10-1 : structure:Part [
+		base:hasIdentifier "P10.001"
+		base:hasCanonicalName "hurricane nuts-1"
+		base:hasShortName "hurricane nuts-1"
+		structure:hasPartsNumber "2805-0004-0108"
+	]
+	instance wire-grommets-10-1 : structure:Part [
+		base:hasIdentifier "P10.002"
+		base:hasCanonicalName "wire grommets-1"
+		base:hasShortName "wire grommets-1"
+		structure:hasPartsNumber "2911-0014-0001"
+	]
+	instance M4-washers-10-1 : structure:Part [
+		base:hasIdentifier "P10.003"
+		base:hasCanonicalName "M4 washers-1"
+		base:hasShortName "M4 washers-1"
+		structure:hasPartsNumber "2801-0004-0008"
+	]
+	instance M4-uts-10-1 : structure:Part [
+		base:hasIdentifier "P10.004"
+		base:hasCanonicalName "M4 nuts-1"
+		base:hasShortName "M4 nuts-1"
+		structure:hasPartsNumber "2811-0004-0007"
+	]
+	instance M4-locknuts-10-1 : structure:Part [
+		base:hasIdentifier "P10.005"
+		base:hasCanonicalName "M4 locknuts-1"
+		base:hasShortName "M4 locknuts-1"
+		structure:hasPartsNumber "2812-0004-0007"
+	]
+	instance M4-6-button-screws-10-1 : structure:Part [
+		base:hasIdentifier "P10.006"
+		base:hasCanonicalName "M4x6 button screws-1"
+		base:hasShortName "M4x6 button screws-1"
+		structure:hasPartsNumber "2802-0004-0006"
+	]
+	instance M4-6-button-screws-10-2 : structure:Part [
+		base:hasIdentifier "P10.007"
+		base:hasCanonicalName "M4x6 button screws-2"
+		base:hasShortName "M4x6 button screws-2"
+		structure:hasPartsNumber "2802-0004-0006"
+	]
+	instance M4-10-button-screws-10-1 : structure:Part [
+		base:hasIdentifier "P10.008"
+		base:hasCanonicalName "M4x10 button screws-1"
+		base:hasShortName "M4x10 button screws-1"
+		structure:hasPartsNumber "2802-0004-0010"
+	]
+	instance M4-10-button-screws-10-2 : structure:Part [
+		base:hasIdentifier "P10.009"
+		base:hasCanonicalName "M4x10 button screws-2"
+		base:hasShortName "M4x10 button screws-2"
+		structure:hasPartsNumber "2802-0004-0010"
+	]
+	instance M4-10-button-screws-10-3 : structure:Part [
+		base:hasIdentifier "P10.010"
+		base:hasCanonicalName "M4x10 button screws-3"
+		base:hasShortName "M4x10 button screws-3"
+		structure:hasPartsNumber "2802-0004-0010"
+	]
+	instance M4-16-button-screws-10-1 : structure:Part [
+		base:hasIdentifier "P10.011"
+		base:hasCanonicalName "M4x16 button screws-1"
+		base:hasShortName "M4x16 button screws-1"
+		structure:hasPartsNumber "2802-0004-0016"
+	]
+	instance M4-16-button-screws-10-2 : structure:Part [
+		base:hasIdentifier "P10.012"
+		base:hasCanonicalName "M4x16 button screws-2"
+		base:hasShortName "M4x16 button screws-2"
+		structure:hasPartsNumber "2802-0004-0016"
+	]
+	instance M4-8-socket-screws-10-1 : structure:Part [
+		base:hasIdentifier "P10.013"
+		base:hasCanonicalName "M4x8 socket screws-1"
+		base:hasShortName "M4x8 socket screws-1"
+		structure:hasPartsNumber "2800-0004-0008"
+	]
+	instance M4-8-socket-screws-10-2 : structure:Part [
+		base:hasIdentifier "P10.014"
+		base:hasCanonicalName "M4x8 socket screws-2"
+		base:hasShortName "M4x8 socket screws-2"
+		structure:hasPartsNumber "2800-0004-0008"
+	]
+	instance M4-10-socket-screws-10-1 : structure:Part [
+		base:hasIdentifier "P10.015"
+		base:hasCanonicalName "M4x10 socket screws-1"
+		base:hasShortName "M4x10 socket screws-1"
+		structure:hasPartsNumber "2800-0004-0010"
+	]
+	instance M4-10-socket-screws-10-2 : structure:Part [
+		base:hasIdentifier "P10.016"
+		base:hasCanonicalName "M4x10 socket screws-2"
+		base:hasShortName "M4x10 socket screws-2"
+		structure:hasPartsNumber "2800-0004-0010"
+	]
+	instance M4-10-socket-screws-10-3 : structure:Part [
+		base:hasIdentifier "P10.017"
+		base:hasCanonicalName "M4x10 socket screws-3"
+		base:hasShortName "M4x10 socket screws-3"
+		structure:hasPartsNumber "2800-0004-0010"
+	]
+	instance M4-12-socket-screws-10-1 : structure:Part [
+		base:hasIdentifier "P10.018"
+		base:hasCanonicalName "M4x1２ socket screws-1"
+		base:hasShortName "M4x1２ socket screws-1"
+		structure:hasPartsNumber "2800-0004-0012"
+	]
+	instance M4-16-socket-screws-10-1 : structure:Part [
+		base:hasIdentifier "P10.019"
+		base:hasCanonicalName "M4x16 socket screws-1"
+		base:hasShortName "M4x16 socket screws-1"
+		structure:hasPartsNumber "2800-0004-0016"
+	]
+	instance M4-16-socket-screws-10-2 : structure:Part [
+		base:hasIdentifier "P10.020"
+		base:hasCanonicalName "M4x16 socket screws-2"
+		base:hasShortName "M4x16 socket screws-2"
+		structure:hasPartsNumber "2800-0004-0016"
+	]
+	instance M4-20-socket-screws-10-1 : structure:Part [
+		base:hasIdentifier "P10.021"
+		base:hasCanonicalName "M4x20 socket screws-1"
+		base:hasShortName "M4x20 socket screws-1"
+		structure:hasPartsNumber "2800-0004-0020"
+	]
+
+// ref Part - mechanical-harness
+	ref instance assembly:mechanical-harness [
+		^structure:hasPart hurricane-nuts-10-1
+		^structure:hasPart wire-grommets-10-1
+		^structure:hasPart M4-washers-10-1
+		^structure:hasPart M4-uts-10-1
+		^structure:hasPart M4-locknuts-10-1
+		^structure:hasPart M4-6-button-screws-10-1
+		^structure:hasPart M4-6-button-screws-10-2
+		^structure:hasPart M4-10-button-screws-10-1
+		^structure:hasPart M4-10-button-screws-10-2
+		^structure:hasPart M4-10-button-screws-10-3
+		^structure:hasPart M4-16-button-screws-10-1
+		^structure:hasPart M4-16-button-screws-10-2
+		^structure:hasPart M4-8-socket-screws-10-1
+		^structure:hasPart M4-8-socket-screws-10-2
+		^structure:hasPart M4-10-socket-screws-10-1
+		^structure:hasPart M4-10-socket-screws-10-2
+		^structure:hasPart M4-10-socket-screws-10-3
+		^structure:hasPart M4-12-socket-screws-10-1
+		^structure:hasPart M4-16-socket-screws-10-1
+		^structure:hasPart M4-16-socket-screws-10-2
+		^structure:hasPart M4-20-socket-screws-10-1
+	]
+
+
+
 }
