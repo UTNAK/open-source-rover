@@ -1,0 +1,157 @@
+description <http://opencaesar.io/open-source-rover/description/assembly/interface#> as interface {
+
+  uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+  uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+  uses <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure
+  extends <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly
+
+// Interface - Assembly
+	instance body-assembly.if001 : mission:Interface [
+		base:hasIdentifier "IF.A.01.001"
+	]
+	instance body-assembly.if002 : mission:Interface [
+		base:hasIdentifier "IF.A.01.002"
+	]
+	instance drive-wheel-assembly-1.if001 : mission:Interface [
+		base:hasIdentifier "IF.A.02.001"
+	]
+	instance drive-wheel-assembly-2.if001 : mission:Interface [
+		base:hasIdentifier "IF.A.03.001"
+	]
+	instance corner-wheel-assembly-1.if001 : mission:Interface [
+		base:hasIdentifier "IF.A.04.001"
+	]
+	instance corner-wheel-assembly-2.if001 : mission:Interface [
+		base:hasIdentifier "IF.A.05.001"
+	]
+	instance corner-wheel-assembly-3.if001 : mission:Interface [
+		base:hasIdentifier "IF.A.06.001"
+	]
+	instance corner-wheel-assembly-4.if001 : mission:Interface [
+		base:hasIdentifier "IF.A.07.001"
+	]
+	instance rocker-bogie-suspension-assembly-1.if001 : mission:Interface [
+		base:hasIdentifier "IF.A.08.001"
+	]
+	instance rocker-bogie-suspension-assembly-1.if002 : mission:Interface [
+		base:hasIdentifier "IF.A.08.002"
+	]
+	instance rocker-bogie-suspension-assembly-1.if003 : mission:Interface [
+		base:hasIdentifier "IF.A.08.003"
+	]
+	instance rocker-bogie-suspension-assembly-1.if004 : mission:Interface [
+		base:hasIdentifier "IF.A.08.004"
+	]
+	instance rocker-bogie-suspension-assembly-2.if001 : mission:Interface [
+		base:hasIdentifier "IF.A.09.001"
+	]
+	instance rocker-bogie-suspension-assembly-2.if002 : mission:Interface [
+		base:hasIdentifier "IF.A.09.002"
+	]
+	instance rocker-bogie-suspension-assembly-2.if003 : mission:Interface [
+		base:hasIdentifier "IF.A.09.003"
+	]
+	instance rocker-bogie-suspension-assembly-2.if004 : mission:Interface [
+		base:hasIdentifier "IF.A.09.004"
+	]
+	relation instance body-assembly.presents.if001 : mission:Presents [
+		from assembly:body-assembly
+		to body-assembly.if001
+	]
+	relation instance body-assembly.presents.if002 : mission:Presents [
+		from assembly:body-assembly
+		to body-assembly.if002
+	]
+	relation instance drive-wheel-assembly-1.presents.if001 : mission:Presents [
+		from assembly:drive-wheel-assembly-1
+		to drive-wheel-assembly-1.if001
+	]
+	relation instance drive-wheel-assembly-2.presents.if001 : mission:Presents [
+		from assembly:drive-wheel-assembly-2
+		to drive-wheel-assembly-2.if001
+	]
+	relation instance corner-wheel-assembly-1.presents.if001 : mission:Presents [
+		from assembly:corner-wheel-assembly-1
+		to corner-wheel-assembly-1.if001
+	]
+	relation instance corner-wheel-assembly-2.presents.if001 : mission:Presents [
+		from assembly:corner-wheel-assembly-2
+		to corner-wheel-assembly-2.if001
+	]
+	relation instance corner-wheel-assembly-3.presents.if001 : mission:Presents [
+		from assembly:corner-wheel-assembly-3
+		to corner-wheel-assembly-3.if001
+	]
+	relation instance corner-wheel-assembly-4.presents.if001 : mission:Presents [
+		from assembly:corner-wheel-assembly-4
+		to corner-wheel-assembly-4.if001
+	]
+	relation instance rocker-bogie-suspension-assembly-1.presents.if001 : mission:Presents [
+		from assembly:rocker-bogie-suspension-assembly-1
+		to rocker-bogie-suspension-assembly-1.if001
+	]
+	relation instance rocker-bogie-suspension-assembly-1.presents.if002 : mission:Presents [
+		from assembly:rocker-bogie-suspension-assembly-1
+		to rocker-bogie-suspension-assembly-1.if002
+	]
+	relation instance rocker-bogie-suspension-assembly-1.presents.if003 : mission:Presents [
+		from assembly:rocker-bogie-suspension-assembly-1
+		to rocker-bogie-suspension-assembly-1.if003
+	]
+	relation instance rocker-bogie-suspension-assembly-1.presents.if004 : mission:Presents [
+		from assembly:rocker-bogie-suspension-assembly-1
+		to rocker-bogie-suspension-assembly-1.if004
+	]
+	relation instance rocker-bogie-suspension-assembly-2.presents.if001 : mission:Presents [
+		from assembly:rocker-bogie-suspension-assembly-2
+		to rocker-bogie-suspension-assembly-2.if001
+	]
+	relation instance rocker-bogie-suspension-assembly-2.presents.if002 : mission:Presents [
+		from assembly:rocker-bogie-suspension-assembly-2
+		to rocker-bogie-suspension-assembly-2.if002
+	]
+	relation instance rocker-bogie-suspension-assembly-2.presents.if003 : mission:Presents [
+		from assembly:rocker-bogie-suspension-assembly-2
+		to rocker-bogie-suspension-assembly-2.if003
+	]
+	relation instance rocker-bogie-suspension-assembly-2.presents.if004 : mission:Presents [
+		from assembly:rocker-bogie-suspension-assembly-2
+		to rocker-bogie-suspension-assembly-2.if004
+	]
+
+// Junction - Join
+	instance junction001 : mission:Junction [
+		mission:joins1 body-assembly.if001
+		mission:joins2 rocker-bogie-suspension-assembly-1.if004
+	]
+	instance junction002 : mission:Junction [
+		mission:joins1 body-assembly.if002
+		mission:joins2 rocker-bogie-suspension-assembly-2.if004
+	]
+	instance junction003 : mission:Junction [
+		mission:joins1 rocker-bogie-suspension-assembly-1.if001
+		mission:joins2 corner-wheel-assembly-1.if001
+	]
+	instance junction004 : mission:Junction [
+		mission:joins1 rocker-bogie-suspension-assembly-1.if002
+		mission:joins2 corner-wheel-assembly-4.if001
+	]
+	instance junction005 : mission:Junction [
+		mission:joins1 rocker-bogie-suspension-assembly-1.if003
+		mission:joins2 drive-wheel-assembly-1.if001
+	]
+	instance junction006 : mission:Junction [
+		mission:joins1 rocker-bogie-suspension-assembly-2.if001
+		mission:joins2 corner-wheel-assembly-2.if001
+	]
+	instance junction007 : mission:Junction [
+		mission:joins1 rocker-bogie-suspension-assembly-2.if002
+		mission:joins2 corner-wheel-assembly-3.if001
+	]
+	instance junction008 : mission:Junction [
+		mission:joins1 rocker-bogie-suspension-assembly-2.if003
+		mission:joins2 drive-wheel-assembly-2.if001
+	]
+
+
+}

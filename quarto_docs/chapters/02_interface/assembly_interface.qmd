@@ -1,0 +1,415 @@
+# Assembly Interface
+
+<TBD>
+
+## Summary
+
+This is a demonstration of vocabulary concept for the interface.
+
+
+## Methodology
+
+## Business Questions
+
+## Vocabulary
+
+- mission:Interface
+- mission:Presents
+- mission:Junction
+
+![Vocabulary](../../img/interfacevocabularies.png)
+
+
+## Descriptions
+
+
+Pattern from [kepler-16b](https://github.com/opencaesar/kepler16b-example/blob/main/src/oml/example.com/tutorial2/description/junctions.oml)
+
+- [Component C1] [C1.presents.if01] [C1.if01]
+- [Component C2] [C2.presents.if01] [C2.if01]
+- [C1.C2.J1] [mission:Join1] [C1.if01]
+- [C1.C2.J1] [mission:Join2] [C2.if01]
+
+
+
+
+```
+	instance orbiter-spacecraft.telemetryOut : mission:Interface [
+		base:hasIdentifier "I.02"
+		base:hasCanonicalName "Telemetry Out"
+	]
+	relation instance orbiter-spacecraft.presents.telemetryOut : mission:Presents [
+		from components:orbiter-spacecraft
+		to orbiter-spacecraft.telemetryOut
+	]
+
+	instance orbiter-ground-data-system.telemetryIn : mission:Interface [
+		base:hasIdentifier "I.04"
+		base:hasCanonicalName "Telemetry In"
+	]
+	relation instance orbiter-ground-data-system.presents.telemetryIn : mission:Presents [
+		from components:orbiter-ground-data-system
+		to orbiter-ground-data-system.telemetryIn
+	]
+	
+	relation instance orbiter-ground-data-system.orbiter-spacecraft.telemetry.downlink : mission:Junction [
+		from interfaces:orbiter-spacecraft.telemetryOut
+		to interfaces:orbiter-ground-data-system.telemetryIn
+		base:hasIdentifier "J.02"
+		base:hasCanonicalName "Orbiter Telemetry Downlink"
+	]
+	
+```
+
+
+### Automate Description Process
+
+```{r}
+source("../../osr_common.R")
+```
+
+### Initialize OML File
+```{r}
+outputdir <- paste0(omlrepo,"src/oml/opencaesar.io/open-source-rover/description/assembly/")
+
+outputfile <- paste0(outputdir, "interface.oml")
+init_oml_file <- 
+"description <http://opencaesar.io/open-source-rover/description/assembly/interface.oml#> as interface {\n}\n"
+cat(file=outputfile, init_oml_file)
+
+```
+
+### Import from [github](https://github.com/nasa-jpl/open-source-rover/blob/master/parts_list/parts_list.csv)
+
+![Interface](../../img/assembly_interface.png)
+Get information of interfaces from [CAD Model](https://cad.onshape.com/documents/e4f00b1a3d2edb1a84bbba1c/w/8ab8f394324bcc586236ef5d/e/9191e5ad2a70f387b419bc55)
+
+
+### Get Assembly Descriptions from model
+
+```{r}
+library(omlhashiR)
+# oml_repository <- "../open-source-rover/"
+oml_repository <- omlrepo
+omlhashiR::oml_refresh()
+omlhashiR::oml_stop_Daemon(oml_repository)
+omlhashiR::oml_build(oml_repository)
+omlhashiR::oml_owlLoad(oml_repository)
+```
+
+## Query
+
+```{r}
+library(tansakusuR)
+endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
+```
+```{r}
+query_string <-'
+PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
+PREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>
+PREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>
+PREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?c1_localname ?c1_id ?c1_name ?c1_type ?c2_localname ?c2_id ?c2_name
+WHERE {
+	?c1 a structure:Assembly ;
+	  base:hasIdentifier ?c1_id;
+	  base:hasCanonicalName ?c1_name .
+    OPTIONAL{
+        ?c1 base:isContainedIn ?c2 .
+        OPTIONAL{
+            ?c2 base:hasIdentifier ?c2_id;
+                base:hasCanonicalName ?c2_name .
+        }
+    }
+	# Extract the local name
+    BIND(STRAFTER(STR(?c1), "#") AS ?c1_localname) .
+    BIND(STRAFTER(STR(?c2), "#") AS ?c2_localname) .
+
+	OPTIONAL {
+		?c1 a structure:System ;
+			BIND("structure:System"  AS ?c1_type) .
+	}    
+	OPTIONAL {
+		?c1 a structure:Subsystem ;
+			BIND("structure:Subsystem"  AS ?c1_type) .
+	} 
+	OPTIONAL {
+		?c1 a structure:Assembly ;
+			BIND("structure:Assembly"  AS ?c1_type) .
+	} 
+	OPTIONAL {
+		?c1 a structure:Part ;
+			BIND("structure:Part"  AS ?c1_type) .
+	} 
+}
+ORDER BY ?c2_localname 
+'
+df_query <- tansakusuR::send_query(endpoint_url,query_string)
+datatable(df_query, options = list(pageLength = 20))
+```
+
+### Create a workbook for define interfaces
+
+
+
+```{r}
+df_worksheet <-data.frame(
+  c1 = "",
+  c2 = ""
+)
+
+
+df_worksheet <- df_worksheet %>% 
+  add_row(c1 = "body-assembly", c2 = "rocker-bogie-suspension-assembly-1") %>%
+  add_row(c1 = "body-assembly", c2 = "rocker-bogie-suspension-assembly-2") %>%
+  add_row(c1 = "rocker-bogie-suspension-assembly-1", c2 = "corner-wheel-assembly-1") %>%
+  add_row(c1 = "rocker-bogie-suspension-assembly-1", c2 = "corner-wheel-assembly-4") %>%
+  add_row(c1 = "rocker-bogie-suspension-assembly-1", c2 = "drive-wheel-assembly-1") %>%
+  add_row(c1 = "rocker-bogie-suspension-assembly-2", c2 = "corner-wheel-assembly-2") %>%
+  add_row(c1 = "rocker-bogie-suspension-assembly-2", c2 = "corner-wheel-assembly-3") %>%
+  add_row(c1 = "rocker-bogie-suspension-assembly-2", c2 = "drive-wheel-assembly-2") 
+
+df_worksheet <- df_worksheet[-1,] %>%
+  mutate(junction_id = paste0("J.", sprintf("%03d", row_number()))) %>%
+  mutate(junction_name = paste0("junction", sprintf("%03d", row_number())))
+  
+
+df_worksheet
+```
+
+### Generate Description of interface and junction
+```{r}
+# Generate color table
+look <- data.frame(
+  assembly = df_query$c1_localname,
+  id = df_query$c1_id
+)
+
+# Set Colors
+df_tidy <-df_worksheet %>%
+  mutate(id = look$id[match(unlist(df_worksheet$c1), look$assembly)])
+
+
+
+```
+
+```{r}
+# sourceの種類ごとにidを振る関数
+set_id <- function(source,source_id) {
+  # sourceの値をindexに変換
+  index <- "IF."
+    # 連番を生成
+  number <- seq_along(source)
+  # sprintf関数でゼロ埋めする
+  number_padded <- sprintf("%03d", number)
+  # indexとnumberを結合してidを返す
+  paste0(index, source_id, ".", number_padded)
+}
+```
+
+```{r}
+# sourceの種類ごとにidを振る関数
+set_interface_name <- function(source,source_id) {
+  # sourceの値をindexに変換
+  index <- ".if"
+    # 連番を生成
+  number <- seq_along(source)
+  # sprintf関数でゼロ埋めする
+  number_padded <- sprintf("%03d", number)
+  # indexとnumberを結合してidを返す
+  paste0(source, index, number_padded)
+}
+
+```
+
+```{r}
+# sourceの種類ごとにidを振る関数
+set_presents_interface_name <- function(source,source_id) {
+  # sourceの値をindexに変換
+  index <- ".if"
+    # 連番を生成
+  number <- seq_along(source)
+  # sprintf関数でゼロ埋めする
+  number_padded <- sprintf("%03d", number)
+  # indexとnumberを結合してidを返す
+  paste0(source, ".presents", index, number_padded)
+}
+
+```
+
+```{r}
+df_tidy <- data.frame(
+  source = df_worksheet$c1,
+  target = df_worksheet$c2,
+  junction = df_worksheet$junction_id
+) %>%
+  add_row(source = df_worksheet$c2, target = df_worksheet$c1, junction=df_worksheet$junction_id)
+
+df_tidy <- df_tidy %>%
+  mutate(source_id = look$id[match(unlist(df_tidy$source), look$assembly)]) %>%
+  mutate(target_id = look$id[match(unlist(df_tidy$target), look$assembly)]) %>%
+  arrange(source_id) %>%
+  # sourceの種類ごとにグループ化する
+  group_by(source) %>%
+  # 新しい列にidを振る
+  mutate(interface_id = set_id(source,source_id)) %>%
+  mutate(interface_name = set_interface_name(source,source_id)) %>%
+  mutate(interface_presents = set_presents_interface_name(source,source_id)) %>%
+  # グループ化を解除する
+  ungroup()
+
+
+
+```
+
+### Generate framework of interface.oml
+
+```{r}
+omldescriptions <-
+"description <http://opencaesar.io/open-source-rover/description/assembly/interface#> as interface {
+
+  uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+  uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+  uses <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure
+  extends <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly
+
+"
+```
+
+### Function to generate structure:Part descriptions
+
+```
+	instance AssyA1.if02 : mission:Interface[
+		base:hasIdentifier "IF.A.01.02"
+		base:hasCanonicalName "A1 IF02"
+	]
+
+	relation instance AssyA1.presents.if01 : mission:Presents[
+		from  AssyA1
+		to AssyA1.if01
+	]
+
+	
+```
+
+
+```{r}
+generateInterfaceDescriptions <- function(df, header){
+  
+  df_in <- df
+  
+  text <- paste0("// ", header, "\n")
+  text_instance <- ""
+  text_ref <- ""
+
+#  id_count <- 1
+  type <- "mission:Interface"
+  ref_type <- "mission:Presents"
+
+  for (i in 1:nrow(df_in)){
+# index <- "A"    
+#    id <- paste0(index, ".", formatC(i, width = 2, flag="0"))
+    text_instance <- paste0(text_instance,
+                   "	instance ", df_in$interface_name[i], " : ", type, " [","\n",
+                   "		base:hasIdentifier \"", df_in$interface_id[i],"\"\n",
+                   "	]\n"
+                   )
+    text_ref <- paste0(text_ref,
+                   "	relation instance ", df_in$interface_presents[i], " : ", ref_type, " [","\n",
+                   "		from assembly:", df_in$source[i],"\n",
+                   "		to ", df_in$interface_name[i],"\n",
+                   "	]\n"
+                   )
+  }
+
+  # text_ref <- paste0(text_ref,
+  #                  "	]\n\n"
+  #                  )
+
+  text <- paste0(text, text_instance, text_ref)
+  return(text)
+}
+
+```
+
+```{r}
+header <- c("Interface - Assembly")
+instance <- generateInterfaceDescriptions(df_tidy, header)
+omldescriptions <- paste0(omldescriptions, instance,"\n")
+
+
+```
+
+```{r}
+generateJunctionDescriptions <- function(df, header){
+  
+  df_in <- df
+  
+  text <- paste0("// ", header, "\n")
+  text_instance <- ""
+  text_ref <- ""
+
+#  id_count <- 1
+  type <- "mission:Junction"
+
+  for (i in 1:nrow(df_in)){
+# index <- "A"    
+#    id <- paste0(index, ".", formatC(i, width = 2, flag="0"))
+    text_instance <- paste0(text_instance,
+                   "	instance ", df_in$junction_name[i], " : ", type, " [","\n",
+                   "		mission:joins1 ", df_in$join1[i],"\n",
+                   "		mission:joins2 ", df_in$join2[i],"\n",
+                   "	]\n"
+                   )
+  }
+
+  # text_ref <- paste0(text_ref,
+  #                  "	]\n\n"
+  #                  )
+
+  text <- paste0(text, text_instance, text_ref)
+  return(text)
+}
+
+```
+
+
+### Create Junction join1 and join2
+```{r}
+df_junction <- df_worksheet %>%
+  left_join(df_tidy, by =c("junction_id" = "junction", "c1" = "source"), keep=FALSE) %>%
+  mutate(join1 = interface_name) %>%
+  select(c(colnames(df_worksheet),"join1")) %>%
+  left_join(df_tidy, by =c("junction_id" = "junction", "c2" = "source"), keep=FALSE) %>%
+  mutate(join2 = interface_name) %>%
+  select(c(colnames(df_worksheet),"join1","join2"))
+```
+
+```{r}
+header <- c("Junction - Join")
+instance <- generateJunctionDescriptions(df_junction, header)
+omldescriptions <- paste0(omldescriptions, instance,"\n")
+
+
+```
+
+
+
+## Generate OML File
+```{r}
+omldescriptions <- paste0(omldescriptions,"\n}\n")
+cat(omldescriptions)
+cat(file=outputfile, omldescriptions)
+```
+
+
+```
+
+## Analysis
+
+## Visualize
+
+
+
+

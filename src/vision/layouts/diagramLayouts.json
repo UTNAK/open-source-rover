@@ -76,9 +76,9 @@
       "id": "system",
       "name": "System",
       "labelFormat": "{system}",
-      "nodeColor": "Aqua",
-      "nodeTextColor": "black",
-      "nodeType": "{c1_type}",
+      "nodeColor": "Gunmetal",
+      "nodeTextColor": "white",
+      "nodeType": "Subsystem",
       "subRowMappings": [
         {
           "id": "subsystem",
