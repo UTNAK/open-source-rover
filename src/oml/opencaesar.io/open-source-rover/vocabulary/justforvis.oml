@@ -3,8 +3,6 @@ vocabulary <http://opencaesar.io/open-source-rover/vocabulary/justforvis#> as ju
 
 	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
 
-	extends <http://www.w3.org/2001/XMLSchema#> as xsd
-
 	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
 
 	@rdfs:label "Presenting Element"

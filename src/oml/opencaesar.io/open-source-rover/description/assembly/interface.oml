@@ -2,7 +2,6 @@ description <http://opencaesar.io/open-source-rover/description/assembly/interfa
 
   uses <http://imce.jpl.nasa.gov/foundation/base#> as base
   uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
-  uses <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure
   extends <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly
 
 // Interface - Assembly

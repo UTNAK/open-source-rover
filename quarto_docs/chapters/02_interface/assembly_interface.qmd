@@ -68,16 +68,7 @@ Pattern from [kepler-16b](https://github.com/opencaesar/kepler16b-example/blob/m
 source("../../osr_common.R")
 ```
 
-### Initialize OML File
-```{r}
-outputdir <- paste0(omlrepo,"src/oml/opencaesar.io/open-source-rover/description/assembly/")
 
-outputfile <- paste0(outputdir, "interface.oml")
-init_oml_file <- 
-"description <http://opencaesar.io/open-source-rover/description/assembly/interface.oml#> as interface {\n}\n"
-cat(file=outputfile, init_oml_file)
-
-```
 
 ### Import from [github](https://github.com/nasa-jpl/open-source-rover/blob/master/parts_list/parts_list.csv)
 
@@ -263,6 +254,18 @@ df_tidy <- df_tidy %>%
 
 ```
 
+
+### Initialize OML File
+```{r}
+outputdir <- paste0(omlrepo,"src/oml/opencaesar.io/open-source-rover/description/assembly/")
+
+outputfile <- paste0(outputdir, "interface.oml")
+init_oml_file <- 
+"description <http://opencaesar.io/open-source-rover/description/assembly/interface.oml#> as interface {\n}\n"
+cat(file=outputfile, init_oml_file)
+
+```
+
 ### Generate framework of interface.oml
 
 ```{r}
@@ -271,7 +274,6 @@ omldescriptions <-
 
   uses <http://imce.jpl.nasa.gov/foundation/base#> as base
   uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
-  uses <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^structure
   extends <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly
 
 "
