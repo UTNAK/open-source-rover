@@ -345,16 +345,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#descriptions" id="toc-descriptions" class="nav-link" data-scroll-target="#descriptions"><span class="header-section-number">7.5</span> Descriptions</a>
   <ul class="collapse">
   <li><a href="#automate-description-process" id="toc-automate-description-process" class="nav-link" data-scroll-target="#automate-description-process"><span class="header-section-number">7.5.1</span> Automate Description Process</a></li>
-  <li><a href="#initialize-oml-file" id="toc-initialize-oml-file" class="nav-link" data-scroll-target="#initialize-oml-file"><span class="header-section-number">7.5.2</span> Initialize OML File</a></li>
-  <li><a href="#import-from-github" id="toc-import-from-github" class="nav-link" data-scroll-target="#import-from-github"><span class="header-section-number">7.5.3</span> Import from github</a></li>
-  <li><a href="#get-assembly-descriptions-from-model" id="toc-get-assembly-descriptions-from-model" class="nav-link" data-scroll-target="#get-assembly-descriptions-from-model"><span class="header-section-number">7.5.4</span> Get Assembly Descriptions from model</a></li>
+  <li><a href="#import-from-github" id="toc-import-from-github" class="nav-link" data-scroll-target="#import-from-github"><span class="header-section-number">7.5.2</span> Import from github</a></li>
+  <li><a href="#get-assembly-descriptions-from-model" id="toc-get-assembly-descriptions-from-model" class="nav-link" data-scroll-target="#get-assembly-descriptions-from-model"><span class="header-section-number">7.5.3</span> Get Assembly Descriptions from model</a></li>
   </ul></li>
   <li><a href="#query" id="toc-query" class="nav-link" data-scroll-target="#query"><span class="header-section-number">7.6</span> Query</a>
   <ul class="collapse">
   <li><a href="#create-a-workbook-for-define-interfaces" id="toc-create-a-workbook-for-define-interfaces" class="nav-link" data-scroll-target="#create-a-workbook-for-define-interfaces"><span class="header-section-number">7.6.1</span> Create a workbook for define interfaces</a></li>
   <li><a href="#generate-description-of-interface-and-junction" id="toc-generate-description-of-interface-and-junction" class="nav-link" data-scroll-target="#generate-description-of-interface-and-junction"><span class="header-section-number">7.6.2</span> Generate Description of interface and junction</a></li>
-  <li><a href="#generate-framework-of-interface.oml" id="toc-generate-framework-of-interface.oml" class="nav-link" data-scroll-target="#generate-framework-of-interface.oml"><span class="header-section-number">7.6.3</span> Generate framework of interface.oml</a></li>
-  <li><a href="#function-to-generate-structurepart-descriptions" id="toc-function-to-generate-structurepart-descriptions" class="nav-link" data-scroll-target="#function-to-generate-structurepart-descriptions"><span class="header-section-number">7.6.4</span> Function to generate structure:Part descriptions</a></li>
+  <li><a href="#initialize-oml-file" id="toc-initialize-oml-file" class="nav-link" data-scroll-target="#initialize-oml-file"><span class="header-section-number">7.6.3</span> Initialize OML File</a></li>
+  <li><a href="#generate-framework-of-interface.oml" id="toc-generate-framework-of-interface.oml" class="nav-link" data-scroll-target="#generate-framework-of-interface.oml"><span class="header-section-number">7.6.4</span> Generate framework of interface.oml</a></li>
+  <li><a href="#function-to-generate-structurepart-descriptions" id="toc-function-to-generate-structurepart-descriptions" class="nav-link" data-scroll-target="#function-to-generate-structurepart-descriptions"><span class="header-section-number">7.6.5</span> Function to generate structure:Part descriptions</a></li>
+  <li><a href="#create-junction-join1-and-join2" id="toc-create-junction-join1-and-join2" class="nav-link" data-scroll-target="#create-junction-join1-and-join2"><span class="header-section-number">7.6.6</span> Create Junction join1 and join2</a></li>
   </ul></li>
   <li><a href="#generate-oml-file" id="toc-generate-oml-file" class="nav-link" data-scroll-target="#generate-oml-file"><span class="header-section-number">7.7</span> Generate OML File</a></li>
   <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span class="header-section-number">7.8</span> Analysis</a></li>
@@ -400,6 +401,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>mission:Presents</li>
 <li>mission:Junction</li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../img/interfacevocabularies.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Vocabulary</figcaption>
+</figure>
+</div>
 </section>
 <section id="descriptions" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="descriptions"><span class="header-section-number">7.5</span> Descriptions</h2>
@@ -441,62 +448,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"../../osr_common.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="initialize-oml-file" class="level3" data-number="7.5.2">
-<h3 data-number="7.5.2" class="anchored" data-anchor-id="initialize-oml-file"><span class="header-section-number">7.5.2</span> Initialize OML File</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>outputdir <span class="ot">&lt;-</span> <span class="fu">paste0</span>(omlrepo,<span class="st">"src/oml/opencaesar.io/open-source-rover/description/assembly/"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>outputfile <span class="ot">&lt;-</span> <span class="fu">paste0</span>(outputdir, <span class="st">"interface.oml"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>init_oml_file <span class="ot">&lt;-</span> </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">"description &lt;http://opencaesar.io/open-source-rover/description/assembly/interface.oml#&gt; as interface {</span><span class="sc">\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">"</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="at">file=</span>outputfile, init_oml_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="import-from-github" class="level3" data-number="7.5.3">
-<h3 data-number="7.5.3" class="anchored" data-anchor-id="import-from-github"><span class="header-section-number">7.5.3</span> Import from <a href="https://github.com/nasa-jpl/open-source-rover/blob/master/parts_list/parts_list.csv">github</a></h3>
+<section id="import-from-github" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="import-from-github"><span class="header-section-number">7.5.2</span> Import from <a href="https://github.com/nasa-jpl/open-source-rover/blob/master/parts_list/parts_list.csv">github</a></h3>
 <p><img src="../../img/assembly_interface.png" class="img-fluid" alt="Interface"> Get information of interfaces from <a href="https://cad.onshape.com/documents/e4f00b1a3d2edb1a84bbba1c/w/8ab8f394324bcc586236ef5d/e/9191e5ad2a70f387b419bc55">CAD Model</a></p>
 </section>
-<section id="get-assembly-descriptions-from-model" class="level3" data-number="7.5.4">
-<h3 data-number="7.5.4" class="anchored" data-anchor-id="get-assembly-descriptions-from-model"><span class="header-section-number">7.5.4</span> Get Assembly Descriptions from model</h3>
+<section id="get-assembly-descriptions-from-model" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="get-assembly-descriptions-from-model"><span class="header-section-number">7.5.3</span> Get Assembly Descriptions from model</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(omlhashiR)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># oml_repository &lt;- "../open-source-rover/"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>oml_repository <span class="ot">&lt;-</span> omlrepo</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_refresh</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(omlhashiR)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># oml_repository &lt;- "../open-source-rover/"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>oml_repository <span class="ot">&lt;-</span> omlrepo</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_refresh</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "kill success for pid=6352"</code></pre>
+<pre><code>[1] "kill success for pid=26186"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_stop_Daemon</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_stop_Daemon</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Stopping Daemon(s)" "1 Daemon stopped"  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_build</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_build</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Starting a Gradle Daemon, 1 stopped Daemon could not be reused, use --status for details"
- [2] "&gt; Task :omlZip"                                                                          
- [3] "&gt; Task :assemble"                                                                        
- [4] "&gt; Task :downloadDependencies UP-TO-DATE"                                                 
- [5] "&gt; Task :omlToOwl"                                                                        
- [6] "&gt; Task :owlReason UP-TO-DATE"                                                            
- [7] "&gt; Task :check UP-TO-DATE"                                                                
- [8] "&gt; Task :build"                                                                           
- [9] ""                                                                                        
-[10] "BUILD SUCCESSFUL in 5s"                                                                  
-[11] "4 actionable tasks: 2 executed, 2 up-to-date"                                            </code></pre>
+<pre><code> [1] "Starting a Gradle Daemon, 2 stopped Daemons could not be reused, use --status for details"
+ [2] "&gt; Task :omlZip UP-TO-DATE"                                                                
+ [3] "&gt; Task :assemble UP-TO-DATE"                                                              
+ [4] "&gt; Task :downloadDependencies UP-TO-DATE"                                                  
+ [5] "&gt; Task :omlToOwl UP-TO-DATE"                                                              
+ [6] "&gt; Task :owlReason UP-TO-DATE"                                                             
+ [7] "&gt; Task :check UP-TO-DATE"                                                                 
+ [8] "&gt; Task :build UP-TO-DATE"                                                                 
+ [9] ""                                                                                         
+[10] "BUILD SUCCESSFUL in 4s"                                                                   
+[11] "4 actionable tasks: 4 up-to-date"                                                         </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "&gt; Task :downloadDependencies UP-TO-DATE"       
- [2] "&gt; Task :omlToOwl UP-TO-DATE"                   
- [3] "&gt; Task :owlReason UP-TO-DATE"                  
- [4] ""                                              
- [5] "&gt; Task :startFuseki"                           
- [6] "Fuseki server is already running with pid=7888"
- [7] ""                                              
- [8] "&gt; Task :owlLoad"                               
- [9] ""                                              
-[10] "BUILD SUCCESSFUL in 4s"                        
-[11] "5 actionable tasks: 2 executed, 3 up-to-date"  </code></pre>
+<pre><code> [1] "&gt; Task :downloadDependencies UP-TO-DATE"        
+ [2] "&gt; Task :omlToOwl UP-TO-DATE"                    
+ [3] "&gt; Task :owlReason UP-TO-DATE"                   
+ [4] ""                                               
+ [5] "&gt; Task :startFuseki"                            
+ [6] "Fuseki server is already running with pid=50280"
+ [7] ""                                               
+ [8] "&gt; Task :owlLoad"                                
+ [9] ""                                               
+[10] "BUILD SUCCESSFUL in 4s"                         
+[11] "5 actionable tasks: 2 executed, 3 up-to-date"   </code></pre>
 </div>
 </div>
 </section>
@@ -504,84 +500,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="query" class="level2" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="query"><span class="header-section-number">7.6</span> Query</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tansakusuR)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>endpoint_url <span class="ot">&lt;-</span> <span class="st">"http://localhost:3030/open-source-rover/sparql"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tansakusuR)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>endpoint_url <span class="ot">&lt;-</span> <span class="st">"http://localhost:3030/open-source-rover/sparql"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>query_string <span class="ot">&lt;-</span><span class="st">'</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX base:        &lt;http://imce.jpl.nasa.gov/foundation/base#&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX mission:     &lt;http://imce.jpl.nasa.gov/foundation/mission#&gt;</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX structure:   &lt;http://opencaesar.io/open-source-rover/vocabulary/structure#&gt;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX rdfs:        &lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT DISTINCT ?c1_localname ?c1_id ?c1_name ?c1_type ?c2_localname ?c2_id ?c2_name</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE {</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="st">    ?c1 a structure:Assembly ;</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="st">      base:hasIdentifier ?c1_id;</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="st">      base:hasCanonicalName ?c1_name .</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL{</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 base:isContainedIn ?c2 .</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="st">        OPTIONAL{</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="st">            ?c2 base:hasIdentifier ?c2_id;</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="st">                base:hasCanonicalName ?c2_name .</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="st">        }</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="st">    # Extract the local name</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="st">    BIND(STRAFTER(STR(?c1), "#") AS ?c1_localname) .</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="st">    BIND(STRAFTER(STR(?c2), "#") AS ?c2_localname) .</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:System ;</span></span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:System"  AS ?c1_type) .</span></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="st">    }    </span></span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:Subsystem ;</span></span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:Subsystem"  AS ?c1_type) .</span></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="st">    } </span></span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:Assembly ;</span></span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:Assembly"  AS ?c1_type) .</span></span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="st">    } </span></span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:Part ;</span></span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:Part"  AS ?c1_type) .</span></span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="st">    } </span></span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY ?c2_localname </span></span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>df_query <span class="ot">&lt;-</span> tansakusuR<span class="sc">::</span><span class="fu">send_query</span>(endpoint_url,query_string)</span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df_query, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>query_string <span class="ot">&lt;-</span><span class="st">'</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX base:        &lt;http://imce.jpl.nasa.gov/foundation/base#&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX mission:     &lt;http://imce.jpl.nasa.gov/foundation/mission#&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX structure:   &lt;http://opencaesar.io/open-source-rover/vocabulary/structure#&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX rdfs:        &lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT DISTINCT ?c1_localname ?c1_id ?c1_name ?c1_type ?c2_localname ?c2_id ?c2_name</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE {</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="st">    ?c1 a structure:Assembly ;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="st">      base:hasIdentifier ?c1_id;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="st">      base:hasCanonicalName ?c1_name .</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL{</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 base:isContainedIn ?c2 .</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="st">        OPTIONAL{</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="st">            ?c2 base:hasIdentifier ?c2_id;</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="st">                base:hasCanonicalName ?c2_name .</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="st">        }</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="st">    # Extract the local name</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="st">    BIND(STRAFTER(STR(?c1), "#") AS ?c1_localname) .</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="st">    BIND(STRAFTER(STR(?c2), "#") AS ?c2_localname) .</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:System ;</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:System"  AS ?c1_type) .</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="st">    }    </span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:Subsystem ;</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:Subsystem"  AS ?c1_type) .</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="st">    } </span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:Assembly ;</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:Assembly"  AS ?c1_type) .</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="st">    } </span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:Part ;</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:Part"  AS ?c1_type) .</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="st">    } </span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY ?c2_localname </span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>df_query <span class="ot">&lt;-</span> tansakusuR<span class="sc">::</span><span class="fu">send_query</span>(endpoint_url,query_string)</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df_query, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-877c6c4a626c1b4f3718" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-877c6c4a626c1b4f3718">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],["body-assembly","rocker-bogie-suspension-assembly-1","rocker-bogie-suspension-assembly-2","mechanical-harness","drive-wheel-assembly-1","drive-wheel-assembly-2","corner-wheel-assembly-1","corner-wheel-assembly-2","corner-wheel-assembly-3","corner-wheel-assembly-4"],["A.01","A.08","A.09","A.10","A.02","A.03","A.04","A.05","A.06","A.07"],["Body Assembly","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2","Mechanical Harness","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4"],["structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly"],["MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem"],["C.01.01","C.01.01","C.01.01","C.01.01","C.01.03","C.01.03","C.01.03","C.01.03","C.01.03","C.01.03"],["Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_id<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_id<\/th>\n      <th>c2_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-8acdf56e5250d33f0d6d" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8acdf56e5250d33f0d6d">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],["body-assembly","rocker-bogie-suspension-assembly-1","rocker-bogie-suspension-assembly-2","mechanical-harness","drive-wheel-assembly-1","drive-wheel-assembly-2","corner-wheel-assembly-1","corner-wheel-assembly-2","corner-wheel-assembly-3","corner-wheel-assembly-4"],["A.01","A.08","A.09","A.10","A.02","A.03","A.04","A.05","A.06","A.07"],["Body Assembly","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2","Mechanical Harness","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4"],["structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly"],["MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem"],["C.01.01","C.01.01","C.01.01","C.01.01","C.01.03","C.01.03","C.01.03","C.01.03","C.01.03","C.01.03"],["Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_id<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_id<\/th>\n      <th>c2_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <section id="create-a-workbook-for-define-interfaces" class="level3" data-number="7.6.1">
 <h3 data-number="7.6.1" class="anchored" data-anchor-id="create-a-workbook-for-define-interfaces"><span class="header-section-number">7.6.1</span> Create a workbook for define interfaces</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_worksheet <span class="ot">&lt;-</span><span class="fu">data.frame</span>(</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">c1 =</span> <span class="st">""</span>,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">c2 =</span> <span class="st">""</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>df_worksheet <span class="ot">&lt;-</span> df_worksheet <span class="sc">%&gt;%</span> </span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"body-assembly"</span>, <span class="at">c2 =</span> <span class="st">"rocker-bogie-suspension-assembly-1"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"body-assembly"</span>, <span class="at">c2 =</span> <span class="st">"rocker-bogie-suspension-assembly-2"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"rocker-bogie-suspension-assembly-1"</span>, <span class="at">c2 =</span> <span class="st">"corner-wheel-assembly-1"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"rocker-bogie-suspension-assembly-1"</span>, <span class="at">c2 =</span> <span class="st">"corner-wheel-assembly-4"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"rocker-bogie-suspension-assembly-1"</span>, <span class="at">c2 =</span> <span class="st">"drive-wheel-assembly-1"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"rocker-bogie-suspension-assembly-2"</span>, <span class="at">c2 =</span> <span class="st">"corner-wheel-assembly-2"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"rocker-bogie-suspension-assembly-2"</span>, <span class="at">c2 =</span> <span class="st">"corner-wheel-assembly-3"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"rocker-bogie-suspension-assembly-2"</span>, <span class="at">c2 =</span> <span class="st">"drive-wheel-assembly-2"</span>) </span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>df_worksheet <span class="ot">&lt;-</span> df_worksheet[<span class="sc">-</span><span class="dv">1</span>,] <span class="sc">%&gt;%</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">junction_id =</span> <span class="fu">paste0</span>(<span class="st">"J."</span>, <span class="fu">sprintf</span>(<span class="st">"%03d"</span>, <span class="fu">row_number</span>()))) <span class="sc">%&gt;%</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">junction_name =</span> <span class="fu">paste0</span>(<span class="st">"junction"</span>, <span class="fu">sprintf</span>(<span class="st">"%03d"</span>, <span class="fu">row_number</span>())))</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>df_worksheet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_worksheet <span class="ot">&lt;-</span><span class="fu">data.frame</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">c1 =</span> <span class="st">""</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">c2 =</span> <span class="st">""</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>df_worksheet <span class="ot">&lt;-</span> df_worksheet <span class="sc">%&gt;%</span> </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"body-assembly"</span>, <span class="at">c2 =</span> <span class="st">"rocker-bogie-suspension-assembly-1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"body-assembly"</span>, <span class="at">c2 =</span> <span class="st">"rocker-bogie-suspension-assembly-2"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"rocker-bogie-suspension-assembly-1"</span>, <span class="at">c2 =</span> <span class="st">"corner-wheel-assembly-1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"rocker-bogie-suspension-assembly-1"</span>, <span class="at">c2 =</span> <span class="st">"corner-wheel-assembly-4"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"rocker-bogie-suspension-assembly-1"</span>, <span class="at">c2 =</span> <span class="st">"drive-wheel-assembly-1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"rocker-bogie-suspension-assembly-2"</span>, <span class="at">c2 =</span> <span class="st">"corner-wheel-assembly-2"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"rocker-bogie-suspension-assembly-2"</span>, <span class="at">c2 =</span> <span class="st">"corner-wheel-assembly-3"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">c1 =</span> <span class="st">"rocker-bogie-suspension-assembly-2"</span>, <span class="at">c2 =</span> <span class="st">"drive-wheel-assembly-2"</span>) </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>df_worksheet <span class="ot">&lt;-</span> df_worksheet[<span class="sc">-</span><span class="dv">1</span>,] <span class="sc">%&gt;%</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">junction_id =</span> <span class="fu">paste0</span>(<span class="st">"J."</span>, <span class="fu">sprintf</span>(<span class="st">"%03d"</span>, <span class="fu">row_number</span>()))) <span class="sc">%&gt;%</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">junction_name =</span> <span class="fu">paste0</span>(<span class="st">"junction"</span>, <span class="fu">sprintf</span>(<span class="st">"%03d"</span>, <span class="fu">row_number</span>())))</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>df_worksheet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                  c1                                 c2
 2                      body-assembly rocker-bogie-suspension-assembly-1
@@ -607,32 +603,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="generate-description-of-interface-and-junction" class="level3" data-number="7.6.2">
 <h3 data-number="7.6.2" class="anchored" data-anchor-id="generate-description-of-interface-and-junction"><span class="header-section-number">7.6.2</span> Generate Description of interface and junction</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate color table</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>look <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">assembly =</span> df_query<span class="sc">$</span>c1_localname,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> df_query<span class="sc">$</span>c1_id</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Set Colors</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>df_tidy <span class="ot">&lt;-</span>df_worksheet <span class="sc">%&gt;%</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> look<span class="sc">$</span>id[<span class="fu">match</span>(<span class="fu">unlist</span>(df_worksheet<span class="sc">$</span>c1), look<span class="sc">$</span>assembly)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate color table</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>look <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">assembly =</span> df_query<span class="sc">$</span>c1_localname,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> df_query<span class="sc">$</span>c1_id</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Set Colors</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>df_tidy <span class="ot">&lt;-</span>df_worksheet <span class="sc">%&gt;%</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> look<span class="sc">$</span>id[<span class="fu">match</span>(<span class="fu">unlist</span>(df_worksheet<span class="sc">$</span>c1), look<span class="sc">$</span>assembly)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sourceの種類ごとにidを振る関数</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>set_id <span class="ot">&lt;-</span> <span class="cf">function</span>(source,source_id) {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sourceの値をindexに変換</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> <span class="st">"IF."</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 連番を生成</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  number <span class="ot">&lt;-</span> <span class="fu">seq_along</span>(source)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sprintf関数でゼロ埋めする</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  number_padded <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%03d"</span>, number)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># indexとnumberを結合してidを返す</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(index, source_id, <span class="st">"."</span>, number_padded)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sourceの種類ごとにidを振る関数</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>set_id <span class="ot">&lt;-</span> <span class="cf">function</span>(source,source_id) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>set_interface_name <span class="ot">&lt;-</span> <span class="cf">function</span>(source,source_id) {</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sourceの値をindexに変換</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> <span class="st">"IF."</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> <span class="st">".if"</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 連番を生成</span></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  number <span class="ot">&lt;-</span> <span class="fu">seq_along</span>(source)</span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sprintf関数でゼロ埋めする</span></span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  number_padded <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%03d"</span>, number)</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># indexとnumberを結合してidを返す</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(index, source_id, <span class="st">"."</span>, number_padded)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(source, index, number_padded)</span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sourceの種類ごとにidを振る関数</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>set_interface_name <span class="ot">&lt;-</span> <span class="cf">function</span>(source,source_id) {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>set_presents_interface_name <span class="ot">&lt;-</span> <span class="cf">function</span>(source,source_id) {</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sourceの値をindexに変換</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> <span class="st">".if"</span></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 連番を生成</span></span>
@@ -640,60 +649,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sprintf関数でゼロ埋めする</span></span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  number_padded <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%03d"</span>, number)</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># indexとnumberを結合してidを返す</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(source, index, number_padded)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(source, <span class="st">".presents"</span>, index, number_padded)</span>
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sourceの種類ごとにidを振る関数</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>set_presents_interface_name <span class="ot">&lt;-</span> <span class="cf">function</span>(source,source_id) {</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sourceの値をindexに変換</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> <span class="st">".if"</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 連番を生成</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  number <span class="ot">&lt;-</span> <span class="fu">seq_along</span>(source)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sprintf関数でゼロ埋めする</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  number_padded <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%03d"</span>, number)</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># indexとnumberを結合してidを返す</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(source, <span class="st">".presents"</span>, index, number_padded)</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_tidy <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">source =</span> df_worksheet<span class="sc">$</span>c1,</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">target =</span> df_worksheet<span class="sc">$</span>c2,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">junction =</span> df_worksheet<span class="sc">$</span>junction_id</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">source =</span> df_worksheet<span class="sc">$</span>c2, <span class="at">target =</span> df_worksheet<span class="sc">$</span>c1, <span class="at">junction=</span>df_worksheet<span class="sc">$</span>junction_id)</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>df_tidy <span class="ot">&lt;-</span> df_tidy <span class="sc">%&gt;%</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">source_id =</span> look<span class="sc">$</span>id[<span class="fu">match</span>(<span class="fu">unlist</span>(df_tidy<span class="sc">$</span>source), look<span class="sc">$</span>assembly)]) <span class="sc">%&gt;%</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">target_id =</span> look<span class="sc">$</span>id[<span class="fu">match</span>(<span class="fu">unlist</span>(df_tidy<span class="sc">$</span>target), look<span class="sc">$</span>assembly)]) <span class="sc">%&gt;%</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(source_id) <span class="sc">%&gt;%</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sourceの種類ごとにグループ化する</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(source) <span class="sc">%&gt;%</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 新しい列にidを振る</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">interface_id =</span> <span class="fu">set_id</span>(source,source_id)) <span class="sc">%&gt;%</span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">interface_name =</span> <span class="fu">set_interface_name</span>(source,source_id)) <span class="sc">%&gt;%</span></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">interface_presents =</span> <span class="fu">set_presents_interface_name</span>(source,source_id)) <span class="sc">%&gt;%</span></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># グループ化を解除する</span></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_tidy <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">source =</span> df_worksheet<span class="sc">$</span>c1,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">target =</span> df_worksheet<span class="sc">$</span>c2,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">junction =</span> df_worksheet<span class="sc">$</span>junction_id</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_row</span>(<span class="at">source =</span> df_worksheet<span class="sc">$</span>c2, <span class="at">target =</span> df_worksheet<span class="sc">$</span>c1, <span class="at">junction=</span>df_worksheet<span class="sc">$</span>junction_id)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>df_tidy <span class="ot">&lt;-</span> df_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">source_id =</span> look<span class="sc">$</span>id[<span class="fu">match</span>(<span class="fu">unlist</span>(df_tidy<span class="sc">$</span>source), look<span class="sc">$</span>assembly)]) <span class="sc">%&gt;%</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">target_id =</span> look<span class="sc">$</span>id[<span class="fu">match</span>(<span class="fu">unlist</span>(df_tidy<span class="sc">$</span>target), look<span class="sc">$</span>assembly)]) <span class="sc">%&gt;%</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(source_id) <span class="sc">%&gt;%</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sourceの種類ごとにグループ化する</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(source) <span class="sc">%&gt;%</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 新しい列にidを振る</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">interface_id =</span> <span class="fu">set_id</span>(source,source_id)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">interface_name =</span> <span class="fu">set_interface_name</span>(source,source_id)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">interface_presents =</span> <span class="fu">set_presents_interface_name</span>(source,source_id)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># グループ化を解除する</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="generate-framework-of-interface.oml" class="level3" data-number="7.6.3">
-<h3 data-number="7.6.3" class="anchored" data-anchor-id="generate-framework-of-interface.oml"><span class="header-section-number">7.6.3</span> Generate framework of interface.oml</h3>
+<section id="initialize-oml-file" class="level3" data-number="7.6.3">
+<h3 data-number="7.6.3" class="anchored" data-anchor-id="initialize-oml-file"><span class="header-section-number">7.6.3</span> Initialize OML File</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>outputdir <span class="ot">&lt;-</span> <span class="fu">paste0</span>(omlrepo,<span class="st">"src/oml/opencaesar.io/open-source-rover/description/assembly/"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>outputfile <span class="ot">&lt;-</span> <span class="fu">paste0</span>(outputdir, <span class="st">"interface.oml"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>init_oml_file <span class="ot">&lt;-</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="st">"description &lt;http://opencaesar.io/open-source-rover/description/assembly/interface.oml#&gt; as interface {</span><span class="sc">\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="at">file=</span>outputfile, init_oml_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="generate-framework-of-interface.oml" class="level3" data-number="7.6.4">
+<h3 data-number="7.6.4" class="anchored" data-anchor-id="generate-framework-of-interface.oml"><span class="header-section-number">7.6.4</span> Generate framework of interface.oml</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>omldescriptions <span class="ot">&lt;-</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="st">"description &lt;http://opencaesar.io/open-source-rover/description/assembly/interface#&gt; as interface {</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="st">  uses &lt;http://imce.jpl.nasa.gov/foundation/base#&gt; as base</span></span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="st">  uses &lt;http://imce.jpl.nasa.gov/foundation/mission#&gt; as mission</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="st">  uses &lt;http://opencaesar.io/open-source-rover/vocabulary/structure#&gt; as ^structure</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="st">  extends &lt;http://opencaesar.io/open-source-rover/description/assembly/assembly#&gt; as assembly</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="st">  extends &lt;http://opencaesar.io/open-source-rover/description/assembly/assembly#&gt; as assembly</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="function-to-generate-structurepart-descriptions" class="level3" data-number="7.6.4">
-<h3 data-number="7.6.4" class="anchored" data-anchor-id="function-to-generate-structurepart-descriptions"><span class="header-section-number">7.6.4</span> Function to generate structure:Part descriptions</h3>
+<section id="function-to-generate-structurepart-descriptions" class="level3" data-number="7.6.5">
+<h3 data-number="7.6.5" class="anchored" data-anchor-id="function-to-generate-structurepart-descriptions"><span class="header-section-number">7.6.5</span> Function to generate structure:Part descriptions</h3>
 <pre><code>    instance AssyA1.if02 : mission:Interface[
         base:hasIdentifier "IF.A.01.02"
         base:hasCanonicalName "A1 IF02"
@@ -726,30 +732,87 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"        base:hasIdentifier </span><span class="sc">\"</span><span class="st">"</span>, df_in<span class="sc">$</span>interface_id[i],<span class="st">"</span><span class="sc">\"\n</span><span class="st">"</span>,</span>
 <span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"    ]</span><span class="sc">\n</span><span class="st">"</span></span>
 <span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>                   )</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  text <span class="ot">&lt;-</span> <span class="fu">paste0</span>(text, text_instance)</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(text)</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    text_ref <span class="ot">&lt;-</span> <span class="fu">paste0</span>(text_ref,</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"    relation instance "</span>, df_in<span class="sc">$</span>interface_presents[i], <span class="st">" : "</span>, ref_type, <span class="st">" ["</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"        from assembly:"</span>, df_in<span class="sc">$</span>source[i],<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"        to "</span>, df_in<span class="sc">$</span>interface_name[i],<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"    ]</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>                   )</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># text_ref &lt;- paste0(text_ref,</span></span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                  "  ]\n\n"</span></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                  )</span></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>  text <span class="ot">&lt;-</span> <span class="fu">paste0</span>(text, text_instance, text_ref)</span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(text)</span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>header <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Interface - Assembly"</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>instance <span class="ot">&lt;-</span> <span class="fu">generateInterfaceDescriptions</span>(df_tidy, header)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>omldescriptions <span class="ot">&lt;-</span> <span class="fu">paste0</span>(omldescriptions, instance,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>generateJunctionDescriptions <span class="ot">&lt;-</span> <span class="cf">function</span>(df, header){</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  df_in <span class="ot">&lt;-</span> df</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  text <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"// "</span>, header, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  text_instance <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  text_ref <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  id_count &lt;- 1</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  type <span class="ot">&lt;-</span> <span class="st">"mission:Junction"</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_in)){</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co"># index &lt;- "A"    </span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co">#    id &lt;- paste0(index, ".", formatC(i, width = 2, flag="0"))</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    text_instance <span class="ot">&lt;-</span> <span class="fu">paste0</span>(text_instance,</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"    instance "</span>, df_in<span class="sc">$</span>junction_name[i], <span class="st">" : "</span>, type, <span class="st">" ["</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"        mission:joins1 "</span>, df_in<span class="sc">$</span>join1[i],<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"        mission:joins2 "</span>, df_in<span class="sc">$</span>join2[i],<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"    ]</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>                   )</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># text_ref &lt;- paste0(text_ref,</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                  "  ]\n\n"</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                  )</span></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>  text <span class="ot">&lt;-</span> <span class="fu">paste0</span>(text, text_instance, text_ref)</span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(text)</span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="create-junction-join1-and-join2" class="level3" data-number="7.6.6">
+<h3 data-number="7.6.6" class="anchored" data-anchor-id="create-junction-join1-and-join2"><span class="header-section-number">7.6.6</span> Create Junction join1 and join2</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df_junction <span class="ot">&lt;-</span> df_worksheet <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(df_tidy, <span class="at">by =</span><span class="fu">c</span>(<span class="st">"junction_id"</span> <span class="ot">=</span> <span class="st">"junction"</span>, <span class="st">"c1"</span> <span class="ot">=</span> <span class="st">"source"</span>), <span class="at">keep=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">join1 =</span> interface_name) <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="fu">colnames</span>(df_worksheet),<span class="st">"join1"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(df_tidy, <span class="at">by =</span><span class="fu">c</span>(<span class="st">"junction_id"</span> <span class="ot">=</span> <span class="st">"junction"</span>, <span class="st">"c2"</span> <span class="ot">=</span> <span class="st">"source"</span>), <span class="at">keep=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">join2 =</span> interface_name) <span class="sc">%&gt;%</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="fu">colnames</span>(df_worksheet),<span class="st">"join1"</span>,<span class="st">"join2"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>header <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Junction - Join"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>instance <span class="ot">&lt;-</span> <span class="fu">generateJunctionDescriptions</span>(df_junction, header)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>omldescriptions <span class="ot">&lt;-</span> <span class="fu">paste0</span>(omldescriptions, instance,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="generate-oml-file" class="level2" data-number="7.7">
 <h2 data-number="7.7" class="anchored" data-anchor-id="generate-oml-file"><span class="header-section-number">7.7</span> Generate OML File</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>omldescriptions <span class="ot">&lt;-</span> <span class="fu">paste0</span>(omldescriptions,<span class="st">"</span><span class="sc">\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(omldescriptions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>omldescriptions <span class="ot">&lt;-</span> <span class="fu">paste0</span>(omldescriptions,<span class="st">"</span><span class="sc">\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(omldescriptions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>description &lt;http://opencaesar.io/open-source-rover/description/assembly/interface#&gt; as interface {
 
   uses &lt;http://imce.jpl.nasa.gov/foundation/base#&gt; as base
   uses &lt;http://imce.jpl.nasa.gov/foundation/mission#&gt; as mission
-  uses &lt;http://opencaesar.io/open-source-rover/vocabulary/structure#&gt; as ^structure
   extends &lt;http://opencaesar.io/open-source-rover/description/assembly/assembly#&gt; as assembly
 
 // Interface - Assembly
@@ -801,11 +864,109 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     instance rocker-bogie-suspension-assembly-2.if004 : mission:Interface [
         base:hasIdentifier "IF.A.09.004"
     ]
+    relation instance body-assembly.presents.if001 : mission:Presents [
+        from assembly:body-assembly
+        to body-assembly.if001
+    ]
+    relation instance body-assembly.presents.if002 : mission:Presents [
+        from assembly:body-assembly
+        to body-assembly.if002
+    ]
+    relation instance drive-wheel-assembly-1.presents.if001 : mission:Presents [
+        from assembly:drive-wheel-assembly-1
+        to drive-wheel-assembly-1.if001
+    ]
+    relation instance drive-wheel-assembly-2.presents.if001 : mission:Presents [
+        from assembly:drive-wheel-assembly-2
+        to drive-wheel-assembly-2.if001
+    ]
+    relation instance corner-wheel-assembly-1.presents.if001 : mission:Presents [
+        from assembly:corner-wheel-assembly-1
+        to corner-wheel-assembly-1.if001
+    ]
+    relation instance corner-wheel-assembly-2.presents.if001 : mission:Presents [
+        from assembly:corner-wheel-assembly-2
+        to corner-wheel-assembly-2.if001
+    ]
+    relation instance corner-wheel-assembly-3.presents.if001 : mission:Presents [
+        from assembly:corner-wheel-assembly-3
+        to corner-wheel-assembly-3.if001
+    ]
+    relation instance corner-wheel-assembly-4.presents.if001 : mission:Presents [
+        from assembly:corner-wheel-assembly-4
+        to corner-wheel-assembly-4.if001
+    ]
+    relation instance rocker-bogie-suspension-assembly-1.presents.if001 : mission:Presents [
+        from assembly:rocker-bogie-suspension-assembly-1
+        to rocker-bogie-suspension-assembly-1.if001
+    ]
+    relation instance rocker-bogie-suspension-assembly-1.presents.if002 : mission:Presents [
+        from assembly:rocker-bogie-suspension-assembly-1
+        to rocker-bogie-suspension-assembly-1.if002
+    ]
+    relation instance rocker-bogie-suspension-assembly-1.presents.if003 : mission:Presents [
+        from assembly:rocker-bogie-suspension-assembly-1
+        to rocker-bogie-suspension-assembly-1.if003
+    ]
+    relation instance rocker-bogie-suspension-assembly-1.presents.if004 : mission:Presents [
+        from assembly:rocker-bogie-suspension-assembly-1
+        to rocker-bogie-suspension-assembly-1.if004
+    ]
+    relation instance rocker-bogie-suspension-assembly-2.presents.if001 : mission:Presents [
+        from assembly:rocker-bogie-suspension-assembly-2
+        to rocker-bogie-suspension-assembly-2.if001
+    ]
+    relation instance rocker-bogie-suspension-assembly-2.presents.if002 : mission:Presents [
+        from assembly:rocker-bogie-suspension-assembly-2
+        to rocker-bogie-suspension-assembly-2.if002
+    ]
+    relation instance rocker-bogie-suspension-assembly-2.presents.if003 : mission:Presents [
+        from assembly:rocker-bogie-suspension-assembly-2
+        to rocker-bogie-suspension-assembly-2.if003
+    ]
+    relation instance rocker-bogie-suspension-assembly-2.presents.if004 : mission:Presents [
+        from assembly:rocker-bogie-suspension-assembly-2
+        to rocker-bogie-suspension-assembly-2.if004
+    ]
+
+// Junction - Join
+    instance junction001 : mission:Junction [
+        mission:joins1 body-assembly.if001
+        mission:joins2 rocker-bogie-suspension-assembly-1.if004
+    ]
+    instance junction002 : mission:Junction [
+        mission:joins1 body-assembly.if002
+        mission:joins2 rocker-bogie-suspension-assembly-2.if004
+    ]
+    instance junction003 : mission:Junction [
+        mission:joins1 rocker-bogie-suspension-assembly-1.if001
+        mission:joins2 corner-wheel-assembly-1.if001
+    ]
+    instance junction004 : mission:Junction [
+        mission:joins1 rocker-bogie-suspension-assembly-1.if002
+        mission:joins2 corner-wheel-assembly-4.if001
+    ]
+    instance junction005 : mission:Junction [
+        mission:joins1 rocker-bogie-suspension-assembly-1.if003
+        mission:joins2 drive-wheel-assembly-1.if001
+    ]
+    instance junction006 : mission:Junction [
+        mission:joins1 rocker-bogie-suspension-assembly-2.if001
+        mission:joins2 corner-wheel-assembly-2.if001
+    ]
+    instance junction007 : mission:Junction [
+        mission:joins1 rocker-bogie-suspension-assembly-2.if002
+        mission:joins2 corner-wheel-assembly-3.if001
+    ]
+    instance junction008 : mission:Junction [
+        mission:joins1 rocker-bogie-suspension-assembly-2.if003
+        mission:joins2 drive-wheel-assembly-2.if001
+    ]
 
 
 }</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cat(file=outputfile, omldescriptions)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="at">file=</span>outputfile, omldescriptions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>```</p>
 </section>
