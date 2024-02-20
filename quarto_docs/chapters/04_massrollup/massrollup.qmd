@@ -1,0 +1,55 @@
+# Mass Roll Up Analysis
+
+## Summary
+
+## Methodology
+
+## Business Questions
+
+What is total mass of OSR system?
+
+## Vocabulary
+
+## Descriptions
+
+### Modeling Descriptions Mass Property
+
+Define mass property target
+
+```{r}
+source("../../osr_common.R")
+```
+```{r}
+library(omlhashiR)
+# oml_repository <- "../open-source-rover/"
+oml_repository <- omlrepo
+omlhashiR::oml_refresh()
+omlhashiR::oml_stop_Daemon(oml_repository)
+omlhashiR::oml_build(oml_repository)
+omlhashiR::oml_owlLoad(oml_repository)
+```
+
+
+### Set endpoint_url
+
+```{r}
+endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
+```
+```{r}
+library(tansakusuR)
+repo <- "../../../src/vision/sparql/"
+file <- "component_filtered_withmass.sparql"
+filepath <- paste0(repo,file)
+
+show_query(filepath)
+df <- send_query_from_file(endpoint_url, filepath)
+datatable(df, options = list(pageLength = -1))
+
+```
+
+
+## Analysis
+
+## Visualize
+
+

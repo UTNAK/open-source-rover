@@ -1,0 +1,91 @@
+vocabulary <http://opencaesar.io/open-source-rover/vocabulary/justforvis#> as justforvis {
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
+
+	@rdfs:label "Presenting Element"
+	@dc:description "[=PresentingElement=] is the domain of [=presents=].
+		Any concept that [=presents=] an [=Interface=] should specialize [=PresentingElement=]."
+	aspect PresentingElement
+
+	@rdfs:label "Component"
+	@dc:description "<para>A [=Component=] is a designed entity that exists to 
+		perform a [=Function=]. Example [=Component=]s
+    	include launch vehicle, spacecraft, telecommunication subsystem, flight software, attitude control software, and mission operations team."
+	concept Component < PresentingElement [
+	]
+
+
+	@rdfs:label "Interface"
+	@dc:description "An [=Interface=] represents a set of mechanical, electrical, signal, or other features that describe some aspect
+		of a [=PresentingElement=]'s connection to or interaction with another [=PresentingElement=]."
+	concept Interface < base:IdentifiedElement, PresentingElement
+
+	@rdfs:label "Junction"
+	@dc:description "An [=Junction=] represents a set of mechanical, electrical, signal, or other properties that are common to a set of mutually connected [=Interface=]s."
+	concept Junction < base:ContainedElement, base:Container, base:IdentifiedElement [
+		restricts all base:isContainedIn to Junction
+		restricts all base:contains to Junction
+	]
+
+	@rdfs:label "Joins"
+	@dc:description "A [=Junction=] [=joins=] zero or more [=Interface=]s."
+	relation entity Joins [
+		from Junction
+		to Interface
+		@rdfs:label "joins"
+		forward joins
+		@rdfs:label "is joined in"
+		reverse isJoinedIn
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Joins1"
+	@dc:description "[=joins1=] and [=joins2=] are distinguishable specializations of
+		[=joins=]. These specializations are employed to indicate distinct ends of a
+		[=Junction=]."
+	relation entity Joins1 [
+		from Junction
+		to Interface
+		@rdfs:label "joins1"
+		forward joins1
+		@rdfs:label "is joined in1"
+		reverse isJoinedIn1
+		asymmetric
+		irreflexive
+	] < Joins 
+
+	@rdfs:label "Joins2"
+	@dc:description "[=joins1=] and [=joins2=] are distinguishable specializations of
+		[=joins=]. These specializations are employed to indicate distinct ends of a
+		[=Junction=]."
+	relation entity Joins2 [
+		from Junction
+		to Interface
+		@rdfs:label "joins2"
+		forward joins2
+		@rdfs:label "is joined in2"
+		reverse isJoinedIn2
+		asymmetric
+		irreflexive
+	] < Joins 
+
+
+
+	@rdfs:label "Presents"
+	@dc:description "A [=PresentingElement=] [=presents=] zero or more [=Interface=]s."
+	relation entity Presents [
+		from PresentingElement
+		to Interface
+		@rdfs:label "presents"
+		forward presents
+		@rdfs:label "is presented by"
+		reverse isPresentedBy
+		inverse functional
+		asymmetric
+		irreflexive
+	] 
+}

@@ -2,27 +2,117 @@
   "decompositions": {
     "name": "Decomposition",
     "queries": {
-      "decompositions": "component_filtered.sparql",
-      "edge": "component_filtered.sparql"
+      "decompositions": "component.sparql",
+      "edge": "component.sparql"
     },
     "rowMapping": {
       "id": "decompositions",
       "name": "System",
       "labelFormat": "{c1_localname}",
-      "colorKey": "c1_type",
+      "nodeColor": "green",
+      "nodeTextColor": "black",
+      "nodeType": "{c1_type}",
       "edgeMatchKey": "c1_localname"
     },
     "edges": [
       {
         "id": "edge",
         "name": "Edge",
+        "animated": true,
         "labelFormat": "hasSubsystem",
-        "colorKey": "c2_localname",
+        "legendItems": "{c2_localname}",
         "sourceKey": "c1_localname",
         "targetKey": "c2_localname"
       }
     ]
   },
+  "ibd": {
+    "name": "IBD",
+    "queries": {
+      "subsystem": "subsystem.sparql",
+      "assembly": "assembly.sparql",
+      "edge": "junction.sparql"
+    },
+    "rowMapping": {
+      "id": "subsystem",
+      "name": "Subsystem",
+      "labelFormat": "{subsystem}",
+      "nodeColor": "Aqua",
+      "nodeTextColor": "black",
+      "nodeType": "{c1_type}",
+      "subRowMappings": [
+        {
+          "id": "assembly",
+          "name": "Assembly",
+          "labelFormat": "{assembly}",
+          "nodeColor": "Navy",
+          "nodeTextColor": "white",
+          "nodeType": "subsystem",
+          "edgeMatchKey": "assembly"
+        }
+      ]
+    },
+    "edges": [
+      {
+        "id": "edge",
+        "name": "Edge",
+        "animated": true,
+        "labelFormat": "{j1_localname}",
+        "legendItems": "junctions",
+        "sourceKey": "from",
+        "targetKey": "to"
+      }
+    ]
+  },  
+  "ibd-sys": {
+    "name": "IBD with Sys",
+    "queries": {
+      "system": "layered_system.sparql",
+      "subsystem": "layered_subsystem.sparql",
+      "assembly": "layered_assembly.sparql",
+      "edge": "junction.sparql"
+    },
+    "rowMapping": {
+      "id": "system",
+      "name": "System",
+      "labelFormat": "{system}",
+      "nodeColor": "Gunmetal",
+      "nodeTextColor": "white",
+      "nodeType": "Subsystem",
+      "subRowMappings": [
+        {
+          "id": "subsystem",
+          "name": "Subsystem",
+          "labelFormat": "{subsystem}",
+          "nodeColor": "Navy",
+          "nodeTextColor": "white",
+          "nodeType": "{c1_type}",
+          "subRowMappings": [
+            {
+              "id": "assembly",
+              "name": "Assembly",
+              "labelFormat": "{assembly}",
+              "nodeColor": "Navy",
+              "nodeTextColor": "white",
+              "nodeType": "Assembly",
+              "edgeMatchKey": "assembly"
+            }
+          ]          
+        }
+      ]
+    },
+    "edges": [
+      {
+        "id": "edge",
+        "name": "Edge",
+        "animated": true,
+        "labelFormat": "{j1_localname}",
+        "legendItems": "junctions",
+        "sourceKey": "from",
+        "targetKey": "to"
+      }
+    ]
+  },  
   "movingscenario": {
     "name": "Scenario",
     "queries": {
@@ -33,15 +123,18 @@
       "id": "movingscenario",
       "name": "Task",
       "labelFormat": "{f2_id} \n {f2_cname}",
-      "colorKey": "f2_id",
+      "nodeColor": "Aquamarine",
+      "nodeTextColor": "black",
+      "nodeType": "{f2_cname}",
       "edgeMatchKey": "f2_id"
     },
     "edges": [
       {
+        "animated": true,
         "id": "edge",
         "name": "Edge",
         "labelFormat": "invokes",
-        "colorKey": "f2_id",
+        "legendItems": "f2_id",
         "sourceKey": "f2_id",
         "targetKey": "f3_id"
       }

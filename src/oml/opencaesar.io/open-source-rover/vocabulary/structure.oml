@@ -6,9 +6,13 @@ vocabulary <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^st
 
 	extends <http://www.w3.org/2001/XMLSchema#> as xsd
 
-	concept System < mission:Component
+	extends <http://opencaesar.io/open-source-rover/vocabulary/mass#> as mass
 
-	concept Subsystem < mission:Component
+	concept System < mass:MechanicalComponent
+//	concept System < mission:Component
+
+//	concept Subsystem < mission:Component
+	concept Subsystem < mass:MechanicalComponent
 
 	relation hasSubsystem [
 		from System

@@ -44,4 +44,5 @@ description <http://opencaesar.io/open-source-rover/description/structure/subsys
 		base:hasIdentifier "C.01.06"
 		base:hasCanonicalName "CDH Subsystem"
 	]
+
 }

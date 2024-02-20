@@ -59,6 +59,14 @@
     <semanticResources>build/oml/iso.org/iec-80000-6.45.oml</semanticResources>
     <semanticResources>src/oml/opencaesar.io/open-source-rover/vocabulary/scenario.oml</semanticResources>
     <semanticResources>src/oml/opencaesar.io/open-source-rover/description/behavior/scenario_move.oml</semanticResources>
+    <semanticResources>src/oml/opencaesar.io/open-source-rover/description/assembly/parts.oml</semanticResources>
+    <semanticResources>src/oml/opencaesar.io/open-source-rover/description/assembly/assembly.oml</semanticResources>
+    <semanticResources>src/oml/opencaesar.io/open-source-rover/vocabulary/mass.oml</semanticResources>
+    <semanticResources>src/oml/opencaesar.io/open-source-rover/description/mass/masses.oml</semanticResources>
+    <semanticResources>.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi</semanticResources>
+    <semanticResources>platform:/plugin/org.eclipse.pde.spy.preferences/fragment.e4xmi</semanticResources>
+    <semanticResources>.metadata/.plugins/org.eclipse.oomph.setup/workspace.setup</semanticResources>
+    <semanticResources>src/oml/opencaesar.io/open-source-rover/description/structure/test_ibd.oml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_mnv18IJKEe6rm_F14QxMfw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Descriptions']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_C1znIoJLEe6rm_F14QxMfw" name="Subsystems" repPath="#_C1znIIJLEe6rm_F14QxMfw" changeId="1702377970523">
@@ -76,7 +84,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']"/>
         <target xmi:type="oml:Vocabulary" href="src/oml/opencaesar.io/open-source-rover/vocabulary/structure.oml#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_y9BcAJPOEe6O-ZiGBuDzDQ" name="Scenario Editor" repPath="#_y88jgJPOEe6O-ZiGBuDzDQ" changeId="1703276343007">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_y9BcAJPOEe6O-ZiGBuDzDQ" name="Scenario Editor" repPath="#_y88jgJPOEe6O-ZiGBuDzDQ" changeId="1706642244032">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']"/>
         <target xmi:type="oml:Vocabulary" href="src/oml/opencaesar.io/open-source-rover/vocabulary/scenario.oml#/"/>
       </ownedRepresentationDescriptors>
@@ -5464,22 +5472,6 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t2kUdJqxEe6lRdRt3sDYIw" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t2kUdZqxEe6lRdRt3sDYIw" id="(0.5,0.5)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_t2kUdpqxEe6lRdRt3sDYIw" visible="false" type="4001" element="_t2fb8ZqxEe6lRdRt3sDYIw" source="_JhvQcJqxEe6lRdRt3sDYIw" target="_zLNpC5POEe6O-ZiGBuDzDQ">
-          <children xmi:type="notation:Node" xmi:id="_t2kUepqxEe6lRdRt3sDYIw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t2kUe5qxEe6lRdRt3sDYIw" y="-10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_t2kUfJqxEe6lRdRt3sDYIw" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t2kUfZqxEe6lRdRt3sDYIw" y="10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_t2kUfpqxEe6lRdRt3sDYIw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t2kUf5qxEe6lRdRt3sDYIw" y="10"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_t2kUd5qxEe6lRdRt3sDYIw" routing="Rectilinear"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_t2kUeJqxEe6lRdRt3sDYIw" fontName=".AppleSystemUIFont"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t2kUeZqxEe6lRdRt3sDYIw" points="[0, 0, 199, -528]$[-199, 528, 0, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t2k7gJqxEe6lRdRt3sDYIw" id="(0.5,0.5)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t2k7gZqxEe6lRdRt3sDYIw" id="(0.5,0.5)"/>
-        </edges>
         <edges xmi:type="notation:Edge" xmi:id="_t2k7gpqxEe6lRdRt3sDYIw" type="4001" element="_t2gDDJqxEe6lRdRt3sDYIw" source="_SnvysJqxEe6lRdRt3sDYIw" target="_1pm-EJPOEe6O-ZiGBuDzDQ">
           <children xmi:type="notation:Node" xmi:id="_t2k7hpqxEe6lRdRt3sDYIw" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t2k7h5qxEe6lRdRt3sDYIw" x="-129" y="-15"/>
@@ -6228,7 +6220,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']/@defaultLayer/@containerMappings[name='RelationEntity']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_y-O8-5POEe6O-ZiGBuDzDQ" name="analysis:Constrains" visible="false" tooltipText="analysis:Constrains" outgoingEdges="_y-eNiZPOEe6O-ZiGBuDzDQ" incomingEdges="_t2fb8ZqxEe6lRdRt3sDYIw">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_y-O8-5POEe6O-ZiGBuDzDQ" name="analysis:Constrains" visible="false" tooltipText="analysis:Constrains" outgoingEdges="_y-eNiZPOEe6O-ZiGBuDzDQ">
       <target xmi:type="oml:RelationEntity" href="build/oml/imce.jpl.nasa.gov/foundation/analysis.oml#Constrains"/>
       <semanticElements xmi:type="oml:RelationEntity" href="build/oml/imce.jpl.nasa.gov/foundation/analysis.oml#Constrains"/>
       <graphicalFilters xmi:type="diagram:HideFilter" uid="_5Wm0gZPOEe6O-ZiGBuDzDQ"/>
@@ -6809,7 +6801,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']/@defaultLayer/@edgeMappings[name='ReverseRelation']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_Jhk4aJqxEe6lRdRt3sDYIw" name="GoalConstrains" visible="false" tooltipText="GoalConstrains" outgoingEdges="_Jhs0PJqxEe6lRdRt3sDYIw _SnvLrJqxEe6lRdRt3sDYIw _t2fb8ZqxEe6lRdRt3sDYIw">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_Jhk4aJqxEe6lRdRt3sDYIw" name="GoalConstrains" visible="false" tooltipText="GoalConstrains" outgoingEdges="_Jhs0PJqxEe6lRdRt3sDYIw _SnvLrJqxEe6lRdRt3sDYIw">
       <target xmi:type="oml:RelationEntity" href="src/oml/opencaesar.io/open-source-rover/vocabulary/scenario.oml#GoalConstrains"/>
       <semanticElements xmi:type="oml:RelationEntity" href="src/oml/opencaesar.io/open-source-rover/vocabulary/scenario.oml#GoalConstrains"/>
       <graphicalFilters xmi:type="diagram:HideFilter" uid="_4bqq4JqxEe6lRdRt3sDYIw"/>
@@ -6862,14 +6854,6 @@
       <target xmi:type="oml:SpecializationAxiom" href="src/oml/opencaesar.io/open-source-rover/vocabulary/scenario.oml#//@ownedStatements.9/@ownedSpecializations.0"/>
       <semanticElements xmi:type="oml:SpecializationAxiom" href="src/oml/opencaesar.io/open-source-rover/vocabulary/scenario.oml#//@ownedStatements.9/@ownedSpecializations.0"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_t2e1DZqxEe6lRdRt3sDYIw" targetArrow="InputClosedArrow" routingStyle="manhattan">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']/@defaultLayer/@edgeMappings[name='SpecializationAxiom']/@style"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']/@defaultLayer/@edgeMappings[name='SpecializationAxiom']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_t2fb8ZqxEe6lRdRt3sDYIw" visible="false" sourceNode="_Jhk4aJqxEe6lRdRt3sDYIw" targetNode="_y-O8-5POEe6O-ZiGBuDzDQ">
-      <target xmi:type="oml:SpecializationAxiom" href="src/oml/opencaesar.io/open-source-rover/vocabulary/scenario.oml#//@ownedStatements.11/@ownedSpecializations.0"/>
-      <semanticElements xmi:type="oml:SpecializationAxiom" href="src/oml/opencaesar.io/open-source-rover/vocabulary/scenario.oml#//@ownedStatements.11/@ownedSpecializations.0"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_t2fb8pqxEe6lRdRt3sDYIw" targetArrow="InputClosedArrow" routingStyle="manhattan">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']/@defaultLayer/@edgeMappings[name='SpecializationAxiom']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']/@ownedRepresentations[name='Vocabulary%20Editor']/@defaultLayer/@edgeMappings[name='SpecializationAxiom']"/>

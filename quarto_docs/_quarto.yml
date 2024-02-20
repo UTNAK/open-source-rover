@@ -22,9 +22,15 @@ book:
         - chapters/02_assembly_parts/assemblyandparts.qmd
         - chapters/02_assembly_parts/create_descriptions_assembly.qmd
         - chapters/02_assembly_parts/create_descriptions_parts.qmd
+    - part: "Interface"
+      chapters: 
+        - chapters/02_interface/assembly_interface.qmd
     - part: "Timeline Analysis"
       chapters: 
         - chapters/03_timeline_analysis/usecase_timeline.qmd
+    - part: "Mass Roll Up Analysis"
+      chapters: 
+        - chapters/04_massrollup/massrollup.qmd
     - part: "Analysis Tools"
       chapters: 
         - sparqlwithr.qmd
