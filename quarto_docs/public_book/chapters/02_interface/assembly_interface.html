@@ -460,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>oml_repository <span class="ot">&lt;-</span> omlrepo</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_refresh</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "kill success for pid=26186"</code></pre>
+<pre><code>[1] "kill success for pid=47130"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_stop_Daemon</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -468,17 +468,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_build</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Starting a Gradle Daemon, 2 stopped Daemons could not be reused, use --status for details"
- [2] "&gt; Task :omlZip UP-TO-DATE"                                                                
- [3] "&gt; Task :assemble UP-TO-DATE"                                                              
- [4] "&gt; Task :downloadDependencies UP-TO-DATE"                                                  
- [5] "&gt; Task :omlToOwl UP-TO-DATE"                                                              
- [6] "&gt; Task :owlReason UP-TO-DATE"                                                             
- [7] "&gt; Task :check UP-TO-DATE"                                                                 
- [8] "&gt; Task :build UP-TO-DATE"                                                                 
- [9] ""                                                                                         
-[10] "BUILD SUCCESSFUL in 4s"                                                                   
-[11] "4 actionable tasks: 4 up-to-date"                                                         </code></pre>
+<pre><code> [1] "Starting a Gradle Daemon, 20 stopped Daemons could not be reused, use --status for details"
+ [2] "&gt; Task :omlZip UP-TO-DATE"                                                                 
+ [3] "&gt; Task :assemble UP-TO-DATE"                                                               
+ [4] "&gt; Task :downloadDependencies UP-TO-DATE"                                                   
+ [5] "&gt; Task :omlToOwl UP-TO-DATE"                                                               
+ [6] "&gt; Task :owlReason UP-TO-DATE"                                                              
+ [7] "&gt; Task :check UP-TO-DATE"                                                                  
+ [8] "&gt; Task :build UP-TO-DATE"                                                                  
+ [9] ""                                                                                          
+[10] "BUILD SUCCESSFUL in 4s"                                                                    
+[11] "4 actionable tasks: 4 up-to-date"                                                          </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -487,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  [3] "&gt; Task :owlReason UP-TO-DATE"                   
  [4] ""                                               
  [5] "&gt; Task :startFuseki"                            
- [6] "Fuseki server is already running with pid=50280"
+ [6] "Fuseki server is already running with pid=47402"
  [7] ""                                               
  [8] "&gt; Task :owlLoad"                                
  [9] ""                                               
@@ -549,8 +549,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df_query, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-8acdf56e5250d33f0d6d" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-8acdf56e5250d33f0d6d">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],["body-assembly","rocker-bogie-suspension-assembly-1","rocker-bogie-suspension-assembly-2","mechanical-harness","drive-wheel-assembly-1","drive-wheel-assembly-2","corner-wheel-assembly-1","corner-wheel-assembly-2","corner-wheel-assembly-3","corner-wheel-assembly-4"],["A.01","A.08","A.09","A.10","A.02","A.03","A.04","A.05","A.06","A.07"],["Body Assembly","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2","Mechanical Harness","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4"],["structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly"],["MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem"],["C.01.01","C.01.01","C.01.01","C.01.01","C.01.03","C.01.03","C.01.03","C.01.03","C.01.03","C.01.03"],["Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_id<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_id<\/th>\n      <th>c2_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-78bcff0bef60308c75ce" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-78bcff0bef60308c75ce">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],["body-assembly","rocker-bogie-suspension-assembly-1","rocker-bogie-suspension-assembly-2","mechanical-harness","drive-wheel-assembly-1","drive-wheel-assembly-2","corner-wheel-assembly-1","corner-wheel-assembly-2","corner-wheel-assembly-3","corner-wheel-assembly-4"],["A.01","A.08","A.09","A.10","A.02","A.03","A.04","A.05","A.06","A.07"],["Body Assembly","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2","Mechanical Harness","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4"],["structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly"],["MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem"],["C.01.01","C.01.01","C.01.01","C.01.01","C.01.03","C.01.03","C.01.03","C.01.03","C.01.03","C.01.03"],["Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_id<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_id<\/th>\n      <th>c2_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <section id="create-a-workbook-for-define-interfaces" class="level3" data-number="7.6.1">

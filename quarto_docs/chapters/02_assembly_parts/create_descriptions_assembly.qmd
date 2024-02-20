@@ -19,7 +19,15 @@ outputfile <- paste0(outputdir, "parts.oml")
 init_oml_file <- 
 "description <http://opencaesar.io/open-source-rover/description/assembly/parts#> as parts {\n}\n"
 cat(file=outputfile, init_oml_file)
+
+
+# init interface.oml since they use assembly.oml
+outputfile <- paste0(outputdir, "interface.oml")
+init_oml_file <- 
+"description <http://opencaesar.io/open-source-rover/description/assembly/interface.oml#> as interface {\n}\n"
+cat(file=outputfile, init_oml_file)
 ```
+
 
 
 

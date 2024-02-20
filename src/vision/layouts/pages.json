@@ -12,6 +12,12 @@
           "isDiagram": true
         },
         { 
+          "title": "Decomposition w/o parts",
+          "treeIcon": "outline-view-icon",
+          "path": "decompositions-wo-parts",
+          "isDiagram": true
+        },
+        { 
           "title": "IBD",
           "treeIcon": "circuit-board",
           "path": "ibd",
