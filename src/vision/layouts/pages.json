@@ -3,7 +3,7 @@
     {
       "title": "OSR",
       "treeIcon": "server",
-      "iconUrl": "https://nasa-jpl.github.io/stellar/icons/satellite.svg",
+      "iconUrl": "https://nasa-jpl.github.io/stellar/icons/rover.svg",
       "children": [
         { 
           "title": "Decomposition",
@@ -15,6 +15,12 @@
           "title": "Decomposition w/o parts",
           "treeIcon": "outline-view-icon",
           "path": "decompositions-wo-parts",
+          "isDiagram": true
+        },
+        {
+          "title": "decompositions-autogen",
+          "treeIcon": "outline-view-icon",
+          "path": "decompositions-autogen",
           "isDiagram": true
         },
         { 

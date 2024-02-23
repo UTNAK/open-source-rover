@@ -85,6 +85,7 @@ oml_repository <- omlrepo
 omlhashiR::oml_refresh()
 omlhashiR::oml_stop_Daemon(oml_repository)
 omlhashiR::oml_build(oml_repository)
+omlhashiR::oml_startFuseki(oml_repository)
 omlhashiR::oml_owlLoad(oml_repository)
 ```
 

@@ -24,7 +24,7 @@ cat(file=outputfile, init_oml_file)
 # init interface.oml since they use assembly.oml
 outputfile <- paste0(outputdir, "interface.oml")
 init_oml_file <- 
-"description <http://opencaesar.io/open-source-rover/description/assembly/interface.oml#> as interface {\n}\n"
+"description <http://opencaesar.io/open-source-rover/description/assembly/interface#> as interface {\n}\n"
 cat(file=outputfile, init_oml_file)
 ```
 
@@ -136,7 +136,7 @@ oml_repository <- omlrepo
 omlhashiR::oml_refresh()
 omlhashiR::oml_stop_Daemon(oml_repository)
 omlhashiR::oml_build(oml_repository)
-omlhashiR::oml_owlLoad(oml_repository)
+omlhashiR::oml_owlReason(oml_repository)
 ```
 
 
@@ -369,6 +369,7 @@ Before we check the model, add below codes to the description bundle.
 
 ```{r}
 omlhashiR::oml_build(oml_repository)
+oml_startFuseki(oml_repository)
 omlhashiR::oml_owlLoad(oml_repository)
 ```
 
