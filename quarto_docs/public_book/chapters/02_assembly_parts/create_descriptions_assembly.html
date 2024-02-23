@@ -314,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
- <span class="menu-text">Analysis Tools</span></a>
+ <span class="menu-text">OML-Vision Automation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -322,8 +322,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_omlvision_automation/omlvision_automation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OML-Vision diagramLayout Auto Generation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">Analysis Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../sparqlwithr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></span></a>
   </div>
 </li>
       </ul>
@@ -408,7 +425,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>outputfile <span class="ot">&lt;-</span> <span class="fu">paste0</span>(outputdir, <span class="st">"parts.oml"</span>)</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>init_oml_file <span class="ot">&lt;-</span> </span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">"description &lt;http://opencaesar.io/open-source-rover/description/assembly/parts#&gt; as parts {</span><span class="sc">\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">"</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="at">file=</span>outputfile, init_oml_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="at">file=</span>outputfile, init_oml_file)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># init interface.oml since they use assembly.oml</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>outputfile <span class="ot">&lt;-</span> <span class="fu">paste0</span>(outputdir, <span class="st">"interface.oml"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>init_oml_file <span class="ot">&lt;-</span> </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="st">"description &lt;http://opencaesar.io/open-source-rover/description/assembly/interface#&gt; as interface {</span><span class="sc">\n</span><span class="st">}</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="at">file=</span>outputfile, init_oml_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="modeling-mechanical-assembly" class="level2" data-number="5.2">
@@ -512,7 +536,7 @@ a <code>structure:Assembly</code> has a <code>structure:Part</code>.</p>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>oml_repository <span class="ot">&lt;-</span> omlrepo</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_refresh</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "kill success for pid=41589"</code></pre>
+<pre><code>[1] "kill success for pid=23953"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_stop_Daemon</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -520,31 +544,26 @@ a <code>structure:Assembly</code> has a <code>structure:Part</code>.</p>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_build</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Starting a Gradle Daemon, 5 stopped Daemons could not be reused, use --status for details"
- [2] "&gt; Task :omlZip UP-TO-DATE"                                                                
- [3] "&gt; Task :assemble UP-TO-DATE"                                                              
- [4] "&gt; Task :downloadDependencies UP-TO-DATE"                                                  
- [5] "&gt; Task :omlToOwl UP-TO-DATE"                                                              
- [6] "&gt; Task :owlReason UP-TO-DATE"                                                             
- [7] "&gt; Task :check UP-TO-DATE"                                                                 
- [8] "&gt; Task :build UP-TO-DATE"                                                                 
- [9] ""                                                                                         
-[10] "BUILD SUCCESSFUL in 5s"                                                                   
-[11] "4 actionable tasks: 4 up-to-date"                                                         </code></pre>
+<pre><code> [1] "Starting a Gradle Daemon, 27 stopped Daemons could not be reused, use --status for details"
+ [2] "&gt; Task :omlZip"                                                                            
+ [3] "&gt; Task :assemble"                                                                          
+ [4] "&gt; Task :downloadDependencies UP-TO-DATE"                                                   
+ [5] "&gt; Task :omlToOwl"                                                                          
+ [6] "&gt; Task :owlReason"                                                                         
+ [7] "&gt; Task :check"                                                                             
+ [8] "&gt; Task :build"                                                                             
+ [9] ""                                                                                          
+[10] "BUILD SUCCESSFUL in 7s"                                                                    
+[11] "4 actionable tasks: 3 executed, 1 up-to-date"                                              </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlReason</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "&gt; Task :downloadDependencies UP-TO-DATE"                                                      
- [2] "&gt; Task :omlToOwl UP-TO-DATE"                                                                  
- [3] "&gt; Task :owlReason UP-TO-DATE"                                                                 
- [4] ""                                                                                             
- [5] "&gt; Task :startFuseki"                                                                          
- [6] "Fuseki server has now successfully started with pid=43879, listening on http://localhost:3030"
- [7] ""                                                                                             
- [8] "&gt; Task :owlLoad"                                                                              
- [9] ""                                                                                             
-[10] "BUILD SUCCESSFUL in 8s"                                                                       
-[11] "5 actionable tasks: 2 executed, 3 up-to-date"                                                 </code></pre>
+<pre><code>[1] "&gt; Task :downloadDependencies UP-TO-DATE"
+[2] "&gt; Task :omlToOwl UP-TO-DATE"            
+[3] "&gt; Task :owlReason UP-TO-DATE"           
+[4] ""                                       
+[5] "BUILD SUCCESSFUL in 608ms"              
+[6] "3 actionable tasks: 3 up-to-date"       </code></pre>
 </div>
 </div>
 </section>
@@ -774,84 +793,94 @@ a <code>structure:Assembly</code> has a <code>structure:Part</code>.</p>
  [6] "&gt; Task :check"                               
  [7] "&gt; Task :build"                               
  [8] ""                                            
- [9] "BUILD SUCCESSFUL in 6s"                      
+ [9] "BUILD SUCCESSFUL in 2s"                      
 [10] "4 actionable tasks: 3 executed, 1 up-to-date"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oml_startFuseki</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "&gt; Task :downloadDependencies UP-TO-DATE"     
-[2] "&gt; Task :omlToOwl UP-TO-DATE"                 
-[3] "&gt; Task :owlReason UP-TO-DATE"                
-[4] "&gt; Task :startFuseki UP-TO-DATE"              
-[5] "&gt; Task :owlLoad"                             
-[6] ""                                            
-[7] "BUILD SUCCESSFUL in 3s"                      
-[8] "5 actionable tasks: 1 executed, 4 up-to-date"</code></pre>
+<pre><code>[1] ""                                                                                             
+[2] "&gt; Task :startFuseki"                                                                          
+[3] "Fuseki server has now successfully started with pid=24944, listening on http://localhost:3030"
+[4] ""                                                                                             
+[5] "BUILD SUCCESSFUL in 3s"                                                                       
+[6] "1 actionable task: 1 executed"                                                                </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "&gt; Task :downloadDependencies UP-TO-DATE"      
+[2] "&gt; Task :omlToOwl UP-TO-DATE"                  
+[3] "&gt; Task :owlReason UP-TO-DATE"                 
+[4] ""                                             
+[5] "&gt; Task :owlLoad"                              
+[6] "Loaded 22 owl file(s), unloaded 0 owl file(s)"
+[7] ""                                             
+[8] "BUILD SUCCESSFUL in 1s"                       
+[9] "4 actionable tasks: 1 executed, 3 up-to-date" </code></pre>
 </div>
 </div>
 </section>
 <section id="query" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="query"><span class="header-section-number">6.3</span> Query</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tansakusuR)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>endpoint_url <span class="ot">&lt;-</span> <span class="st">"http://localhost:3030/open-source-rover/sparql"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tansakusuR)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>endpoint_url <span class="ot">&lt;-</span> <span class="st">"http://localhost:3030/open-source-rover/sparql"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="extract-missioncomponent-hierarchy" class="level3" data-number="6.3.1">
 <h3 data-number="6.3.1" class="anchored" data-anchor-id="extract-missioncomponent-hierarchy"><span class="header-section-number">6.3.1</span> Extract mission:Component Hierarchy</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>query_string <span class="ot">&lt;-</span><span class="st">'</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX base:        &lt;http://imce.jpl.nasa.gov/foundation/base#&gt;</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX mission:     &lt;http://imce.jpl.nasa.gov/foundation/mission#&gt;</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX structure:   &lt;http://opencaesar.io/open-source-rover/vocabulary/structure#&gt;</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX rdfs:        &lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT DISTINCT ?c1_localname ?c1_name ?c1_type ?c2_localname ?c2_name</span></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE {</span></span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="st">    ?c1 a mission:Component ;</span></span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="st">      base:hasCanonicalName ?c1_name .</span></span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL{</span></span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 base:isContainedIn ?c2 .</span></span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="st">        OPTIONAL{</span></span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="st">            ?c2 base:hasCanonicalName ?c2_name .</span></span>
-<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="st">        }</span></span>
-<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
-<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a><span class="st">    # Extract the local name</span></span>
-<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="st">    BIND(STRAFTER(STR(?c1), "#") AS ?c1_localname) .</span></span>
-<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a><span class="st">    BIND(STRAFTER(STR(?c2), "#") AS ?c2_localname) .</span></span>
-<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
-<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:System ;</span></span>
-<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:System"  AS ?c1_type) .</span></span>
-<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a><span class="st">    }    </span></span>
-<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
-<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:Subsystem ;</span></span>
-<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:Subsystem"  AS ?c1_type) .</span></span>
-<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a><span class="st">    } </span></span>
-<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
-<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:Assembly ;</span></span>
-<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:Assembly"  AS ?c1_type) .</span></span>
-<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a><span class="st">    } </span></span>
-<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
-<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY ?c1_localname </span></span>
-<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
-<span id="cb37-36"><a href="#cb37-36" aria-hidden="true" tabindex="-1"></a>df_query <span class="ot">&lt;-</span> tansakusuR<span class="sc">::</span><span class="fu">send_query</span>(endpoint_url,query_string)</span>
-<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df_query, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>query_string <span class="ot">&lt;-</span><span class="st">'</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX base:        &lt;http://imce.jpl.nasa.gov/foundation/base#&gt;</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX mission:     &lt;http://imce.jpl.nasa.gov/foundation/mission#&gt;</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX structure:   &lt;http://opencaesar.io/open-source-rover/vocabulary/structure#&gt;</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="st">PREFIX rdfs:        &lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT DISTINCT ?c1_localname ?c1_name ?c1_type ?c2_localname ?c2_name</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE {</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="st">    ?c1 a mission:Component ;</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="st">      base:hasCanonicalName ?c1_name .</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL{</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 base:isContainedIn ?c2 .</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="st">        OPTIONAL{</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="st">            ?c2 base:hasCanonicalName ?c2_name .</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="st">        }</span></span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="st">    # Extract the local name</span></span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a><span class="st">    BIND(STRAFTER(STR(?c1), "#") AS ?c1_localname) .</span></span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a><span class="st">    BIND(STRAFTER(STR(?c2), "#") AS ?c2_localname) .</span></span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:System ;</span></span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:System"  AS ?c1_type) .</span></span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a><span class="st">    }    </span></span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
+<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:Subsystem ;</span></span>
+<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:Subsystem"  AS ?c1_type) .</span></span>
+<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a><span class="st">    } </span></span>
+<span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a><span class="st">    OPTIONAL {</span></span>
+<span id="cb39-30"><a href="#cb39-30" aria-hidden="true" tabindex="-1"></a><span class="st">        ?c1 a structure:Assembly ;</span></span>
+<span id="cb39-31"><a href="#cb39-31" aria-hidden="true" tabindex="-1"></a><span class="st">            BIND("structure:Assembly"  AS ?c1_type) .</span></span>
+<span id="cb39-32"><a href="#cb39-32" aria-hidden="true" tabindex="-1"></a><span class="st">    } </span></span>
+<span id="cb39-33"><a href="#cb39-33" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb39-34"><a href="#cb39-34" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY ?c1_localname </span></span>
+<span id="cb39-35"><a href="#cb39-35" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb39-36"><a href="#cb39-36" aria-hidden="true" tabindex="-1"></a>df_query <span class="ot">&lt;-</span> tansakusuR<span class="sc">::</span><span class="fu">send_query</span>(endpoint_url,query_string)</span>
+<span id="cb39-37"><a href="#cb39-37" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df_query, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6a66345eb5f8c30941bb" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-6a66345eb5f8c30941bb">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"],["CDHSubsystem","ControlSubsystem","MechanicalSubsystem","MobilitySubsystem","NavigationSubsystem","OSR","PowerSubsystem","body-assembly","corner-wheel-assembly-1","corner-wheel-assembly-2","corner-wheel-assembly-3","corner-wheel-assembly-4","drive-wheel-assembly-1","drive-wheel-assembly-2","mechanical-harness","rocker-bogie-suspension-assembly-1","rocker-bogie-suspension-assembly-2"],["CDH Subsystem","Control Subsystem","Mechanical Subsystem","Mobility Subsystem","Navigation Subsystem","Rover System","Power Subsystem","Body Assembly","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Mechanical Harness","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2"],["structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:System","structure:Subsystem","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly"],["OSR","OSR","OSR","OSR","OSR",null,"OSR","MechanicalSubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem"],["Rover System","Rover System","Rover System","Rover System","Rover System",null,"Rover System","Mechanical Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-aaf7243441669eefa388" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-aaf7243441669eefa388">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"],["CDHSubsystem","ControlSubsystem","MechanicalSubsystem","MobilitySubsystem","NavigationSubsystem","OSR","PowerSubsystem","body-assembly","corner-wheel-assembly-1","corner-wheel-assembly-2","corner-wheel-assembly-3","corner-wheel-assembly-4","drive-wheel-assembly-1","drive-wheel-assembly-2","mechanical-harness","rocker-bogie-suspension-assembly-1","rocker-bogie-suspension-assembly-2"],["CDH Subsystem","Control Subsystem","Mechanical Subsystem","Mobility Subsystem","Navigation Subsystem","Rover System","Power Subsystem","Body Assembly","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Mechanical Harness","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2"],["structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:Subsystem","structure:System","structure:Subsystem","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly","structure:Assembly"],["OSR","OSR","OSR","OSR","OSR",null,"OSR","MechanicalSubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem"],["Rover System","Rover System","Rover System","Rover System","Rover System",null,"Rover System","Mechanical Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df_query <span class="ot">&lt;-</span> df_query <span class="sc">%&gt;%</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(df_query<span class="sc">$</span>c1_type <span class="sc">!=</span> <span class="st">"structure:Part"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(c2_name))</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCollapsibleTreeFromDataframe</span>(df_query, <span class="at">palette=</span><span class="st">"BluYl"</span>, <span class="at">parent=</span><span class="st">"c2_name"</span>, <span class="at">child=</span><span class="st">"c1_name"</span>,<span class="at">type=</span><span class="st">"c1_type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df_query <span class="ot">&lt;-</span> df_query <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(df_query<span class="sc">$</span>c1_type <span class="sc">!=</span> <span class="st">"structure:Part"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(c2_name))</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCollapsibleTreeFromDataframe</span>(df_query, <span class="at">palette=</span><span class="st">"BluYl"</span>, <span class="at">parent=</span><span class="st">"c2_name"</span>, <span class="at">child=</span><span class="st">"c1_name"</span>,<span class="at">type=</span><span class="st">"c1_type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="collapsibleTree html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e14b8026f9a8ab5e8fc7" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-e14b8026f9a8ab5e8fc7">{"x":{"data":{"name":"Rover System","fill":"#F9FFAF","WeightOfNode":14,"children":[{"name":"CDH Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Control Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Mechanical Subsystem","fill":"#2E4F79","WeightOfNode":4,"children":[{"name":"Body Assembly","fill":"#46B09B","WeightOfNode":1},{"name":"Mechanical Harness","fill":"#46B09B","WeightOfNode":1},{"name":"Rocker Bogie Suspension Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Rocker Bogie Suspension Assembly-2","fill":"#46B09B","WeightOfNode":1}]},{"name":"Mobility Subsystem","fill":"#2E4F79","WeightOfNode":6,"children":[{"name":"Corner Wheel Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-2","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-3","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-4","fill":"#46B09B","WeightOfNode":1},{"name":"Drive Wheel Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Drive Wheel Assembly-2","fill":"#46B09B","WeightOfNode":1}]},{"name":"Navigation Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Power Subsystem","fill":"#2E4F79","WeightOfNode":1}]},"options":{"hierarchy":[1,2,3],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":10,"tooltip":true,"collapsed":false,"zoomable":true,"margin":{"top":20,"bottom":20,"left":85,"right":195}}},"evals":[],"jsHooks":[]}</script>
+<div class="collapsibleTree html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6c7c9d1f40ca129f63d7" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-6c7c9d1f40ca129f63d7">{"x":{"data":{"name":"Rover System","fill":"#F9FFAF","WeightOfNode":14,"children":[{"name":"CDH Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Control Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Mechanical Subsystem","fill":"#2E4F79","WeightOfNode":4,"children":[{"name":"Body Assembly","fill":"#46B09B","WeightOfNode":1},{"name":"Mechanical Harness","fill":"#46B09B","WeightOfNode":1},{"name":"Rocker Bogie Suspension Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Rocker Bogie Suspension Assembly-2","fill":"#46B09B","WeightOfNode":1}]},{"name":"Mobility Subsystem","fill":"#2E4F79","WeightOfNode":6,"children":[{"name":"Corner Wheel Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-2","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-3","fill":"#46B09B","WeightOfNode":1},{"name":"Corner Wheel Assembly-4","fill":"#46B09B","WeightOfNode":1},{"name":"Drive Wheel Assembly-1","fill":"#46B09B","WeightOfNode":1},{"name":"Drive Wheel Assembly-2","fill":"#46B09B","WeightOfNode":1}]},{"name":"Navigation Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"Power Subsystem","fill":"#2E4F79","WeightOfNode":1}]},"options":{"hierarchy":[1,2,3],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":10,"tooltip":true,"collapsed":false,"zoomable":true,"margin":{"top":20,"bottom":20,"left":85,"right":195}}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -860,43 +889,43 @@ a <code>structure:Assembly</code> has a <code>structure:Part</code>.</p>
 <section id="networkd3simplenetwork" class="level4">
 <h4 class="anchored" data-anchor-id="networkd3simplenetwork">networkD3::simpleNetwork</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df2<span class="ot">&lt;-</span> df_query <span class="sc">%&gt;%</span> </span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">owner=</span>c2_name) <span class="sc">%&gt;%</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name=</span>c1_name) <span class="sc">%&gt;%</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">"owner"</span>,<span class="st">"name"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(owner)) <span class="sc">%&gt;%</span>  </span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="fu">n</span>())</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(networkD3)</span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>networkD3<span class="sc">::</span><span class="fu">simpleNetwork</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df2<span class="ot">&lt;-</span> df_query <span class="sc">%&gt;%</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">owner=</span>c2_name) <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name=</span>c1_name) <span class="sc">%&gt;%</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">"owner"</span>,<span class="st">"name"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(owner)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="fu">n</span>())</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(networkD3)</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>networkD3<span class="sc">::</span><span class="fu">simpleNetwork</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="forceNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b7b794418eda1c27ac91" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-b7b794418eda1c27ac91">{"x":{"links":{"source":[16,16,16,16,16,16,11,11,11,11,11,11,10,10,10,10],"target":[1,2,10,11,12,13,3,4,5,6,7,8,0,9,14,15],"value":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["Body Assembly","CDH Subsystem","Control Subsystem","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Mechanical Harness","Mechanical Subsystem","Mobility Subsystem","Navigation Subsystem","Power Subsystem","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2","Rover System"],"group":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"nodesize":[8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#3182bd'])","fontSize":7,"fontFamily":"serif","clickTextSize":17.5,"linkDistance":50,"linkWidth":"'1.5px'.toString()","charge":-30,"opacity":0.6,"zoom":false,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+<div class="forceNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-717c851a404741ac0812" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-717c851a404741ac0812">{"x":{"links":{"source":[16,16,16,16,16,16,11,11,11,11,11,11,10,10,10,10],"target":[1,2,10,11,12,13,3,4,5,6,7,8,0,9,14,15],"value":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["Body Assembly","CDH Subsystem","Control Subsystem","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Mechanical Harness","Mechanical Subsystem","Mobility Subsystem","Navigation Subsystem","Power Subsystem","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2","Rover System"],"group":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"nodesize":[8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#3182bd'])","fontSize":7,"fontFamily":"serif","clickTextSize":17.5,"linkDistance":50,"linkWidth":"'1.5px'.toString()","charge":-30,"opacity":0.6,"zoom":false,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="networkd3diagonalnetwor" class="level4">
 <h4 class="anchored" data-anchor-id="networkd3diagonalnetwor">networkD3::diagonalNetwor</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.tree)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>nd3 <span class="ot">&lt;-</span> <span class="fu">ToListExplicit</span>(<span class="fu">FromDataFrameNetwork</span>(df2), <span class="at">unname =</span> T)</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>networkD3<span class="sc">::</span><span class="fu">diagonalNetwork</span>(<span class="at">List =</span> nd3, <span class="at">fontSize =</span> <span class="dv">10</span>, <span class="at">opacity =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.tree)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>nd3 <span class="ot">&lt;-</span> <span class="fu">ToListExplicit</span>(<span class="fu">FromDataFrameNetwork</span>(df2), <span class="at">unname =</span> T)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>networkD3<span class="sc">::</span><span class="fu">diagonalNetwork</span>(<span class="at">List =</span> nd3, <span class="at">fontSize =</span> <span class="dv">10</span>, <span class="at">opacity =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="diagonalNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-0c2f3d12b811d2fe8500" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-0c2f3d12b811d2fe8500">{"x":{"root":{"name":"Rover System","children":[{"name":"CDH Subsystem"},{"name":"Control Subsystem"},{"name":"Mechanical Subsystem","children":[{"name":"Body Assembly"},{"name":"Mechanical Harness"},{"name":"Rocker Bogie Suspension Assembly-1"},{"name":"Rocker Bogie Suspension Assembly-2"}]},{"name":"Mobility Subsystem","children":[{"name":"Corner Wheel Assembly-1"},{"name":"Corner Wheel Assembly-2"},{"name":"Corner Wheel Assembly-3"},{"name":"Corner Wheel Assembly-4"},{"name":"Drive Wheel Assembly-1"},{"name":"Drive Wheel Assembly-2"}]},{"name":"Navigation Subsystem"},{"name":"Power Subsystem"}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"#fff","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
+<div class="diagonalNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-a6e96b7d127ad1ed1189" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-a6e96b7d127ad1ed1189">{"x":{"root":{"name":"Rover System","children":[{"name":"CDH Subsystem"},{"name":"Control Subsystem"},{"name":"Mechanical Subsystem","children":[{"name":"Body Assembly"},{"name":"Mechanical Harness"},{"name":"Rocker Bogie Suspension Assembly-1"},{"name":"Rocker Bogie Suspension Assembly-2"}]},{"name":"Mobility Subsystem","children":[{"name":"Corner Wheel Assembly-1"},{"name":"Corner Wheel Assembly-2"},{"name":"Corner Wheel Assembly-3"},{"name":"Corner Wheel Assembly-4"},{"name":"Drive Wheel Assembly-1"},{"name":"Drive Wheel Assembly-2"}]},{"name":"Navigation Subsystem"},{"name":"Power Subsystem"}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"#fff","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="networkd3radialnetwork" class="level4">
 <h4 class="anchored" data-anchor-id="networkd3radialnetwork">networkD3::radialNetwork</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>networkD3<span class="sc">::</span><span class="fu">radialNetwork</span>(nd3, <span class="at">nodeColour=</span><span class="st">"seagreen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>networkD3<span class="sc">::</span><span class="fu">radialNetwork</span>(nd3, <span class="at">nodeColour=</span><span class="st">"seagreen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="radialNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-819a40e7ca122b92857e" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-819a40e7ca122b92857e">{"x":{"root":{"name":"Rover System","children":[{"name":"CDH Subsystem"},{"name":"Control Subsystem"},{"name":"Mechanical Subsystem","children":[{"name":"Body Assembly"},{"name":"Mechanical Harness"},{"name":"Rocker Bogie Suspension Assembly-1"},{"name":"Rocker Bogie Suspension Assembly-2"}]},{"name":"Mobility Subsystem","children":[{"name":"Corner Wheel Assembly-1"},{"name":"Corner Wheel Assembly-2"},{"name":"Corner Wheel Assembly-3"},{"name":"Corner Wheel Assembly-4"},{"name":"Drive Wheel Assembly-1"},{"name":"Drive Wheel Assembly-2"}]},{"name":"Navigation Subsystem"},{"name":"Power Subsystem"}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"seagreen","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
+<div class="radialNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-905b7d446fdca12da8aa" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-905b7d446fdca12da8aa">{"x":{"root":{"name":"Rover System","children":[{"name":"CDH Subsystem"},{"name":"Control Subsystem"},{"name":"Mechanical Subsystem","children":[{"name":"Body Assembly"},{"name":"Mechanical Harness"},{"name":"Rocker Bogie Suspension Assembly-1"},{"name":"Rocker Bogie Suspension Assembly-2"}]},{"name":"Mobility Subsystem","children":[{"name":"Corner Wheel Assembly-1"},{"name":"Corner Wheel Assembly-2"},{"name":"Corner Wheel Assembly-3"},{"name":"Corner Wheel Assembly-4"},{"name":"Drive Wheel Assembly-1"},{"name":"Drive Wheel Assembly-2"}]},{"name":"Navigation Subsystem"},{"name":"Power Subsystem"}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"seagreen","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 

@@ -1,0 +1,46 @@
+# OML-Vision diagramLayout Auto Generation
+
+This is a prototype for automatically generate data-sets for oml-vision.
+
+- *.sparql
+- *.diagramLayout.json or tableLayouts.json or treeLayouts.json
+- pages.json
+
+
+## Prototype-1: Decomposition Tree Diagram
+
+
+### Reusable functions to generate query codes.
+
+```{r}
+source("../../osr_common.R")
+source("../../omlvision_wrapper.R")
+```
+
+
+### Keys
+
+```{r}
+targetConcept = c("structure:System structure:Subsystem structure:Assembly")
+targetRelation = "base:isContainedIn"
+nodeColor = "salmon"
+nodeTextColor = "white"
+
+df_keys <- omlvisionDecomposition(omlrepo, targetConcept,targetRelation,nodeColor,nodeTextColor)
+
+```
+
+```{r}
+
+cat(df_keys$querytext)
+cat("\n")
+cat(df_keys$diagramLayouttext)
+cat("\n")
+cat(df_keys$pagetext)
+```
+
+
+## Prototype-2: Block Diagram
+
+
+## Table

@@ -311,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
- <span class="menu-text">Analysis Tools</span></a>
+ <span class="menu-text">OML-Vision Automation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -319,8 +319,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_omlvision_automation/omlvision_automation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OML-Vision diagramLayout Auto Generation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">Analysis Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../sparqlwithr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></span></a>
   </div>
 </li>
       </ul>
@@ -382,7 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="vocabulary" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="vocabulary"><span class="header-section-number">1.2</span> Vocabulary</h2>
-<p>We defined the domain specific vocabularies to describe the OSR system decomposition. We defined “System”, “Subsystem” and “Assembly” concepts as a specialization of a mission:Component as shown in <a href="#fig-structure">Figure&nbsp;<span class="quarto-unresolved-ref">fig-structure</span></a>.</p>
+<p>We defined the domain specific vocabularies to describe the OSR system decomposition. We defined “System”, “Subsystem” and “Assembly” concepts as a specialization of a mission:Component as shown in <a href="#fig-structure">Figure&nbsp;<span>1.1</span></a>.</p>
 <div id="fig-structure" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../../img/structurevocabulary.png" class="img-fluid figure-img" width="500"></p>
@@ -458,8 +475,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-270c15bda36bcc3279cf" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-270c15bda36bcc3279cf">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["OSR","MechanicalSubsystem","PowerSubsystem","MobilitySubsystem","ControlSubsystem","NavigationSubsystem","CDHSubsystem"],["C.01","C.01.01","C.01.02","C.01.03","C.01.04","C.01.05","C.01.06"],["Rover System","Mechanical Subsystem","Power Subsystem","Mobility Subsystem","Control Subsystem","Navigation Subsystem","CDH Subsystem"],["System","Subsystem","Subsystem","Subsystem","Subsystem","Subsystem","Subsystem"],[null,"OSR","OSR","OSR","OSR","OSR","OSR"],[null,"C.01","C.01","C.01","C.01","C.01","C.01"],[null,"Rover System","Rover System","Rover System","Rover System","Rover System","Rover System"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_id<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_id<\/th>\n      <th>c2_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-bde1b78577613113229f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-bde1b78577613113229f">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["OSR","MechanicalSubsystem","PowerSubsystem","MobilitySubsystem","ControlSubsystem","NavigationSubsystem","CDHSubsystem"],["C.01","C.01.01","C.01.02","C.01.03","C.01.04","C.01.05","C.01.06"],["Rover System","Mechanical Subsystem","Power Subsystem","Mobility Subsystem","Control Subsystem","Navigation Subsystem","CDH Subsystem"],["System","Subsystem","Subsystem","Subsystem","Subsystem","Subsystem","Subsystem"],[null,"OSR","OSR","OSR","OSR","OSR","OSR"],[null,"C.01","C.01","C.01","C.01","C.01","C.01"],[null,"Rover System","Rover System","Rover System","Rover System","Rover System","Rover System"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_id<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_id<\/th>\n      <th>c2_name<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -491,8 +508,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">tooltips =</span> <span class="st">"tooltip"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="fig-treeview" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<div class="collapsibleTree html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-88121d567f44beb580cd" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-88121d567f44beb580cd">{"x":{"data":{"name":"C.01 Rover System","fill":"#F9FFAF","WeightOfNode":6,"children":[{"name":"C.01.01 Mechanical Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"C.01.02 Power Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"C.01.03 Mobility Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"C.01.04 Control Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"C.01.05 Navigation Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"C.01.06 CDH Subsystem","fill":"#2E4F79","WeightOfNode":1}]},"options":{"hierarchy":[1,2],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":10,"tooltip":true,"collapsed":false,"zoomable":true,"margin":{"top":20,"bottom":20,"left":110,"right":165}}},"evals":[],"jsHooks":[]}</script>
+<div class="collapsibleTree html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9c103293035468a108a8" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-9c103293035468a108a8">{"x":{"data":{"name":"C.01 Rover System","fill":"#F9FFAF","WeightOfNode":6,"children":[{"name":"C.01.01 Mechanical Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"C.01.02 Power Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"C.01.03 Mobility Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"C.01.04 Control Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"C.01.05 Navigation Subsystem","fill":"#2E4F79","WeightOfNode":1},{"name":"C.01.06 CDH Subsystem","fill":"#2E4F79","WeightOfNode":1}]},"options":{"hierarchy":[1,2],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":10,"tooltip":true,"collapsed":false,"zoomable":true,"margin":{"top":20,"bottom":20,"left":110,"right":165}}},"evals":[],"jsHooks":[]}</script>
 <figcaption class="figure-caption">Figure&nbsp;1.3: A tree diagram</figcaption>
 </figure>
 </div>

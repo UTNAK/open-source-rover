@@ -31,6 +31,9 @@ book:
     - part: "Mass Roll Up Analysis"
       chapters: 
         - chapters/04_massrollup/massrollup.qmd
+    - part: "OML-Vision Automation"
+      chapters: 
+        - chapters/05_omlvision_automation/omlvision_automation.qmd
     - part: "Analysis Tools"
       chapters: 
         - sparqlwithr.qmd
