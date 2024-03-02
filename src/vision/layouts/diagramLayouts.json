@@ -150,7 +150,7 @@
       "id": "node",
       "name": "Parent",
       "labelFormat": "{c1_instancename}",
-      "nodeColor": "salmon",
+      "nodeColor": "seagreen",
       "nodeTextColor": "white",
       "nodeType": "NA",
       "edgeMatchKey": "c1_instancename"

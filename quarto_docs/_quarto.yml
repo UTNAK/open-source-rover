@@ -34,6 +34,7 @@ book:
     - part: "OML-Vision Automation"
       chapters: 
         - chapters/05_omlvision_automation/omlvision_automation.qmd
+        - chapters/05_omlvision_automation/omlvision_automation_blockdiagram.qmd
     - part: "Analysis Tools"
       chapters: 
         - sparqlwithr.qmd

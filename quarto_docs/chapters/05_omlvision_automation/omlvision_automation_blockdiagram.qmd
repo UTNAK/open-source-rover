@@ -1,3 +1,8 @@
+---
+execute:
+  freeze: true
+---
+
 # OML-Vision diagramLayout Auto Generation
 
 This is a prototype for automatically generate data-sets for oml-vision.
@@ -7,20 +12,14 @@ This is a prototype for automatically generate data-sets for oml-vision.
 - pages.json
 
 
-## Prototype-1: Decomposition Tree Diagram
+## Prototype-2: Block Diagram
 
 
 ### Reusable functions to generate query codes.
 
 ```{r}
-# for RStudio
-#source("../../osr_common.R")
-#source("../../omlvision_wrapper.R")
-
-# for VS-code
-source("./quarto_docs/osr_common.R")
-source("./quarto_docs/omlvision_wrapper.R")
-omlrepo <- "./"
+source("../../osr_common.R")
+source("../../omlvision_wrapper.R")
 ```
 
 
@@ -29,11 +28,10 @@ omlrepo <- "./"
 ```{r}
 targetConcept = c("structure:System structure:Subsystem structure:Assembly")
 targetRelation = "base:isContainedIn"
-#targetRelation = "structure:hasSubsystem"
-nodeColor = "seagreen"
+nodeColor = "navy"
 nodeTextColor = "white"
 
-df_keys <- omlvisionDecomposition(omlrepo, targetConcept,targetRelation,nodeColor,nodeTextColor)
+df_keys <- omlvisionBlockDiagram(omlrepo, targetConcept,targetRelation,nodeColor,nodeTextColor)
 
 ```
 
@@ -45,4 +43,5 @@ cat(df_keys$diagramLayouttext)
 cat("\n")
 cat(df_keys$pagetext)
 ```
+
 

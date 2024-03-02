@@ -26,6 +26,7 @@ oml_repository <- omlrepo
 omlhashiR::oml_refresh()
 omlhashiR::oml_stop_Daemon(oml_repository)
 omlhashiR::oml_build(oml_repository)
+omlhashiR::oml_startFuseki(oml_repository)
 omlhashiR::oml_owlLoad(oml_repository)
 ```
 
@@ -48,8 +49,270 @@ datatable(df, options = list(pageLength = -1))
 ```
 
 
+# UX用のデータベース作成
+
+これは、json形式にしたいが、まずはグラフデータを作ってみたい。
+
+```{r}
+
+# output dir for owlQuery specified at resultPath in build.gradle
+repo <- paste0(omlrepo, "build/results/")
+file <- "component_filtered_withmass.json"
+filepath <- paste0(repo,file)
+
+jsondata <- jsonlite::fromJSON(filepath)
+
+df <- readQueryResultsFromJson(filepath)
+df <- df %>%
+  filter(c1_type %in% c("System","Subsystem"))
+```
+
+```{r}
+library(igraph)
+library(jsonlite)
+library(networkD3)
+
+df <- df %>%
+  select(c1_localname, c2_localname, c1_mass)
+
+g <- graph_from_data_frame(df, directed = TRUE, vertices = NULL)
+
+g <- delete_vertices(g, 18)
+
+plot(g, layout = layout_as_tree(g, root=1))
+
+plot(g, layout = layout_with_kk(g))
+
+
+deg <- degree(g, mode="all")
+
+plot(g, vertex.size=deg*3)
+
+wc <- cluster_walktrap(g)
+members <- membership(wc)
+
+g_d3 <- igraph_to_networkD3(g, group = members)
+
+
+
+forceNetwork(Links = g_d3$links, Nodes = g_d3$nodes,
+             Source = 'source', Target = 'target', NodeID = 'name',
+             Group = 'group')
+
+
+
+library(d3r)
+data_json <- d3_igraph(g)
+```
+
+
+```{r}
+df_graph <- as_long_data_frame(g)
+
+jsondata <- toJSON(df_graph, pretty=T)
+jsonedit( jsondata )
+
+```
+
+```{r}
+library(shiny)
+library(listviewer)
+
+# put some data in environment so it will show up
+data(mtcars)
+
+ui <- shinyUI(
+  fluidPage(
+    jsoneditOutput( "jsed" )
+  )
+)
+
+server <- function(input,output){
+  output$jsed <- renderJsonedit({
+    jsonedit(
+      jsonlite::toJSON(mtcars, auto_unbox = TRUE, data.frame = "rows")
+      ,"onChange" = htmlwidgets::JS('function(after, before, patch){
+        console.log( after.json )
+      }')
+    )
+    
+  })
+}
+
+runApp( list( ui = ui, server = server ) )
+
+```
+
+
+```{r}
+jsondata
+```
+
+
+```{r}
+# Load data
+data(MisLinks)
+data(MisNodes)
+# Create graph
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 0.4, zoom = TRUE)
+
+# Create graph with legend and varying node radius
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Nodesize = "size",
+             radiusCalculation = "Math.sqrt(d.nodesize)+6",
+             Group = "group", opacity = 0.4, legend = TRUE)
+
+# Create graph directed arrows
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 0.4, arrows = TRUE)
+#### JSON Data Example
+# Load data JSON formated data into two R data frames
+# Create URL. paste0 used purely to keep within line width.
+URL <- paste0("https://cdn.rawgit.com/christophergandrud/networkD3/",
+              "master/JSONdata/miserables.json")
+
+MisJson <- jsonlite::fromJSON(URL)
+
+# Create graph
+forceNetwork(Links = MisJson$links, Nodes = MisJson$nodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 1)
+
+# Create graph with zooming
+forceNetwork(Links = MisJson$links, Nodes = MisJson$nodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 0.8, zoom = TRUE)
+
+
+# Create a bounded graph
+forceNetwork(Links = MisJson$links, Nodes = MisJson$nodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 0.4, bounded = TRUE)
+
+# Create graph with node text faintly visible when no hovering
+forceNetwork(Links = MisJson$links, Nodes = MisJson$nodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 0.4, bounded = TRUE,
+             opacityNoHover = TRUE)
+
+## Specify colours for specific edges
+# Find links to Valjean (11)
+which(MisNodes == "Valjean", arr = TRUE)[1] - 1
+ValjeanInds = which(MisLinks == 11, arr = TRUE)[, 1]
+
+# Create a colour vector
+ValjeanCols = ifelse(1:nrow(MisLinks) %in% ValjeanInds, "#bf3eff", "#666")
+
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 0.8, linkColour = ValjeanCols)
+
+
+## Create graph with alert pop-up when a node is clicked.  You're
+# unlikely to want to do exactly this, but you might use
+# Shiny.onInputChange() to allocate d.XXX to an element of input
+# for use in a Shiny app.
+
+MyClickScript <- 'alert("You clicked " + d.name + " which is in row " +
+       (d.index + 1) +  " of your original R data frame");'
+
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 1, zoom = FALSE,
+             bounded = TRUE, clickAction = MyClickScript)# }
+
+```
+
+
+
 ## Analysis
 
 ## Visualize
+
+
+
+## Reference
+
+Mass RollUp Patternは、約10年前に発明された、再利用性の高いモデリングパターンである。
+Mars2020や、Europa Clipperといったフライトプロジェクトで実際に活用され、成功したMBSEの代表的なユースケースである。
+
+当時は、SysML言語とツール（Cameo System Modeler）の依存性が高いモデリングパターンであった。
+CSMのシミュレーション機能を活用するため、Simulation Tool Kitという追加機能を購入する必要があった。
+
+OML + OpenCAESARでも同様のパターンを実現可能である。
+ワークフローはモダナイズ可能である。
+
+当時のペインポイント
+- ツールの問題
+- Elyseに聞いてみたいが、結局元のスプレッドシートのやり方に戻ってしまったのはなぜか、
+　ツールの問題か。
+
+### ExcelベースのMass Rollup Pattern
+- Error-prone approach
+- Excelの計算式は暗黙的
+- DescriptionとAnalysisが混在
+　
+### SysMLベースのMass Rollup Pattern
+- Vocabulary: SysML Block + Association
+- Description: SysML
+- Analysis: SysML + Cameo(Tool)
+- Data Update: Cameo
+- DescriptionとAnalysisが分離
+- 極めてCSMツール依存性の高いアプローチ
+- バージョン管理、データ追跡が困難。
+
+### OpenCAESAR
+- git + CI/CD
+- SPARQL + R or Python + UI/UX + CICD
+- バリエーションはある
+  - VSCODEで全部やる
+  - CICDを活用(Github, GitLab)
+  - UXはエクセル、json、OML-Vision
+  - gradle taskに組み込む
+　- jupyter notebook / quarto方式
+
+
+
+
+[Total Mass, Cost, and Power Rollups](https://www.youtube.com/watch?v=tBGgn_BAqTw)
+[Mass Rollup - Cameo Systems Modeler / MagicDraw](https://www.youtube.com/watch?v=ncbcF2Sj5TQ)
+
+
+```{r}
+library(listviewer)
+jsonedit(jsondata)
+```
+
+
+## Analysis: Finding Edges of the Containment Graph
+
+```{r}
+library(tansakusuR)
+
+endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
+
+repo <- "../../../src/vision/sparql/"
+file <- "component_filtered_withmass.sparql"
+filepath <- paste0(repo,file)
+
+show_query(filepath)
+df <- send_query_from_file(endpoint_url, filepath)
+datatable(df, options = list(pageLength = -1))
+```
+
+## Analysis: Containment Graph
+```{r}
+library(igraph)
+g <- graph_from_data_frame(df[,c("c2_localname","c1_localname","c1_mass")], directed = TRUE, vertices = NULL)
+
+# remove NA from node
+g <- delete_vertices(g, V(g)["NA"])
+
+```
+
 
 

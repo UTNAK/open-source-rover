@@ -320,6 +320,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">OML-Vision diagramLayout Auto Generation</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/05_omlvision_automation/omlvision_automation_blockdiagram.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">OML-Vision diagramLayout Auto Generation</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -334,7 +340,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../sparqlwithr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">OML + Gradle + SPARQL + R</span></span></a>
   </div>
 </li>
       </ul>
@@ -416,7 +422,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>oml_repository <span class="ot">&lt;-</span> omlrepo</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_refresh</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "kill success for pid=25084"</code></pre>
+<pre><code>[1] "kill success for pid=39117"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_stop_Daemon</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -424,19 +430,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_build</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Starting a Gradle Daemon, 30 stopped Daemons could not be reused, use --status for details"
- [2] "&gt; Task :omlZip"                                                                            
- [3] "&gt; Task :assemble"                                                                          
- [4] "&gt; Task :downloadDependencies UP-TO-DATE"                                                   
- [5] "&gt; Task :omlToOwl"                                                                          
- [6] "&gt; Task :owlReason"                                                                         
- [7] "&gt; Task :check"                                                                             
- [8] "&gt; Task :build"                                                                             
- [9] ""                                                                                          
-[10] "BUILD SUCCESSFUL in 7s"                                                                    
-[11] "4 actionable tasks: 3 executed, 1 up-to-date"                                              </code></pre>
+<pre><code> [1] "Starting a Gradle Daemon, 6 stopped Daemons could not be reused, use --status for details"
+ [2] "&gt; Task :omlZip UP-TO-DATE"                                                                
+ [3] "&gt; Task :assemble UP-TO-DATE"                                                              
+ [4] "&gt; Task :downloadDependencies UP-TO-DATE"                                                  
+ [5] "&gt; Task :omlToOwl UP-TO-DATE"                                                              
+ [6] "&gt; Task :owlReason UP-TO-DATE"                                                             
+ [7] "&gt; Task :check UP-TO-DATE"                                                                 
+ [8] "&gt; Task :build UP-TO-DATE"                                                                 
+ [9] ""                                                                                         
+[10] "BUILD SUCCESSFUL in 3s"                                                                   
+[11] "4 actionable tasks: 4 up-to-date"                                                         </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_startFuseki</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] ""                                                                                             
+[2] "&gt; Task :startFuseki"                                                                          
+[3] "Fuseki server has now successfully started with pid=39864, listening on http://localhost:3030"
+[4] ""                                                                                             
+[5] "BUILD SUCCESSFUL in 3s"                                                                       
+[6] "1 actionable task: 1 executed"                                                                </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>omlhashiR<span class="sc">::</span><span class="fu">oml_owlLoad</span>(oml_repository)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "&gt; Task :downloadDependencies UP-TO-DATE"      
 [2] "&gt; Task :omlToOwl UP-TO-DATE"                  
@@ -453,15 +468,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="set-endpoint_url" class="level3" data-number="9.5.2">
 <h3 data-number="9.5.2" class="anchored" data-anchor-id="set-endpoint_url"><span class="header-section-number">9.5.2</span> Set endpoint_url</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>endpoint_url <span class="ot">&lt;-</span> <span class="st">"http://localhost:3030/open-source-rover/sparql"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>endpoint_url <span class="ot">&lt;-</span> <span class="st">"http://localhost:3030/open-source-rover/sparql"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tansakusuR)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>repo <span class="ot">&lt;-</span> <span class="st">"../../../src/vision/sparql/"</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="st">"component_filtered_withmass.sparql"</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>filepath <span class="ot">&lt;-</span> <span class="fu">paste0</span>(repo,file)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">show_query</span>(filepath)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tansakusuR)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>repo <span class="ot">&lt;-</span> <span class="st">"../../../src/vision/sparql/"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="st">"component_filtered_withmass.sparql"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>filepath <span class="ot">&lt;-</span> <span class="fu">paste0</span>(repo,file)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">show_query</span>(filepath)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>PREFIX base:        &lt;http://imce.jpl.nasa.gov/foundation/base#&gt;
 PREFIX mission:     &lt;http://imce.jpl.nasa.gov/foundation/mission#&gt;
@@ -510,12 +525,12 @@ WHERE {
 }
 ORDER BY ?c1_id</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">send_query_from_file</span>(endpoint_url, filepath)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">send_query_from_file</span>(endpoint_url, filepath)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2a6f2a06f4694907bd33" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-2a6f2a06f4694907bd33">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"],["body-assembly","drive-wheel-assembly-1","drive-wheel-assembly-2","corner-wheel-assembly-1","corner-wheel-assembly-2","corner-wheel-assembly-3","corner-wheel-assembly-4","rocker-bogie-suspension-assembly-1","rocker-bogie-suspension-assembly-2","mechanical-harness","OSR","MechanicalSubsystem","PowerSubsystem","MobilitySubsystem","ControlSubsystem","NavigationSubsystem","CDHSubsystem"],["A.01","A.02","A.03","A.04","A.05","A.06","A.07","A.08","A.09","A.10","C.01","C.01.01","C.01.02","C.01.03","C.01.04","C.01.05","C.01.06"],["Body Assembly","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2","Mechanical Harness","Rover System","Mechanical Subsystem","Power Subsystem","Mobility Subsystem","Control Subsystem","Navigation Subsystem","CDH Subsystem"],["Assembly","Assembly","Assembly","Assembly","Assembly","Assembly","Assembly","Assembly","Assembly","Assembly","System","Subsystem","Subsystem","Subsystem","Subsystem","Subsystem","Subsystem"],["MechanicalSubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem",null,"OSR","OSR","OSR","OSR","OSR","OSR"],["C.01.01","C.01.03","C.01.03","C.01.03","C.01.03","C.01.03","C.01.03","C.01.01","C.01.01","C.01.01",null,"C.01","C.01","C.01","C.01","C.01","C.01"],["Mechanical Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem",null,"Rover System","Rover System","Rover System","Rover System","Rover System","Rover System"],[null,null,null,null,null,null,null,null,null,null,"2000.0",null,null,null,null,null,"100.0"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_id<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_id<\/th>\n      <th>c2_name<\/th>\n      <th>c1_mass<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4d834cc14970faac9de0" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4d834cc14970faac9de0">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"],["body-assembly","drive-wheel-assembly-1","drive-wheel-assembly-2","corner-wheel-assembly-1","corner-wheel-assembly-2","corner-wheel-assembly-3","corner-wheel-assembly-4","rocker-bogie-suspension-assembly-1","rocker-bogie-suspension-assembly-2","mechanical-harness","OSR","MechanicalSubsystem","PowerSubsystem","MobilitySubsystem","ControlSubsystem","NavigationSubsystem","CDHSubsystem"],["A.01","A.02","A.03","A.04","A.05","A.06","A.07","A.08","A.09","A.10","C.01","C.01.01","C.01.02","C.01.03","C.01.04","C.01.05","C.01.06"],["Body Assembly","Drive Wheel Assembly-1","Drive Wheel Assembly-2","Corner Wheel Assembly-1","Corner Wheel Assembly-2","Corner Wheel Assembly-3","Corner Wheel Assembly-4","Rocker Bogie Suspension Assembly-1","Rocker Bogie Suspension Assembly-2","Mechanical Harness","Rover System","Mechanical Subsystem","Power Subsystem","Mobility Subsystem","Control Subsystem","Navigation Subsystem","CDH Subsystem"],["Assembly","Assembly","Assembly","Assembly","Assembly","Assembly","Assembly","Assembly","Assembly","Assembly","System","Subsystem","Subsystem","Subsystem","Subsystem","Subsystem","Subsystem"],["MechanicalSubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MobilitySubsystem","MechanicalSubsystem","MechanicalSubsystem","MechanicalSubsystem",null,"OSR","OSR","OSR","OSR","OSR","OSR"],["C.01.01","C.01.03","C.01.03","C.01.03","C.01.03","C.01.03","C.01.03","C.01.01","C.01.01","C.01.01",null,"C.01","C.01","C.01","C.01","C.01","C.01"],["Mechanical Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mobility Subsystem","Mechanical Subsystem","Mechanical Subsystem","Mechanical Subsystem",null,"Rover System","Rover System","Rover System","Rover System","Rover System","Rover System"],[null,null,null,null,null,null,null,null,null,null,"2000.0",null,null,"200.0",null,null,"100.0"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>c1_localname<\/th>\n      <th>c1_id<\/th>\n      <th>c1_name<\/th>\n      <th>c1_type<\/th>\n      <th>c2_localname<\/th>\n      <th>c2_id<\/th>\n      <th>c2_name<\/th>\n      <th>c1_mass<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>

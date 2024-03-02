@@ -16,6 +16,10 @@ description <http://opencaesar.io/open-source-rover/description/mass/masses#> as
 		vim4:hasDoubleNumber "100"^^xsd:double
 		vim4:characterizes subsystems:CDHSubsystem
 	]
+	instance MobilitySubsystem.mass.magnitude : mass:MassMagnitude [
+		vim4:hasDoubleNumber "200"^^xsd:double
+		vim4:characterizes subsystems:MobilitySubsystem
+	]	
 //	ref instance subsystems:MobilitySubsystem
 //	instance MobilitySubsystem.mass.magnitude : mass:MassMagnitude [
 //		vim4:hasDoubleNumber "200"^^xsd:double
