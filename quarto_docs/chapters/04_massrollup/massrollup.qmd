@@ -19,6 +19,7 @@ Define mass property target
 ```{r}
 source("../../osr_common.R")
 ```
+
 ```{r}
 library(omlhashiR)
 # oml_repository <- "../open-source-rover/"
@@ -30,12 +31,12 @@ omlhashiR::oml_startFuseki(oml_repository)
 omlhashiR::oml_owlLoad(oml_repository)
 ```
 
-
 ### Set endpoint_url
 
 ```{r}
 endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
 ```
+
 ```{r}
 library(tansakusuR)
 repo <- "../../../src/vision/sparql/"
@@ -47,7 +48,6 @@ df <- send_query_from_file(endpoint_url, filepath)
 datatable(df, options = list(pageLength = -1))
 
 ```
-
 
 # UX用のデータベース作成
 
@@ -105,6 +105,36 @@ library(d3r)
 data_json <- d3_igraph(g)
 ```
 
+```{r}
+library(htmlwidgets)
+
+MisNodes$initials <- gsub('[[:lower:]]', '', MisNodes$name)
+
+network <- 
+  forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+               Target = "target", Value = "value", NodeID = "initials",
+               Group = "group", opacity = 1, opacityNoHover = 1)
+
+network$x$nodes$initials <- MisNodes$initials
+network$x$nodes$fullname <- MisNodes$name
+
+name_switch_js <- 
+  "function(el, x) {
+    var nodes = el.getElementsByClassName('node');
+    
+    [...nodes].map(node => node.addEventListener('mouseover', function(ev) {
+        d3.select(ev.target.parentNode).select('text').text(d => d.fullname);
+      }, false));
+    
+    [...nodes].map(node => node.addEventListener('mouseout', function(ev) {
+        d3.select(ev.target.parentNode).select('text').text(d => d.initials);
+      }, false));
+  }
+"
+
+onRender(network, name_switch_js)
+```
+
 
 ```{r}
 df_graph <- as_long_data_frame(g)
@@ -114,40 +144,11 @@ jsonedit( jsondata )
 
 ```
 
-```{r}
-library(shiny)
-library(listviewer)
-
-# put some data in environment so it will show up
-data(mtcars)
-
-ui <- shinyUI(
-  fluidPage(
-    jsoneditOutput( "jsed" )
-  )
-)
-
-server <- function(input,output){
-  output$jsed <- renderJsonedit({
-    jsonedit(
-      jsonlite::toJSON(mtcars, auto_unbox = TRUE, data.frame = "rows")
-      ,"onChange" = htmlwidgets::JS('function(after, before, patch){
-        console.log( after.json )
-      }')
-    )
-    
-  })
-}
-
-runApp( list( ui = ui, server = server ) )
-
-```
 
 
 ```{r}
 jsondata
 ```
-
 
 ```{r}
 # Load data
@@ -227,66 +228,58 @@ forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
 
 ```
 
-
-
 ## Analysis
 
 ## Visualize
 
-
-
 ## Reference
 
-Mass RollUp Patternは、約10年前に発明された、再利用性の高いモデリングパターンである。
-Mars2020や、Europa Clipperといったフライトプロジェクトで実際に活用され、成功したMBSEの代表的なユースケースである。
+Mass RollUp Patternは、約10年前に発明された、再利用性の高いモデリングパターンである。 Mars2020や、Europa Clipperといったフライトプロジェクトで実際に活用され、成功したMBSEの代表的なユースケースである。
 
-当時は、SysML言語とツール（Cameo System Modeler）の依存性が高いモデリングパターンであった。
-CSMのシミュレーション機能を活用するため、Simulation Tool Kitという追加機能を購入する必要があった。
+当時は、SysML言語とツール（Cameo System Modeler）の依存性が高いモデリングパターンであった。 CSMのシミュレーション機能を活用するため、Simulation Tool Kitという追加機能を購入する必要があった。
 
-OML + OpenCAESARでも同様のパターンを実現可能である。
-ワークフローはモダナイズ可能である。
+OML + OpenCAESARでも同様のパターンを実現可能である。 ワークフローはモダナイズ可能である。
 
-当時のペインポイント
-- ツールの問題
-- Elyseに聞いてみたいが、結局元のスプレッドシートのやり方に戻ってしまったのはなぜか、
-　ツールの問題か。
+当時のペインポイント - ツールの問題 - Elyseに聞いてみたいが、結局元のスプレッドシートのやり方に戻ってしまったのはなぜか、 　ツールの問題か。
 
 ### ExcelベースのMass Rollup Pattern
-- Error-prone approach
-- Excelの計算式は暗黙的
-- DescriptionとAnalysisが混在
-　
-### SysMLベースのMass Rollup Pattern
-- Vocabulary: SysML Block + Association
-- Description: SysML
-- Analysis: SysML + Cameo(Tool)
-- Data Update: Cameo
-- DescriptionとAnalysisが分離
-- 極めてCSMツール依存性の高いアプローチ
-- バージョン管理、データ追跡が困難。
+
+-   Error-prone approach
+-   Excelの計算式は暗黙的
+-   DescriptionとAnalysisが混在 　 \### SysMLベースのMass Rollup Pattern
+-   Vocabulary: SysML Block + Association
+-   Description: SysML
+-   Analysis: SysML + Cameo(Tool)
+-   Data Update: Cameo
+-   DescriptionとAnalysisが分離
+-   極めてCSMツール依存性の高いアプローチ
+-   バージョン管理、データ追跡が困難。
 
 ### OpenCAESAR
-- git + CI/CD
-- SPARQL + R or Python + UI/UX + CICD
-- バリエーションはある
-  - VSCODEで全部やる
-  - CICDを活用(Github, GitLab)
-  - UXはエクセル、json、OML-Vision
-  - gradle taskに組み込む
-　- jupyter notebook / quarto方式
+
+-   git + CI/CD
+-   SPARQL + R or Python + UI/UX + CICD
+-   バリエーションはある
+    -   VSCODEで全部やる
+    -   CICDを活用(Github, GitLab)
+    -   UXはエクセル、json、OML-Vision
+    -   gradle taskに組み込む 　- jupyter notebook / quarto方式
+    
+-   [2012 Bayer, Todd; Chung, Seung; Cole, Bjorn; Cooke, Brian; Dekens, Frank; Delp, Chris; Gontijo, I.; Lewis, Kari; Moshir, Mehrdad; Rasmussen, Robert; Wagner, David, 2012, "Early Formulation Model-Centric Engineering on NASA’s Europa Mission concept study", https://hdl.handle.net/2014/42873, 22nd Annual INCOSE International Symposium (IS 2012), Rome, Italy, July 9-12, 2012](https://dataverse.jpl.nasa.gov/file.xhtml?fileId=47736&version=1.1)
+-   [2012 Chung, Seung H.; Bayer, Todd J.; Cole, Bjorn; Cooke, Brian; Dekens, Frank; Delp, Christopher; Lam, Doris, 2012, "Model-based systems engineering approach to managing mass margin", https://hdl.handle.net/2014/43123, 5th International Workshop on Systems & Concurrent Engineering for Space Applications, Lisbon, Portugal, October 17–19, 2012, JPL Open Repository](https://dataverse.jpl.nasa.gov/file.xhtml?fileId=48982&version=1.1)
+-   [2015 Fosse, Elyse; Harmon, Corey; Lefland, Mallory; Castillo, Robert; Devereaux, Ann, 2015, "Inheriting Curiosity: leveraging MBSE to build Mars2020", https://hdl.handle.net/2014/45871, AIAA SPACE Conference and Exhibition, Pasadena, California, August 31 - September 2, 2015, JPL Open Repository](https://dataverse.jpl.nasa.gov/file.xhtml?fileId=4363&version=1.1)
+-   [2016 Total Mass, Cost, and Power Rollups](https://www.youtube.com/watch?v=tBGgn_BAqTw)
+-   [2020 Mass Rollup - Cameo Systems Modeler / MagicDraw](https://www.youtube.com/watch?v=ncbcF2Sj5TQ)
+-   [2022 A model based approach to budget management for the Earth Return Orbiter](https://indico.esa.int/event/407/contributions/7400/attachments/4798/7320/1200%20-%20Abstract%20-%20A%20model%20based%20approach%20to%20budget%20management%20for%20the%20Earth%20Return%20Orbiter.pdf)
 
 
-
-
-[Total Mass, Cost, and Power Rollups](https://www.youtube.com/watch?v=tBGgn_BAqTw)
-[Mass Rollup - Cameo Systems Modeler / MagicDraw](https://www.youtube.com/watch?v=ncbcF2Sj5TQ)
+-   [2010 Bayer, Todd J.; Cooney, Lauren A.; Delp, Christopher L.; Dutenhoffer, Chelsea A.; Gostelow, Roli D.; Ingham, Michel D.; Jenkins, J. Steven; Smith, Brian S., 2010, "An operations concept for integrated model-centric engineering at JPL", https://hdl.handle.net/2014/45289, 2010 IEEE Aerospace Conference, Big Sky, Montana, March 6-13, 2010]()
 
 
 ```{r}
 library(listviewer)
 jsonedit(jsondata)
 ```
-
 
 ## Analysis: Finding Edges of the Containment Graph
 
@@ -304,15 +297,97 @@ df <- send_query_from_file(endpoint_url, filepath)
 datatable(df, options = list(pageLength = -1))
 ```
 
+```{r}
+
+# output dir for owlQuery specified at resultPath in build.gradle
+repo <- paste0(omlrepo, "build/results/")
+file <- "component_filtered_withmass.json"
+filepath <- paste0(repo,file)
+
+jsondata <- jsonlite::fromJSON(filepath)
+
+df <- readQueryResultsFromJson(filepath)
+```
+
 ## Analysis: Containment Graph
+
+```{r}
+df <- df %>%
+  filter(c1_type %in% c("System","Subsystem"))
+```
+
 ```{r}
 library(igraph)
-g <- graph_from_data_frame(df[,c("c2_localname","c1_localname","c1_mass")], directed = TRUE, vertices = NULL)
+root <- "OSR"
+g <- graph_from_data_frame(df[,c("c2_localname","c1_localname")], directed = TRUE, vertices = NULL)
 
 # remove NA from node
 g <- delete_vertices(g, V(g)["NA"])
 
+
+df_mass <- df %>%
+  mutate(c1_mass = replace_na(as.numeric(df$c1_mass),0))
 ```
 
+グラフのルートから順番に並び替える
+
+```{r}
+order <- dfs(g, V(g)[root], order.out = TRUE)$order
+
+df_mass <- df_mass %>% arrange(factor(c1_localname, levels = names(order)))
+df_mass
+```
+
+## Analysis: Mass Rollup By Depth-First Traversal
+
+```{r}
+order <- dfs(g, V(g)[root], order.out = TRUE)$order.out
+
+for (v in order){
+  print(V(g)[v])
+  children <- neighbors(g, v, mode="out")
+  if( length(children) > 0) {
+    # add mass
+    mass <- sum(df_mass[is.element(df_mass$c1_localname, names(children)), "c1_mass"])
+    df_mass[df_mass$c1_localname == names(V(g)[v]), "c1_mass"] <- mass
+  }
+}
+
+df_mass
+
+jsondata <- toJSON(df_mass, pretty = T)
+cat(jsondata)
+```
+
+```{r}
+# 現在の作業ディレクトリから1つ上のディレクトリのパスを取得
+parent_directory <- dirname(getwd())
+
+getwd()
+dirname(getwd())
+list.files(path = parent_directory, full.names = TRUE)
+
+# 'data'という名前のディレクトリを検索
+data_directories <- list.files(path = parent_directory, pattern = "parameters", full.names = TRUE, recursive = TRUE)
+is_empty(data_directories)
+parent_directory <- "../"
+list.files(path = parent_directory)
+list.files(path = parent_directory, pattern = "parameters", full.names = TRUE, recursive = TRUE)
+parent_directory <- paste0("../",parent_directory)
+list.files(path = parent_directory)
 
 
+
+list.files(path = parent_directory, pattern = "src", full.names = TRUE, recursive = TRUE)
+
+parent_directory <- "../../"
+list.files(path = parent_directory, pattern = "parameters", full.names = TRUE, recursive = TRUE)
+
+# 結果を表示
+print(data_directories)
+
+```
+
+```{r}
+write_json(df_mass, path = "data.json")
+```

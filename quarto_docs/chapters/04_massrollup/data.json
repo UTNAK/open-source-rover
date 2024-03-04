@@ -1,0 +1,172 @@
+[
+  {
+    "c1_localname": "OSR",
+    "c1_id": "C.01",
+    "c1_name": "Rover System",
+    "c1_type": "System",
+    "c1_mass": 100,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "MechanicalSubsystem",
+    "c1_id": "C.01.01",
+    "c1_name": "Mechanical Subsystem",
+    "c1_type": "Subsystem",
+    "c1_mass": 0,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "body-assembly",
+    "c1_id": "A.01",
+    "c1_name": "Body Assembly",
+    "c1_type": "Assembly",
+    "c1_mass": 80,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "rocker-bogie-suspension-assembly-1",
+    "c1_id": "A.08",
+    "c1_name": "Rocker Bogie Suspension Assembly-1",
+    "c1_type": "Assembly",
+    "c1_mass": 70,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "rocker-bogie-suspension-assembly-2",
+    "c1_id": "A.09",
+    "c1_name": "Rocker Bogie Suspension Assembly-2",
+    "c1_type": "Assembly",
+    "c1_mass": 70,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "mechanical-harness",
+    "c1_id": "A.10",
+    "c1_name": "Mechanical Harness",
+    "c1_type": "Assembly",
+    "c1_mass": 0,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "MobilitySubsystem",
+    "c1_id": "C.01.03",
+    "c1_name": "Mobility Subsystem",
+    "c1_type": "Subsystem",
+    "c1_mass": 0,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "drive-wheel-assembly-1",
+    "c1_id": "A.02",
+    "c1_name": "Drive Wheel Assembly-1",
+    "c1_type": "Assembly",
+    "c1_mass": 10,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "drive-wheel-assembly-2",
+    "c1_id": "A.03",
+    "c1_name": "Drive Wheel Assembly-2",
+    "c1_type": "Assembly",
+    "c1_mass": 20,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "corner-wheel-assembly-1",
+    "c1_id": "A.04",
+    "c1_name": "Corner Wheel Assembly-1",
+    "c1_type": "Assembly",
+    "c1_mass": 30,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "corner-wheel-assembly-2",
+    "c1_id": "A.05",
+    "c1_name": "Corner Wheel Assembly-2",
+    "c1_type": "Assembly",
+    "c1_mass": 40,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "corner-wheel-assembly-3",
+    "c1_id": "A.06",
+    "c1_name": "Corner Wheel Assembly-3",
+    "c1_type": "Assembly",
+    "c1_mass": 50,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "corner-wheel-assembly-4",
+    "c1_id": "A.07",
+    "c1_name": "Corner Wheel Assembly-4",
+    "c1_type": "Assembly",
+    "c1_mass": 60,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "PowerSubsystem",
+    "c1_id": "C.01.02",
+    "c1_name": "Power Subsystem",
+    "c1_type": "Subsystem",
+    "c1_mass": 400,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "ControlSubsystem",
+    "c1_id": "C.01.04",
+    "c1_name": "Control Subsystem",
+    "c1_type": "Subsystem",
+    "c1_mass": 300,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "NavigationSubsystem",
+    "c1_id": "C.01.05",
+    "c1_name": "Navigation Subsystem",
+    "c1_type": "Subsystem",
+    "c1_mass": 200,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  },
+  {
+    "c1_localname": "CDHSubsystem",
+    "c1_id": "C.01.06",
+    "c1_name": "CDH Subsystem",
+    "c1_type": "Subsystem",
+    "c1_mass": 100,
+    "c2_localname": null,
+    "c2_id": null,
+    "c2_name": null
+  }
+]
