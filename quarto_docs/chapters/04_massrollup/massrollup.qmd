@@ -309,32 +309,37 @@ jsondata <- jsonlite::fromJSON(filepath)
 df <- readQueryResultsFromJson(filepath)
 ```
 
-## Analysis: Containment Graph
-
 ```{r}
 df <- df %>%
   filter(c1_type %in% c("System","Subsystem"))
 ```
 
+
+## Analysis: Containment Graph
+
 ```{r}
 library(igraph)
 root <- "OSR"
-g <- graph_from_data_frame(df[,c("c2_localname","c1_localname")], directed = TRUE, vertices = NULL)
+g <- graph_from_data_frame(df[,c("c2_localname","c1_localname")], 
+                           directed = TRUE, 
+                           vertices = NULL)
 
 # remove NA from node
 g <- delete_vertices(g, V(g)["NA"])
 
-
-df_mass <- df %>%
-  mutate(c1_mass = replace_na(as.numeric(df$c1_mass),0))
 ```
 
-グラフのルートから順番に並び替える
+
+## Analysis: Read Mass Property Data
 
 ```{r}
 order <- dfs(g, V(g)[root], order.out = TRUE)$order
 
-df_mass <- df_mass %>% arrange(factor(c1_localname, levels = names(order)))
+df_mass <- df %>%
+  mutate(c1_mass = replace_na(as.numeric(df$c1_mass),0)) %>% 
+  arrange(factor(c1_localname, levels = names(order))) %>%
+  select("c1_localname", "c1_id", "c1_name", "c1_type", "c1_mass")
+
 df_mass
 ```
 
@@ -354,7 +359,10 @@ for (v in order){
 }
 
 df_mass
+```
 
+
+```{r}
 jsondata <- toJSON(df_mass, pretty = T)
 cat(jsondata)
 ```
@@ -389,5 +397,40 @@ print(data_directories)
 ```
 
 ```{r}
-write_json(df_mass, path = "data.json")
+write_json(df_mass, path = "data.json", pretty=TRUE)
+```
+
+
+```{r}
+df_json <- read_json(path = "data.json",  simplifyVector = TRUE)
+```
+
+
+```{r}
+massRollUp <- function(g, root, df_mass){
+  
+  # Analysis: Mass Rollup By Depth-First Traversal
+  order <- dfs(g, V(g)[root], order.out = TRUE)$order.out
+
+  for (v in order){
+    # print(V(g)[v])
+    children <- neighbors(g, v, mode="out")
+    if( length(children) > 0) {
+      # add mass
+      mass <- sum(df_mass[is.element(df_mass$c1_localname, names(children)), "c1_mass"])
+      df_mass[df_mass$c1_localname == names(V(g)[v]), "c1_mass"] <- mass
+    }
+  }
+
+  return(df_mass)
+}
+```
+
+```{r}
+df_mass_update <- massRollUp(g, root, df_json)
+```
+
+```{r}
+jsondata <- toJSON(df_mass, pretty = T)
+cat(jsondata)
 ```
