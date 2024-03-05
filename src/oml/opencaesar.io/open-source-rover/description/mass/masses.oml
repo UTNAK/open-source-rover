@@ -1,12 +1,12 @@
 description <http://opencaesar.io/open-source-rover/description/mass/masses#> as masses {
-	uses <http://www.w3.org/2001/XMLSchema#> as xsd
-	uses <http://bipm.org/jcgm/vim4#> as vim4
-	uses <http://opencaesar.io/open-source-rover/vocabulary/mass#> as mass
-	
-	extends <http://opencaesar.io/open-source-rover/description/structure/subsystems#> as subsystems
-	extends <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly
-
-// Mass Instances
+  	uses <http://www.w3.org/2001/XMLSchema#> as xsd
+  	uses <http://bipm.org/jcgm/vim4#> as vim4
+  	uses <http://opencaesar.io/open-source-rover/vocabulary/mass#> as mass
+  	
+  	extends <http://opencaesar.io/open-source-rover/description/structure/subsystems#> as subsystems
+  	extends <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly
+  
+  // Mass Instances
 	instance OSR.mass.magnitude : mass:MassMagnitude [
 		vim4:hasDoubleNumber "1260"^^xsd:double
 		vim4:characterizes subsystems:OSR
