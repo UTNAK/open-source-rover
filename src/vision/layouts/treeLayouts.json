@@ -27,19 +27,50 @@
         "all-rows": "decompositions"
       },
       "queries": {
-        "components-with-mass": "component_filtered_withmass.sparql"
+        "subsystem": "subsystem_with_mass.sparql",
+        "assembly": "assembly_with_mass.sparql"
       },
       "rowMapping": {
-        "id": "components-with-mass",
-        "name": "System",
-        "labelFormat": "{c1_localname}",
+        "id": "subsystem",
+        "name": "Subsystem",
+        "labelFormat": "{subsystem} ({m} kg)",
         "subRowMappings": [
           {
-            "id": "components-tree",
+            "id": "assembly",
+            "name": "Assembly",
+            "labelFormat": "{assembly} ({m} kg)"
+          }
+        ]  
+      }
+    },
+    "components-mass-tree2": {
+      "name": "Components Mass Tree",
+      "diagrams": {
+        "all-rows": "decompositions"
+      },
+      "queries": {
+        "system": "layered_system_with_mass.sparql",
+        "subsystem": "subsystem_with_mass.sparql",
+        "assembly": "assembly_with_mass.sparql"
+      },
+      "rowMapping": {
+        "id": "system",
+        "name": "System",
+        "labelFormat": "{system} ({m} kg)",
+        "subRowMappings": [
+          {
+            "id": "subsystem",
             "name": "Subsystem",
-            "labelFormat": "{c1_localname}"
+            "labelFormat": "{subsystem} ({m} kg)",
+            "subRowMappings": [
+              {
+                "id": "assembly",
+                "name": "Assembly",
+                "labelFormat": "{assembly} ({m} kg)"
+              }
+            ]      
           }
         ]  
       }
     }
-}
+  }

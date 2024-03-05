@@ -4,7 +4,7 @@ PREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure
 PREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX vim4:		<http://bipm.org/jcgm/vim4#>
 
-SELECT DISTINCT ?c1_localname ?c1_id ?c1_name ?c1_type ?c1_mass ?c2_localname ?c2_id ?c2_name
+SELECT DISTINCT ?c1_localname ?c1_id ?c1_name ?c1_type ?c1_mass ?m ?c2_localname ?c2_id ?c2_name
 WHERE {
 
     VALUES ?componentType { structure:System structure:Subsystem structure:Assembly }
@@ -29,6 +29,7 @@ WHERE {
 	# Extract the local name
     BIND(STRAFTER(STR(?c1), "#") AS ?c1_localname) .
     BIND(STRAFTER(STR(?c2), "#") AS ?c2_localname) .
+    BIND((STR(?c1_mass)) AS ?m) .
 
 	OPTIONAL {
 		?c1 a structure:System ;

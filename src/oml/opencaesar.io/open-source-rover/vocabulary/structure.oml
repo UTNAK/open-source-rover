@@ -19,7 +19,7 @@ vocabulary <http://opencaesar.io/open-source-rover/vocabulary/structure#> as ^st
 		to Subsystem
 	] < base:contains
 
-	concept Assembly < mission:Component
+	concept Assembly < mass:MechanicalComponent
 	
 	relation hasAssembly [
 		from Subsystem

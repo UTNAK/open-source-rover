@@ -48,6 +48,12 @@
           "isTree": true
         },
         {
+          "title": "Components Mass Tree 2",
+          "treeIcon": "graph-scatter",
+          "path": "components-mass-tree2",
+          "isTree": true
+        },
+        {
           "title": "Component Table",
           "treeIcon": "graph-scatter",
           "path": "component-table"
@@ -56,6 +62,11 @@
           "title": "Component Table with ID",
           "treeIcon": "window",
           "path": "component-table-id"
+        },      
+        {
+          "title": "MEL",
+          "treeIcon": "window",
+          "path": "MEL"
         },      
         { 
           "title": "Behavior",

@@ -39,7 +39,29 @@
       "labelFormat": "component"
     }
   },
-  "timeline": {
+  "MEL": {
+    "name": "MEL",
+    "diagrams": {
+      "all-rows": "MEL"
+    },
+    "columnNames": {
+      "c1_localname": "Name",
+      "c1_id": "Id",
+      "c1_name": "Canonical Name",
+      "m" : "mass",
+      "c2_localname": "Parent"
+    },
+    "queries": {
+      "c1_localname": "component_filtered_withmass.sparql",
+      "c2_localname": "component_filtered_withmass.sparql"
+    },
+    "rowMapping": {
+      "id": "c1_localname",
+      "name": "Compoenents",
+      "labelFormat": "component"
+    }
+  },
+    "timeline": {
     "name": "Compoenents",
     "diagrams": {
       "all-rows": "timeline"

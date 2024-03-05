@@ -1,0 +1,212 @@
+# Create Mass Property Description
+
+```{r}
+source("../../osr_common.R")
+source("../../massRollup.R")
+```
+
+
+## Initialize OML File
+```{r}
+outputdir <- paste0(omlrepo,"src/oml/opencaesar.io/open-source-rover/description/mass/")
+
+outputfile <- paste0(outputdir, "masses.oml")
+# init_oml_file <- 
+# "description <http://opencaesar.io/open-source-rover/description/mass/masses#> as masses {\n}\n"
+# cat(file=outputfile, init_oml_file)
+```
+
+## Analysis: Containment Graph
+
+### Analysis: Finding Edges of the Containment Graph from Oml Model
+```{r}
+library(omlhashiR)
+# oml_repository <- "../open-source-rover/"
+oml_repository <- omlrepo
+omlhashiR::oml_refresh()
+omlhashiR::oml_stop_Daemon(oml_repository)
+omlhashiR::oml_build(oml_repository)
+omlhashiR::oml_startFuseki(oml_repository)
+omlhashiR::oml_owlLoad(oml_repository)
+```
+
+```{r}
+library(tansakusuR)
+
+endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
+
+repo <- "../../../src/vision/sparql/"
+file <- "component_filtered_withmass.sparql"
+filepath <- paste0(repo,file)
+
+show_query(filepath)
+df <- send_query_from_file(endpoint_url, filepath)
+datatable(df, options = list(pageLength = -1))
+```
+
+### Analysis: Create Containment Graph
+
+```{r}
+library(igraph)
+root <- "OSR"
+g <- graph_from_data_frame(df[,c("c2_localname","c1_localname")], 
+                           directed = TRUE, 
+                           vertices = NULL)
+
+# remove NA from node
+g <- delete_vertices(g, V(g)["NA"])
+
+```
+
+## Analysis: Read Current Mass Property Data in Model
+
+```{r}
+order <- dfs(g, V(g)[root], order.out = TRUE)$order
+
+df_mass <- df %>%
+  mutate(c1_mass = replace_na(as.numeric(df$c1_mass),0)) %>% 
+  arrange(factor(c1_localname, levels = names(order))) %>%
+  select("c1_localname", "c1_id", "c1_name", "c1_type", "c1_mass")
+
+df_mass
+```
+
+## Read Mass Properties from data
+
+```{r}
+df_json <- read_json(path = "data_massproperty.json",  simplifyVector = TRUE)
+```
+
+## Analysis: Mass Rollup By Depth-First Traversal
+
+```{r}
+df_mass_update <- massRollUp(g, root, df_json)
+df_mass_compare <- left_join(df_mass_update, df_mass, by = c("c1_localname","c1_id","c1_name","c1_type"), suffix = c("", "_before"))
+```
+
+
+
+## Generate OML Descriptions
+
+
+
+
+
+
+```{r}
+df_instance <- data.frame(
+  name = df_mass_update$c1_localname,
+  instancename = paste0(df_mass_update$c1_localname,".mass.magnitude"),
+  mass = df_mass_update$c1_mass,
+  type = str_replace_all(df_mass_update$c1_type, c("System"="subsystems", "Subsystem"="subsystems", "Assembly"="assembly"))
+  ) 
+```
+
+
+
+
+	instance OSR.mass.magnitude : mass:MassMagnitude [
+		vim4:hasDoubleNumber "2000"^^xsd:double
+		vim4:characterizes subsystems:OSR
+	]
+
+
+
+### Function to generate instance descriptions.
+
+```{r}
+generateMassDescriptions <- function(df){
+  
+  df_in <- df
+  
+  text <- paste0("// Mass Instances\n")
+  text_instance <- ""
+
+  for (i in 1:nrow(df_in)){
+    name <- df_in$name[i]
+    type <- df_in$type[i]
+    instance <- df_in$instancename[i]
+    mass <- df_in$mass[i]
+    text_instance <- paste0(text_instance,
+                   "	instance ", instance, " : mass:MassMagnitude [\n",
+                   "		vim4:hasDoubleNumber \"", mass,"\"^^xsd:double\n",
+                   "		vim4:characterizes ", type, ":", name,"\n",
+                   "	]\n"
+                   )
+  }
+
+  text <- paste0(text, text_instance)
+  return(text)
+}
+
+```
+
+
+
+### assemly.omlのフレーム作成
+```{r}
+omldescriptions <-
+"description <http://opencaesar.io/open-source-rover/description/mass/masses#> as masses {
+	uses <http://www.w3.org/2001/XMLSchema#> as xsd
+	uses <http://bipm.org/jcgm/vim4#> as vim4
+	uses <http://opencaesar.io/open-source-rover/vocabulary/mass#> as mass
+	
+	extends <http://opencaesar.io/open-source-rover/description/structure/subsystems#> as subsystems
+	extends <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly
+
+"
+```
+
+### Mass Instances : OK
+
+```{r}
+instance <- generateMassDescriptions(df_instance)
+
+# cat(instance)
+omldescriptions <- paste0(omldescriptions, instance,"\n")
+
+```
+
+## Generate OML File
+```{r}
+omldescriptions <- paste0(omldescriptions,"\n}\n")
+cat(file=outputfile, omldescriptions)
+```
+
+
+```{r}
+plotCollapsibleTreeFromDataframe(df, palette="BluYl", parent="c2_localname", child="c1_localname",type="c1_type")
+```
+
+```{r}
+df2<- df %>%
+  mutate(c2_mass = df$c1_mass[match(unlist(df$c2_localname), df$c1_localname)]) %>%
+  mutate(owner=paste0(c2_localname," (", c2_mass," kg)")) %>%
+  mutate(name=paste0(c1_localname," (", c1_mass," kg)")) %>%
+  select("owner","name","c1_type")
+
+# Set NA node for CollapsibleTree
+df2$owner[df2$owner=="NA (NA kg)"] <- NA
+
+
+plotCollapsibleTreeFromDataframe(df2, palette="BluYl", parent="owner", child="name",type="c1_type")
+```
+
+
+### Some visualization experiments
+
+#### networkD3::simpleNetwork
+```{r}
+df2<- df %>% 
+  mutate(owner=c2_localname) %>%
+  mutate(name=c1_localname) %>%
+  select("owner","name") %>%
+  arrange(desc(owner)) %>%  
+  slice(-n())
+
+
+library(networkD3)
+
+networkD3::simpleNetwork(df2)
+```
+

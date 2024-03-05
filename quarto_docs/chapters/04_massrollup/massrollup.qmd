@@ -19,7 +19,9 @@ Define mass property target
 ```{r}
 source("../../osr_common.R")
 ```
-
+```{r}
+source("../../massRollup.R")
+```
 ```{r}
 library(omlhashiR)
 # oml_repository <- "../open-source-rover/"
@@ -271,6 +273,7 @@ OML + OpenCAESARでも同様のパターンを実現可能である。 ワーク
 -   [2016 Total Mass, Cost, and Power Rollups](https://www.youtube.com/watch?v=tBGgn_BAqTw)
 -   [2020 Mass Rollup - Cameo Systems Modeler / MagicDraw](https://www.youtube.com/watch?v=ncbcF2Sj5TQ)
 -   [2022 A model based approach to budget management for the Earth Return Orbiter](https://indico.esa.int/event/407/contributions/7400/attachments/4798/7320/1200%20-%20Abstract%20-%20A%20model%20based%20approach%20to%20budget%20management%20for%20the%20Earth%20Return%20Orbiter.pdf)
+-   []
 
 
 -   [2010 Bayer, Todd J.; Cooney, Lauren A.; Delp, Christopher L.; Dutenhoffer, Chelsea A.; Gostelow, Roli D.; Ingham, Michel D.; Jenkins, J. Steven; Smith, Brian S., 2010, "An operations concept for integrated model-centric engineering at JPL", https://hdl.handle.net/2014/45289, 2010 IEEE Aerospace Conference, Big Sky, Montana, March 6-13, 2010]()
@@ -397,34 +400,16 @@ print(data_directories)
 ```
 
 ```{r}
-write_json(df_mass, path = "data.json", pretty=TRUE)
+write_json(df_mass, path = "data_massproperty.json", pretty=TRUE)
 ```
 
 
 ```{r}
-df_json <- read_json(path = "data.json",  simplifyVector = TRUE)
+df_json <- read_json(path = "data_massproperty.json",  simplifyVector = TRUE)
 ```
 
 
-```{r}
-massRollUp <- function(g, root, df_mass){
-  
-  # Analysis: Mass Rollup By Depth-First Traversal
-  order <- dfs(g, V(g)[root], order.out = TRUE)$order.out
 
-  for (v in order){
-    # print(V(g)[v])
-    children <- neighbors(g, v, mode="out")
-    if( length(children) > 0) {
-      # add mass
-      mass <- sum(df_mass[is.element(df_mass$c1_localname, names(children)), "c1_mass"])
-      df_mass[df_mass$c1_localname == names(V(g)[v]), "c1_mass"] <- mass
-    }
-  }
-
-  return(df_mass)
-}
-```
 
 ```{r}
 df_mass_update <- massRollUp(g, root, df_json)
