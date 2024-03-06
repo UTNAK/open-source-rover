@@ -1,49 +1,64 @@
+---
+format:
+  html:
+    self-contained: true
+---
+
 # Create Mass Property Description
 
-```{r}
-# source("../../osr_common.R")
-# source("../../massRollup.R")
+# quarto::quarto_render("chapters/04_massrollup/create_descriptions_mass.qmd", output_format = "html")
 
-# For VS-Code
- source("./quarto_docs/osr_common.R")
- source("./quarto_docs/massRollup.R")
- omlrepo <- "./"
+```{r}
+#| warning: false
+
+library(igraph)
+
+searchDirectory <- function(iteration, pattern, parent_directory){
+  for(i in 1:iteration){
+      path <- list.files(parent_directory, recursive = TRUE, pattern = pattern, full.names = TRUE)
+      if(length(path)){
+        return(path)
+      }
+      parent_directory <- dirname(parent_directory)
+  }
+  print("file not found")
+  return(path)
+}
+
+source(searchDirectory(4, "osr_common.R", (getwd())))
+source(searchDirectory(4, "massRollup.R", (getwd())))
 ```
 
 
-## Initialize OML File
+
+## Analysis: Finding Edges of the Containment Graph from Oml Model
+
+### Build and Start Fuseki server for oml model query
 ```{r}
-outputdir <- paste0(omlrepo,"src/oml/opencaesar.io/open-source-rover/description/mass/")
+#| warning: false
 
-outputfile <- paste0(outputdir, "masses.oml")
-# init_oml_file <- 
-# "description <http://opencaesar.io/open-source-rover/description/mass/masses#> as masses {\n}\n"
-# cat(file=outputfile, init_oml_file)
-```
-
-## Analysis: Containment Graph
-
-### Analysis: Finding Edges of the Containment Graph from Oml Model
-```{r}
 library(omlhashiR)
 # oml_repository <- "../open-source-rover/"
 oml_repository <- omlrepo
 omlhashiR::oml_refresh()
 omlhashiR::oml_stop_Daemon(oml_repository)
 omlhashiR::oml_build(oml_repository)
+```
+
+
+```{r}
 omlhashiR::oml_startFuseki(oml_repository)
 omlhashiR::oml_owlLoad(oml_repository)
 ```
+### Analysis: Query Containment Graph and Current Mass Property
 
 ```{r}
 library(tansakusuR)
 
 endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
 
-repo <- "../../../src/vision/sparql/"
+repo <- paste0(omlrepo, "src/vision/sparql/")
 
-# for VS-Code
-repo <- "./src/vision/sparql/"
 
 file <- "component_filtered_withmass.sparql"
 filepath <- paste0(repo,file)
@@ -56,7 +71,6 @@ datatable(df, options = list(pageLength = -1))
 ### Analysis: Create Containment Graph
 
 ```{r}
-library(igraph)
 root <- "OSR"
 g <- graph_from_data_frame(df[,c("c2_localname","c1_localname")], 
                            directed = TRUE, 
@@ -67,7 +81,7 @@ g <- delete_vertices(g, V(g)["NA"])
 
 ```
 
-## Analysis: Read Current Mass Property Data in Model
+### Analysis: Read Current Mass Property Data in Model
 
 ```{r}
 order <- dfs(g, V(g)[root], order.out = TRUE)$order
@@ -82,16 +96,20 @@ df_mass
 
 ## Update Mass Properties using Json
 
+This process includes user interface of the VS-Code Extension.
 
-
+![json editor](../../img/jsoneditor.png)
 
 ## Read Mass Properties from data
 
 ```{r}
- path = "./quarto_docs/chapters/04_massrollup/data_massproperty.json"
 #path = "./data_massproperty.json"
+#path = "./quarto_docs/chapters/04_massrollup/data_massproperty.json"
+path <- searchDirectory(4, "data_massproperty.json", dirname(getwd()))
+
 df_json <- read_json(path = path,  simplifyVector = TRUE)
 ```
+
 
 ## Analysis: Mass Rollup By Depth-First Traversal
 
@@ -105,6 +123,8 @@ df_mass_compare
 
 ## Generate OML Descriptions
 
+
+### Create Instance
 ```{r}
 df_instance <- data.frame(
   name = df_mass_update$c1_localname,
@@ -115,18 +135,21 @@ df_instance <- data.frame(
 ```
 
 
-## Generate OML Mass Descriptions
+### Generate OML Mass Descriptions
 
 ```{r}
+outputdir <- paste0(omlrepo,"src/oml/opencaesar.io/open-source-rover/description/mass/")
+outputfile <- paste0(outputdir, "masses.oml")
 omldescriptions <- generateOmlMassDescriptions(df_instance)
 ```
 
 
-
-## Generate OML File
+### Generate OML File
 ```{r}
 cat(file=outputfile, omldescriptions)
 ```
+
+
 
 ## Update Json
 ```{r}
@@ -134,9 +157,6 @@ write_json(df_mass_update, path = path, pretty=TRUE)
 ```
 
 
-```{r}
-plotCollapsibleTreeFromDataframe(df, palette="BluYl", parent="c2_localname", child="c1_localname",type="c1_type")
-```
 
 ```{r}
 df2<- df %>%

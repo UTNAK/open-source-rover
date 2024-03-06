@@ -72,31 +72,35 @@ OML + OpenCAESARでも同様のパターンを実現可能である。 ワーク
 
 
 ```{r}
-# 現在の作業ディレクトリから1つ上のディレクトリのパスを取得
+searchDirectory <- function(iteration, pattern, parent_directory){
+  for(i in 1:iteration){
+      parent_directory <- dirname(parent_directory)
+      path <- list.files(parent_directory, recursive = TRUE, pattern = pattern, full.names = TRUE)
+      if(length(path)){
+        return(path)
+      }
+  }
+  print("file not found")
+  return(path)
+}
+
+searchDirectory(4, "osr_common.R", dirname(getwd()))
+
+source(searchDirectory(4, "osr_common.R", dirname(getwd())))
+source(searchDirectory(4, "massRollup.R", dirname(getwd())))
+
+a ="aaa"
+if( length(a) ){print("yes")}
+
+path <- searchDirectory(4, "build.gradle", dirname(getwd()))
+str <- stringr::str_split(path, "build.gradle", simplify = TRUE)[1]
+
+
+```
+
+
+```{r}
 parent_directory <- dirname(getwd())
-
-getwd()
-dirname(getwd())
-list.files(path = parent_directory, full.names = TRUE)
-
-# 'data'という名前のディレクトリを検索
-data_directories <- list.files(path = parent_directory, pattern = "parameters", full.names = TRUE, recursive = TRUE)
-# is_empty(data_directories)
-parent_directory <- "../"
-list.files(path = parent_directory)
-list.files(path = parent_directory, pattern = "parameters", full.names = TRUE, recursive = TRUE)
-parent_directory <- paste0("../",parent_directory)
-list.files(path = parent_directory)
-
-
-
-list.files(path = parent_directory, pattern = "src", full.names = TRUE, recursive = TRUE)
-
-parent_directory <- "../../"
-list.files(path = parent_directory, pattern = "parameters", full.names = TRUE, recursive = TRUE)
-
-# 結果を表示
-print(data_directories)
-
+a<-list.files(parent_directory, recursive = TRUE, pattern = "pattern", full.names = TRUE)
 ```
 

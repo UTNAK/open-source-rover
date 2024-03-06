@@ -7,10 +7,26 @@ library(colorspace)
 library(jsonlite)
 library(DT)
 
-# set path to oml model 
-omlrepo <- "../../../../open-source-rover/"
 
+###############################################################################
 # Reusable Functions
+searchDirectory <- function(iteration, pattern, parent_directory){
+  for(i in 1:iteration){
+    path <- list.files(parent_directory, recursive = TRUE, pattern = pattern, full.names = TRUE)
+    if(length(path)){
+      return(path)
+    }
+    parent_directory <- dirname(parent_directory)
+  }
+  print("file not found")
+  return(path)
+}
+
+# set path to oml model 
+path <- searchDirectory(4, "build.gradle", (getwd()))
+omlrepo <- stringr::str_split(path, "build.gradle", simplify = TRUE)[1]
+
+
 
 ###############################################################################
 #' readQueryResultsFromJson
