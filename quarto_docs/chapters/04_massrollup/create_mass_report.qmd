@@ -1,0 +1,139 @@
+---
+format:
+  html:
+    self-contained: true
+    theme: cosmo
+---
+
+# Mass Equipment List
+
+## quarto::quarto_render("chapters/04_massrollup/create_descriptions_mass.qmd", output_format = "html")
+
+```{r}
+#| warning: false
+#| include: false
+
+library(igraph)
+
+searchDirectory <- function(iteration, pattern, parent_directory){
+  for(i in 1:iteration){
+      path <- list.files(parent_directory, recursive = TRUE, pattern = pattern, full.names = TRUE)
+      if(length(path)){
+        return(path)
+      }
+      parent_directory <- dirname(parent_directory)
+  }
+  print("file not found")
+  return(path)
+}
+
+source(searchDirectory(4, "osr_common.R", (getwd())))
+source(searchDirectory(4, "massRollup.R", (getwd())))
+```
+
+
+```{r}
+#| warning: false
+#| include: false
+#| 
+library(omlhashiR)
+# oml_repository <- "../open-source-rover/"
+oml_repository <- omlrepo
+omlhashiR::oml_refresh()
+omlhashiR::oml_stop_Daemon(oml_repository)
+omlhashiR::oml_build(oml_repository)
+omlhashiR::oml_startFuseki(oml_repository)
+omlhashiR::oml_owlLoad(oml_repository)
+```
+
+```{r}
+#| warning: false
+#| include: false
+
+library(tansakusuR)
+
+endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
+
+repo <- paste0(omlrepo, "src/vision/sparql/")
+
+
+file <- "component_filtered_withmass.sparql"
+filepath <- paste0(repo,file)
+
+#show_query(filepath)
+df <- send_query_from_file(endpoint_url, filepath)
+```
+
+
+```{r}
+#| warning: false
+#| include: false
+#| 
+root <- "OSR"
+g <- graph_from_data_frame(df[,c("c2_localname","c1_localname")], 
+                           directed = TRUE, 
+                           vertices = NULL)
+
+# remove NA from node
+g <- delete_vertices(g, V(g)["NA"])
+
+```
+
+
+```{r}
+#| warning: false
+#| include: false
+#| 
+order <- dfs(g, V(g)[root], order.out = TRUE)$order
+
+df_mass <- df %>%
+  arrange(factor(c1_localname, levels = names(order)))
+```
+
+## Table View-1
+
+
+```{r}
+#| warning: false
+#| echo: false
+
+library(reactable)
+df2  <- df_mass %>% select(c1_localname, c1_id, c1_name, c1_type, c1_mass, c2_localname)
+df2$c2_localname[1] <- "OSR"
+datatable(df2, options = list(pageLength = -1))
+```
+
+
+
+## Table View-2 (still experimenting)
+
+```{r}
+#| warning: false
+#| echo: false
+
+reactable(df2, groupBy = "c2_localname")
+```
+
+
+
+## Tree View 
+
+```{r}
+#| warning: false
+#| include: false
+
+df2<- df %>%
+  mutate(c2_mass = df$c1_mass[match(unlist(df$c2_localname), df$c1_localname)]) %>%
+  mutate(owner=paste0(c2_localname," (", c2_mass," kg)")) %>%
+  mutate(name=paste0(c1_localname," (", c1_mass," kg)")) %>%
+  select("owner","name","c1_type")
+
+# Set NA node for CollapsibleTree
+df2$owner[df2$owner=="NA (NA kg)"] <- NA
+```
+
+
+```{r}
+plotCollapsibleTreeFromDataframe(df2, palette="BluYl", parent="owner", child="name",type="c1_type")
+```
+

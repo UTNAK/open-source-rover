@@ -50,6 +50,8 @@ omlhashiR::oml_build(oml_repository)
 omlhashiR::oml_startFuseki(oml_repository)
 omlhashiR::oml_owlLoad(oml_repository)
 ```
+
+
 ### Analysis: Query Containment Graph and Current Mass Property
 
 ```{r}
@@ -67,6 +69,7 @@ show_query(filepath)
 df <- send_query_from_file(endpoint_url, filepath)
 datatable(df, options = list(pageLength = -1))
 ```
+
 
 ### Analysis: Create Containment Graph
 
