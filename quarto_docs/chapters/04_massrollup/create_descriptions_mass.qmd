@@ -1,13 +1,13 @@
 # Create Mass Property Description
 
 ```{r}
-source("../../osr_common.R")
-source("../../massRollup.R")
+# source("../../osr_common.R")
+# source("../../massRollup.R")
 
 # For VS-Code
-# source("./quarto_docs/osr_common.R")
-# source("./quarto_docs/massRollup.R")
-
+ source("./quarto_docs/osr_common.R")
+ source("./quarto_docs/massRollup.R")
+ omlrepo <- "./"
 ```
 
 
@@ -43,7 +43,7 @@ endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
 repo <- "../../../src/vision/sparql/"
 
 # for VS-Code
-# repo <- "./src/vision/sparql/"
+repo <- "./src/vision/sparql/"
 
 file <- "component_filtered_withmass.sparql"
 filepath <- paste0(repo,file)
@@ -88,8 +88,8 @@ df_mass
 ## Read Mass Properties from data
 
 ```{r}
-# path = "./quarto_docs/chapters/04_massrollup/data_massproperty.json"
-path = "./data_massproperty.json"
+ path = "./quarto_docs/chapters/04_massrollup/data_massproperty.json"
+#path = "./data_massproperty.json"
 df_json <- read_json(path = path,  simplifyVector = TRUE)
 ```
 
@@ -130,7 +130,7 @@ cat(file=outputfile, omldescriptions)
 
 ## Update Json
 ```{r}
-write_json(df_mass_update, path = "data_massproperty.json", pretty=TRUE)
+write_json(df_mass_update, path = path, pretty=TRUE)
 ```
 
 

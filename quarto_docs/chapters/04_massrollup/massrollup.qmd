@@ -28,7 +28,10 @@ Mass RollUp Patternは、約10年前に発明された、再利用性の高い�
 
 OML + OpenCAESARでも同様のパターンを実現可能である。 ワークフローはモダナイズ可能である。
 
-当時のペインポイント - ツールの問題 - Elyseに聞いてみたいが、結局元のスプレッドシートのやり方に戻ってしまったのはなぜか、 　ツールの問題か。
+当時のペインポイント
+- ツールの問題
+- Elyseに聞いてみたいが、結局元のスプレッドシートのやり方に戻ってしまったのはなぜか、ツールの問題か。
+
 
 ### ExcelベースのMass Rollup Pattern
 
@@ -59,8 +62,7 @@ OML + OpenCAESARでも同様のパターンを実現可能である。 ワーク
 -   [2016 Total Mass, Cost, and Power Rollups](https://www.youtube.com/watch?v=tBGgn_BAqTw)
 -   [2020 Mass Rollup - Cameo Systems Modeler / MagicDraw](https://www.youtube.com/watch?v=ncbcF2Sj5TQ)
 -   [2022 A model based approach to budget management for the Earth Return Orbiter](https://indico.esa.int/event/407/contributions/7400/attachments/4798/7320/1200%20-%20Abstract%20-%20A%20model%20based%20approach%20to%20budget%20management%20for%20the%20Earth%20Return%20Orbiter.pdf)
--   []
-
+-   [Bayer, T., Day, J., Dodd, E., Jones-Wilson, L., Rivera, A., Shougarian, N., ... & Wagner, D. (2021, March). Europa clipper: MBSE proving ground. In 2021 IEEE Aerospace Conference (50100) (pp. 1-19). IEEE.](https://ses.gsfc.nasa.gov/ses_data_2021/IEEEAC2021%20Europa%20Clipper%20-%20MBSE%20Proving%20Ground%20Final%2020210107.pdf)
 
 -   [2010 Bayer, Todd J.; Cooney, Lauren A.; Delp, Christopher L.; Dutenhoffer, Chelsea A.; Gostelow, Roli D.; Ingham, Michel D.; Jenkins, J. Steven; Smith, Brian S., 2010, "An operations concept for integrated model-centric engineering at JPL", https://hdl.handle.net/2014/45289, 2010 IEEE Aerospace Conference, Big Sky, Montana, March 6-13, 2010]()
 
@@ -79,7 +81,7 @@ list.files(path = parent_directory, full.names = TRUE)
 
 # 'data'という名前のディレクトリを検索
 data_directories <- list.files(path = parent_directory, pattern = "parameters", full.names = TRUE, recursive = TRUE)
-is_empty(data_directories)
+# is_empty(data_directories)
 parent_directory <- "../"
 list.files(path = parent_directory)
 list.files(path = parent_directory, pattern = "parameters", full.names = TRUE, recursive = TRUE)

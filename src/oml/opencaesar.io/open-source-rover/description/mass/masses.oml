@@ -8,7 +8,7 @@ description <http://opencaesar.io/open-source-rover/description/mass/masses#> as
   
   // Mass Instances
 	instance OSR.mass.magnitude : mass:MassMagnitude [
-		vim4:hasDoubleNumber "1260"^^xsd:double
+		vim4:hasDoubleNumber "1640"^^xsd:double
 		vim4:characterizes subsystems:OSR
 	]
 	instance MechanicalSubsystem.mass.magnitude : mass:MassMagnitude [
@@ -32,47 +32,47 @@ description <http://opencaesar.io/open-source-rover/description/mass/masses#> as
 		vim4:characterizes assembly:mechanical-harness
 	]
 	instance MobilitySubsystem.mass.magnitude : mass:MassMagnitude [
-		vim4:hasDoubleNumber "100"^^xsd:double
+		vim4:hasDoubleNumber "130"^^xsd:double
 		vim4:characterizes subsystems:MobilitySubsystem
 	]
 	instance drive-wheel-assembly-1.mass.magnitude : mass:MassMagnitude [
-		vim4:hasDoubleNumber "10"^^xsd:double
+		vim4:hasDoubleNumber "15"^^xsd:double
 		vim4:characterizes assembly:drive-wheel-assembly-1
 	]
 	instance drive-wheel-assembly-2.mass.magnitude : mass:MassMagnitude [
-		vim4:hasDoubleNumber "10"^^xsd:double
+		vim4:hasDoubleNumber "15"^^xsd:double
 		vim4:characterizes assembly:drive-wheel-assembly-2
 	]
 	instance corner-wheel-assembly-1.mass.magnitude : mass:MassMagnitude [
-		vim4:hasDoubleNumber "20"^^xsd:double
+		vim4:hasDoubleNumber "25"^^xsd:double
 		vim4:characterizes assembly:corner-wheel-assembly-1
 	]
 	instance corner-wheel-assembly-2.mass.magnitude : mass:MassMagnitude [
-		vim4:hasDoubleNumber "20"^^xsd:double
+		vim4:hasDoubleNumber "25"^^xsd:double
 		vim4:characterizes assembly:corner-wheel-assembly-2
 	]
 	instance corner-wheel-assembly-3.mass.magnitude : mass:MassMagnitude [
-		vim4:hasDoubleNumber "20"^^xsd:double
+		vim4:hasDoubleNumber "25"^^xsd:double
 		vim4:characterizes assembly:corner-wheel-assembly-3
 	]
 	instance corner-wheel-assembly-4.mass.magnitude : mass:MassMagnitude [
-		vim4:hasDoubleNumber "20"^^xsd:double
+		vim4:hasDoubleNumber "25"^^xsd:double
 		vim4:characterizes assembly:corner-wheel-assembly-4
 	]
 	instance PowerSubsystem.mass.magnitude : mass:MassMagnitude [
-		vim4:hasDoubleNumber "200"^^xsd:double
+		vim4:hasDoubleNumber "300"^^xsd:double
 		vim4:characterizes subsystems:PowerSubsystem
 	]
 	instance ControlSubsystem.mass.magnitude : mass:MassMagnitude [
-		vim4:hasDoubleNumber "300"^^xsd:double
+		vim4:hasDoubleNumber "350"^^xsd:double
 		vim4:characterizes subsystems:ControlSubsystem
 	]
 	instance NavigationSubsystem.mass.magnitude : mass:MassMagnitude [
-		vim4:hasDoubleNumber "400"^^xsd:double
+		vim4:hasDoubleNumber "500"^^xsd:double
 		vim4:characterizes subsystems:NavigationSubsystem
 	]
 	instance CDHSubsystem.mass.magnitude : mass:MassMagnitude [
-		vim4:hasDoubleNumber "100"^^xsd:double
+		vim4:hasDoubleNumber "200"^^xsd:double
 		vim4:characterizes subsystems:CDHSubsystem
 	]
 

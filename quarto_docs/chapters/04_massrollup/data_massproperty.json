@@ -4,7 +4,7 @@
     "c1_id": "C.01",
     "c1_name": "Rover System",
     "c1_type": "System",
-    "c1_mass": 1260
+    "c1_mass": 1640
   },
   {
     "c1_localname": "MechanicalSubsystem",
@@ -46,7 +46,7 @@
     "c1_id": "C.01.03",
     "c1_name": "Mobility Subsystem",
     "c1_type": "Subsystem",
-    "c1_mass": 100
+    "c1_mass": 130
   },
   {
     "c1_localname": "drive-wheel-assembly-1",
