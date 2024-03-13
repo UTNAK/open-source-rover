@@ -1,0 +1,59 @@
+description <http://opencaesar.io/open-source-rover/description/project/workpackage#> as workpackage {
+	uses <http://imce.jpl.nasa.gov/foundation/project#> as project
+  	extends <http://opencaesar.io/open-source-rover/description/structure/subsystems#> as subsystems
+  	extends <http://opencaesar.io/open-source-rover/description/assembly/assembly#> as assembly
+
+	instance wp-system : project:WorkPackage [
+		project:supplies subsystems:OSR
+		project:authorizes wp-MechanicalSubsystem
+		project:authorizes wp-PowerSubsystem
+		project:authorizes wp-MobilitySubsystem
+		project:authorizes wp-ControlSubsystem
+		project:authorizes wp-NavigationSubsystem
+		project:authorizes wp-CDHSubsystem
+	]
+
+	instance wp-MechanicalSubsystem : project:WorkPackage [
+		project:authorizes wp-body-assembly
+		project:authorizes wp-rocker-bogie-suspension-assembly
+		project:authorizes wp-mechanical-harness
+	]
+
+	instance wp-body-assembly : project:WorkPackage [
+		project:supplies assembly:body-assembly
+	]
+
+	instance wp-rocker-bogie-suspension-assembly : project:WorkPackage [
+		project:supplies assembly:rocker-bogie-suspension-assembly-1
+		project:supplies assembly:rocker-bogie-suspension-assembly-2
+	]
+
+	instance wp-mechanical-harness : project:WorkPackage [
+		project:supplies assembly:mechanical-harness
+	]
+
+
+	instance wp-PowerSubsystem : project:WorkPackage
+
+	instance wp-MobilitySubsystem : project:WorkPackage [
+		project:authorizes wp-drive-wheel-assembly
+		project:authorizes wp-corner-wheel-assembly
+	]
+
+	instance wp-drive-wheel-assembly : project:WorkPackage [
+		project:supplies assembly:drive-wheel-assembly-1
+		project:supplies assembly:drive-wheel-assembly-2
+	]
+
+	instance wp-corner-wheel-assembly : project:WorkPackage [
+		project:supplies assembly:corner-wheel-assembly-1
+		project:supplies assembly:corner-wheel-assembly-2
+		project:supplies assembly:corner-wheel-assembly-3
+		project:supplies assembly:corner-wheel-assembly-4
+	]
+
+	instance wp-ControlSubsystem : project:WorkPackage
+	instance wp-NavigationSubsystem : project:WorkPackage
+	instance wp-CDHSubsystem : project:WorkPackage
+
+}

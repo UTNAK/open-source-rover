@@ -7,6 +7,7 @@ description bundle <http://opencaesar.io/open-source-rover/description/bundle#> 
 	includes <http://opencaesar.io/open-source-rover/description/behavior/scenario_move#>
 	includes <http://opencaesar.io/open-source-rover/description/mass/masses#>
 	includes <http://opencaesar.io/open-source-rover/description/assembly/interface#>
+	includes <http://opencaesar.io/open-source-rover/description/project/workpackage#>
 
 //	includes <http://opencaesar.io/open-source-rover/description/structure/test_ibd#>
 	

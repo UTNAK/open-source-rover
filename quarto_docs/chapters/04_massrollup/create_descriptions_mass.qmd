@@ -118,11 +118,15 @@ df_json <- read_json(path = path,  simplifyVector = TRUE)
 
 ```{r}
 df_mass_update <- massRollUp(g, root, df_json)
-df_mass_compare <- left_join(df_mass_update, df_mass, by = c("c1_localname","c1_id","c1_name","c1_type"), suffix = c("", "_before"))
-df_mass_compare
 ```
 
 
+## Compare: Current OML Descriptions vs JSON 
+
+```{r}
+df_mass_compare <- left_join(df_mass_update, df_mass, by = c("c1_localname","c1_id","c1_name","c1_type"), suffix = c("", "_before"))
+df_mass_compare
+```
 
 ## Generate OML Descriptions
 

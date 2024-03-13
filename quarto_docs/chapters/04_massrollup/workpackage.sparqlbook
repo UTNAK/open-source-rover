@@ -1,0 +1,50 @@
+[
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# Create Tree Graph from WorkPackage ",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX project:     <http://imce.jpl.nasa.gov/foundation/project#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX vim4:\t\t<http://bipm.org/jcgm/vim4#>\n\nSELECT DISTINCT ?parent ?child ?component\nWHERE {\n\n    VALUES ?componentType { project:WorkPackage }\n\n\t?iri a ?componentType ;\n        project:authorizes ?wp ;\n    OPTIONAL{\n        ?wp project:supplies ?c\n    }\n    # OPTIONAL{\n    #     ?iri project:supplies ?c ;\n    # }       \n\n    BIND(STRAFTER(STR(?iri), \"#\") AS ?parent) .\n    BIND(STRAFTER(STR(?wp), \"#\") AS ?child) .\n    BIND(STRAFTER(STR(?c), \"#\") AS ?component) .\n\n\n\n}\nORDER BY ?wp",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX project:     <http://imce.jpl.nasa.gov/foundation/project#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX vim4:\t\t<http://bipm.org/jcgm/vim4#>\n\nSELECT DISTINCT ?parent ?child\nWHERE {\n\n    VALUES ?componentType { project:WorkPackage }\n\n\t?iri a ?componentType ;\n        project:authorizes ?wp ;\n\n    BIND(STRAFTER(STR(?iri), \"#\") AS ?parent) .\n    BIND(STRAFTER(STR(?wp), \"#\") AS ?child) .\n\n\n\n}\nORDER BY ?wp",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX project:     <http://imce.jpl.nasa.gov/foundation/project#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX vim4:\t\t<http://bipm.org/jcgm/vim4#>\n\nSELECT DISTINCT ?parent ?id ?name ?m ?type \nWHERE {\n\n    VALUES ?componentType { structure:System structure:Assembly }\n\n\t?iri a ?componentType ;\n\t\tbase:hasIdentifier ?id ;\n\t\tbase:hasCanonicalName ?name ;\n\n    BIND(STRAFTER(STR(?iri), \"#\") AS ?parent) .\n    BIND(STRAFTER(STR(?componentType), \"#\") AS ?type) .\n\n \tOPTIONAL {\n\t\t?c1_mass_mag vim4:characterizes ?iri ;\n\t\t\tvim4:hasDoubleNumber ?c1_mass .\n\t}\n    BIND((STR(?c1_mass)) AS ?m) .\n\n}\nORDER BY ?id",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX project:     <http://imce.jpl.nasa.gov/foundation/project#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX vim4:\t\t<http://bipm.org/jcgm/vim4#>\n\nSELECT DISTINCT ?parent ?id ?name ?m ?type ?owner ?wpiri\nWHERE {\n\n    VALUES ?componentType { structure:System structure:Assembly }\n\n\t?iri a ?componentType ;\n\t\tbase:hasIdentifier ?id ;\n\t\tbase:hasCanonicalName ?name ;\n        project:isSuppliedBy ?wpiri;\n\n    BIND(STRAFTER(STR(?iri), \"#\") AS ?parent) .\n    BIND(STRAFTER(STR(?componentType), \"#\") AS ?type) .\n    BIND(STRAFTER(STR(?wpiri), \"#\") AS ?owner) .\n\n \tOPTIONAL {\n\t\t?c1_mass_mag vim4:characterizes ?iri ;\n\t\t\tvim4:hasDoubleNumber ?c1_mass .\n\t}\n    BIND((STR(?c1_mass)) AS ?m) .\n\n}\nORDER BY ?id",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX project:     <http://imce.jpl.nasa.gov/foundation/project#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX vim4:\t\t<http://bipm.org/jcgm/vim4#>\nPREFIX rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX owl:         <http://www.w3.org/2002/07/owl#> \n\nSELECT DISTINCT ?parent ?child ?componentType ?c\nWHERE {\n\n    VALUES ?componentType { project:WorkPackage }\n\n\t?iri a ?componentType ;\n        project:supplies ?c ;\n\n    BIND(STRAFTER(STR(?iri), \"#\") AS ?parent) .\n    BIND(STRAFTER(STR(?c), \"#\") AS ?child) .\n\n}\nORDER BY ?wp",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "これを使うと、ある特定のwpのiriを指定して、それがsupplyするコンポーネントを返す。RのNotebook上で、Sparqlクエリを意識せずに、モデル内の情報をクエリーするための再利用可能なラッパー関数として使える。",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX project:     <http://imce.jpl.nasa.gov/foundation/project#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX vim4:\t\t<http://bipm.org/jcgm/vim4#>\n\nSELECT DISTINCT ?iri ?cp\nWHERE {\n\n    VALUES ?iri { <http://opencaesar.io/open-source-rover/description/project/workpackage#wp-rocker-bogie-suspension-assembly> }\n\n    ?iri project:supplies ?cp\n\n\n}",
+    "metadata": {}
+  }
+]

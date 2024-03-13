@@ -6,7 +6,7 @@ library(jsonlite)
 library(networkD3)
 
 ###############################################################################
-massRollUp <- function(g, root, df_mass){
+massRollUp <- function(g, root, df_mass, namekey="c1_localname", masskey="c1_mass"){
   
   # Analysis: Mass Rollup By Depth-First Traversal
   order <- dfs(g, V(g)[root], order.out = TRUE)$order.out
@@ -16,8 +16,8 @@ massRollUp <- function(g, root, df_mass){
     children <- neighbors(g, v, mode="out")
     if( length(children) > 0) {
       # add mass
-      mass <- sum(df_mass[is.element(df_mass$c1_localname, names(children)), "c1_mass"])
-      df_mass[df_mass$c1_localname == names(V(g)[v]), "c1_mass"] <- mass
+      mass <- sum(df_mass[is.element(df_mass[[namekey]], names(children)), masskey])
+      df_mass[df_mass[[namekey]] == names(V(g)[v]), masskey] <- mass
     }
   }
   

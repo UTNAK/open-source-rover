@@ -1,0 +1,346 @@
+---
+format:
+  html:
+    self-contained: true
+---
+
+# Create Mass Property Description
+
+# quarto::quarto_render("chapters/04_massrollup/create_descriptions_mass.qmd", output_format = "html")
+
+```{r}
+#| warning: false
+
+library(igraph)
+
+searchDirectory <- function(iteration, pattern, parent_directory){
+  for(i in 1:iteration){
+      path <- list.files(parent_directory, recursive = TRUE, pattern = pattern, full.names = TRUE)
+      if(length(path)){
+        return(path)
+      }
+      parent_directory <- dirname(parent_directory)
+  }
+  print("file not found")
+  return(path)
+}
+
+source(searchDirectory(4, "osr_common.R", (getwd())))
+source(searchDirectory(4, "massRollup.R", (getwd())))
+```
+
+
+
+## Analysis: Finding Edges of the Containment Graph from Oml Model
+
+### Build and Start Fuseki server for oml model query
+```{r}
+#| warning: false
+
+library(omlhashiR)
+## oml_repository <- "../open-source-rover/"
+# oml_repository <- omlrepo
+# omlhashiR::oml_refresh()
+# omlhashiR::oml_stop_Daemon(oml_repository)
+# omlhashiR::oml_build(oml_repository)
+# omlhashiR::oml_startFuseki(oml_repository)
+# omlhashiR::oml_owlLoad(oml_repository)
+```
+
+
+### Analysis: Query Containment Graph and Current Mass Property
+
+1. Get wp authorizes wp
+
+```{r}
+library(tansakusuR)
+
+endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
+
+repo <- paste0(omlrepo, "src/vision/sparql/")
+
+
+file <- "edge_workpackage.sparql"
+filepath <- paste0(repo,file)
+#show_query(filepath)
+df_wp <- send_query_from_file(endpoint_url, filepath)
+datatable(df_wp, options = list(pageLength = -1))
+```
+
+
+```{r}
+
+file <- "edge_suppliedComponents.sparql"
+filepath <- paste0(repo,file)
+#show_query(filepath)
+df_c <- send_query_from_file(endpoint_url, filepath)
+datatable(df_c, options = list(pageLength = -1))
+```
+
+
+### Analysis: Create Containment Graph
+
+```{r}
+root <- "OSR"
+
+
+df <- rbind(df_wp, df_c)
+
+# swap parent and child of root
+index <- which(df$child==root)
+c<-df$child[index]
+p<-df$parent[index]
+df$child[index]<-p
+df$parent[index]<-c
+
+g <- graph_from_data_frame(df[,c("parent","child")], 
+                           directed = TRUE, 
+                           vertices = NULL)
+```
+
+### マニュアルでエッジとノードを取得。
+
+```{r}
+edge <- rbind(df_wp, df_c)
+node_wp <- unique(c(unique(df_wp$parent), unique(df_wp$child)))
+node_c <- unique(df_c$child)
+```
+
+
+From igraph to networkD3
+```{r}
+# remove NA from node
+#g <- delete_vertices(g, V(g)["NA"])
+library(networkD3)
+
+
+nd<- igraph_to_networkD3(g, what = "both")
+
+#
+```
+
+
+
+
+### <TBD> Analysis: Read Current Mass Property Data in Model
+
+```{r}
+order <- dfs(g, V(g)[root], order.out = TRUE)$order
+
+file <- "node_systemassemblymass.sparql"
+filepath <- paste0(repo,file)
+#show_query(filepath)
+df_mass <- send_query_from_file(endpoint_url, filepath) %>%
+  mutate(mass = replace_na(as.numeric(df_mass$m),0)) %>% 
+  arrange(factor(parent, levels = names(order)))
+
+df_mass2 <- df_mass
+```
+
+ここまではOK。ただしサブシステムの情報を組み込んだMELのテンプレを新たに用意する必要がある。
+マスロールアップは、サブシステムを含むgraphデータを探索することになるので、グラフデータを起点にした方が良いかもしれない。
+例えば、あるコンフィグレーションの node_systemassemblymass.sparql を実行する。
+これとワークパッケージを対応づける必要がある。
+
+```{r}
+order <- dfs(g, V(g)[root], order.out = TRUE)$order
+
+df_mel <- igraph::as_data_frame(g, what = "vertices") %>%
+  arrange(factor(name, levels = names(order)))
+
+df_mel2 <- left_join(df_mel, df_mass2, by = c("name"="parent"))
+
+```
+
+この処理の問題点は、owner情報が失われている点である。
+
+- edge_workpackage.sparql
+- edge_suppliedComponents.sparql
+- node_systemassemblymass.sparql
+
+様々なコンフィグレーションに対応するためにも、
+System -> Assemblyのコンフィグレーションを取り出す必要がある。
+現状は、`node_systemassemblymass.sparql` の処理がそれに該当する。
+
+```{r}
+df_wp
+df_c
+df_mass
+```
+
+
+## Visualize wp
+
+```{r}
+df2<- df_wp %>%
+  mutate(owner=paste0(parent)) %>%
+  mutate(name=paste0(child)) %>%
+  mutate(type=paste0("WorkPackage")) %>%
+  select("owner","name","type") %>%
+  add_row(owner=NA, name="wp-system", type="root")
+
+g2 <- graph_from_data_frame(df2, 
+                           directed = TRUE, 
+                           vertices = NULL)
+
+df_deg <- data.frame(
+  name = names(degree(g2)),
+  degree = degree(g2),
+  distance = distances(g2)["NA",]
+)
+
+df2 <- df2 %>%
+  left_join(df_deg, by=c("name"))
+
+plotCollapsibleTreeFromDataframe(df2, palette="BluYl", parent="owner", child="name",type="distance")
+
+
+
+```
+
+
+### wp tree + "wp supplies components"
+
+```{r}
+df2<- rbind(df_wp, df_c) %>%
+  mutate(owner=paste0(parent)) %>%
+  mutate(name=paste0(child)) %>%
+  mutate(type=paste0("Component")) %>%
+  select("owner","name","type") %>%
+  add_row(owner=NA, name="wp-system", type="root")
+
+g2 <- graph_from_data_frame(df2, 
+                           directed = TRUE, 
+                           vertices = NULL)
+
+df_deg <- data.frame(
+  name = names(degree(g2)),
+  degree = degree(g2),
+  distance = distances(g2)["NA",]
+)
+
+df2 <- df2 %>%
+  left_join(df_deg, by=c("name"))
+
+plotCollapsibleTreeFromDataframe(df2, palette="BluYl", parent="owner", child="name",type="distance")
+
+```
+
+
+## Currently below subsystems miss assemblies with mass data  
+
+```{r}
+
+df_mel2$mass[df_mel2$name=="wp-CDHSubsystem"] <- 100.0
+df_mel2$mass[df_mel2$name=="wp-ControlSubsystem"] <- 200.0
+df_mel2$mass[df_mel2$name=="wp-NavigationSubsystem"] <- 300.0
+df_mel2$mass[df_mel2$name=="wp-PowerSubsystem"] <- 400.0
+
+```
+
+```{r}
+namekey="name"
+masskey="mass"
+
+df_mass_update <- massRollUp(g, root, df_mel2, namekey = "name",masskey = "mass")
+```
+
+## Update Mass Properties using Json
+
+This process includes user interface of the VS-Code Extension.
+
+![json editor](../../img/jsoneditor.png)
+
+## Read Mass Properties from data
+
+```{r}
+#path = "./data_massproperty.json"
+#path = "./quarto_docs/chapters/04_massrollup/data_massproperty.json"
+path <- searchDirectory(4, "data_massproperty.json", dirname(getwd()))
+
+df_json <- read_json(path = path,  simplifyVector = TRUE)
+```
+
+
+## Analysis: Mass Rollup By Depth-First Traversal
+
+```{r}
+df_mass_update <- massRollUp(g, root, df_json)
+```
+
+
+## Compare: Current OML Descriptions vs JSON 
+
+```{r}
+df_mass_compare <- left_join(df_mass_update, df_mass, by = c("c1_localname","c1_id","c1_name","c1_type"), suffix = c("", "_before"))
+df_mass_compare
+```
+
+## Generate OML Descriptions
+
+
+### Create Instance
+```{r}
+df_instance <- data.frame(
+  name = df_mass_update$c1_localname,
+  instancename = paste0(df_mass_update$c1_localname,".mass.magnitude"),
+  mass = df_mass_update$c1_mass,
+  type = str_replace_all(df_mass_update$c1_type, c("System"="subsystems", "Subsystem"="subsystems", "Assembly"="assembly"))
+  ) 
+```
+
+
+### Generate OML Mass Descriptions
+
+```{r}
+outputdir <- paste0(omlrepo,"src/oml/opencaesar.io/open-source-rover/description/mass/")
+outputfile <- paste0(outputdir, "masses.oml")
+omldescriptions <- generateOmlMassDescriptions(df_instance)
+```
+
+
+### Generate OML File
+```{r}
+cat(file=outputfile, omldescriptions)
+```
+
+
+
+## Update Json
+```{r}
+write_json(df_mass_update, path = path, pretty=TRUE)
+```
+
+
+
+```{r}
+df2<- df %>%
+  mutate(c2_mass = df$c1_mass[match(unlist(df$c2_localname), df$c1_localname)]) %>%
+  mutate(owner=paste0(c2_localname," (", c2_mass," kg)")) %>%
+  mutate(name=paste0(c1_localname," (", c1_mass," kg)")) %>%
+  select("owner","name","c1_type")
+
+# Set NA node for CollapsibleTree
+df2$owner[df2$owner=="NA (NA kg)"] <- NA
+
+
+plotCollapsibleTreeFromDataframe(df2, palette="BluYl", parent="owner", child="name",type="c1_type")
+```
+
+
+### Some visualization experiments
+
+#### networkD3::simpleNetwork
+```{r}
+df2<- df %>% 
+  mutate(owner=parent) %>%
+  mutate(name=child) %>%
+  select("owner","name") %>%
+  arrange(desc(owner))   
+
+
+library(networkD3)
+
+networkD3::simpleNetwork(df2)
+```
+

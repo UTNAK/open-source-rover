@@ -1,0 +1,19 @@
+%%{init: {'theme':'dark'}}%%
+
+flowchart TD
+    
+    A[WP-System]-- authorizes -->B[WP-Subsystem-1]
+    A-- authorizes -->C[WP-Subsystem-2]
+    B-- supplies -->B1[Assembly-1]
+    B-- supplies -->B2[Assembly-2]
+    B-- supplies -->B3[Assembly-3]
+    C-- supplies -->C1[Assembly-4]
+    C-- supplies -->C2[Assembly-5]
+    C-- supplies -->C3[Assembly-6]
+    D[System]-->B1
+    A-- supplies -->D   
+    D-->B2
+    D-->B3
+    D-->C1
+    D-->C2
+    D-->C3
