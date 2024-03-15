@@ -1,82 +1,73 @@
 [
-    { "title": "Home", "path": "/", "treeIcon": "home" },
+    { "title": "Home", "path": "/", "type": "home" },
     {
       "title": "OSR",
-      "treeIcon": "server",
+      "type": "server",
       "iconUrl": "https://nasa-jpl.github.io/stellar/icons/rover.svg",
       "children": [
         { 
           "title": "Decomposition",
-          "treeIcon": "outline-view-icon",
-          "path": "decompositions",
-          "isDiagram": true
+          "type": "diagram",
+          "path": "decompositions"
         },
         { 
           "title": "Decomposition w/o parts",
-          "treeIcon": "outline-view-icon",
-          "path": "decompositions-wo-parts",
-          "isDiagram": true
+          "type": "diagram",
+          "path": "decompositions-wo-parts"
         },
         {
           "title": "decompositions-autogen",
-          "treeIcon": "outline-view-icon",
-          "path": "decompositions-autogen",
-          "isDiagram": true
+          "type": "diagram",
+          "path": "decompositions-autogen"
         },
         { 
           "title": "IBD",
-          "treeIcon": "circuit-board",
-          "path": "ibd",
-          "isDiagram": true
+          "type": "diagram",
+          "path": "ibd"
         },
         { 
           "title": "IBD with Sys",
-          "treeIcon": "circuit-board",
-          "path": "ibd-sys",
-          "isDiagram": true
+          "type": "diagram",
+          "path": "ibd-sys"
         },
        {
           "title": "Components Tree",
-          "treeIcon": "list-tree",
-          "path": "components-tree",
-          "isTree": true
+          "type": "tree",
+          "path": "components-tree"
         },
         {
           "title": "Components Mass Tree",
-          "treeIcon": "graph-scatter",
-          "path": "components-mass-tree",
-          "isTree": true
+          "type": "tree",
+          "path": "components-mass-tree"
         },
         {
           "title": "Components Mass Tree 2",
-          "treeIcon": "graph-scatter",
-          "path": "components-mass-tree2",
-          "isTree": true
+          "type": "tree",
+          "path": "components-mass-tree2"
         },
         {
           "title": "Component Table",
-          "treeIcon": "graph-scatter",
+          "type": "table",
           "path": "component-table"
         },
         {
           "title": "Component Table with ID",
-          "treeIcon": "window",
+          "type": "table",
           "path": "component-table-id"
         },      
         {
           "title": "MEL",
-          "treeIcon": "window",
+          "type": "table",
           "path": "MEL"
         },      
         { 
           "title": "Behavior",
-          "treeIcon": "graph-scatter",
-          "path": "movingscenario",
-          "isDiagram": true
+          "type": "table",
+          "path": "movingscenario"
         },
         {
           "title": "Timeline Table",
-          "treeIcon": "graph-line",
+          "type": "table",
           "path": "timeline"        
         }
       ]

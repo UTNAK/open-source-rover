@@ -6,6 +6,12 @@
     "metadata": {}
   },
   {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>\nPREFIX mission:     <http://imce.jpl.nasa.gov/foundation/mission#>\nPREFIX structure:   <http://opencaesar.io/open-source-rover/vocabulary/structure#>\nPREFIX rdfs:        <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX vim4:\t\t<http://bipm.org/jcgm/vim4#>\n\nSELECT DISTINCT ?iri ?assembly ?c1_id ?c1_name ?mass ?m ?subsystem ?subsystemIri\nWHERE {\n\n\n\t?subsystemIri structure:hasAssembly ?iri ;\n    OPTIONAL{\n\t\t  ?c1_mass_mag vim4:characterizes ?iri ;\n\t\t\tvim4:hasDoubleNumber ?mass .\n    }\n    OPTIONAL{\n      \t?iri base:hasIdentifier ?c1_id .\n    \t?iri base:hasCanonicalName ?c1_name ;\n    }\n    BIND((STR(?mass)) AS ?m) .\n    BIND(STRAFTER(STR(?subsystemIri), \"#\") AS ?subsystem) .\n    BIND(STRAFTER(STR(?iri), \"#\") AS ?assembly) .\n\n}\nORDER BY ?c1_id",
+    "metadata": {}
+  },
+  {
     "kind": 1,
     "language": "markdown",
     "value": "This query gets all the mission:Component",
