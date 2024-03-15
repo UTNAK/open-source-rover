@@ -12,6 +12,7 @@ description <http://opencaesar.io/open-source-rover/description/project/workpack
 		project:authorizes wp-NavigationSubsystem
 		project:authorizes wp-CDHSubsystem
 	]
+	
 
 	instance wp-MechanicalSubsystem : project:WorkPackage [
 		project:authorizes wp-body-assembly
