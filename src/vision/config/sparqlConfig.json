@@ -1,4 +1,5 @@
 {
     "queryEndpoint": "http://localhost:3030/open-source-rover/sparql",
+    "updateEndpoint": "http://localhost:3030/open-source-rover/update",
     "pingEndpoint": "http://localhost:3030/$/ping"
 }
