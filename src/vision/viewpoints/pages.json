@@ -2,7 +2,7 @@
     { "title": "Home", "path": "/", "type": "home" },
     {
       "title": "OSR",
-      "type": "server",
+      "type": "group",
       "iconUrl": "https://nasa-jpl.github.io/stellar/icons/rover.svg",
       "children": [
         { 
