@@ -2,15 +2,19 @@
 title: "Create Mass Property Description"
 date: now
 author: "Yuta Nakajima"
+description: "<BR>Alternative way to generate MEL. Using a “Work Package” viewpoint to aggregate the total mass of supplying components of authorships"
+title-block-banner: true
 format:
   html:
     theme: 
-      light: spacelab
+      light: flatly
       dark: vapor    
     fontsize: 1.2em
     self-contained: true
     toc: true
     toc-location: left
+    number-sections: true
+    number-depth: 3
     code-fold: true
     grid:
       sidebar-width: 300px
@@ -20,6 +24,34 @@ format:
 execute:
   warning: false
 ---
+
+## Problem: System decomposition and mass roll up
+
+
+Subsystems are abstract concepts. Assigning mass properties to subsystems that have no physical substance seems to lack rigor.
+
+
+
+## Workflow
+@sec-introduction
+
+```{mermaid}
+flowchart LR
+  A([Run Fuseki]) --> B([Query Data])
+  B --> C((Tidy Data))
+  C --> D([Tree: WP])
+  C --> E([Tree: Configuration])
+  C --> F([Table: Mass Property])
+  D --> G([Decomposition Tree])
+  E --> G
+  G --> H([Roll up Calculations])
+  F --> H
+  H --> I([Report])
+  
+```
+
+
+System Decomposition[^1][^2]
 
 
 ```{r}
@@ -46,152 +78,7 @@ source(searchDirectory(4, "massRollup.R", (getwd())))
 omlrepo
 ```
 
-Workflow
-@sec-introduction
-
-```{mermaid}
-flowchart LR
-  A([Run Fuseki]) --> B([Query Data])
-  B --> C((Tidy Data))
-  C --> D([Tree: WP])
-  C --> E([Tree: Configuration])
-  C --> F([Table: Mass Property])
-  D --> G([Decomposition Tree])
-  E --> G
-  G --> H([Roll up Calculations])
-  F --> H
-  H --> I([Report])
-  
-```
-
-
-System Decomposition[^1][^2]
-
-
-## Run Fuseki
-
-
-### Build and Run a Fuseki SPARQL endpoint for oml model query
-```{r}
-#| warning: false
-
-library(omlhashiR)
-## oml_repository <- "../open-source-rover/"
-oml_repository <- omlrepo
-# omlhashiR::oml_refresh()
-# omlhashiR::oml_stop_Daemon(oml_repository)
-# omlhashiR::oml_build(oml_repository)
-# omlhashiR::oml_startFuseki(oml_repository)
-# omlhashiR::oml_owlLoad(oml_repository)
-```
-
-## Query Data
-
-```{r}
-library(tansakusuR)
-endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
-repo <- paste0(omlrepo, "src/vision/sparql/")
-```
-
-### Tree: WP authorizes WP
-
-Components are grouped using Work Package Tree, and mass property data is aggregated by this grouping strategy.
-
-```{r}
-file <- "edge_workpackage.sparql"
-filepath <- paste0(repo,file)
-#show_query(filepath)
-df_wp <- send_query_from_file(endpoint_url, filepath)
-# datatable(df_wp, options = list(pageLength = -1))]
-df_wp
-```
-
-### Tree: WP supplies Component
-
-```{r}
-file <- "edge_suppliedComponents.sparql"
-filepath <- paste0(repo,file)
-#show_query(filepath)
-df_c <- send_query_from_file(endpoint_url, filepath)
-# datatable(df_c, options = list(pageLength = -1))
-df_c
-```
-
-
-### Analysis: Create Containment Graph
-
-```{r}
-root <- "OSR"
-
-
-df <- rbind(df_wp, df_c)
-
-# swap parent and child of root
-index <- which(df$child==root)
-c<-df$child[index]
-p<-df$parent[index]
-df$child[index]<-p
-df$parent[index]<-c
-
-g <- graph_from_data_frame(df[,c("parent","child")], 
-                           directed = TRUE, 
-                           vertices = NULL)
-
-
-plot(g, layout=layout_as_tree)
-
-```
-### Tree: Configuration
-
-```{r}
-### <TBD> Analysis: Read Current Mass Property Data in Model
-
-order <- dfs(g, V(g)[root], order.out = TRUE)$order
-
-file <- "node_systemassemblymass.sparql"
-filepath <- paste0(repo,file)
-#show_query(filepath)
-df_mass <- send_query_from_file(endpoint_url, filepath) %>%
-  mutate(mass = replace_na(as.numeric(m),0)) 
-
-df_mass2 <- df_mass %>% 
-  arrange(factor(parent, levels = names(order)))
-
-```
-
-ここまではOK。ただしサブシステムの情報を組み込んだMELのテンプレを新たに用意する必要がある。
-マスロールアップは、サブシステムを含むgraphデータを探索することになるので、グラフデータを起点にした方が良いかもしれない。
-例えば、あるコンフィグレーションの node_systemassemblymass.sparql を実行する。
-これとワークパッケージを対応づける必要がある。
-
-```{r}
-order <- dfs(g, V(g)[root], order.out = TRUE)$order
-
-df_mel <- igraph::as_data_frame(g, what = "vertices") %>%
-  arrange(factor(name, levels = names(order)))
-
-df_mel2 <- left_join(df_mel, df_mass2, by = c("name"="parent"))
-
-```
-
-この処理の問題点は、owner情報が失われている点である。
-
-- edge_workpackage.sparql
-- edge_suppliedComponents.sparql
-- node_systemassemblymass.sparql
-
-様々なコンフィグレーションに対応するためにも、
-System -> Assemblyのコンフィグレーションを取り出す必要がある。
-現状は、`node_systemassemblymass.sparql` の処理がそれに該当する。
-
-```{r}
-df_wp
-df_c
-df_mass
-```
-
-
-## Visualize Tree
+### Reusable function to Visualize Tree
 
 ```{r}
 # I want to plot graph as dendrogram. graph doesnt have NA root for plotCollapsibleTreeFromDataframe
@@ -229,18 +116,66 @@ plotGraph2Dendrogram <- function(g){
 }
 ```
 
+
+
+## Run Fuseki
+
+
+### Build and Run a Fuseki SPARQL endpoint for oml model query
+```{r}
+#| warning: false
+
+library(omlhashiR)
+## oml_repository <- "../open-source-rover/"
+oml_repository <- omlrepo
+# omlhashiR::oml_refresh()
+# omlhashiR::oml_stop_Daemon(oml_repository)
+# omlhashiR::oml_build(oml_repository)
+# omlhashiR::oml_startFuseki(oml_repository)
+# omlhashiR::oml_owlLoad(oml_repository)
+```
+
+## Query Data
+
+```{r}
+library(tansakusuR)
+endpoint_url <- "http://localhost:3030/open-source-rover/sparql"
+repo <- paste0(omlrepo, "src/vision/sparql/")
+```
+
+
+
+### Tree: Configuration
+
+```{r}
+### <TBD> Analysis: Read Current Mass Property Data in Model
+
+#order <- dfs(g, V(g)[root], order.out = TRUE)$order
+
+file <- "node_systemassemblymass.sparql"
+filepath <- paste0(repo,file)
+#show_query(filepath)
+df_mass <- send_query_from_file(endpoint_url, filepath) %>%
+  mutate(mass = replace_na(as.numeric(m),0)) 
+
+df_configuration <- df_mass %>%
+  select(parent, id, name, type, mass, iri, owner)
+
+df_mass2 <- df_configuration
+```
+
 ### Visualize Configuration
 
 This might be generated by model query directly.
 Because we use system-subsystem-assembly configurations now, we produce this dataframe manually.
 
 ```{r}
-df_config<- df_mass %>%
-  mutate(owner="OSR") %>%
+df_config<- df_configuration %>%
+  mutate(container="OSR") %>%
   mutate(name=paste0(parent)) %>%
-  mutate(type=paste0("contains")) %>%
-  select("owner","name","type") %>%
-  filter(owner != name)
+  mutate(edgetype=paste0("contains")) %>%
+  select("container","name","type") %>%
+  filter(container != name)
 
 #df_config$owner[df_config$name == "OSR"] <- NA
 
@@ -250,6 +185,19 @@ g2 <- graph_from_data_frame(df_config,
 
 plot(g2, layout=layout_as_tree)
 plotGraph2Dendrogram(g2)
+```
+
+### Tree: WP authorizes WP
+
+Components are grouped using Work Package Tree, and mass property data is aggregated by this grouping strategy.
+
+```{r}
+file <- "edge_workpackage.sparql"
+filepath <- paste0(repo,file)
+#show_query(filepath)
+df_wp <- send_query_from_file(endpoint_url, filepath)
+# datatable(df_wp, options = list(pageLength = -1))]
+df_wp
 ```
 
 
@@ -269,6 +217,98 @@ g2 <- graph_from_data_frame(df2,
 # plotGraph2Dendrogram(g2)
 plot(g2, layout=layout_as_tree)
 ```
+
+### WP Supplies Components
+
+```{r}
+df_sc <- df_mass %>%
+  select(parent, id, name, type, mass, iri, owner) %>%
+  mutate(child = parent) %>%
+  mutate(parent = owner) %>%
+  mutate(childiri = iri) %>%
+  mutate(edgetype = "supplies") %>%
+  select(parent, child, edgetype)
+
+```
+
+### Analysis: Create Containment Graph
+
+```{r}
+root <- "OSR"
+
+df_wp <- df_wp %>%
+  mutate(edgetype = "authorizes") %>%
+  select(parent, child, edgetype)
+
+
+df <- rbind(df_wp, df_sc)
+
+# swap parent and child of root
+index <- which(df$child==root)
+c<-df$child[index]
+p<-df$parent[index]
+df$child[index]<-p
+df$parent[index]<-c
+
+g <- graph_from_data_frame(df[,c("parent","child")], 
+                           directed = TRUE, 
+                           vertices = NULL)
+
+
+plot(g, layout=layout_as_tree)
+
+```
+
+
+
+### Tree: WP supplies Component
+
+```{r}
+file <- "edge_suppliedComponents.sparql"
+filepath <- paste0(repo,file)
+#show_query(filepath)
+df_c <- send_query_from_file(endpoint_url, filepath)
+# datatable(df_c, options = list(pageLength = -1))
+df_c
+```
+
+ここまではOK。ただしサブシステムの情報を組み込んだMELのテンプレを新たに用意する必要がある。
+マスロールアップは、サブシステムを含むgraphデータを探索することになるので、グラフデータを起点にした方が良いかもしれない。
+例えば、あるコンフィグレーションの node_systemassemblymass.sparql を実行する。
+これとワークパッケージを対応づける必要がある。
+
+```{r}
+order <- dfs(g, V(g)[root], order.out = TRUE)$order
+
+df_mel <- igraph::as_data_frame(g, what = "vertices") %>%
+  arrange(factor(name, levels = names(order)))
+
+df_mel2 <- left_join(df_mel, df_mass2, by = c("name"="parent"))
+
+```
+
+この処理の問題点は、owner情報が失われている点である。
+
+- edge_workpackage.sparql
+- edge_suppliedComponents.sparql
+- node_systemassemblymass.sparql
+
+様々なコンフィグレーションに対応するためにも、
+System -> Assemblyのコンフィグレーションを取り出す必要がある。
+現状は、`node_systemassemblymass.sparql` の処理がそれに該当する。
+
+```{r}
+df_wp
+df_c
+df_mass
+```
+
+
+
+
+
+
+
 
 
 ### wp tree + "wp supplies components"
