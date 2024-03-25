@@ -35,7 +35,7 @@
               "helpExpression": "This is the model-assigned element identifier. Every model element has this unique identifier"
             },
             {
-              "type": "text",
+              "type": "number",
               "id": "mass",
               "label": "Mass",
               "required": true,

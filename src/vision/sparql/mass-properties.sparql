@@ -14,8 +14,6 @@ WHERE {
       base:hasCanonicalName ?name .
   OPTIONAL{
 		?mass_placeholder vim4:characterizes ?mIri ;
-			vim4:hasDoubleNumber ?m .
+			vim4:hasDoubleNumber ?mass .
     }
-    # This removes ^^http://www.w3.org/2001/XMLSchema#double from the query string
-    BIND((STR(?m)) AS ?mass) .
 }
