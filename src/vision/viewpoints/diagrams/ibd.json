@@ -9,7 +9,7 @@
         "rowMapping": {
           "id": "subsystem",
           "name": "Subsystem",
-          "labelFormat": "{subsystem}",
+          "labelFormat": "{target}",
           "nodeColor": "Aqua",
           "nodeTextColor": "black",
           "nodeType": "{c1_type}",

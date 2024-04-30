@@ -1,0 +1,74 @@
+---
+title: "Python test"
+date: now
+author: "Yuta Nakajima"
+description: "<BR>Alternative way to generate MEL. Using a “Work Package” viewpoint to aggregate the total mass of supplying components of authorships"
+title-block-banner: true
+format:
+  html:
+    theme: 
+      light: flatly
+      dark: vapor    
+    fontsize: 1.2em
+    self-contained: true
+    toc: true
+    toc-location: left
+    number-sections: true
+    number-depth: 3
+    code-fold: true
+    grid:
+      sidebar-width: 300px
+      body-width: 1200px
+      margin-width: 300px
+      gutter-width: 2.5rem
+execute:
+  warning: false
+
+jupyter: python3
+---
+
+## Problem: System decomposition and mass roll up
+
+```{r}
+1+1
+```
+
+```{python}
+import platform, os
+
+print()
+print("Python:", platform.python_version())
+print("OS:", platform.platform())
+
+
+1+1
+```
+
+```{python}
+from poliastro.examples import molniya
+
+from poliastro.plotting import OrbitPlotter2D
+
+op = OrbitPlotter2D()
+
+op.plot(molniya, label="Initial orbit")
+
+```
+
+```{python}
+from astropy import units as u
+
+from poliastro.bodies import Earth, Mars, Sun
+from poliastro.twobody import Orbit
+
+
+# Data from Curtis, example 4.3
+r = [-6045, -3490, 2500] << u.km
+v = [-3.457, 6.618, 2.533] << u.km / u.s
+
+orb = Orbit.from_vectors(Earth, r, v)
+
+op = OrbitPlotter2D()
+
+op.plot(orb, label="Initial orbit")
+```

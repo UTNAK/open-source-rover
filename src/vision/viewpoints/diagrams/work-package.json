@@ -1,0 +1,29 @@
+{
+"work-package": {
+  "name": "work-package",
+  "queries": {
+    "node": "work-package.sparql",
+    "edge": "work-package.sparql"
+  },
+  "rowMapping": {
+    "id": "node",
+    "name": "Parent",
+    "labelFormat": "{c1_instancename}",
+    "nodeColor": "seagreen",
+    "nodeTextColor": "white",
+    "nodeType": "NA",
+    "edgeMatchKey": "c1_instancename"
+  },
+  "edges": [
+    {
+      "id": "edge",
+      "name": "Edge",
+      "animated": true,
+      "labelFormat": "project:isAuthorizedBy",
+      "legendItems": "c2_instancename",
+      "sourceKey": "c1_instancename",
+      "targetKey": "c2_instancename"
+    }
+  ]
+}
+}

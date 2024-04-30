@@ -1,0 +1,464 @@
+description <http://opencaesar.io/open-source-rover/description/cruisestage/workpackage#> as workpackage {
+
+  	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+  	uses <http://imce.jpl.nasa.gov/foundation/project#> as project
+
+
+// Instances
+	instance cruise-stage : project:WorkPackage [
+		base:hasIdentifier "WP.01"
+		base:hasCanonicalName "Cruise Stage"
+		base:hasShortName "WP.01"
+		base:hasDescription "Cruise Stage"
+	]
+
+	instance attitude-determination-and-control-subsystem : project:WorkPackage [
+		base:hasIdentifier "WP.01.01"
+		base:hasCanonicalName "Attitude Determination and Control System"
+		base:hasShortName "attitude-determination-and-control-subsystem"
+		base:hasDescription "attitude-determination-and-control-subsystem"
+		project:isAuthorizedBy cruise-stage
+	]
+
+	instance command-and-data-subsystem : project:WorkPackage [
+		base:hasIdentifier "WP.01.02"
+		base:hasCanonicalName "Command and Data System"
+		base:hasShortName "command-and-data-subsystem"
+		base:hasDescription "command-and-data-subsystem"
+		project:isAuthorizedBy cruise-stage
+	]
+
+	instance power-subsystem : project:WorkPackage [
+		base:hasIdentifier "WP.01.03"
+		base:hasCanonicalName "Power"
+		base:hasShortName "power-subsystem"
+		base:hasDescription "power-subsystem"
+		project:isAuthorizedBy cruise-stage
+	]
+
+	instance propulsion-subsystem : project:WorkPackage [
+		base:hasIdentifier "WP.01.04"
+		base:hasCanonicalName "Propulsion"
+		base:hasShortName "propulsion-subsystem"
+		base:hasDescription "propulsion-subsystem"
+		project:isAuthorizedBy cruise-stage
+	]
+
+	instance structures-subsystem : project:WorkPackage [
+		base:hasIdentifier "WP.01.05"
+		base:hasCanonicalName "Structures"
+		base:hasShortName "structures-subsystem"
+		base:hasDescription "structures-subsystem"
+		project:isAuthorizedBy cruise-stage
+	]
+
+	instance telecomm-subsystem : project:WorkPackage [
+		base:hasIdentifier "WP.01.06"
+		base:hasCanonicalName "Telecomm"
+		base:hasShortName "telecomm-subsystem"
+		base:hasDescription "telecomm-subsystem"
+		project:isAuthorizedBy cruise-stage
+	]
+
+	instance thermal-subsystem : project:WorkPackage [
+		base:hasIdentifier "WP.01.07"
+		base:hasCanonicalName "Thermal"
+		base:hasShortName "thermal-subsystem"
+		base:hasDescription "thermal-subsystem"
+		project:isAuthorizedBy cruise-stage
+	]
+
+	instance sun-sensors : project:WorkPackage [
+		base:hasIdentifier "WP.01.01.01"
+		base:hasCanonicalName "Sun Sensors"
+		base:hasShortName "sun-sensors"
+		base:hasDescription "sun-sensors"
+		project:isAuthorizedBy attitude-determination-and-control-subsystem
+	]
+
+	instance star-trackers : project:WorkPackage [
+		base:hasIdentifier "WP.01.01.02"
+		base:hasCanonicalName "Star Trackers"
+		base:hasShortName "star-trackers"
+		base:hasDescription "star-trackers"
+		project:isAuthorizedBy attitude-determination-and-control-subsystem
+	]
+
+	instance telemetry-mulitplex-card : project:WorkPackage [
+		base:hasIdentifier "WP.01.02.03"
+		base:hasCanonicalName "Telemetry Mulitplex Card (TMC): CRC Card (NR)"
+		base:hasShortName "telemetry-mulitplex-card"
+		base:hasDescription "telemetry-mulitplex-card"
+		project:isAuthorizedBy command-and-data-subsystem
+	]
+
+	instance mreu-msap-analog-discrete-mreu : project:WorkPackage [
+		base:hasIdentifier "WP.01.02.04"
+		base:hasCanonicalName "MREU: MSAP Analog/Discrete MREU"
+		base:hasShortName "mreu-msap-analog-discrete-mreu"
+		base:hasDescription "mreu-msap-analog-discrete-mreu"
+		project:isAuthorizedBy command-and-data-subsystem
+	]
+
+	instance solar-array : project:WorkPackage [
+		base:hasIdentifier "WP.01.03.05"
+		base:hasCanonicalName "Solar Array"
+		base:hasShortName "solar-array"
+		base:hasDescription "solar-array"
+		project:isAuthorizedBy power-subsystem
+	]
+
+	instance chassis : project:WorkPackage [
+		base:hasIdentifier "WP.01.03.06"
+		base:hasCanonicalName "Chassis"
+		base:hasShortName "chassis"
+		base:hasDescription "chassis"
+		project:isAuthorizedBy power-subsystem
+	]
+
+	instance array-segment-switches-array-interface-slice-boards : project:WorkPackage [
+		base:hasIdentifier "WP.01.03.07"
+		base:hasCanonicalName "Array Segment Switches* - Array Interface Slice Boards"
+		base:hasShortName "array-segment-switches-array-interface-slice-boards"
+		base:hasDescription "array-segment-switches-array-interface-slice-boards"
+		project:isAuthorizedBy power-subsystem
+	]
+
+	instance load-switches-lcc-boards : project:WorkPackage [
+		base:hasIdentifier "WP.01.03.08"
+		base:hasCanonicalName "Load Switches - LCC Boards"
+		base:hasShortName "load-switches-lcc-boards"
+		base:hasDescription "load-switches-lcc-boards"
+		project:isAuthorizedBy power-subsystem
+	]
+
+	instance thruster-drivers-gid-boards : project:WorkPackage [
+		base:hasIdentifier "WP.01.03.09"
+		base:hasCanonicalName "Thruster Drivers* - GID Boards"
+		base:hasShortName "thruster-drivers-gid-boards"
+		base:hasDescription "thruster-drivers-gid-boards"
+		project:isAuthorizedBy power-subsystem
+	]
+
+	instance houskeeping-dc-dc-converters-boards : project:WorkPackage [
+		base:hasIdentifier "WP.01.03.10"
+		base:hasCanonicalName "Houskeeping DC-DC Converters* Boards"
+		base:hasShortName "houskeeping-dc-dc-converters-boards"
+		base:hasDescription "houskeeping-dc-dc-converters-boards"
+		project:isAuthorizedBy power-subsystem
+	]
+
+	instance power-shunt-control-shunt-driver-slice-boards : project:WorkPackage [
+		base:hasIdentifier "WP.01.03.11"
+		base:hasCanonicalName "Power/Shunt Control* - Shunt Driver Slice Boards"
+		base:hasShortName "power-shunt-control-shunt-driver-slice-boards"
+		base:hasDescription "power-shunt-control-shunt-driver-slice-boards"
+		project:isAuthorizedBy power-subsystem
+	]
+
+	instance shielding : project:WorkPackage [
+		base:hasIdentifier "WP.01.03.12"
+		base:hasCanonicalName "Shielding"
+		base:hasShortName "shielding"
+		base:hasDescription "shielding"
+		project:isAuthorizedBy power-subsystem
+	]
+
+	instance gas-service-valve : project:WorkPackage [
+		base:hasIdentifier "WP.01.04.13"
+		base:hasCanonicalName "Gas Service Valve"
+		base:hasShortName "gas-service-valve"
+		base:hasDescription "gas-service-valve"
+		project:isAuthorizedBy propulsion-subsystem
+	]
+
+	instance temp-sensor-a : project:WorkPackage [
+		base:hasIdentifier "WP.01.04.14"
+		base:hasCanonicalName "Temp. Sensor A"
+		base:hasShortName "temp-sensor-a"
+		base:hasDescription "temp-sensor-a"
+		project:isAuthorizedBy propulsion-subsystem
+	]
+
+	instance liq-service-valve : project:WorkPackage [
+		base:hasIdentifier "WP.01.04.15"
+		base:hasCanonicalName "Liq. Service Valve"
+		base:hasShortName "liq-service-valve"
+		base:hasDescription "liq-service-valve"
+		project:isAuthorizedBy propulsion-subsystem
+	]
+
+	instance lp-transducer : project:WorkPackage [
+		base:hasIdentifier "WP.01.04.16"
+		base:hasCanonicalName "LP Transducer"
+		base:hasShortName "lp-transducer"
+		base:hasDescription "lp-transducer"
+		project:isAuthorizedBy propulsion-subsystem
+	]
+
+	instance liq-filter : project:WorkPackage [
+		base:hasIdentifier "WP.01.04.17"
+		base:hasCanonicalName "Liq. Filter"
+		base:hasShortName "liq-filter"
+		base:hasDescription "liq-filter"
+		project:isAuthorizedBy propulsion-subsystem
+	]
+
+	instance lp-latch-valve : project:WorkPackage [
+		base:hasIdentifier "WP.01.04.18"
+		base:hasCanonicalName "LP Latch Valve"
+		base:hasShortName "lp-latch-valve"
+		base:hasDescription "lp-latch-valve"
+		project:isAuthorizedBy propulsion-subsystem
+	]
+
+	instance temp-sensor-b : project:WorkPackage [
+		base:hasIdentifier "WP.01.04.19"
+		base:hasCanonicalName "Temp. Sensor B"
+		base:hasShortName "temp-sensor-b"
+		base:hasDescription "temp-sensor-b"
+		project:isAuthorizedBy propulsion-subsystem
+	]
+
+	instance lines-fittings-misc : project:WorkPackage [
+		base:hasIdentifier "WP.01.04.20"
+		base:hasCanonicalName "Lines, Fittings, Misc."
+		base:hasShortName "lines-fittings-misc"
+		base:hasDescription "lines-fittings-misc"
+		project:isAuthorizedBy propulsion-subsystem
+	]
+
+	instance monoprop-main-engine : project:WorkPackage [
+		base:hasIdentifier "WP.01.04.21"
+		base:hasCanonicalName "Monoprop Main Engine"
+		base:hasShortName "monoprop-main-engine"
+		base:hasDescription "monoprop-main-engine"
+		project:isAuthorizedBy propulsion-subsystem
+	]
+
+	instance pressurant-tanks : project:WorkPackage [
+		base:hasIdentifier "WP.01.04.22"
+		base:hasCanonicalName "Pressurant Tanks"
+		base:hasShortName "pressurant-tanks"
+		base:hasDescription "pressurant-tanks"
+		project:isAuthorizedBy propulsion-subsystem
+	]
+
+	instance fuel-tanks : project:WorkPackage [
+		base:hasIdentifier "WP.01.04.23"
+		base:hasCanonicalName "Fuel Tanks"
+		base:hasShortName "fuel-tanks"
+		base:hasDescription "fuel-tanks"
+		project:isAuthorizedBy propulsion-subsystem
+	]
+
+	instance primary-structure : project:WorkPackage [
+		base:hasIdentifier "WP.01.05.24"
+		base:hasCanonicalName "Primary Structure"
+		base:hasShortName "primary-structure"
+		base:hasDescription "primary-structure"
+		project:isAuthorizedBy structures-subsystem
+	]
+
+	instance secondary-structure : project:WorkPackage [
+		base:hasIdentifier "WP.01.05.25"
+		base:hasCanonicalName "Secondary Structure"
+		base:hasShortName "secondary-structure"
+		base:hasDescription "secondary-structure"
+		project:isAuthorizedBy structures-subsystem
+	]
+
+	instance thruster-support-structure : project:WorkPackage [
+		base:hasIdentifier "WP.01.05.26"
+		base:hasCanonicalName "Thruster Support Structure"
+		base:hasShortName "thruster-support-structure"
+		base:hasDescription "thruster-support-structure"
+		project:isAuthorizedBy structures-subsystem
+	]
+
+	instance prop-support-structure : project:WorkPackage [
+		base:hasIdentifier "WP.01.05.27"
+		base:hasCanonicalName "Prop Support Structure"
+		base:hasShortName "prop-support-structure"
+		base:hasDescription "prop-support-structure"
+		project:isAuthorizedBy structures-subsystem
+	]
+
+	instance radiator-panels : project:WorkPackage [
+		base:hasIdentifier "WP.01.05.28"
+		base:hasCanonicalName "Radiator Panels"
+		base:hasShortName "radiator-panels"
+		base:hasDescription "radiator-panels"
+		project:isAuthorizedBy structures-subsystem
+	]
+
+	instance separation-devices : project:WorkPackage [
+		base:hasIdentifier "WP.01.05.29"
+		base:hasCanonicalName "Separation Devices"
+		base:hasShortName "separation-devices"
+		base:hasDescription "separation-devices"
+		project:isAuthorizedBy structures-subsystem
+	]
+
+	instance cruise-stage-pai-cm : project:WorkPackage [
+		base:hasIdentifier "WP.01.05.30"
+		base:hasCanonicalName "Cruise Stage PAI &CM"
+		base:hasShortName "cruise-stage-pai-cm"
+		base:hasDescription "cruise-stage-pai-cm"
+		project:isAuthorizedBy structures-subsystem
+	]
+
+	instance purge-hardware : project:WorkPackage [
+		base:hasIdentifier "WP.01.05.31"
+		base:hasCanonicalName "Purge Hardware"
+		base:hasShortName "purge-hardware"
+		base:hasDescription "purge-hardware"
+		project:isAuthorizedBy structures-subsystem
+	]
+
+	instance cabling-harness : project:WorkPackage [
+		base:hasIdentifier "WP.01.05.32"
+		base:hasCanonicalName "Cabling Harness"
+		base:hasShortName "cabling-harness"
+		base:hasDescription "cabling-harness"
+		project:isAuthorizedBy structures-subsystem
+	]
+
+	instance adapter-spacecraft-side : project:WorkPackage [
+		base:hasIdentifier "WP.01.05.33"
+		base:hasCanonicalName "Adapter, Spacecraft side"
+		base:hasShortName "adapter-spacecraft-side"
+		base:hasDescription "adapter-spacecraft-side"
+		project:isAuthorizedBy structures-subsystem
+	]
+
+	instance x-mga-19db-mer : project:WorkPackage [
+		base:hasIdentifier "WP.01.06.34"
+		base:hasCanonicalName "X-MGA (19dB) MER"
+		base:hasShortName "x-mga-19db-mer"
+		base:hasDescription "x-mga-19db-mer"
+		project:isAuthorizedBy telecomm-subsystem
+	]
+
+	instance other : project:WorkPackage [
+		base:hasIdentifier "WP.01.06.35"
+		base:hasCanonicalName "Other"
+		base:hasShortName "other"
+		base:hasDescription "other"
+		project:isAuthorizedBy telecomm-subsystem
+	]
+
+	instance multilayer-insulation-mli : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.36"
+		base:hasCanonicalName "Multilayer Insulation (MLI)"
+		base:hasShortName "multilayer-insulation-mli"
+		base:hasDescription "multilayer-insulation-mli"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance paints-films : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.37"
+		base:hasCanonicalName "Paints/Films"
+		base:hasShortName "paints-films"
+		base:hasDescription "paints-films"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance general : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.38"
+		base:hasCanonicalName "General"
+		base:hasShortName "general"
+		base:hasDescription "general"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance custom : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.39"
+		base:hasCanonicalName "Custom"
+		base:hasShortName "custom"
+		base:hasDescription "custom"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance propulsion-tank-heaters : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.40"
+		base:hasCanonicalName "Propulsion Tank Heaters"
+		base:hasShortName "propulsion-tank-heaters"
+		base:hasDescription "propulsion-tank-heaters"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance propulsion-line-heaters : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.41"
+		base:hasCanonicalName "Propulsion Line Heaters"
+		base:hasShortName "propulsion-line-heaters"
+		base:hasDescription "propulsion-line-heaters"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance prts : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.42"
+		base:hasCanonicalName "PRT's"
+		base:hasShortName "prts"
+		base:hasDescription "prts"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance mechanical : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.43"
+		base:hasCanonicalName "Mechanical"
+		base:hasShortName "mechanical"
+		base:hasDescription "mechanical"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance thermal-radiator-area-m2 : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.44"
+		base:hasCanonicalName "Thermal Radiator (Area=m2)"
+		base:hasShortName "thermal-radiator-area-m2"
+		base:hasDescription "thermal-radiator-area-m2"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance cipas : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.45"
+		base:hasCanonicalName "CIPAS"
+		base:hasShortName "cipas"
+		base:hasDescription "cipas"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance hrs-tube-assy : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.46"
+		base:hasCanonicalName "HRS Tube Assy"
+		base:hasShortName "hrs-tube-assy"
+		base:hasDescription "hrs-tube-assy"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance hrs-cfc-11 : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.47"
+		base:hasCanonicalName "HRS CFC-11"
+		base:hasShortName "hrs-cfc-11"
+		base:hasDescription "hrs-cfc-11"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance hrs-tube-epoxy : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.48"
+		base:hasCanonicalName "HRS Tube Epoxy"
+		base:hasShortName "hrs-tube-epoxy"
+		base:hasDescription "hrs-tube-epoxy"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+	instance fluid-p-clamp-bulk-jam-nut : project:WorkPackage [
+		base:hasIdentifier "WP.01.07.49"
+		base:hasCanonicalName "Fluid (P-Clamp+Bulk Jam Nut)"
+		base:hasShortName "fluid-p-clamp-bulk-jam-nut"
+		base:hasDescription "fluid-p-clamp-bulk-jam-nut"
+		project:isAuthorizedBy thermal-subsystem
+	]
+
+
+}

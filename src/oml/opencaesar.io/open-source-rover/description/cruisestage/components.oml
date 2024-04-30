@@ -1,0 +1,1996 @@
+description <http://opencaesar.io/open-source-rover/description/cruisestage/components#> as components {
+
+  	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+  	uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+  	uses <http://imce.jpl.nasa.gov/foundation/project#> as project
+
+  	extends <http://opencaesar.io/open-source-rover/description/cruisestage/workpackage#> as workpackage
+
+
+// Instances
+	instance cruise-stage : mission:Component [
+		base:hasIdentifier "CS.01"
+		base:hasCanonicalName "Cruise Stage"
+		base:hasShortName "CS"
+		base:hasDescription "Cruise Stage"
+		project:isSuppliedBy workpackage:cruise-stage
+	]
+
+	instance sun-sensors-1 : mission:Component [
+		base:hasIdentifier "CS.01.01.01.001"
+		base:hasCanonicalName "Sun Sensors-1"
+		base:hasShortName "sun-sensors-1"
+		base:hasDescription "sun-sensors-1"
+		project:isSuppliedBy workpackage:attitude-determination-and-control-subsystem
+	]
+
+	instance sun-sensors-2 : mission:Component [
+		base:hasIdentifier "CS.01.01.01.002"
+		base:hasCanonicalName "Sun Sensors-2"
+		base:hasShortName "sun-sensors-2"
+		base:hasDescription "sun-sensors-2"
+		project:isSuppliedBy workpackage:attitude-determination-and-control-subsystem
+	]
+
+	instance star-trackers-1 : mission:Component [
+		base:hasIdentifier "CS.01.01.02.001"
+		base:hasCanonicalName "Star Trackers-1"
+		base:hasShortName "star-trackers-1"
+		base:hasDescription "star-trackers-1"
+		project:isSuppliedBy workpackage:attitude-determination-and-control-subsystem
+	]
+
+	instance star-trackers-2 : mission:Component [
+		base:hasIdentifier "CS.01.01.02.002"
+		base:hasCanonicalName "Star Trackers-2"
+		base:hasShortName "star-trackers-2"
+		base:hasDescription "star-trackers-2"
+		project:isSuppliedBy workpackage:attitude-determination-and-control-subsystem
+	]
+
+	instance telemetry-mulitplex-card-1 : mission:Component [
+		base:hasIdentifier "CS.01.02.03.001"
+		base:hasCanonicalName "Telemetry Mulitplex Card (TMC): CRC Card (NR)-1"
+		base:hasShortName "telemetry-mulitplex-card-1"
+		base:hasDescription "telemetry-mulitplex-card-1"
+		project:isSuppliedBy workpackage:command-and-data-subsystem
+	]
+
+	instance mreu-msap-analog-discrete-mreu-1 : mission:Component [
+		base:hasIdentifier "CS.01.02.04.001"
+		base:hasCanonicalName "MREU: MSAP Analog/Discrete MREU-1"
+		base:hasShortName "mreu-msap-analog-discrete-mreu-1"
+		base:hasDescription "mreu-msap-analog-discrete-mreu-1"
+		project:isSuppliedBy workpackage:command-and-data-subsystem
+	]
+
+	instance solar-array-1 : mission:Component [
+		base:hasIdentifier "CS.01.03.05.001"
+		base:hasCanonicalName "Solar Array-1"
+		base:hasShortName "solar-array-1"
+		base:hasDescription "solar-array-1"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance chassis-1 : mission:Component [
+		base:hasIdentifier "CS.01.03.06.001"
+		base:hasCanonicalName "Chassis-1"
+		base:hasShortName "chassis-1"
+		base:hasDescription "chassis-1"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance array-segment-switches-array-interface-slice-boards-1 : mission:Component [
+		base:hasIdentifier "CS.01.03.07.001"
+		base:hasCanonicalName "Array Segment Switches* - Array Interface Slice Boards-1"
+		base:hasShortName "array-segment-switches-array-interface-slice-boards-1"
+		base:hasDescription "array-segment-switches-array-interface-slice-boards-1"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance array-segment-switches-array-interface-slice-boards-2 : mission:Component [
+		base:hasIdentifier "CS.01.03.07.002"
+		base:hasCanonicalName "Array Segment Switches* - Array Interface Slice Boards-2"
+		base:hasShortName "array-segment-switches-array-interface-slice-boards-2"
+		base:hasDescription "array-segment-switches-array-interface-slice-boards-2"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance load-switches-lcc-boards-1 : mission:Component [
+		base:hasIdentifier "CS.01.03.08.001"
+		base:hasCanonicalName "Load Switches - LCC Boards-1"
+		base:hasShortName "load-switches-lcc-boards-1"
+		base:hasDescription "load-switches-lcc-boards-1"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance load-switches-lcc-boards-2 : mission:Component [
+		base:hasIdentifier "CS.01.03.08.002"
+		base:hasCanonicalName "Load Switches - LCC Boards-2"
+		base:hasShortName "load-switches-lcc-boards-2"
+		base:hasDescription "load-switches-lcc-boards-2"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance load-switches-lcc-boards-3 : mission:Component [
+		base:hasIdentifier "CS.01.03.08.003"
+		base:hasCanonicalName "Load Switches - LCC Boards-3"
+		base:hasShortName "load-switches-lcc-boards-3"
+		base:hasDescription "load-switches-lcc-boards-3"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance load-switches-lcc-boards-4 : mission:Component [
+		base:hasIdentifier "CS.01.03.08.004"
+		base:hasCanonicalName "Load Switches - LCC Boards-4"
+		base:hasShortName "load-switches-lcc-boards-4"
+		base:hasDescription "load-switches-lcc-boards-4"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance thruster-drivers-gid-boards-1 : mission:Component [
+		base:hasIdentifier "CS.01.03.09.001"
+		base:hasCanonicalName "Thruster Drivers* - GID Boards-1"
+		base:hasShortName "thruster-drivers-gid-boards-1"
+		base:hasDescription "thruster-drivers-gid-boards-1"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance thruster-drivers-gid-boards-2 : mission:Component [
+		base:hasIdentifier "CS.01.03.09.002"
+		base:hasCanonicalName "Thruster Drivers* - GID Boards-2"
+		base:hasShortName "thruster-drivers-gid-boards-2"
+		base:hasDescription "thruster-drivers-gid-boards-2"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance houskeeping-dc-dc-converters-boards-1 : mission:Component [
+		base:hasIdentifier "CS.01.03.10.001"
+		base:hasCanonicalName "Houskeeping DC-DC Converters* Boards-1"
+		base:hasShortName "houskeeping-dc-dc-converters-boards-1"
+		base:hasDescription "houskeeping-dc-dc-converters-boards-1"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance houskeeping-dc-dc-converters-boards-2 : mission:Component [
+		base:hasIdentifier "CS.01.03.10.002"
+		base:hasCanonicalName "Houskeeping DC-DC Converters* Boards-2"
+		base:hasShortName "houskeeping-dc-dc-converters-boards-2"
+		base:hasDescription "houskeeping-dc-dc-converters-boards-2"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance power-shunt-control-shunt-driver-slice-boards-1 : mission:Component [
+		base:hasIdentifier "CS.01.03.11.001"
+		base:hasCanonicalName "Power/Shunt Control* - Shunt Driver Slice Boards-1"
+		base:hasShortName "power-shunt-control-shunt-driver-slice-boards-1"
+		base:hasDescription "power-shunt-control-shunt-driver-slice-boards-1"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance power-shunt-control-shunt-driver-slice-boards-2 : mission:Component [
+		base:hasIdentifier "CS.01.03.11.002"
+		base:hasCanonicalName "Power/Shunt Control* - Shunt Driver Slice Boards-2"
+		base:hasShortName "power-shunt-control-shunt-driver-slice-boards-2"
+		base:hasDescription "power-shunt-control-shunt-driver-slice-boards-2"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance shielding-1 : mission:Component [
+		base:hasIdentifier "CS.01.03.12.001"
+		base:hasCanonicalName "Shielding-1"
+		base:hasShortName "shielding-1"
+		base:hasDescription "shielding-1"
+		project:isSuppliedBy workpackage:power-subsystem
+	]
+
+	instance gas-service-valve-1 : mission:Component [
+		base:hasIdentifier "CS.01.04.13.001"
+		base:hasCanonicalName "Gas Service Valve-1"
+		base:hasShortName "gas-service-valve-1"
+		base:hasDescription "gas-service-valve-1"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance gas-service-valve-2 : mission:Component [
+		base:hasIdentifier "CS.01.04.13.002"
+		base:hasCanonicalName "Gas Service Valve-2"
+		base:hasShortName "gas-service-valve-2"
+		base:hasDescription "gas-service-valve-2"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-a-1 : mission:Component [
+		base:hasIdentifier "CS.01.04.14.001"
+		base:hasCanonicalName "Temp. Sensor A-1"
+		base:hasShortName "temp-sensor-a-1"
+		base:hasDescription "temp-sensor-a-1"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance liq-service-valve-1 : mission:Component [
+		base:hasIdentifier "CS.01.04.15.001"
+		base:hasCanonicalName "Liq. Service Valve-1"
+		base:hasShortName "liq-service-valve-1"
+		base:hasDescription "liq-service-valve-1"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance lp-transducer-1 : mission:Component [
+		base:hasIdentifier "CS.01.04.16.001"
+		base:hasCanonicalName "LP Transducer-1"
+		base:hasShortName "lp-transducer-1"
+		base:hasDescription "lp-transducer-1"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance lp-transducer-2 : mission:Component [
+		base:hasIdentifier "CS.01.04.16.002"
+		base:hasCanonicalName "LP Transducer-2"
+		base:hasShortName "lp-transducer-2"
+		base:hasDescription "lp-transducer-2"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance liq-filter-1 : mission:Component [
+		base:hasIdentifier "CS.01.04.17.001"
+		base:hasCanonicalName "Liq. Filter-1"
+		base:hasShortName "liq-filter-1"
+		base:hasDescription "liq-filter-1"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance lp-latch-valve-1 : mission:Component [
+		base:hasIdentifier "CS.01.04.18.001"
+		base:hasCanonicalName "LP Latch Valve-1"
+		base:hasShortName "lp-latch-valve-1"
+		base:hasDescription "lp-latch-valve-1"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance lp-latch-valve-2 : mission:Component [
+		base:hasIdentifier "CS.01.04.18.002"
+		base:hasCanonicalName "LP Latch Valve-2"
+		base:hasShortName "lp-latch-valve-2"
+		base:hasDescription "lp-latch-valve-2"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-1 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.001"
+		base:hasCanonicalName "Temp. Sensor B-1"
+		base:hasShortName "temp-sensor-b-1"
+		base:hasDescription "temp-sensor-b-1"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-2 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.002"
+		base:hasCanonicalName "Temp. Sensor B-2"
+		base:hasShortName "temp-sensor-b-2"
+		base:hasDescription "temp-sensor-b-2"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-3 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.003"
+		base:hasCanonicalName "Temp. Sensor B-3"
+		base:hasShortName "temp-sensor-b-3"
+		base:hasDescription "temp-sensor-b-3"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-4 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.004"
+		base:hasCanonicalName "Temp. Sensor B-4"
+		base:hasShortName "temp-sensor-b-4"
+		base:hasDescription "temp-sensor-b-4"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-5 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.005"
+		base:hasCanonicalName "Temp. Sensor B-5"
+		base:hasShortName "temp-sensor-b-5"
+		base:hasDescription "temp-sensor-b-5"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-6 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.006"
+		base:hasCanonicalName "Temp. Sensor B-6"
+		base:hasShortName "temp-sensor-b-6"
+		base:hasDescription "temp-sensor-b-6"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-7 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.007"
+		base:hasCanonicalName "Temp. Sensor B-7"
+		base:hasShortName "temp-sensor-b-7"
+		base:hasDescription "temp-sensor-b-7"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-8 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.008"
+		base:hasCanonicalName "Temp. Sensor B-8"
+		base:hasShortName "temp-sensor-b-8"
+		base:hasDescription "temp-sensor-b-8"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-9 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.009"
+		base:hasCanonicalName "Temp. Sensor B-9"
+		base:hasShortName "temp-sensor-b-9"
+		base:hasDescription "temp-sensor-b-9"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-10 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.010"
+		base:hasCanonicalName "Temp. Sensor B-10"
+		base:hasShortName "temp-sensor-b-10"
+		base:hasDescription "temp-sensor-b-10"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-11 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.011"
+		base:hasCanonicalName "Temp. Sensor B-11"
+		base:hasShortName "temp-sensor-b-11"
+		base:hasDescription "temp-sensor-b-11"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-12 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.012"
+		base:hasCanonicalName "Temp. Sensor B-12"
+		base:hasShortName "temp-sensor-b-12"
+		base:hasDescription "temp-sensor-b-12"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-13 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.013"
+		base:hasCanonicalName "Temp. Sensor B-13"
+		base:hasShortName "temp-sensor-b-13"
+		base:hasDescription "temp-sensor-b-13"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-14 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.014"
+		base:hasCanonicalName "Temp. Sensor B-14"
+		base:hasShortName "temp-sensor-b-14"
+		base:hasDescription "temp-sensor-b-14"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-15 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.015"
+		base:hasCanonicalName "Temp. Sensor B-15"
+		base:hasShortName "temp-sensor-b-15"
+		base:hasDescription "temp-sensor-b-15"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-16 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.016"
+		base:hasCanonicalName "Temp. Sensor B-16"
+		base:hasShortName "temp-sensor-b-16"
+		base:hasDescription "temp-sensor-b-16"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-17 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.017"
+		base:hasCanonicalName "Temp. Sensor B-17"
+		base:hasShortName "temp-sensor-b-17"
+		base:hasDescription "temp-sensor-b-17"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-18 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.018"
+		base:hasCanonicalName "Temp. Sensor B-18"
+		base:hasShortName "temp-sensor-b-18"
+		base:hasDescription "temp-sensor-b-18"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-19 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.019"
+		base:hasCanonicalName "Temp. Sensor B-19"
+		base:hasShortName "temp-sensor-b-19"
+		base:hasDescription "temp-sensor-b-19"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-20 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.020"
+		base:hasCanonicalName "Temp. Sensor B-20"
+		base:hasShortName "temp-sensor-b-20"
+		base:hasDescription "temp-sensor-b-20"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-21 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.021"
+		base:hasCanonicalName "Temp. Sensor B-21"
+		base:hasShortName "temp-sensor-b-21"
+		base:hasDescription "temp-sensor-b-21"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-22 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.022"
+		base:hasCanonicalName "Temp. Sensor B-22"
+		base:hasShortName "temp-sensor-b-22"
+		base:hasDescription "temp-sensor-b-22"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-23 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.023"
+		base:hasCanonicalName "Temp. Sensor B-23"
+		base:hasShortName "temp-sensor-b-23"
+		base:hasDescription "temp-sensor-b-23"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-24 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.024"
+		base:hasCanonicalName "Temp. Sensor B-24"
+		base:hasShortName "temp-sensor-b-24"
+		base:hasDescription "temp-sensor-b-24"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-25 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.025"
+		base:hasCanonicalName "Temp. Sensor B-25"
+		base:hasShortName "temp-sensor-b-25"
+		base:hasDescription "temp-sensor-b-25"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-26 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.026"
+		base:hasCanonicalName "Temp. Sensor B-26"
+		base:hasShortName "temp-sensor-b-26"
+		base:hasDescription "temp-sensor-b-26"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-27 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.027"
+		base:hasCanonicalName "Temp. Sensor B-27"
+		base:hasShortName "temp-sensor-b-27"
+		base:hasDescription "temp-sensor-b-27"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-28 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.028"
+		base:hasCanonicalName "Temp. Sensor B-28"
+		base:hasShortName "temp-sensor-b-28"
+		base:hasDescription "temp-sensor-b-28"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-29 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.029"
+		base:hasCanonicalName "Temp. Sensor B-29"
+		base:hasShortName "temp-sensor-b-29"
+		base:hasDescription "temp-sensor-b-29"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-30 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.030"
+		base:hasCanonicalName "Temp. Sensor B-30"
+		base:hasShortName "temp-sensor-b-30"
+		base:hasDescription "temp-sensor-b-30"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-31 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.031"
+		base:hasCanonicalName "Temp. Sensor B-31"
+		base:hasShortName "temp-sensor-b-31"
+		base:hasDescription "temp-sensor-b-31"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-32 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.032"
+		base:hasCanonicalName "Temp. Sensor B-32"
+		base:hasShortName "temp-sensor-b-32"
+		base:hasDescription "temp-sensor-b-32"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-33 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.033"
+		base:hasCanonicalName "Temp. Sensor B-33"
+		base:hasShortName "temp-sensor-b-33"
+		base:hasDescription "temp-sensor-b-33"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance temp-sensor-b-34 : mission:Component [
+		base:hasIdentifier "CS.01.04.19.034"
+		base:hasCanonicalName "Temp. Sensor B-34"
+		base:hasShortName "temp-sensor-b-34"
+		base:hasDescription "temp-sensor-b-34"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance lines-fittings-misc-1 : mission:Component [
+		base:hasIdentifier "CS.01.04.20.001"
+		base:hasCanonicalName "Lines, Fittings, Misc.-1"
+		base:hasShortName "lines-fittings-misc-1"
+		base:hasDescription "lines-fittings-misc-1"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance monoprop-main-engine-1 : mission:Component [
+		base:hasIdentifier "CS.01.04.21.001"
+		base:hasCanonicalName "Monoprop Main Engine-1"
+		base:hasShortName "monoprop-main-engine-1"
+		base:hasDescription "monoprop-main-engine-1"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance monoprop-main-engine-2 : mission:Component [
+		base:hasIdentifier "CS.01.04.21.002"
+		base:hasCanonicalName "Monoprop Main Engine-2"
+		base:hasShortName "monoprop-main-engine-2"
+		base:hasDescription "monoprop-main-engine-2"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance monoprop-main-engine-3 : mission:Component [
+		base:hasIdentifier "CS.01.04.21.003"
+		base:hasCanonicalName "Monoprop Main Engine-3"
+		base:hasShortName "monoprop-main-engine-3"
+		base:hasDescription "monoprop-main-engine-3"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance monoprop-main-engine-4 : mission:Component [
+		base:hasIdentifier "CS.01.04.21.004"
+		base:hasCanonicalName "Monoprop Main Engine-4"
+		base:hasShortName "monoprop-main-engine-4"
+		base:hasDescription "monoprop-main-engine-4"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance monoprop-main-engine-5 : mission:Component [
+		base:hasIdentifier "CS.01.04.21.005"
+		base:hasCanonicalName "Monoprop Main Engine-5"
+		base:hasShortName "monoprop-main-engine-5"
+		base:hasDescription "monoprop-main-engine-5"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance monoprop-main-engine-6 : mission:Component [
+		base:hasIdentifier "CS.01.04.21.006"
+		base:hasCanonicalName "Monoprop Main Engine-6"
+		base:hasShortName "monoprop-main-engine-6"
+		base:hasDescription "monoprop-main-engine-6"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance monoprop-main-engine-7 : mission:Component [
+		base:hasIdentifier "CS.01.04.21.007"
+		base:hasCanonicalName "Monoprop Main Engine-7"
+		base:hasShortName "monoprop-main-engine-7"
+		base:hasDescription "monoprop-main-engine-7"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance monoprop-main-engine-8 : mission:Component [
+		base:hasIdentifier "CS.01.04.21.008"
+		base:hasCanonicalName "Monoprop Main Engine-8"
+		base:hasShortName "monoprop-main-engine-8"
+		base:hasDescription "monoprop-main-engine-8"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance pressurant-tanks-1 : mission:Component [
+		base:hasIdentifier "CS.01.04.22.001"
+		base:hasCanonicalName "Pressurant Tanks-1"
+		base:hasShortName "pressurant-tanks-1"
+		base:hasDescription "pressurant-tanks-1"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance fuel-tanks-1 : mission:Component [
+		base:hasIdentifier "CS.01.04.23.001"
+		base:hasCanonicalName "Fuel Tanks-1"
+		base:hasShortName "fuel-tanks-1"
+		base:hasDescription "fuel-tanks-1"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance fuel-tanks-2 : mission:Component [
+		base:hasIdentifier "CS.01.04.23.002"
+		base:hasCanonicalName "Fuel Tanks-2"
+		base:hasShortName "fuel-tanks-2"
+		base:hasDescription "fuel-tanks-2"
+		project:isSuppliedBy workpackage:propulsion-subsystem
+	]
+
+	instance primary-structure-1 : mission:Component [
+		base:hasIdentifier "CS.01.05.24.001"
+		base:hasCanonicalName "Primary Structure-1"
+		base:hasShortName "primary-structure-1"
+		base:hasDescription "primary-structure-1"
+		project:isSuppliedBy workpackage:structures-subsystem
+	]
+
+	instance secondary-structure-1 : mission:Component [
+		base:hasIdentifier "CS.01.05.25.001"
+		base:hasCanonicalName "Secondary Structure-1"
+		base:hasShortName "secondary-structure-1"
+		base:hasDescription "secondary-structure-1"
+		project:isSuppliedBy workpackage:structures-subsystem
+	]
+
+	instance thruster-support-structure-1 : mission:Component [
+		base:hasIdentifier "CS.01.05.26.001"
+		base:hasCanonicalName "Thruster Support Structure-1"
+		base:hasShortName "thruster-support-structure-1"
+		base:hasDescription "thruster-support-structure-1"
+		project:isSuppliedBy workpackage:structures-subsystem
+	]
+
+	instance prop-support-structure-1 : mission:Component [
+		base:hasIdentifier "CS.01.05.27.001"
+		base:hasCanonicalName "Prop Support Structure-1"
+		base:hasShortName "prop-support-structure-1"
+		base:hasDescription "prop-support-structure-1"
+		project:isSuppliedBy workpackage:structures-subsystem
+	]
+
+	instance radiator-panels-1 : mission:Component [
+		base:hasIdentifier "CS.01.05.28.001"
+		base:hasCanonicalName "Radiator Panels-1"
+		base:hasShortName "radiator-panels-1"
+		base:hasDescription "radiator-panels-1"
+		project:isSuppliedBy workpackage:structures-subsystem
+	]
+
+	instance separation-devices-1 : mission:Component [
+		base:hasIdentifier "CS.01.05.29.001"
+		base:hasCanonicalName "Separation Devices-1"
+		base:hasShortName "separation-devices-1"
+		base:hasDescription "separation-devices-1"
+		project:isSuppliedBy workpackage:structures-subsystem
+	]
+
+	instance cruise-stage-pai-cm-1 : mission:Component [
+		base:hasIdentifier "CS.01.05.30.001"
+		base:hasCanonicalName "Cruise Stage PAI &CM-1"
+		base:hasShortName "cruise-stage-pai-cm-1"
+		base:hasDescription "cruise-stage-pai-cm-1"
+		project:isSuppliedBy workpackage:structures-subsystem
+	]
+
+	instance purge-hardware-1 : mission:Component [
+		base:hasIdentifier "CS.01.05.31.001"
+		base:hasCanonicalName "Purge Hardware-1"
+		base:hasShortName "purge-hardware-1"
+		base:hasDescription "purge-hardware-1"
+		project:isSuppliedBy workpackage:structures-subsystem
+	]
+
+	instance cabling-harness-1 : mission:Component [
+		base:hasIdentifier "CS.01.05.32.001"
+		base:hasCanonicalName "Cabling Harness-1"
+		base:hasShortName "cabling-harness-1"
+		base:hasDescription "cabling-harness-1"
+		project:isSuppliedBy workpackage:structures-subsystem
+	]
+
+	instance adapter-spacecraft-side-1 : mission:Component [
+		base:hasIdentifier "CS.01.05.33.001"
+		base:hasCanonicalName "Adapter, Spacecraft side-1"
+		base:hasShortName "adapter-spacecraft-side-1"
+		base:hasDescription "adapter-spacecraft-side-1"
+		project:isSuppliedBy workpackage:structures-subsystem
+	]
+
+	instance x-mga-19db-mer-1 : mission:Component [
+		base:hasIdentifier "CS.01.06.34.001"
+		base:hasCanonicalName "X-MGA (19dB) MER-1"
+		base:hasShortName "x-mga-19db-mer-1"
+		base:hasDescription "x-mga-19db-mer-1"
+		project:isSuppliedBy workpackage:telecomm-subsystem
+	]
+
+	instance other-1 : mission:Component [
+		base:hasIdentifier "CS.01.06.35.001"
+		base:hasCanonicalName "Other-1"
+		base:hasShortName "other-1"
+		base:hasDescription "other-1"
+		project:isSuppliedBy workpackage:telecomm-subsystem
+	]
+
+	instance multilayer-insulation-mli-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.001"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-1"
+		base:hasShortName "multilayer-insulation-mli-1"
+		base:hasDescription "multilayer-insulation-mli-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-2 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.002"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-2"
+		base:hasShortName "multilayer-insulation-mli-2"
+		base:hasDescription "multilayer-insulation-mli-2"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-3 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.003"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-3"
+		base:hasShortName "multilayer-insulation-mli-3"
+		base:hasDescription "multilayer-insulation-mli-3"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-4 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.004"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-4"
+		base:hasShortName "multilayer-insulation-mli-4"
+		base:hasDescription "multilayer-insulation-mli-4"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-5 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.005"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-5"
+		base:hasShortName "multilayer-insulation-mli-5"
+		base:hasDescription "multilayer-insulation-mli-5"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-6 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.006"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-6"
+		base:hasShortName "multilayer-insulation-mli-6"
+		base:hasDescription "multilayer-insulation-mli-6"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-7 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.007"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-7"
+		base:hasShortName "multilayer-insulation-mli-7"
+		base:hasDescription "multilayer-insulation-mli-7"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-8 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.008"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-8"
+		base:hasShortName "multilayer-insulation-mli-8"
+		base:hasDescription "multilayer-insulation-mli-8"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-9 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.009"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-9"
+		base:hasShortName "multilayer-insulation-mli-9"
+		base:hasDescription "multilayer-insulation-mli-9"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-10 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.010"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-10"
+		base:hasShortName "multilayer-insulation-mli-10"
+		base:hasDescription "multilayer-insulation-mli-10"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-11 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.011"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-11"
+		base:hasShortName "multilayer-insulation-mli-11"
+		base:hasDescription "multilayer-insulation-mli-11"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-12 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.012"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-12"
+		base:hasShortName "multilayer-insulation-mli-12"
+		base:hasDescription "multilayer-insulation-mli-12"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-13 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.013"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-13"
+		base:hasShortName "multilayer-insulation-mli-13"
+		base:hasDescription "multilayer-insulation-mli-13"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-14 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.014"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-14"
+		base:hasShortName "multilayer-insulation-mli-14"
+		base:hasDescription "multilayer-insulation-mli-14"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-15 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.015"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-15"
+		base:hasShortName "multilayer-insulation-mli-15"
+		base:hasDescription "multilayer-insulation-mli-15"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-16 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.016"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-16"
+		base:hasShortName "multilayer-insulation-mli-16"
+		base:hasDescription "multilayer-insulation-mli-16"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-17 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.017"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-17"
+		base:hasShortName "multilayer-insulation-mli-17"
+		base:hasDescription "multilayer-insulation-mli-17"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-18 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.018"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-18"
+		base:hasShortName "multilayer-insulation-mli-18"
+		base:hasDescription "multilayer-insulation-mli-18"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-19 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.019"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-19"
+		base:hasShortName "multilayer-insulation-mli-19"
+		base:hasDescription "multilayer-insulation-mli-19"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance multilayer-insulation-mli-20 : mission:Component [
+		base:hasIdentifier "CS.01.07.36.020"
+		base:hasCanonicalName "Multilayer Insulation (MLI)-20"
+		base:hasShortName "multilayer-insulation-mli-20"
+		base:hasDescription "multilayer-insulation-mli-20"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance paints-films-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.37.001"
+		base:hasCanonicalName "Paints/Films-1"
+		base:hasShortName "paints-films-1"
+		base:hasDescription "paints-films-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance paints-films-2 : mission:Component [
+		base:hasIdentifier "CS.01.07.37.002"
+		base:hasCanonicalName "Paints/Films-2"
+		base:hasShortName "paints-films-2"
+		base:hasDescription "paints-films-2"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance paints-films-3 : mission:Component [
+		base:hasIdentifier "CS.01.07.37.003"
+		base:hasCanonicalName "Paints/Films-3"
+		base:hasShortName "paints-films-3"
+		base:hasDescription "paints-films-3"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance paints-films-4 : mission:Component [
+		base:hasIdentifier "CS.01.07.37.004"
+		base:hasCanonicalName "Paints/Films-4"
+		base:hasShortName "paints-films-4"
+		base:hasDescription "paints-films-4"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance paints-films-5 : mission:Component [
+		base:hasIdentifier "CS.01.07.37.005"
+		base:hasCanonicalName "Paints/Films-5"
+		base:hasShortName "paints-films-5"
+		base:hasDescription "paints-films-5"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance paints-films-6 : mission:Component [
+		base:hasIdentifier "CS.01.07.37.006"
+		base:hasCanonicalName "Paints/Films-6"
+		base:hasShortName "paints-films-6"
+		base:hasDescription "paints-films-6"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance paints-films-7 : mission:Component [
+		base:hasIdentifier "CS.01.07.37.007"
+		base:hasCanonicalName "Paints/Films-7"
+		base:hasShortName "paints-films-7"
+		base:hasDescription "paints-films-7"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance paints-films-8 : mission:Component [
+		base:hasIdentifier "CS.01.07.37.008"
+		base:hasCanonicalName "Paints/Films-8"
+		base:hasShortName "paints-films-8"
+		base:hasDescription "paints-films-8"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance paints-films-9 : mission:Component [
+		base:hasIdentifier "CS.01.07.37.009"
+		base:hasCanonicalName "Paints/Films-9"
+		base:hasShortName "paints-films-9"
+		base:hasDescription "paints-films-9"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance paints-films-10 : mission:Component [
+		base:hasIdentifier "CS.01.07.37.010"
+		base:hasCanonicalName "Paints/Films-10"
+		base:hasShortName "paints-films-10"
+		base:hasDescription "paints-films-10"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance general-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.38.001"
+		base:hasCanonicalName "General-1"
+		base:hasShortName "general-1"
+		base:hasDescription "general-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance custom-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.39.001"
+		base:hasCanonicalName "Custom-1"
+		base:hasShortName "custom-1"
+		base:hasDescription "custom-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance custom-2 : mission:Component [
+		base:hasIdentifier "CS.01.07.39.002"
+		base:hasCanonicalName "Custom-2"
+		base:hasShortName "custom-2"
+		base:hasDescription "custom-2"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance custom-3 : mission:Component [
+		base:hasIdentifier "CS.01.07.39.003"
+		base:hasCanonicalName "Custom-3"
+		base:hasShortName "custom-3"
+		base:hasDescription "custom-3"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance custom-4 : mission:Component [
+		base:hasIdentifier "CS.01.07.39.004"
+		base:hasCanonicalName "Custom-4"
+		base:hasShortName "custom-4"
+		base:hasDescription "custom-4"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance propulsion-tank-heaters-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.40.001"
+		base:hasCanonicalName "Propulsion Tank Heaters-1"
+		base:hasShortName "propulsion-tank-heaters-1"
+		base:hasDescription "propulsion-tank-heaters-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance propulsion-tank-heaters-2 : mission:Component [
+		base:hasIdentifier "CS.01.07.40.002"
+		base:hasCanonicalName "Propulsion Tank Heaters-2"
+		base:hasShortName "propulsion-tank-heaters-2"
+		base:hasDescription "propulsion-tank-heaters-2"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance propulsion-line-heaters-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.41.001"
+		base:hasCanonicalName "Propulsion Line Heaters-1"
+		base:hasShortName "propulsion-line-heaters-1"
+		base:hasDescription "propulsion-line-heaters-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance propulsion-line-heaters-2 : mission:Component [
+		base:hasIdentifier "CS.01.07.41.002"
+		base:hasCanonicalName "Propulsion Line Heaters-2"
+		base:hasShortName "propulsion-line-heaters-2"
+		base:hasDescription "propulsion-line-heaters-2"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance propulsion-line-heaters-3 : mission:Component [
+		base:hasIdentifier "CS.01.07.41.003"
+		base:hasCanonicalName "Propulsion Line Heaters-3"
+		base:hasShortName "propulsion-line-heaters-3"
+		base:hasDescription "propulsion-line-heaters-3"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance propulsion-line-heaters-4 : mission:Component [
+		base:hasIdentifier "CS.01.07.41.004"
+		base:hasCanonicalName "Propulsion Line Heaters-4"
+		base:hasShortName "propulsion-line-heaters-4"
+		base:hasDescription "propulsion-line-heaters-4"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance propulsion-line-heaters-5 : mission:Component [
+		base:hasIdentifier "CS.01.07.41.005"
+		base:hasCanonicalName "Propulsion Line Heaters-5"
+		base:hasShortName "propulsion-line-heaters-5"
+		base:hasDescription "propulsion-line-heaters-5"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance propulsion-line-heaters-6 : mission:Component [
+		base:hasIdentifier "CS.01.07.41.006"
+		base:hasCanonicalName "Propulsion Line Heaters-6"
+		base:hasShortName "propulsion-line-heaters-6"
+		base:hasDescription "propulsion-line-heaters-6"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.001"
+		base:hasCanonicalName "PRT's-1"
+		base:hasShortName "prts-1"
+		base:hasDescription "prts-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-2 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.002"
+		base:hasCanonicalName "PRT's-2"
+		base:hasShortName "prts-2"
+		base:hasDescription "prts-2"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-3 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.003"
+		base:hasCanonicalName "PRT's-3"
+		base:hasShortName "prts-3"
+		base:hasDescription "prts-3"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-4 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.004"
+		base:hasCanonicalName "PRT's-4"
+		base:hasShortName "prts-4"
+		base:hasDescription "prts-4"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-5 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.005"
+		base:hasCanonicalName "PRT's-5"
+		base:hasShortName "prts-5"
+		base:hasDescription "prts-5"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-6 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.006"
+		base:hasCanonicalName "PRT's-6"
+		base:hasShortName "prts-6"
+		base:hasDescription "prts-6"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-7 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.007"
+		base:hasCanonicalName "PRT's-7"
+		base:hasShortName "prts-7"
+		base:hasDescription "prts-7"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-8 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.008"
+		base:hasCanonicalName "PRT's-8"
+		base:hasShortName "prts-8"
+		base:hasDescription "prts-8"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-9 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.009"
+		base:hasCanonicalName "PRT's-9"
+		base:hasShortName "prts-9"
+		base:hasDescription "prts-9"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-10 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.010"
+		base:hasCanonicalName "PRT's-10"
+		base:hasShortName "prts-10"
+		base:hasDescription "prts-10"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-11 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.011"
+		base:hasCanonicalName "PRT's-11"
+		base:hasShortName "prts-11"
+		base:hasDescription "prts-11"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-12 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.012"
+		base:hasCanonicalName "PRT's-12"
+		base:hasShortName "prts-12"
+		base:hasDescription "prts-12"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-13 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.013"
+		base:hasCanonicalName "PRT's-13"
+		base:hasShortName "prts-13"
+		base:hasDescription "prts-13"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-14 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.014"
+		base:hasCanonicalName "PRT's-14"
+		base:hasShortName "prts-14"
+		base:hasDescription "prts-14"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-15 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.015"
+		base:hasCanonicalName "PRT's-15"
+		base:hasShortName "prts-15"
+		base:hasDescription "prts-15"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-16 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.016"
+		base:hasCanonicalName "PRT's-16"
+		base:hasShortName "prts-16"
+		base:hasDescription "prts-16"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-17 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.017"
+		base:hasCanonicalName "PRT's-17"
+		base:hasShortName "prts-17"
+		base:hasDescription "prts-17"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-18 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.018"
+		base:hasCanonicalName "PRT's-18"
+		base:hasShortName "prts-18"
+		base:hasDescription "prts-18"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-19 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.019"
+		base:hasCanonicalName "PRT's-19"
+		base:hasShortName "prts-19"
+		base:hasDescription "prts-19"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-20 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.020"
+		base:hasCanonicalName "PRT's-20"
+		base:hasShortName "prts-20"
+		base:hasDescription "prts-20"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-21 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.021"
+		base:hasCanonicalName "PRT's-21"
+		base:hasShortName "prts-21"
+		base:hasDescription "prts-21"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-22 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.022"
+		base:hasCanonicalName "PRT's-22"
+		base:hasShortName "prts-22"
+		base:hasDescription "prts-22"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-23 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.023"
+		base:hasCanonicalName "PRT's-23"
+		base:hasShortName "prts-23"
+		base:hasDescription "prts-23"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-24 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.024"
+		base:hasCanonicalName "PRT's-24"
+		base:hasShortName "prts-24"
+		base:hasDescription "prts-24"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-25 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.025"
+		base:hasCanonicalName "PRT's-25"
+		base:hasShortName "prts-25"
+		base:hasDescription "prts-25"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-26 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.026"
+		base:hasCanonicalName "PRT's-26"
+		base:hasShortName "prts-26"
+		base:hasDescription "prts-26"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-27 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.027"
+		base:hasCanonicalName "PRT's-27"
+		base:hasShortName "prts-27"
+		base:hasDescription "prts-27"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-28 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.028"
+		base:hasCanonicalName "PRT's-28"
+		base:hasShortName "prts-28"
+		base:hasDescription "prts-28"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-29 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.029"
+		base:hasCanonicalName "PRT's-29"
+		base:hasShortName "prts-29"
+		base:hasDescription "prts-29"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-30 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.030"
+		base:hasCanonicalName "PRT's-30"
+		base:hasShortName "prts-30"
+		base:hasDescription "prts-30"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-31 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.031"
+		base:hasCanonicalName "PRT's-31"
+		base:hasShortName "prts-31"
+		base:hasDescription "prts-31"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-32 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.032"
+		base:hasCanonicalName "PRT's-32"
+		base:hasShortName "prts-32"
+		base:hasDescription "prts-32"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-33 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.033"
+		base:hasCanonicalName "PRT's-33"
+		base:hasShortName "prts-33"
+		base:hasDescription "prts-33"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-34 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.034"
+		base:hasCanonicalName "PRT's-34"
+		base:hasShortName "prts-34"
+		base:hasDescription "prts-34"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-35 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.035"
+		base:hasCanonicalName "PRT's-35"
+		base:hasShortName "prts-35"
+		base:hasDescription "prts-35"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-36 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.036"
+		base:hasCanonicalName "PRT's-36"
+		base:hasShortName "prts-36"
+		base:hasDescription "prts-36"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-37 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.037"
+		base:hasCanonicalName "PRT's-37"
+		base:hasShortName "prts-37"
+		base:hasDescription "prts-37"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-38 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.038"
+		base:hasCanonicalName "PRT's-38"
+		base:hasShortName "prts-38"
+		base:hasDescription "prts-38"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-39 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.039"
+		base:hasCanonicalName "PRT's-39"
+		base:hasShortName "prts-39"
+		base:hasDescription "prts-39"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-40 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.040"
+		base:hasCanonicalName "PRT's-40"
+		base:hasShortName "prts-40"
+		base:hasDescription "prts-40"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-41 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.041"
+		base:hasCanonicalName "PRT's-41"
+		base:hasShortName "prts-41"
+		base:hasDescription "prts-41"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-42 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.042"
+		base:hasCanonicalName "PRT's-42"
+		base:hasShortName "prts-42"
+		base:hasDescription "prts-42"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-43 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.043"
+		base:hasCanonicalName "PRT's-43"
+		base:hasShortName "prts-43"
+		base:hasDescription "prts-43"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-44 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.044"
+		base:hasCanonicalName "PRT's-44"
+		base:hasShortName "prts-44"
+		base:hasDescription "prts-44"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-45 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.045"
+		base:hasCanonicalName "PRT's-45"
+		base:hasShortName "prts-45"
+		base:hasDescription "prts-45"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-46 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.046"
+		base:hasCanonicalName "PRT's-46"
+		base:hasShortName "prts-46"
+		base:hasDescription "prts-46"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-47 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.047"
+		base:hasCanonicalName "PRT's-47"
+		base:hasShortName "prts-47"
+		base:hasDescription "prts-47"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-48 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.048"
+		base:hasCanonicalName "PRT's-48"
+		base:hasShortName "prts-48"
+		base:hasDescription "prts-48"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-49 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.049"
+		base:hasCanonicalName "PRT's-49"
+		base:hasShortName "prts-49"
+		base:hasDescription "prts-49"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-50 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.050"
+		base:hasCanonicalName "PRT's-50"
+		base:hasShortName "prts-50"
+		base:hasDescription "prts-50"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-51 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.051"
+		base:hasCanonicalName "PRT's-51"
+		base:hasShortName "prts-51"
+		base:hasDescription "prts-51"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-52 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.052"
+		base:hasCanonicalName "PRT's-52"
+		base:hasShortName "prts-52"
+		base:hasDescription "prts-52"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-53 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.053"
+		base:hasCanonicalName "PRT's-53"
+		base:hasShortName "prts-53"
+		base:hasDescription "prts-53"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-54 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.054"
+		base:hasCanonicalName "PRT's-54"
+		base:hasShortName "prts-54"
+		base:hasDescription "prts-54"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-55 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.055"
+		base:hasCanonicalName "PRT's-55"
+		base:hasShortName "prts-55"
+		base:hasDescription "prts-55"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-56 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.056"
+		base:hasCanonicalName "PRT's-56"
+		base:hasShortName "prts-56"
+		base:hasDescription "prts-56"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-57 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.057"
+		base:hasCanonicalName "PRT's-57"
+		base:hasShortName "prts-57"
+		base:hasDescription "prts-57"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-58 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.058"
+		base:hasCanonicalName "PRT's-58"
+		base:hasShortName "prts-58"
+		base:hasDescription "prts-58"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-59 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.059"
+		base:hasCanonicalName "PRT's-59"
+		base:hasShortName "prts-59"
+		base:hasDescription "prts-59"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-60 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.060"
+		base:hasCanonicalName "PRT's-60"
+		base:hasShortName "prts-60"
+		base:hasDescription "prts-60"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-61 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.061"
+		base:hasCanonicalName "PRT's-61"
+		base:hasShortName "prts-61"
+		base:hasDescription "prts-61"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-62 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.062"
+		base:hasCanonicalName "PRT's-62"
+		base:hasShortName "prts-62"
+		base:hasDescription "prts-62"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-63 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.063"
+		base:hasCanonicalName "PRT's-63"
+		base:hasShortName "prts-63"
+		base:hasDescription "prts-63"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-64 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.064"
+		base:hasCanonicalName "PRT's-64"
+		base:hasShortName "prts-64"
+		base:hasDescription "prts-64"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-65 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.065"
+		base:hasCanonicalName "PRT's-65"
+		base:hasShortName "prts-65"
+		base:hasDescription "prts-65"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-66 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.066"
+		base:hasCanonicalName "PRT's-66"
+		base:hasShortName "prts-66"
+		base:hasDescription "prts-66"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-67 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.067"
+		base:hasCanonicalName "PRT's-67"
+		base:hasShortName "prts-67"
+		base:hasDescription "prts-67"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-68 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.068"
+		base:hasCanonicalName "PRT's-68"
+		base:hasShortName "prts-68"
+		base:hasDescription "prts-68"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-69 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.069"
+		base:hasCanonicalName "PRT's-69"
+		base:hasShortName "prts-69"
+		base:hasDescription "prts-69"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-70 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.070"
+		base:hasCanonicalName "PRT's-70"
+		base:hasShortName "prts-70"
+		base:hasDescription "prts-70"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-71 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.071"
+		base:hasCanonicalName "PRT's-71"
+		base:hasShortName "prts-71"
+		base:hasDescription "prts-71"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-72 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.072"
+		base:hasCanonicalName "PRT's-72"
+		base:hasShortName "prts-72"
+		base:hasDescription "prts-72"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-73 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.073"
+		base:hasCanonicalName "PRT's-73"
+		base:hasShortName "prts-73"
+		base:hasDescription "prts-73"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-74 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.074"
+		base:hasCanonicalName "PRT's-74"
+		base:hasShortName "prts-74"
+		base:hasDescription "prts-74"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-75 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.075"
+		base:hasCanonicalName "PRT's-75"
+		base:hasShortName "prts-75"
+		base:hasDescription "prts-75"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-76 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.076"
+		base:hasCanonicalName "PRT's-76"
+		base:hasShortName "prts-76"
+		base:hasDescription "prts-76"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-77 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.077"
+		base:hasCanonicalName "PRT's-77"
+		base:hasShortName "prts-77"
+		base:hasDescription "prts-77"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance prts-78 : mission:Component [
+		base:hasIdentifier "CS.01.07.42.078"
+		base:hasCanonicalName "PRT's-78"
+		base:hasShortName "prts-78"
+		base:hasDescription "prts-78"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance mechanical-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.43.001"
+		base:hasCanonicalName "Mechanical-1"
+		base:hasShortName "mechanical-1"
+		base:hasDescription "mechanical-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance mechanical-2 : mission:Component [
+		base:hasIdentifier "CS.01.07.43.002"
+		base:hasCanonicalName "Mechanical-2"
+		base:hasShortName "mechanical-2"
+		base:hasDescription "mechanical-2"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance mechanical-3 : mission:Component [
+		base:hasIdentifier "CS.01.07.43.003"
+		base:hasCanonicalName "Mechanical-3"
+		base:hasShortName "mechanical-3"
+		base:hasDescription "mechanical-3"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance mechanical-4 : mission:Component [
+		base:hasIdentifier "CS.01.07.43.004"
+		base:hasCanonicalName "Mechanical-4"
+		base:hasShortName "mechanical-4"
+		base:hasDescription "mechanical-4"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance thermal-radiator-area-m2-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.44.001"
+		base:hasCanonicalName "Thermal Radiator (Area=m2)-1"
+		base:hasShortName "thermal-radiator-area-m2-1"
+		base:hasDescription "thermal-radiator-area-m2-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance cipas-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.45.001"
+		base:hasCanonicalName "CIPAS-1"
+		base:hasShortName "cipas-1"
+		base:hasDescription "cipas-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance hrs-tube-assy-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.46.001"
+		base:hasCanonicalName "HRS Tube Assy-1"
+		base:hasShortName "hrs-tube-assy-1"
+		base:hasDescription "hrs-tube-assy-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance hrs-cfc-11-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.47.001"
+		base:hasCanonicalName "HRS CFC-11-1"
+		base:hasShortName "hrs-cfc-11-1"
+		base:hasDescription "hrs-cfc-11-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance hrs-tube-epoxy-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.48.001"
+		base:hasCanonicalName "HRS Tube Epoxy-1"
+		base:hasShortName "hrs-tube-epoxy-1"
+		base:hasDescription "hrs-tube-epoxy-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+	instance fluid-p-clamp-bulk-jam-nut-1 : mission:Component [
+		base:hasIdentifier "CS.01.07.49.001"
+		base:hasCanonicalName "Fluid (P-Clamp+Bulk Jam Nut)-1"
+		base:hasShortName "fluid-p-clamp-bulk-jam-nut-1"
+		base:hasDescription "fluid-p-clamp-bulk-jam-nut-1"
+		project:isSuppliedBy workpackage:thermal-subsystem
+	]
+
+
+// Instance Contains
+  ref instance cruise-stage [
+		base:contains sun-sensors-1
+		base:contains sun-sensors-2
+		base:contains star-trackers-1
+		base:contains star-trackers-2
+		base:contains telemetry-mulitplex-card-1
+		base:contains mreu-msap-analog-discrete-mreu-1
+		base:contains solar-array-1
+		base:contains chassis-1
+		base:contains array-segment-switches-array-interface-slice-boards-1
+		base:contains array-segment-switches-array-interface-slice-boards-2
+		base:contains load-switches-lcc-boards-1
+		base:contains load-switches-lcc-boards-2
+		base:contains load-switches-lcc-boards-3
+		base:contains load-switches-lcc-boards-4
+		base:contains thruster-drivers-gid-boards-1
+		base:contains thruster-drivers-gid-boards-2
+		base:contains houskeeping-dc-dc-converters-boards-1
+		base:contains houskeeping-dc-dc-converters-boards-2
+		base:contains power-shunt-control-shunt-driver-slice-boards-1
+		base:contains power-shunt-control-shunt-driver-slice-boards-2
+		base:contains shielding-1
+		base:contains gas-service-valve-1
+		base:contains gas-service-valve-2
+		base:contains temp-sensor-a-1
+		base:contains liq-service-valve-1
+		base:contains lp-transducer-1
+		base:contains lp-transducer-2
+		base:contains liq-filter-1
+		base:contains lp-latch-valve-1
+		base:contains lp-latch-valve-2
+		base:contains temp-sensor-b-1
+		base:contains temp-sensor-b-2
+		base:contains temp-sensor-b-3
+		base:contains temp-sensor-b-4
+		base:contains temp-sensor-b-5
+		base:contains temp-sensor-b-6
+		base:contains temp-sensor-b-7
+		base:contains temp-sensor-b-8
+		base:contains temp-sensor-b-9
+		base:contains temp-sensor-b-10
+		base:contains temp-sensor-b-11
+		base:contains temp-sensor-b-12
+		base:contains temp-sensor-b-13
+		base:contains temp-sensor-b-14
+		base:contains temp-sensor-b-15
+		base:contains temp-sensor-b-16
+		base:contains temp-sensor-b-17
+		base:contains temp-sensor-b-18
+		base:contains temp-sensor-b-19
+		base:contains temp-sensor-b-20
+		base:contains temp-sensor-b-21
+		base:contains temp-sensor-b-22
+		base:contains temp-sensor-b-23
+		base:contains temp-sensor-b-24
+		base:contains temp-sensor-b-25
+		base:contains temp-sensor-b-26
+		base:contains temp-sensor-b-27
+		base:contains temp-sensor-b-28
+		base:contains temp-sensor-b-29
+		base:contains temp-sensor-b-30
+		base:contains temp-sensor-b-31
+		base:contains temp-sensor-b-32
+		base:contains temp-sensor-b-33
+		base:contains temp-sensor-b-34
+		base:contains lines-fittings-misc-1
+		base:contains monoprop-main-engine-1
+		base:contains monoprop-main-engine-2
+		base:contains monoprop-main-engine-3
+		base:contains monoprop-main-engine-4
+		base:contains monoprop-main-engine-5
+		base:contains monoprop-main-engine-6
+		base:contains monoprop-main-engine-7
+		base:contains monoprop-main-engine-8
+		base:contains pressurant-tanks-1
+		base:contains fuel-tanks-1
+		base:contains fuel-tanks-2
+		base:contains primary-structure-1
+		base:contains secondary-structure-1
+		base:contains thruster-support-structure-1
+		base:contains prop-support-structure-1
+		base:contains radiator-panels-1
+		base:contains separation-devices-1
+		base:contains cruise-stage-pai-cm-1
+		base:contains purge-hardware-1
+		base:contains cabling-harness-1
+		base:contains adapter-spacecraft-side-1
+		base:contains x-mga-19db-mer-1
+		base:contains other-1
+		base:contains multilayer-insulation-mli-1
+		base:contains multilayer-insulation-mli-2
+		base:contains multilayer-insulation-mli-3
+		base:contains multilayer-insulation-mli-4
+		base:contains multilayer-insulation-mli-5
+		base:contains multilayer-insulation-mli-6
+		base:contains multilayer-insulation-mli-7
+		base:contains multilayer-insulation-mli-8
+		base:contains multilayer-insulation-mli-9
+		base:contains multilayer-insulation-mli-10
+		base:contains multilayer-insulation-mli-11
+		base:contains multilayer-insulation-mli-12
+		base:contains multilayer-insulation-mli-13
+		base:contains multilayer-insulation-mli-14
+		base:contains multilayer-insulation-mli-15
+		base:contains multilayer-insulation-mli-16
+		base:contains multilayer-insulation-mli-17
+		base:contains multilayer-insulation-mli-18
+		base:contains multilayer-insulation-mli-19
+		base:contains multilayer-insulation-mli-20
+		base:contains paints-films-1
+		base:contains paints-films-2
+		base:contains paints-films-3
+		base:contains paints-films-4
+		base:contains paints-films-5
+		base:contains paints-films-6
+		base:contains paints-films-7
+		base:contains paints-films-8
+		base:contains paints-films-9
+		base:contains paints-films-10
+		base:contains general-1
+		base:contains custom-1
+		base:contains custom-2
+		base:contains custom-3
+		base:contains custom-4
+		base:contains propulsion-tank-heaters-1
+		base:contains propulsion-tank-heaters-2
+		base:contains propulsion-line-heaters-1
+		base:contains propulsion-line-heaters-2
+		base:contains propulsion-line-heaters-3
+		base:contains propulsion-line-heaters-4
+		base:contains propulsion-line-heaters-5
+		base:contains propulsion-line-heaters-6
+		base:contains prts-1
+		base:contains prts-2
+		base:contains prts-3
+		base:contains prts-4
+		base:contains prts-5
+		base:contains prts-6
+		base:contains prts-7
+		base:contains prts-8
+		base:contains prts-9
+		base:contains prts-10
+		base:contains prts-11
+		base:contains prts-12
+		base:contains prts-13
+		base:contains prts-14
+		base:contains prts-15
+		base:contains prts-16
+		base:contains prts-17
+		base:contains prts-18
+		base:contains prts-19
+		base:contains prts-20
+		base:contains prts-21
+		base:contains prts-22
+		base:contains prts-23
+		base:contains prts-24
+		base:contains prts-25
+		base:contains prts-26
+		base:contains prts-27
+		base:contains prts-28
+		base:contains prts-29
+		base:contains prts-30
+		base:contains prts-31
+		base:contains prts-32
+		base:contains prts-33
+		base:contains prts-34
+		base:contains prts-35
+		base:contains prts-36
+		base:contains prts-37
+		base:contains prts-38
+		base:contains prts-39
+		base:contains prts-40
+		base:contains prts-41
+		base:contains prts-42
+		base:contains prts-43
+		base:contains prts-44
+		base:contains prts-45
+		base:contains prts-46
+		base:contains prts-47
+		base:contains prts-48
+		base:contains prts-49
+		base:contains prts-50
+		base:contains prts-51
+		base:contains prts-52
+		base:contains prts-53
+		base:contains prts-54
+		base:contains prts-55
+		base:contains prts-56
+		base:contains prts-57
+		base:contains prts-58
+		base:contains prts-59
+		base:contains prts-60
+		base:contains prts-61
+		base:contains prts-62
+		base:contains prts-63
+		base:contains prts-64
+		base:contains prts-65
+		base:contains prts-66
+		base:contains prts-67
+		base:contains prts-68
+		base:contains prts-69
+		base:contains prts-70
+		base:contains prts-71
+		base:contains prts-72
+		base:contains prts-73
+		base:contains prts-74
+		base:contains prts-75
+		base:contains prts-76
+		base:contains prts-77
+		base:contains prts-78
+		base:contains mechanical-1
+		base:contains mechanical-2
+		base:contains mechanical-3
+		base:contains mechanical-4
+		base:contains thermal-radiator-area-m2-1
+		base:contains cipas-1
+		base:contains hrs-tube-assy-1
+		base:contains hrs-cfc-11-1
+		base:contains hrs-tube-epoxy-1
+		base:contains fluid-p-clamp-bulk-jam-nut-1
+	]
+
+
+}
