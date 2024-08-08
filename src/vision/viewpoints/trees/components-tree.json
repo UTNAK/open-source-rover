@@ -5,8 +5,8 @@
           "all-rows": "components-diagram"
         },
         "queries": {
-          "subsystem": "subsystem.sparql",
-          "assembly": "assembly.sparql"
+          "subsystem": "subsystem_with_mass.sparql",
+          "assembly": "assembly_with_mass.sparql"
         },
         "rowMapping": {
           "id": "subsystem",

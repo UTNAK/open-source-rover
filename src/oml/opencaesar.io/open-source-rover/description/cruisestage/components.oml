@@ -21,7 +21,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Sun Sensors-1"
 		base:hasShortName "sun-sensors-1"
 		base:hasDescription "sun-sensors-1"
-		project:isSuppliedBy workpackage:attitude-determination-and-control-subsystem
+		project:isSuppliedBy workpackage:sun-sensors
 	]
 
 	instance sun-sensors-2 : mission:Component [
@@ -29,7 +29,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Sun Sensors-2"
 		base:hasShortName "sun-sensors-2"
 		base:hasDescription "sun-sensors-2"
-		project:isSuppliedBy workpackage:attitude-determination-and-control-subsystem
+		project:isSuppliedBy workpackage:sun-sensors
 	]
 
 	instance star-trackers-1 : mission:Component [
@@ -37,7 +37,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Star Trackers-1"
 		base:hasShortName "star-trackers-1"
 		base:hasDescription "star-trackers-1"
-		project:isSuppliedBy workpackage:attitude-determination-and-control-subsystem
+		project:isSuppliedBy workpackage:star-trackers
 	]
 
 	instance star-trackers-2 : mission:Component [
@@ -45,7 +45,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Star Trackers-2"
 		base:hasShortName "star-trackers-2"
 		base:hasDescription "star-trackers-2"
-		project:isSuppliedBy workpackage:attitude-determination-and-control-subsystem
+		project:isSuppliedBy workpackage:star-trackers
 	]
 
 	instance telemetry-mulitplex-card-1 : mission:Component [
@@ -53,7 +53,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Telemetry Mulitplex Card (TMC): CRC Card (NR)-1"
 		base:hasShortName "telemetry-mulitplex-card-1"
 		base:hasDescription "telemetry-mulitplex-card-1"
-		project:isSuppliedBy workpackage:command-and-data-subsystem
+		project:isSuppliedBy workpackage:telemetry-mulitplex-card
 	]
 
 	instance mreu-msap-analog-discrete-mreu-1 : mission:Component [
@@ -61,7 +61,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "MREU: MSAP Analog/Discrete MREU-1"
 		base:hasShortName "mreu-msap-analog-discrete-mreu-1"
 		base:hasDescription "mreu-msap-analog-discrete-mreu-1"
-		project:isSuppliedBy workpackage:command-and-data-subsystem
+		project:isSuppliedBy workpackage:mreu-msap-analog-discrete-mreu
 	]
 
 	instance solar-array-1 : mission:Component [
@@ -69,7 +69,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Solar Array-1"
 		base:hasShortName "solar-array-1"
 		base:hasDescription "solar-array-1"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:solar-array
 	]
 
 	instance chassis-1 : mission:Component [
@@ -77,7 +77,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Chassis-1"
 		base:hasShortName "chassis-1"
 		base:hasDescription "chassis-1"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:chassis
 	]
 
 	instance array-segment-switches-array-interface-slice-boards-1 : mission:Component [
@@ -85,7 +85,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Array Segment Switches* - Array Interface Slice Boards-1"
 		base:hasShortName "array-segment-switches-array-interface-slice-boards-1"
 		base:hasDescription "array-segment-switches-array-interface-slice-boards-1"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:array-segment-switches-array-interface-slice-boards
 	]
 
 	instance array-segment-switches-array-interface-slice-boards-2 : mission:Component [
@@ -93,7 +93,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Array Segment Switches* - Array Interface Slice Boards-2"
 		base:hasShortName "array-segment-switches-array-interface-slice-boards-2"
 		base:hasDescription "array-segment-switches-array-interface-slice-boards-2"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:array-segment-switches-array-interface-slice-boards
 	]
 
 	instance load-switches-lcc-boards-1 : mission:Component [
@@ -101,7 +101,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Load Switches - LCC Boards-1"
 		base:hasShortName "load-switches-lcc-boards-1"
 		base:hasDescription "load-switches-lcc-boards-1"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:load-switches-lcc-boards
 	]
 
 	instance load-switches-lcc-boards-2 : mission:Component [
@@ -109,7 +109,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Load Switches - LCC Boards-2"
 		base:hasShortName "load-switches-lcc-boards-2"
 		base:hasDescription "load-switches-lcc-boards-2"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:load-switches-lcc-boards
 	]
 
 	instance load-switches-lcc-boards-3 : mission:Component [
@@ -117,7 +117,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Load Switches - LCC Boards-3"
 		base:hasShortName "load-switches-lcc-boards-3"
 		base:hasDescription "load-switches-lcc-boards-3"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:load-switches-lcc-boards
 	]
 
 	instance load-switches-lcc-boards-4 : mission:Component [
@@ -125,7 +125,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Load Switches - LCC Boards-4"
 		base:hasShortName "load-switches-lcc-boards-4"
 		base:hasDescription "load-switches-lcc-boards-4"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:load-switches-lcc-boards
 	]
 
 	instance thruster-drivers-gid-boards-1 : mission:Component [
@@ -133,7 +133,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Thruster Drivers* - GID Boards-1"
 		base:hasShortName "thruster-drivers-gid-boards-1"
 		base:hasDescription "thruster-drivers-gid-boards-1"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:thruster-drivers-gid-boards
 	]
 
 	instance thruster-drivers-gid-boards-2 : mission:Component [
@@ -141,7 +141,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Thruster Drivers* - GID Boards-2"
 		base:hasShortName "thruster-drivers-gid-boards-2"
 		base:hasDescription "thruster-drivers-gid-boards-2"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:thruster-drivers-gid-boards
 	]
 
 	instance houskeeping-dc-dc-converters-boards-1 : mission:Component [
@@ -149,7 +149,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Houskeeping DC-DC Converters* Boards-1"
 		base:hasShortName "houskeeping-dc-dc-converters-boards-1"
 		base:hasDescription "houskeeping-dc-dc-converters-boards-1"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:houskeeping-dc-dc-converters-boards
 	]
 
 	instance houskeeping-dc-dc-converters-boards-2 : mission:Component [
@@ -157,7 +157,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Houskeeping DC-DC Converters* Boards-2"
 		base:hasShortName "houskeeping-dc-dc-converters-boards-2"
 		base:hasDescription "houskeeping-dc-dc-converters-boards-2"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:houskeeping-dc-dc-converters-boards
 	]
 
 	instance power-shunt-control-shunt-driver-slice-boards-1 : mission:Component [
@@ -165,7 +165,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Power/Shunt Control* - Shunt Driver Slice Boards-1"
 		base:hasShortName "power-shunt-control-shunt-driver-slice-boards-1"
 		base:hasDescription "power-shunt-control-shunt-driver-slice-boards-1"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:power-shunt-control-shunt-driver-slice-boards
 	]
 
 	instance power-shunt-control-shunt-driver-slice-boards-2 : mission:Component [
@@ -173,7 +173,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Power/Shunt Control* - Shunt Driver Slice Boards-2"
 		base:hasShortName "power-shunt-control-shunt-driver-slice-boards-2"
 		base:hasDescription "power-shunt-control-shunt-driver-slice-boards-2"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:power-shunt-control-shunt-driver-slice-boards
 	]
 
 	instance shielding-1 : mission:Component [
@@ -181,7 +181,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Shielding-1"
 		base:hasShortName "shielding-1"
 		base:hasDescription "shielding-1"
-		project:isSuppliedBy workpackage:power-subsystem
+		project:isSuppliedBy workpackage:shielding
 	]
 
 	instance gas-service-valve-1 : mission:Component [
@@ -189,7 +189,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Gas Service Valve-1"
 		base:hasShortName "gas-service-valve-1"
 		base:hasDescription "gas-service-valve-1"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:gas-service-valve
 	]
 
 	instance gas-service-valve-2 : mission:Component [
@@ -197,7 +197,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Gas Service Valve-2"
 		base:hasShortName "gas-service-valve-2"
 		base:hasDescription "gas-service-valve-2"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:gas-service-valve
 	]
 
 	instance temp-sensor-a-1 : mission:Component [
@@ -205,7 +205,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor A-1"
 		base:hasShortName "temp-sensor-a-1"
 		base:hasDescription "temp-sensor-a-1"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-a
 	]
 
 	instance liq-service-valve-1 : mission:Component [
@@ -213,7 +213,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Liq. Service Valve-1"
 		base:hasShortName "liq-service-valve-1"
 		base:hasDescription "liq-service-valve-1"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:liq-service-valve
 	]
 
 	instance lp-transducer-1 : mission:Component [
@@ -221,7 +221,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "LP Transducer-1"
 		base:hasShortName "lp-transducer-1"
 		base:hasDescription "lp-transducer-1"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:lp-transducer
 	]
 
 	instance lp-transducer-2 : mission:Component [
@@ -229,7 +229,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "LP Transducer-2"
 		base:hasShortName "lp-transducer-2"
 		base:hasDescription "lp-transducer-2"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:lp-transducer
 	]
 
 	instance liq-filter-1 : mission:Component [
@@ -237,7 +237,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Liq. Filter-1"
 		base:hasShortName "liq-filter-1"
 		base:hasDescription "liq-filter-1"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:liq-filter
 	]
 
 	instance lp-latch-valve-1 : mission:Component [
@@ -245,7 +245,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "LP Latch Valve-1"
 		base:hasShortName "lp-latch-valve-1"
 		base:hasDescription "lp-latch-valve-1"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:lp-latch-valve
 	]
 
 	instance lp-latch-valve-2 : mission:Component [
@@ -253,7 +253,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "LP Latch Valve-2"
 		base:hasShortName "lp-latch-valve-2"
 		base:hasDescription "lp-latch-valve-2"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:lp-latch-valve
 	]
 
 	instance temp-sensor-b-1 : mission:Component [
@@ -261,7 +261,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-1"
 		base:hasShortName "temp-sensor-b-1"
 		base:hasDescription "temp-sensor-b-1"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-2 : mission:Component [
@@ -269,7 +269,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-2"
 		base:hasShortName "temp-sensor-b-2"
 		base:hasDescription "temp-sensor-b-2"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-3 : mission:Component [
@@ -277,7 +277,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-3"
 		base:hasShortName "temp-sensor-b-3"
 		base:hasDescription "temp-sensor-b-3"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-4 : mission:Component [
@@ -285,7 +285,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-4"
 		base:hasShortName "temp-sensor-b-4"
 		base:hasDescription "temp-sensor-b-4"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-5 : mission:Component [
@@ -293,7 +293,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-5"
 		base:hasShortName "temp-sensor-b-5"
 		base:hasDescription "temp-sensor-b-5"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-6 : mission:Component [
@@ -301,7 +301,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-6"
 		base:hasShortName "temp-sensor-b-6"
 		base:hasDescription "temp-sensor-b-6"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-7 : mission:Component [
@@ -309,7 +309,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-7"
 		base:hasShortName "temp-sensor-b-7"
 		base:hasDescription "temp-sensor-b-7"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-8 : mission:Component [
@@ -317,7 +317,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-8"
 		base:hasShortName "temp-sensor-b-8"
 		base:hasDescription "temp-sensor-b-8"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-9 : mission:Component [
@@ -325,7 +325,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-9"
 		base:hasShortName "temp-sensor-b-9"
 		base:hasDescription "temp-sensor-b-9"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-10 : mission:Component [
@@ -333,7 +333,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-10"
 		base:hasShortName "temp-sensor-b-10"
 		base:hasDescription "temp-sensor-b-10"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-11 : mission:Component [
@@ -341,7 +341,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-11"
 		base:hasShortName "temp-sensor-b-11"
 		base:hasDescription "temp-sensor-b-11"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-12 : mission:Component [
@@ -349,7 +349,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-12"
 		base:hasShortName "temp-sensor-b-12"
 		base:hasDescription "temp-sensor-b-12"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-13 : mission:Component [
@@ -357,7 +357,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-13"
 		base:hasShortName "temp-sensor-b-13"
 		base:hasDescription "temp-sensor-b-13"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-14 : mission:Component [
@@ -365,7 +365,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-14"
 		base:hasShortName "temp-sensor-b-14"
 		base:hasDescription "temp-sensor-b-14"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-15 : mission:Component [
@@ -373,7 +373,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-15"
 		base:hasShortName "temp-sensor-b-15"
 		base:hasDescription "temp-sensor-b-15"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-16 : mission:Component [
@@ -381,7 +381,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-16"
 		base:hasShortName "temp-sensor-b-16"
 		base:hasDescription "temp-sensor-b-16"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-17 : mission:Component [
@@ -389,7 +389,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-17"
 		base:hasShortName "temp-sensor-b-17"
 		base:hasDescription "temp-sensor-b-17"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-18 : mission:Component [
@@ -397,7 +397,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-18"
 		base:hasShortName "temp-sensor-b-18"
 		base:hasDescription "temp-sensor-b-18"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-19 : mission:Component [
@@ -405,7 +405,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-19"
 		base:hasShortName "temp-sensor-b-19"
 		base:hasDescription "temp-sensor-b-19"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-20 : mission:Component [
@@ -413,7 +413,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-20"
 		base:hasShortName "temp-sensor-b-20"
 		base:hasDescription "temp-sensor-b-20"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-21 : mission:Component [
@@ -421,7 +421,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-21"
 		base:hasShortName "temp-sensor-b-21"
 		base:hasDescription "temp-sensor-b-21"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-22 : mission:Component [
@@ -429,7 +429,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-22"
 		base:hasShortName "temp-sensor-b-22"
 		base:hasDescription "temp-sensor-b-22"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-23 : mission:Component [
@@ -437,7 +437,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-23"
 		base:hasShortName "temp-sensor-b-23"
 		base:hasDescription "temp-sensor-b-23"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-24 : mission:Component [
@@ -445,7 +445,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-24"
 		base:hasShortName "temp-sensor-b-24"
 		base:hasDescription "temp-sensor-b-24"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-25 : mission:Component [
@@ -453,7 +453,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-25"
 		base:hasShortName "temp-sensor-b-25"
 		base:hasDescription "temp-sensor-b-25"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-26 : mission:Component [
@@ -461,7 +461,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-26"
 		base:hasShortName "temp-sensor-b-26"
 		base:hasDescription "temp-sensor-b-26"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-27 : mission:Component [
@@ -469,7 +469,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-27"
 		base:hasShortName "temp-sensor-b-27"
 		base:hasDescription "temp-sensor-b-27"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-28 : mission:Component [
@@ -477,7 +477,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-28"
 		base:hasShortName "temp-sensor-b-28"
 		base:hasDescription "temp-sensor-b-28"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-29 : mission:Component [
@@ -485,7 +485,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-29"
 		base:hasShortName "temp-sensor-b-29"
 		base:hasDescription "temp-sensor-b-29"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-30 : mission:Component [
@@ -493,7 +493,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-30"
 		base:hasShortName "temp-sensor-b-30"
 		base:hasDescription "temp-sensor-b-30"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-31 : mission:Component [
@@ -501,7 +501,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-31"
 		base:hasShortName "temp-sensor-b-31"
 		base:hasDescription "temp-sensor-b-31"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-32 : mission:Component [
@@ -509,7 +509,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-32"
 		base:hasShortName "temp-sensor-b-32"
 		base:hasDescription "temp-sensor-b-32"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-33 : mission:Component [
@@ -517,7 +517,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-33"
 		base:hasShortName "temp-sensor-b-33"
 		base:hasDescription "temp-sensor-b-33"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance temp-sensor-b-34 : mission:Component [
@@ -525,7 +525,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Temp. Sensor B-34"
 		base:hasShortName "temp-sensor-b-34"
 		base:hasDescription "temp-sensor-b-34"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:temp-sensor-b
 	]
 
 	instance lines-fittings-misc-1 : mission:Component [
@@ -533,7 +533,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Lines, Fittings, Misc.-1"
 		base:hasShortName "lines-fittings-misc-1"
 		base:hasDescription "lines-fittings-misc-1"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:lines-fittings-misc
 	]
 
 	instance monoprop-main-engine-1 : mission:Component [
@@ -541,7 +541,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Monoprop Main Engine-1"
 		base:hasShortName "monoprop-main-engine-1"
 		base:hasDescription "monoprop-main-engine-1"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:monoprop-main-engine
 	]
 
 	instance monoprop-main-engine-2 : mission:Component [
@@ -549,7 +549,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Monoprop Main Engine-2"
 		base:hasShortName "monoprop-main-engine-2"
 		base:hasDescription "monoprop-main-engine-2"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:monoprop-main-engine
 	]
 
 	instance monoprop-main-engine-3 : mission:Component [
@@ -557,7 +557,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Monoprop Main Engine-3"
 		base:hasShortName "monoprop-main-engine-3"
 		base:hasDescription "monoprop-main-engine-3"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:monoprop-main-engine
 	]
 
 	instance monoprop-main-engine-4 : mission:Component [
@@ -565,7 +565,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Monoprop Main Engine-4"
 		base:hasShortName "monoprop-main-engine-4"
 		base:hasDescription "monoprop-main-engine-4"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:monoprop-main-engine
 	]
 
 	instance monoprop-main-engine-5 : mission:Component [
@@ -573,7 +573,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Monoprop Main Engine-5"
 		base:hasShortName "monoprop-main-engine-5"
 		base:hasDescription "monoprop-main-engine-5"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:monoprop-main-engine
 	]
 
 	instance monoprop-main-engine-6 : mission:Component [
@@ -581,7 +581,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Monoprop Main Engine-6"
 		base:hasShortName "monoprop-main-engine-6"
 		base:hasDescription "monoprop-main-engine-6"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:monoprop-main-engine
 	]
 
 	instance monoprop-main-engine-7 : mission:Component [
@@ -589,7 +589,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Monoprop Main Engine-7"
 		base:hasShortName "monoprop-main-engine-7"
 		base:hasDescription "monoprop-main-engine-7"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:monoprop-main-engine
 	]
 
 	instance monoprop-main-engine-8 : mission:Component [
@@ -597,7 +597,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Monoprop Main Engine-8"
 		base:hasShortName "monoprop-main-engine-8"
 		base:hasDescription "monoprop-main-engine-8"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:monoprop-main-engine
 	]
 
 	instance pressurant-tanks-1 : mission:Component [
@@ -605,7 +605,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Pressurant Tanks-1"
 		base:hasShortName "pressurant-tanks-1"
 		base:hasDescription "pressurant-tanks-1"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:pressurant-tanks
 	]
 
 	instance fuel-tanks-1 : mission:Component [
@@ -613,7 +613,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Fuel Tanks-1"
 		base:hasShortName "fuel-tanks-1"
 		base:hasDescription "fuel-tanks-1"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:fuel-tanks
 	]
 
 	instance fuel-tanks-2 : mission:Component [
@@ -621,7 +621,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Fuel Tanks-2"
 		base:hasShortName "fuel-tanks-2"
 		base:hasDescription "fuel-tanks-2"
-		project:isSuppliedBy workpackage:propulsion-subsystem
+		project:isSuppliedBy workpackage:fuel-tanks
 	]
 
 	instance primary-structure-1 : mission:Component [
@@ -629,7 +629,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Primary Structure-1"
 		base:hasShortName "primary-structure-1"
 		base:hasDescription "primary-structure-1"
-		project:isSuppliedBy workpackage:structures-subsystem
+		project:isSuppliedBy workpackage:primary-structure
 	]
 
 	instance secondary-structure-1 : mission:Component [
@@ -637,7 +637,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Secondary Structure-1"
 		base:hasShortName "secondary-structure-1"
 		base:hasDescription "secondary-structure-1"
-		project:isSuppliedBy workpackage:structures-subsystem
+		project:isSuppliedBy workpackage:secondary-structure
 	]
 
 	instance thruster-support-structure-1 : mission:Component [
@@ -645,7 +645,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Thruster Support Structure-1"
 		base:hasShortName "thruster-support-structure-1"
 		base:hasDescription "thruster-support-structure-1"
-		project:isSuppliedBy workpackage:structures-subsystem
+		project:isSuppliedBy workpackage:thruster-support-structure
 	]
 
 	instance prop-support-structure-1 : mission:Component [
@@ -653,7 +653,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Prop Support Structure-1"
 		base:hasShortName "prop-support-structure-1"
 		base:hasDescription "prop-support-structure-1"
-		project:isSuppliedBy workpackage:structures-subsystem
+		project:isSuppliedBy workpackage:prop-support-structure
 	]
 
 	instance radiator-panels-1 : mission:Component [
@@ -661,7 +661,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Radiator Panels-1"
 		base:hasShortName "radiator-panels-1"
 		base:hasDescription "radiator-panels-1"
-		project:isSuppliedBy workpackage:structures-subsystem
+		project:isSuppliedBy workpackage:radiator-panels
 	]
 
 	instance separation-devices-1 : mission:Component [
@@ -669,7 +669,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Separation Devices-1"
 		base:hasShortName "separation-devices-1"
 		base:hasDescription "separation-devices-1"
-		project:isSuppliedBy workpackage:structures-subsystem
+		project:isSuppliedBy workpackage:separation-devices
 	]
 
 	instance cruise-stage-pai-cm-1 : mission:Component [
@@ -677,7 +677,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Cruise Stage PAI &CM-1"
 		base:hasShortName "cruise-stage-pai-cm-1"
 		base:hasDescription "cruise-stage-pai-cm-1"
-		project:isSuppliedBy workpackage:structures-subsystem
+		project:isSuppliedBy workpackage:cruise-stage-pai-cm
 	]
 
 	instance purge-hardware-1 : mission:Component [
@@ -685,7 +685,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Purge Hardware-1"
 		base:hasShortName "purge-hardware-1"
 		base:hasDescription "purge-hardware-1"
-		project:isSuppliedBy workpackage:structures-subsystem
+		project:isSuppliedBy workpackage:purge-hardware
 	]
 
 	instance cabling-harness-1 : mission:Component [
@@ -693,7 +693,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Cabling Harness-1"
 		base:hasShortName "cabling-harness-1"
 		base:hasDescription "cabling-harness-1"
-		project:isSuppliedBy workpackage:structures-subsystem
+		project:isSuppliedBy workpackage:cabling-harness
 	]
 
 	instance adapter-spacecraft-side-1 : mission:Component [
@@ -701,7 +701,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Adapter, Spacecraft side-1"
 		base:hasShortName "adapter-spacecraft-side-1"
 		base:hasDescription "adapter-spacecraft-side-1"
-		project:isSuppliedBy workpackage:structures-subsystem
+		project:isSuppliedBy workpackage:adapter-spacecraft-side
 	]
 
 	instance x-mga-19db-mer-1 : mission:Component [
@@ -709,7 +709,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "X-MGA (19dB) MER-1"
 		base:hasShortName "x-mga-19db-mer-1"
 		base:hasDescription "x-mga-19db-mer-1"
-		project:isSuppliedBy workpackage:telecomm-subsystem
+		project:isSuppliedBy workpackage:x-mga-19db-mer
 	]
 
 	instance other-1 : mission:Component [
@@ -717,7 +717,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Other-1"
 		base:hasShortName "other-1"
 		base:hasDescription "other-1"
-		project:isSuppliedBy workpackage:telecomm-subsystem
+		project:isSuppliedBy workpackage:other
 	]
 
 	instance multilayer-insulation-mli-1 : mission:Component [
@@ -725,7 +725,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-1"
 		base:hasShortName "multilayer-insulation-mli-1"
 		base:hasDescription "multilayer-insulation-mli-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-2 : mission:Component [
@@ -733,7 +733,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-2"
 		base:hasShortName "multilayer-insulation-mli-2"
 		base:hasDescription "multilayer-insulation-mli-2"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-3 : mission:Component [
@@ -741,7 +741,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-3"
 		base:hasShortName "multilayer-insulation-mli-3"
 		base:hasDescription "multilayer-insulation-mli-3"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-4 : mission:Component [
@@ -749,7 +749,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-4"
 		base:hasShortName "multilayer-insulation-mli-4"
 		base:hasDescription "multilayer-insulation-mli-4"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-5 : mission:Component [
@@ -757,7 +757,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-5"
 		base:hasShortName "multilayer-insulation-mli-5"
 		base:hasDescription "multilayer-insulation-mli-5"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-6 : mission:Component [
@@ -765,7 +765,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-6"
 		base:hasShortName "multilayer-insulation-mli-6"
 		base:hasDescription "multilayer-insulation-mli-6"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-7 : mission:Component [
@@ -773,7 +773,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-7"
 		base:hasShortName "multilayer-insulation-mli-7"
 		base:hasDescription "multilayer-insulation-mli-7"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-8 : mission:Component [
@@ -781,7 +781,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-8"
 		base:hasShortName "multilayer-insulation-mli-8"
 		base:hasDescription "multilayer-insulation-mli-8"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-9 : mission:Component [
@@ -789,7 +789,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-9"
 		base:hasShortName "multilayer-insulation-mli-9"
 		base:hasDescription "multilayer-insulation-mli-9"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-10 : mission:Component [
@@ -797,7 +797,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-10"
 		base:hasShortName "multilayer-insulation-mli-10"
 		base:hasDescription "multilayer-insulation-mli-10"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-11 : mission:Component [
@@ -805,7 +805,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-11"
 		base:hasShortName "multilayer-insulation-mli-11"
 		base:hasDescription "multilayer-insulation-mli-11"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-12 : mission:Component [
@@ -813,7 +813,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-12"
 		base:hasShortName "multilayer-insulation-mli-12"
 		base:hasDescription "multilayer-insulation-mli-12"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-13 : mission:Component [
@@ -821,7 +821,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-13"
 		base:hasShortName "multilayer-insulation-mli-13"
 		base:hasDescription "multilayer-insulation-mli-13"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-14 : mission:Component [
@@ -829,7 +829,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-14"
 		base:hasShortName "multilayer-insulation-mli-14"
 		base:hasDescription "multilayer-insulation-mli-14"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-15 : mission:Component [
@@ -837,7 +837,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-15"
 		base:hasShortName "multilayer-insulation-mli-15"
 		base:hasDescription "multilayer-insulation-mli-15"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-16 : mission:Component [
@@ -845,7 +845,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-16"
 		base:hasShortName "multilayer-insulation-mli-16"
 		base:hasDescription "multilayer-insulation-mli-16"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-17 : mission:Component [
@@ -853,7 +853,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-17"
 		base:hasShortName "multilayer-insulation-mli-17"
 		base:hasDescription "multilayer-insulation-mli-17"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-18 : mission:Component [
@@ -861,7 +861,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-18"
 		base:hasShortName "multilayer-insulation-mli-18"
 		base:hasDescription "multilayer-insulation-mli-18"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-19 : mission:Component [
@@ -869,7 +869,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-19"
 		base:hasShortName "multilayer-insulation-mli-19"
 		base:hasDescription "multilayer-insulation-mli-19"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance multilayer-insulation-mli-20 : mission:Component [
@@ -877,7 +877,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Multilayer Insulation (MLI)-20"
 		base:hasShortName "multilayer-insulation-mli-20"
 		base:hasDescription "multilayer-insulation-mli-20"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:multilayer-insulation-mli
 	]
 
 	instance paints-films-1 : mission:Component [
@@ -885,7 +885,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Paints/Films-1"
 		base:hasShortName "paints-films-1"
 		base:hasDescription "paints-films-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:paints-films
 	]
 
 	instance paints-films-2 : mission:Component [
@@ -893,7 +893,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Paints/Films-2"
 		base:hasShortName "paints-films-2"
 		base:hasDescription "paints-films-2"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:paints-films
 	]
 
 	instance paints-films-3 : mission:Component [
@@ -901,7 +901,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Paints/Films-3"
 		base:hasShortName "paints-films-3"
 		base:hasDescription "paints-films-3"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:paints-films
 	]
 
 	instance paints-films-4 : mission:Component [
@@ -909,7 +909,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Paints/Films-4"
 		base:hasShortName "paints-films-4"
 		base:hasDescription "paints-films-4"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:paints-films
 	]
 
 	instance paints-films-5 : mission:Component [
@@ -917,7 +917,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Paints/Films-5"
 		base:hasShortName "paints-films-5"
 		base:hasDescription "paints-films-5"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:paints-films
 	]
 
 	instance paints-films-6 : mission:Component [
@@ -925,7 +925,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Paints/Films-6"
 		base:hasShortName "paints-films-6"
 		base:hasDescription "paints-films-6"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:paints-films
 	]
 
 	instance paints-films-7 : mission:Component [
@@ -933,7 +933,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Paints/Films-7"
 		base:hasShortName "paints-films-7"
 		base:hasDescription "paints-films-7"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:paints-films
 	]
 
 	instance paints-films-8 : mission:Component [
@@ -941,7 +941,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Paints/Films-8"
 		base:hasShortName "paints-films-8"
 		base:hasDescription "paints-films-8"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:paints-films
 	]
 
 	instance paints-films-9 : mission:Component [
@@ -949,7 +949,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Paints/Films-9"
 		base:hasShortName "paints-films-9"
 		base:hasDescription "paints-films-9"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:paints-films
 	]
 
 	instance paints-films-10 : mission:Component [
@@ -957,7 +957,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Paints/Films-10"
 		base:hasShortName "paints-films-10"
 		base:hasDescription "paints-films-10"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:paints-films
 	]
 
 	instance general-1 : mission:Component [
@@ -965,7 +965,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "General-1"
 		base:hasShortName "general-1"
 		base:hasDescription "general-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:general
 	]
 
 	instance custom-1 : mission:Component [
@@ -973,7 +973,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Custom-1"
 		base:hasShortName "custom-1"
 		base:hasDescription "custom-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:custom
 	]
 
 	instance custom-2 : mission:Component [
@@ -981,7 +981,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Custom-2"
 		base:hasShortName "custom-2"
 		base:hasDescription "custom-2"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:custom
 	]
 
 	instance custom-3 : mission:Component [
@@ -989,7 +989,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Custom-3"
 		base:hasShortName "custom-3"
 		base:hasDescription "custom-3"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:custom
 	]
 
 	instance custom-4 : mission:Component [
@@ -997,7 +997,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Custom-4"
 		base:hasShortName "custom-4"
 		base:hasDescription "custom-4"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:custom
 	]
 
 	instance propulsion-tank-heaters-1 : mission:Component [
@@ -1005,7 +1005,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Propulsion Tank Heaters-1"
 		base:hasShortName "propulsion-tank-heaters-1"
 		base:hasDescription "propulsion-tank-heaters-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:propulsion-tank-heaters
 	]
 
 	instance propulsion-tank-heaters-2 : mission:Component [
@@ -1013,7 +1013,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Propulsion Tank Heaters-2"
 		base:hasShortName "propulsion-tank-heaters-2"
 		base:hasDescription "propulsion-tank-heaters-2"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:propulsion-tank-heaters
 	]
 
 	instance propulsion-line-heaters-1 : mission:Component [
@@ -1021,7 +1021,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Propulsion Line Heaters-1"
 		base:hasShortName "propulsion-line-heaters-1"
 		base:hasDescription "propulsion-line-heaters-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:propulsion-line-heaters
 	]
 
 	instance propulsion-line-heaters-2 : mission:Component [
@@ -1029,7 +1029,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Propulsion Line Heaters-2"
 		base:hasShortName "propulsion-line-heaters-2"
 		base:hasDescription "propulsion-line-heaters-2"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:propulsion-line-heaters
 	]
 
 	instance propulsion-line-heaters-3 : mission:Component [
@@ -1037,7 +1037,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Propulsion Line Heaters-3"
 		base:hasShortName "propulsion-line-heaters-3"
 		base:hasDescription "propulsion-line-heaters-3"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:propulsion-line-heaters
 	]
 
 	instance propulsion-line-heaters-4 : mission:Component [
@@ -1045,7 +1045,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Propulsion Line Heaters-4"
 		base:hasShortName "propulsion-line-heaters-4"
 		base:hasDescription "propulsion-line-heaters-4"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:propulsion-line-heaters
 	]
 
 	instance propulsion-line-heaters-5 : mission:Component [
@@ -1053,7 +1053,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Propulsion Line Heaters-5"
 		base:hasShortName "propulsion-line-heaters-5"
 		base:hasDescription "propulsion-line-heaters-5"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:propulsion-line-heaters
 	]
 
 	instance propulsion-line-heaters-6 : mission:Component [
@@ -1061,7 +1061,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Propulsion Line Heaters-6"
 		base:hasShortName "propulsion-line-heaters-6"
 		base:hasDescription "propulsion-line-heaters-6"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:propulsion-line-heaters
 	]
 
 	instance prts-1 : mission:Component [
@@ -1069,7 +1069,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-1"
 		base:hasShortName "prts-1"
 		base:hasDescription "prts-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-2 : mission:Component [
@@ -1077,7 +1077,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-2"
 		base:hasShortName "prts-2"
 		base:hasDescription "prts-2"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-3 : mission:Component [
@@ -1085,7 +1085,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-3"
 		base:hasShortName "prts-3"
 		base:hasDescription "prts-3"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-4 : mission:Component [
@@ -1093,7 +1093,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-4"
 		base:hasShortName "prts-4"
 		base:hasDescription "prts-4"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-5 : mission:Component [
@@ -1101,7 +1101,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-5"
 		base:hasShortName "prts-5"
 		base:hasDescription "prts-5"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-6 : mission:Component [
@@ -1109,7 +1109,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-6"
 		base:hasShortName "prts-6"
 		base:hasDescription "prts-6"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-7 : mission:Component [
@@ -1117,7 +1117,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-7"
 		base:hasShortName "prts-7"
 		base:hasDescription "prts-7"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-8 : mission:Component [
@@ -1125,7 +1125,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-8"
 		base:hasShortName "prts-8"
 		base:hasDescription "prts-8"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-9 : mission:Component [
@@ -1133,7 +1133,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-9"
 		base:hasShortName "prts-9"
 		base:hasDescription "prts-9"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-10 : mission:Component [
@@ -1141,7 +1141,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-10"
 		base:hasShortName "prts-10"
 		base:hasDescription "prts-10"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-11 : mission:Component [
@@ -1149,7 +1149,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-11"
 		base:hasShortName "prts-11"
 		base:hasDescription "prts-11"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-12 : mission:Component [
@@ -1157,7 +1157,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-12"
 		base:hasShortName "prts-12"
 		base:hasDescription "prts-12"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-13 : mission:Component [
@@ -1165,7 +1165,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-13"
 		base:hasShortName "prts-13"
 		base:hasDescription "prts-13"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-14 : mission:Component [
@@ -1173,7 +1173,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-14"
 		base:hasShortName "prts-14"
 		base:hasDescription "prts-14"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-15 : mission:Component [
@@ -1181,7 +1181,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-15"
 		base:hasShortName "prts-15"
 		base:hasDescription "prts-15"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-16 : mission:Component [
@@ -1189,7 +1189,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-16"
 		base:hasShortName "prts-16"
 		base:hasDescription "prts-16"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-17 : mission:Component [
@@ -1197,7 +1197,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-17"
 		base:hasShortName "prts-17"
 		base:hasDescription "prts-17"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-18 : mission:Component [
@@ -1205,7 +1205,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-18"
 		base:hasShortName "prts-18"
 		base:hasDescription "prts-18"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-19 : mission:Component [
@@ -1213,7 +1213,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-19"
 		base:hasShortName "prts-19"
 		base:hasDescription "prts-19"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-20 : mission:Component [
@@ -1221,7 +1221,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-20"
 		base:hasShortName "prts-20"
 		base:hasDescription "prts-20"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-21 : mission:Component [
@@ -1229,7 +1229,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-21"
 		base:hasShortName "prts-21"
 		base:hasDescription "prts-21"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-22 : mission:Component [
@@ -1237,7 +1237,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-22"
 		base:hasShortName "prts-22"
 		base:hasDescription "prts-22"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-23 : mission:Component [
@@ -1245,7 +1245,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-23"
 		base:hasShortName "prts-23"
 		base:hasDescription "prts-23"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-24 : mission:Component [
@@ -1253,7 +1253,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-24"
 		base:hasShortName "prts-24"
 		base:hasDescription "prts-24"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-25 : mission:Component [
@@ -1261,7 +1261,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-25"
 		base:hasShortName "prts-25"
 		base:hasDescription "prts-25"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-26 : mission:Component [
@@ -1269,7 +1269,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-26"
 		base:hasShortName "prts-26"
 		base:hasDescription "prts-26"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-27 : mission:Component [
@@ -1277,7 +1277,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-27"
 		base:hasShortName "prts-27"
 		base:hasDescription "prts-27"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-28 : mission:Component [
@@ -1285,7 +1285,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-28"
 		base:hasShortName "prts-28"
 		base:hasDescription "prts-28"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-29 : mission:Component [
@@ -1293,7 +1293,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-29"
 		base:hasShortName "prts-29"
 		base:hasDescription "prts-29"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-30 : mission:Component [
@@ -1301,7 +1301,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-30"
 		base:hasShortName "prts-30"
 		base:hasDescription "prts-30"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-31 : mission:Component [
@@ -1309,7 +1309,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-31"
 		base:hasShortName "prts-31"
 		base:hasDescription "prts-31"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-32 : mission:Component [
@@ -1317,7 +1317,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-32"
 		base:hasShortName "prts-32"
 		base:hasDescription "prts-32"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-33 : mission:Component [
@@ -1325,7 +1325,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-33"
 		base:hasShortName "prts-33"
 		base:hasDescription "prts-33"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-34 : mission:Component [
@@ -1333,7 +1333,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-34"
 		base:hasShortName "prts-34"
 		base:hasDescription "prts-34"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-35 : mission:Component [
@@ -1341,7 +1341,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-35"
 		base:hasShortName "prts-35"
 		base:hasDescription "prts-35"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-36 : mission:Component [
@@ -1349,7 +1349,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-36"
 		base:hasShortName "prts-36"
 		base:hasDescription "prts-36"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-37 : mission:Component [
@@ -1357,7 +1357,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-37"
 		base:hasShortName "prts-37"
 		base:hasDescription "prts-37"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-38 : mission:Component [
@@ -1365,7 +1365,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-38"
 		base:hasShortName "prts-38"
 		base:hasDescription "prts-38"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-39 : mission:Component [
@@ -1373,7 +1373,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-39"
 		base:hasShortName "prts-39"
 		base:hasDescription "prts-39"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-40 : mission:Component [
@@ -1381,7 +1381,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-40"
 		base:hasShortName "prts-40"
 		base:hasDescription "prts-40"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-41 : mission:Component [
@@ -1389,7 +1389,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-41"
 		base:hasShortName "prts-41"
 		base:hasDescription "prts-41"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-42 : mission:Component [
@@ -1397,7 +1397,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-42"
 		base:hasShortName "prts-42"
 		base:hasDescription "prts-42"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-43 : mission:Component [
@@ -1405,7 +1405,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-43"
 		base:hasShortName "prts-43"
 		base:hasDescription "prts-43"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-44 : mission:Component [
@@ -1413,7 +1413,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-44"
 		base:hasShortName "prts-44"
 		base:hasDescription "prts-44"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-45 : mission:Component [
@@ -1421,7 +1421,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-45"
 		base:hasShortName "prts-45"
 		base:hasDescription "prts-45"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-46 : mission:Component [
@@ -1429,7 +1429,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-46"
 		base:hasShortName "prts-46"
 		base:hasDescription "prts-46"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-47 : mission:Component [
@@ -1437,7 +1437,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-47"
 		base:hasShortName "prts-47"
 		base:hasDescription "prts-47"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-48 : mission:Component [
@@ -1445,7 +1445,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-48"
 		base:hasShortName "prts-48"
 		base:hasDescription "prts-48"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-49 : mission:Component [
@@ -1453,7 +1453,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-49"
 		base:hasShortName "prts-49"
 		base:hasDescription "prts-49"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-50 : mission:Component [
@@ -1461,7 +1461,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-50"
 		base:hasShortName "prts-50"
 		base:hasDescription "prts-50"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-51 : mission:Component [
@@ -1469,7 +1469,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-51"
 		base:hasShortName "prts-51"
 		base:hasDescription "prts-51"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-52 : mission:Component [
@@ -1477,7 +1477,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-52"
 		base:hasShortName "prts-52"
 		base:hasDescription "prts-52"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-53 : mission:Component [
@@ -1485,7 +1485,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-53"
 		base:hasShortName "prts-53"
 		base:hasDescription "prts-53"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-54 : mission:Component [
@@ -1493,7 +1493,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-54"
 		base:hasShortName "prts-54"
 		base:hasDescription "prts-54"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-55 : mission:Component [
@@ -1501,7 +1501,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-55"
 		base:hasShortName "prts-55"
 		base:hasDescription "prts-55"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-56 : mission:Component [
@@ -1509,7 +1509,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-56"
 		base:hasShortName "prts-56"
 		base:hasDescription "prts-56"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-57 : mission:Component [
@@ -1517,7 +1517,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-57"
 		base:hasShortName "prts-57"
 		base:hasDescription "prts-57"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-58 : mission:Component [
@@ -1525,7 +1525,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-58"
 		base:hasShortName "prts-58"
 		base:hasDescription "prts-58"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-59 : mission:Component [
@@ -1533,7 +1533,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-59"
 		base:hasShortName "prts-59"
 		base:hasDescription "prts-59"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-60 : mission:Component [
@@ -1541,7 +1541,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-60"
 		base:hasShortName "prts-60"
 		base:hasDescription "prts-60"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-61 : mission:Component [
@@ -1549,7 +1549,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-61"
 		base:hasShortName "prts-61"
 		base:hasDescription "prts-61"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-62 : mission:Component [
@@ -1557,7 +1557,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-62"
 		base:hasShortName "prts-62"
 		base:hasDescription "prts-62"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-63 : mission:Component [
@@ -1565,7 +1565,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-63"
 		base:hasShortName "prts-63"
 		base:hasDescription "prts-63"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-64 : mission:Component [
@@ -1573,7 +1573,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-64"
 		base:hasShortName "prts-64"
 		base:hasDescription "prts-64"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-65 : mission:Component [
@@ -1581,7 +1581,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-65"
 		base:hasShortName "prts-65"
 		base:hasDescription "prts-65"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-66 : mission:Component [
@@ -1589,7 +1589,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-66"
 		base:hasShortName "prts-66"
 		base:hasDescription "prts-66"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-67 : mission:Component [
@@ -1597,7 +1597,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-67"
 		base:hasShortName "prts-67"
 		base:hasDescription "prts-67"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-68 : mission:Component [
@@ -1605,7 +1605,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-68"
 		base:hasShortName "prts-68"
 		base:hasDescription "prts-68"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-69 : mission:Component [
@@ -1613,7 +1613,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-69"
 		base:hasShortName "prts-69"
 		base:hasDescription "prts-69"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-70 : mission:Component [
@@ -1621,7 +1621,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-70"
 		base:hasShortName "prts-70"
 		base:hasDescription "prts-70"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-71 : mission:Component [
@@ -1629,7 +1629,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-71"
 		base:hasShortName "prts-71"
 		base:hasDescription "prts-71"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-72 : mission:Component [
@@ -1637,7 +1637,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-72"
 		base:hasShortName "prts-72"
 		base:hasDescription "prts-72"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-73 : mission:Component [
@@ -1645,7 +1645,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-73"
 		base:hasShortName "prts-73"
 		base:hasDescription "prts-73"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-74 : mission:Component [
@@ -1653,7 +1653,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-74"
 		base:hasShortName "prts-74"
 		base:hasDescription "prts-74"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-75 : mission:Component [
@@ -1661,7 +1661,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-75"
 		base:hasShortName "prts-75"
 		base:hasDescription "prts-75"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-76 : mission:Component [
@@ -1669,7 +1669,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-76"
 		base:hasShortName "prts-76"
 		base:hasDescription "prts-76"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-77 : mission:Component [
@@ -1677,7 +1677,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-77"
 		base:hasShortName "prts-77"
 		base:hasDescription "prts-77"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance prts-78 : mission:Component [
@@ -1685,7 +1685,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "PRT's-78"
 		base:hasShortName "prts-78"
 		base:hasDescription "prts-78"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:prts
 	]
 
 	instance mechanical-1 : mission:Component [
@@ -1693,7 +1693,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Mechanical-1"
 		base:hasShortName "mechanical-1"
 		base:hasDescription "mechanical-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:mechanical
 	]
 
 	instance mechanical-2 : mission:Component [
@@ -1701,7 +1701,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Mechanical-2"
 		base:hasShortName "mechanical-2"
 		base:hasDescription "mechanical-2"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:mechanical
 	]
 
 	instance mechanical-3 : mission:Component [
@@ -1709,7 +1709,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Mechanical-3"
 		base:hasShortName "mechanical-3"
 		base:hasDescription "mechanical-3"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:mechanical
 	]
 
 	instance mechanical-4 : mission:Component [
@@ -1717,7 +1717,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Mechanical-4"
 		base:hasShortName "mechanical-4"
 		base:hasDescription "mechanical-4"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:mechanical
 	]
 
 	instance thermal-radiator-area-m2-1 : mission:Component [
@@ -1725,7 +1725,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Thermal Radiator (Area=m2)-1"
 		base:hasShortName "thermal-radiator-area-m2-1"
 		base:hasDescription "thermal-radiator-area-m2-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:thermal-radiator-area-m2
 	]
 
 	instance cipas-1 : mission:Component [
@@ -1733,7 +1733,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "CIPAS-1"
 		base:hasShortName "cipas-1"
 		base:hasDescription "cipas-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:cipas
 	]
 
 	instance hrs-tube-assy-1 : mission:Component [
@@ -1741,7 +1741,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "HRS Tube Assy-1"
 		base:hasShortName "hrs-tube-assy-1"
 		base:hasDescription "hrs-tube-assy-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:hrs-tube-assy
 	]
 
 	instance hrs-cfc-11-1 : mission:Component [
@@ -1749,7 +1749,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "HRS CFC-11-1"
 		base:hasShortName "hrs-cfc-11-1"
 		base:hasDescription "hrs-cfc-11-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:hrs-cfc-11
 	]
 
 	instance hrs-tube-epoxy-1 : mission:Component [
@@ -1757,7 +1757,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "HRS Tube Epoxy-1"
 		base:hasShortName "hrs-tube-epoxy-1"
 		base:hasDescription "hrs-tube-epoxy-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:hrs-tube-epoxy
 	]
 
 	instance fluid-p-clamp-bulk-jam-nut-1 : mission:Component [
@@ -1765,7 +1765,7 @@ description <http://opencaesar.io/open-source-rover/description/cruisestage/comp
 		base:hasCanonicalName "Fluid (P-Clamp+Bulk Jam Nut)-1"
 		base:hasShortName "fluid-p-clamp-bulk-jam-nut-1"
 		base:hasDescription "fluid-p-clamp-bulk-jam-nut-1"
-		project:isSuppliedBy workpackage:thermal-subsystem
+		project:isSuppliedBy workpackage:fluid-p-clamp-bulk-jam-nut
 	]
 
 
